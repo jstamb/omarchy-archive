@@ -1,0 +1,78 @@
+---
+export interface FacetOption {
+  value: string;
+  label: string;
+  count: number;
+}
+
+export interface FacetGroup {
+  /** Query-string key and `data-facet-<id>` suffix on the cards. */
+  id: string;
+  label: string;
+  options: FacetOption[];
+}
+
+interface Props {
+  groups: FacetGroup[];
+  sorts?: { value: string; label: string }[];
+  defaultSort?: string;
+  total: number;
+}
+
+const {
+  groups,
+  sorts = [
+    { value: 'newest', label: 'newest' },
+    { value: 'featured', label: 'featured' },
+    { value: 'name', label: 'a→z' },
+  ],
+  defaultSort = 'newest',
+  total,
+} = Astro.props;
+
+const usable = groups.filter((group) => group.options.length > 1);
+---
+
+<section class="filters" data-gallery-filters data-pagefind-ignore="all">
+  {
+    usable.map((group) => (
+      <div class="filters__row">
+        <span class="filters__label" id={`facet-${group.id}`}>
+          {group.label}
+        </span>
+        {group.options.map((option) => (
+          <button
+            class="chip"
+            type="button"
+            aria-pressed="false"
+            data-facet={group.id}
+            data-value={option.value}
+          >
+            {option.label}
+            <span class="chip__count">{option.count}</span>
+          </button>
+        ))}
+      </div>
+    ))
+  }
+
+  <div class="filters__row">
+    <span class="filters__label">Sort</span>
+    {
+      sorts.map((sort) => (
+        <button
+          class="chip"
+          type="button"
+          aria-pressed={sort.value === defaultSort ? 'true' : 'false'}
+          data-sort={sort.value}
+        >
+          {sort.label}
+        </button>
+      ))
+    }
+    <span class="filters__status">
+      <span data-gallery-count>{total} shown</span>
+      <button class="filters__reset" type="button" data-gallery-reset hidden>Clear filters</button>
+    </span>
+  </div>
+</section>

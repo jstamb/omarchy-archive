@@ -1,0 +1,159 @@
+---
+import CommandBox from '../components/CommandBox.astro';
+import Base from '../layouts/Base.astro';
+import { apps, meta, type Install } from '../lib/content';
+
+const webapp: Install = {
+  type: 'webapp',
+  command: `omarchy-webapp-install '${meta.site_name}' '${meta.site_url}' '${meta.site_url}/og.png'`,
+};
+
+/**
+ * Every command Omarchy actually ships, read out of `bin/` in the omarchy repo.
+ * `omarchy <group> <name>` dispatches to `omarchy-<group>-<name>`, which is why
+ * the hyphenated form works too.
+ */
+const commands = [
+  {
+    thing: 'Bundled theme',
+    command: 'omarchy theme set <name>',
+    menu: 'Style → Theme',
+    note: 'Name is lowercased and spaces become dashes, so the slug works.',
+  },
+  {
+    thing: 'Extra theme',
+    command: 'omarchy theme install https://github.com/org/omarchy-<name>-theme.git',
+    menu: 'Install → Style → Theme',
+    note: 'Clones into ~/.config/omarchy/themes. Keep the .git suffix.',
+  },
+  {
+    thing: 'Third-party plugin',
+    command: 'omarchy plugin add https://github.com/org/repo.git --enable',
+    menu: 'Setup → Plugins → Add',
+    note: 'Add --yes for non-interactive shells. Alias: omarchy plugin install.',
+  },
+  {
+    thing: 'Bundled plugin / bar widget',
+    command: 'omarchy plugin enable <id>',
+    menu: 'Setup → Plugins',
+    note: 'Takes an optional placement: --section left|center|right, --before/--after <id>.',
+  },
+  {
+    thing: 'Whole bar',
+    command: 'omarchy bar use <id>',
+    menu: 'Setup → Bar',
+    note: 'A bar replaces the bar in use rather than taking a place on one.',
+  },
+  {
+    thing: 'Web app',
+    command: "omarchy-webapp-install 'Name' 'https://…' 'https://…/icon.png'",
+    menu: 'Install → Web App',
+    note: 'Three args: name, url, icon. Also reachable as omarchy webapp install.',
+  },
+  {
+    thing: 'Package',
+    command: 'omarchy pkg add <name>…',
+    menu: 'Install → Package',
+    note: 'omarchy pkg install (no args) opens the fuzzy picker instead.',
+  },
+];
+---
+
+<Base
+  path="/install/"
+  title="Install"
+  description="Pin Omarchy Inspo in your launcher as a web app, and the exact install commands for every kind of Omarchy record."
+>
+  <div class="pagehead">
+    <h1>Install</h1>
+    <p class="pagehead__lede">
+      Two things live here: how to pin this site inside Omarchy, and the full command table
+      every page on this site copies from.
+    </p>
+  </div>
+
+  <div class="prose">
+    <section class="section">
+      <div class="section__head">
+        <h2>Pin this site in your launcher</h2>
+      </div>
+      <p>
+        Omarchy turns any URL into a launcher entry with its own icon and window. From the menu:
+      </p>
+      <pre class="command"><code>Super + Space → Install → Web App
+  Name: {meta.site_name}
+  URL:  {meta.site_url}
+  Icon: {meta.site_url}/og.png</code></pre>
+      <p>Or in one line:</p>
+      <CommandBox install={webapp} label={`Install ${meta.site_name} as a web app`} />
+      <p>
+        It then shows up in the launcher like any other app. Remove it with
+        <code>omarchy-webapp-remove</code>. A proper Omarchy shell plugin is a v2 idea, not a
+        v1 promise.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section__head">
+        <h2>The command table</h2>
+        <span class="section__count">read from omarchy/bin</span>
+      </div>
+      <p>
+        These are the only install commands this site will ever print. When a record has no
+        known command, the page says so and links the listing instead of guessing.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Thing</th>
+            <th>Command</th>
+            <th>Menu</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            commands.map((row) => (
+              <tr>
+                <td>{row.thing}</td>
+                <td>
+                  <code>{row.command}</code>
+                  <br />
+                  <small>{row.note}</small>
+                </td>
+                <td><small>{row.menu}</small></td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <p>
+        Menu paths all start at <kbd>Super</kbd> + <kbd>Space</kbd>.
+      </p>
+    </section>
+
+    {
+      apps.length > 0 && (
+        <section class="section">
+          <div class="section__head">
+            <h2>Apps &amp; packages</h2>
+            <span class="section__count">{apps.length}</span>
+          </div>
+          <div class="grid">
+            {apps.map((app) => (
+              <div class="panel">
+                <span class="panel__title">
+                  {app.name} · {app.channel}
+                </span>
+                <CommandBox
+                  install={app.install}
+                  menuPath={app.menu_path ?? null}
+                  fallbackLabel="Open the listing"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </div>
+</Base>

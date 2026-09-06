@@ -1,0 +1,33 @@
+{
+  "name": "omarchy-inspo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Community index of Omarchy setups, themes, plugins, and the rest of the Omarchy web.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "validate": "node bot/validate.mjs",
+    "test": "node --test \"bot/**/*.test.mjs\"",
+    "build": "node bot/validate.mjs && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "astro check",
+    "og": "node bot/make-og.mjs",
+    "ingest:themes": "node bot/ingest-sources.mjs themes",
+    "ingest:plugins": "node bot/ingest-sources.mjs plugins",
+    "ingest:setups": "node bot/ingest-sources.mjs setups",
+    "ingest:ideas": "node bot/ingest-sources.mjs ideas"
+  },
+  "dependencies": {
+    "astro": "^5.14.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "pagefind": "1.5.2",
+    "sharp": "^0.34.5",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.3.0"
+  }
+}

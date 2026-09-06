@@ -1,0 +1,5 @@
+# Omarchy Inspo — an index. Being read is the point.
+User-agent: *
+Allow: /
+
+Sitemap: https://omarchyinspo.com/sitemap.xml

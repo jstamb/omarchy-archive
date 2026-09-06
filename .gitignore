@@ -1,0 +1,33 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment / local secrets — never commit these
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.wrangler/
+.mf/
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+
+# bot scratch space
+bot/.cache/
+bot/tmp/

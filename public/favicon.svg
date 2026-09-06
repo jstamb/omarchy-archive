@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Omarchy Inspo">
+  <rect width="64" height="64" rx="12" fill="#0b0d0c" />
+  <path d="M32 12 52 32 32 52 12 32Z" fill="none" stroke="#509475" stroke-width="5" />
+  <path d="M32 23 41 32 32 41 23 32Z" fill="#7fc6a2" />
+</svg>

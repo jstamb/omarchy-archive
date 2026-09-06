@@ -1,0 +1,167 @@
+---
+import TagList from './TagList.astro';
+import {
+  authorLabel,
+  hostOf,
+  pluginSlug,
+  type FeedItem,
+  type Plugin,
+  type Post,
+  type Theme,
+} from '../lib/content';
+
+type Props = FeedItem & {
+  /** Where the tag chips deep-link to. Defaults to the item's own gallery. */
+  tagBase?: string;
+  /** Cards above the fold skip lazy loading. */
+  eager?: boolean;
+};
+
+const { type, item, tagBase, eager = false } = Astro.props as Props;
+
+/**
+ * Everything the card needs, per record type. Facets become `data-facet-*`
+ * attributes that the chip filter reads — the filter never parses text.
+ */
+function describe() {
+  if (type === 'post') {
+    const post = item as Post;
+    return {
+      href: `/posts/${post.id}/`,
+      title: post.title,
+      kind: post.kind,
+      summary: post.summary,
+      image: post.image,
+      palette: [] as string[],
+      glyph: post.kind === 'setup' ? '▤' : '◇',
+      tags: post.tags,
+      tagBase: tagBase ?? '/posts/',
+      date: post.created_at ?? post.added_at,
+      featured: Boolean(post.featured),
+      sub: [authorLabel(post), post.device].filter(Boolean) as string[],
+      facets: {
+        kind: post.kind,
+        'form-factor': post.form_factor ?? '',
+        platform: post.source_platform,
+      },
+      action: { label: `View on ${hostOf(post.source_url)}`, href: post.source_url, external: true },
+      command: null as string | null,
+    };
+  }
+
+  if (type === 'theme') {
+    const theme = item as Theme;
+    return {
+      href: `/themes/${theme.id}/`,
+      title: theme.name,
+      kind: theme.bundled ? 'bundled theme' : 'theme',
+      summary: null,
+      image: theme.image,
+      palette: theme.palette,
+      glyph: '◐',
+      tags: theme.tags,
+      tagBase: tagBase ?? '/themes/',
+      date: theme.added_at,
+      featured: false,
+      sub: [theme.author ? `by ${theme.author}` : null, theme.tone].filter(Boolean) as string[],
+      facets: {
+        tone: theme.tone ?? '',
+        ownership: theme.bundled ? 'bundled' : 'community',
+      },
+      action: null,
+      command: theme.install.command,
+    };
+  }
+
+  const plugin = item as Plugin;
+  return {
+    href: `/plugins/${pluginSlug(plugin.id)}/`,
+    title: plugin.name,
+    kind: plugin.first_party ? 'bundled plugin' : 'plugin',
+    summary: plugin.summary,
+    image: plugin.image,
+    palette: [] as string[],
+    glyph: '⬡',
+    tags: plugin.tags,
+    tagBase: tagBase ?? '/plugins/',
+    date: plugin.added_at,
+    featured: false,
+    sub: [
+      plugin.author ? `by ${plugin.author}` : null,
+      plugin.stars ? `★ ${plugin.stars}` : null,
+    ].filter(Boolean) as string[],
+    facets: {
+      ownership: plugin.first_party ? 'first-party' : 'third-party',
+      kind: plugin.kinds[0] ?? '',
+    },
+    action: null,
+    command: plugin.install.command,
+  };
+}
+
+const card = describe();
+const facetAttrs = Object.fromEntries(
+  Object.entries(card.facets)
+    .filter(([, value]) => value)
+    .map(([key, value]) => [`data-facet-${key}`, value]),
+);
+---
+
+<article
+  class="card"
+  data-card
+  data-type={type}
+  data-tags={card.tags.join(' ')}
+  data-date={card.date}
+  data-featured={card.featured ? 'true' : 'false'}
+  data-title={card.title.toLowerCase()}
+  {...facetAttrs}
+>
+  <a class="card__media" href={card.href} tabindex="-1" aria-hidden="true">
+    {
+      card.image ? (
+        <img
+          src={card.image}
+          alt=""
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          width="1200"
+          height="675"
+        />
+      ) : card.palette.length > 0 ? (
+        <span class="card__swatch">
+          {card.palette.map((hex) => (
+            <span style={`background:${hex}`} />
+          ))}
+        </span>
+      ) : (
+        <span class="card__glyph">{card.glyph}</span>
+      )
+    }
+    <span class="card__kind">{card.kind}</span>
+  </a>
+
+  <div class="card__body">
+    <h3 class="card__title"><a href={card.href}>{card.title}</a></h3>
+
+    {card.sub.length > 0 && <p class="card__sub">{card.sub.join(' · ')}</p>}
+    {card.summary && <p class="card__summary">{card.summary}</p>}
+
+    <TagList tags={card.tags} linkBase={card.tagBase} limit={4} />
+
+    <div class="card__foot">
+      {
+        card.command ? (
+          <button class="btn" type="button" data-copy={card.command}>
+            <span data-copy-label>Copy command</span>
+          </button>
+        ) : card.action ? (
+          <a class="btn" href={card.action.href} rel="noopener nofollow">
+            {card.action.label}
+          </a>
+        ) : null
+      }
+      <a class="card__sub" href={card.href}>Details →</a>
+    </div>
+  </div>
+</article>

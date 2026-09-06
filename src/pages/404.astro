@@ -1,0 +1,24 @@
+---
+import Search from '../components/Search.astro';
+import Base from '../layouts/Base.astro';
+import { counts } from '../lib/content';
+---
+
+<Base path="/404/" title="Not found" description="That page is not here." indexable={false}>
+  <div class="pagehead">
+    <h1>404</h1>
+    <p class="pagehead__lede">
+      Nothing at that path. Records get renamed when a source renames them — search for it, or
+      start from a gallery.
+    </p>
+    <Search note="Search all records." />
+  </div>
+
+  <div class="actions">
+    <a class="btn btn--primary" href="/">Home</a>
+    <a class="btn" href="/setups/">{counts.setups} setups</a>
+    <a class="btn" href="/themes/">{counts.themes} themes</a>
+    <a class="btn" href="/plugins/">{counts.plugins} plugins</a>
+    <a class="btn" href="/sources/">{counts.sources} sources</a>
+  </div>
+</Base>

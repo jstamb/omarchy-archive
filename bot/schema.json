@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omarchyinspo.com/bot/schema.json",
+  "title": "Omarchy Inspo record schemas",
+  "description": "One definition per data/*.json file. bot/validate.mjs enforces these plus the cross-file rules it documents.",
+
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$",
+      "description": "Stable, unique within its file, kebab-case (plugins keep their reverse-DNS catalog id). Never rewritten once published."
+    },
+    "isoDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "url": { "type": "string", "pattern": "^https://" },
+    "image": {
+      "type": ["string", "null"],
+      "description": "Site-absolute path to a committed WebP (/images/<kind>/<id>.webp) or an https URL when hotlinking a listing thumb.",
+      "pattern": "^(/images/[a-z]+/[a-z0-9._-]+\\.webp|https://.+)$"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+    },
+    "install": {
+      "type": "object",
+      "required": ["type", "command"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "theme-set",
+            "theme-install",
+            "plugin-add",
+            "plugin-enable",
+            "bar-use",
+            "pkg",
+            "menu",
+            "webapp"
+          ]
+        },
+        "command": {
+          "type": ["string", "null"],
+          "description": "Must start with `omarchy` or `omarchy-`, or be null when unknown. Never invented — copy it from the upstream catalog or the table in AGENTS.md.",
+          "pattern": "^omarchy[- ]"
+        },
+        "hint": { "type": ["string", "null"] }
+      }
+    }
+  },
+
+  "meta": {
+    "type": "object",
+    "required": ["site_name", "site_url", "tagline", "disclaimer", "updated_at"],
+    "properties": {
+      "site_name": { "type": "string" },
+      "site_url": { "$ref": "#/$defs/url" },
+      "tagline": { "type": "string" },
+      "positioning": { "type": "string" },
+      "disclaimer": { "type": "string" },
+      "repo_url": { "$ref": "#/$defs/url" },
+      "updated_at": { "type": "string" }
+    }
+  },
+
+  "sources": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": ["id", "name", "url", "kinds", "ingest"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "url": { "$ref": "#/$defs/url" },
+        "kinds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "blurb": { "type": ["string", "null"] },
+        "official": { "type": "boolean" },
+        "ingest": { "enum": ["manual", "catalog", "scrape"] },
+        "catalog_url": { "$ref": "#/$defs/url" }
+      }
+    }
+  },
+
+  "posts": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": ["id", "kind", "title", "source_url", "source_platform", "tags", "added_at"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "enum": ["setup", "theme", "plugin", "idea", "hardware", "other"] },
+        "title": { "type": "string", "minLength": 3 },
+        "summary": { "type": ["string", "null"] },
+        "author": { "type": ["string", "null"] },
+        "author_url": { "type": ["string", "null"] },
+        "source_platform": {
+          "enum": ["x", "reddit", "github", "youtube", "mastodon", "web"]
+        },
+        "source_url": { "$ref": "#/$defs/url" },
+        "image": { "$ref": "#/$defs/image" },
+        "image_hosted": { "type": "boolean" },
+        "device": { "type": ["string", "null"] },
+        "form_factor": {
+          "type": ["string", "null"],
+          "enum": ["desktop", "laptop", "tablet", "handheld", "server", null]
+        },
+        "tags": { "$ref": "#/$defs/tags" },
+        "related_theme_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "related_plugin_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "created_at": { "type": ["string", "null"] },
+        "added_at": { "$ref": "#/$defs/isoDate" },
+        "featured": { "type": "boolean" },
+        "seen_on": { "type": ["string", "null"] }
+      }
+    }
+  },
+
+  "themes": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": ["id", "name", "official", "bundled", "install", "tags", "added_at"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "author": { "type": ["string", "null"] },
+        "official": { "type": "boolean" },
+        "bundled": {
+          "type": "boolean",
+          "description": "True only for themes in the omarchy repo's themes/ directory."
+        },
+        "repo_url": { "type": ["string", "null"] },
+        "listing_url": { "type": ["string", "null"] },
+        "image": { "$ref": "#/$defs/image" },
+        "image_hosted": { "type": "boolean" },
+        "tone": { "type": ["string", "null"], "enum": ["dark", "light", null] },
+        "palette": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+        },
+        "tags": { "$ref": "#/$defs/tags" },
+        "install": { "$ref": "#/$defs/install" },
+        "seen_on": { "type": ["string", "null"] },
+        "added_at": { "$ref": "#/$defs/isoDate" }
+      }
+    }
+  },
+
+  "plugins": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": ["id", "name", "first_party", "install", "tags", "added_at"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "author": { "type": ["string", "null"] },
+        "summary": { "type": ["string", "null"] },
+        "repo_url": { "type": ["string", "null"] },
+        "listing_url": { "type": ["string", "null"] },
+        "image": { "$ref": "#/$defs/image" },
+        "image_hosted": { "type": "boolean" },
+        "tags": { "$ref": "#/$defs/tags" },
+        "kinds": { "type": "array", "items": { "type": "string" } },
+        "category": { "type": ["string", "null"] },
+        "first_party": {
+          "type": "boolean",
+          "description": "True only when the marketplace catalog says sourceType: builtin."
+        },
+        "stars": { "type": ["integer", "null"] },
+        "install": { "$ref": "#/$defs/install" },
+        "warning": { "type": ["string", "null"] },
+        "seen_on": { "type": ["string", "null"] },
+        "added_at": { "$ref": "#/$defs/isoDate" }
+      }
+    }
+  },
+
+  "apps": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": ["id", "name", "channel", "install"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "channel": { "enum": ["omarchy-menu", "pkg", "webapp", "aur"] },
+        "menu_path": { "type": ["string", "null"] },
+        "install": { "$ref": "#/$defs/install" },
+        "added_at": { "$ref": "#/$defs/isoDate" }
+      }
+    }
+  }
+}

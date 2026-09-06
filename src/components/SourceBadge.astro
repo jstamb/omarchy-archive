@@ -1,0 +1,34 @@
+---
+import { hostOf, sourceById } from '../lib/content';
+
+interface Props {
+  /** id from data/sources.json — where we found the record. */
+  seenOn?: string | null;
+  /** The record's own external link, used when it has no known source site. */
+  sourceUrl?: string | null;
+  prefix?: string;
+}
+
+const { seenOn, sourceUrl, prefix = 'Seen on' } = Astro.props;
+const source = seenOn ? sourceById.get(seenOn) : undefined;
+---
+
+{
+  source ? (
+    <span class="card__sub">
+      {prefix}{' '}
+      <a href={source.url} rel="noopener nofollow">
+        {source.name}
+      </a>
+    </span>
+  ) : (
+    sourceUrl && (
+      <span class="card__sub">
+        {prefix}{' '}
+        <a href={sourceUrl} rel="noopener nofollow">
+          {hostOf(sourceUrl)}
+        </a>
+      </span>
+    )
+  )
+}

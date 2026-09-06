@@ -1,0 +1,116 @@
+---
+import Base from '../../layouts/Base.astro';
+import { counts, hostOf, posts, plugins, sources, themes } from '../../lib/content';
+
+const official = sources.filter((source) => source.official);
+const community = sources.filter((source) => !source.official);
+
+// How many records on this site trace back to each source site.
+const attributed = new Map<string, number>();
+for (const record of [...posts, ...themes, ...plugins]) {
+  if (!record.seen_on) continue;
+  attributed.set(record.seen_on, (attributed.get(record.seen_on) ?? 0) + 1);
+}
+
+const ingestLabel: Record<string, string> = {
+  catalog: 'machine-readable catalog',
+  scrape: 'parsed from the page',
+  manual: 'curated by hand',
+};
+---
+
+<Base
+  path="/sources/"
+  title="Sources"
+  description="Every Omarchy site worth knowing: the official catalogs plus the community galleries, lists, and forums."
+>
+  <div class="pagehead">
+    <h1>The other Omarchy sites</h1>
+    <p class="pagehead__lede">
+      A directory of directories. The official catalogs are canonical — nothing here replaces
+      them. The rest are community galleries doing their own cut of the same ecosystem.
+    </p>
+    <p class="pagehead__meta">{counts.sources} sites indexed</p>
+  </div>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>Official <span class="section__count">canonical</span></h2>
+    </div>
+    <div class="grid grid--tight">
+      {
+        official.map((source) => (
+          <article class="sourcecard">
+            <div class="sourcecard__head">
+              <h3>
+                <a href={source.url} rel="noopener">
+                  {source.name}
+                </a>
+              </h3>
+              <span class="tag tag--accent">official</span>
+            </div>
+            <span class="sourcecard__host">{hostOf(source.url)}</span>
+            {source.blurb && <p>{source.blurb}</p>}
+            <ul class="tags">
+              {source.kinds.map((kind) => (
+                <li>
+                  <span class="tag">{kind}</span>
+                </li>
+              ))}
+            </ul>
+            <span class="sourcecard__host">
+              {ingestLabel[source.ingest] ?? source.ingest}
+              {attributed.has(source.id) && ` · ${attributed.get(source.id)} records here`}
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>Community <span class="section__count">{community.length} sites</span></h2>
+    </div>
+    <div class="grid grid--tight">
+      {
+        community.map((source) => (
+          <article class="sourcecard">
+            <div class="sourcecard__head">
+              <h3>
+                <a href={source.url} rel="noopener nofollow">
+                  {source.name}
+                </a>
+              </h3>
+            </div>
+            <span class="sourcecard__host">{hostOf(source.url)}</span>
+            {source.blurb && <p>{source.blurb}</p>}
+            <ul class="tags">
+              {source.kinds.map((kind) => (
+                <li>
+                  <span class="tag">{kind}</span>
+                </li>
+              ))}
+            </ul>
+            <span class="sourcecard__host">
+              {ingestLabel[source.ingest] ?? source.ingest}
+              {attributed.has(source.id) && ` · ${attributed.get(source.id)} records here`}
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2>Missing one?</h2>
+    </div>
+    <p class="pagehead__lede">
+      Open an issue on <a href="https://github.com/omarchyinspo/omarchy-inspo" rel="noopener">
+        the repo</a
+      >. Sources are a hand-curated file — <code>data/sources.json</code> — so adding one is a
+      three-line diff.
+    </p>
+  </section>
+</Base>

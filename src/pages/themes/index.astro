@@ -1,0 +1,54 @@
+---
+import Card from '../../components/Card.astro';
+import Gallery from '../../components/Gallery.astro';
+import Base from '../../layouts/Base.astro';
+import { counts, themes, valueFacets } from '../../lib/content';
+
+// Bundled first, then community, each alphabetical — how you actually browse them.
+const items = themes;
+
+const groups = [
+  {
+    id: 'ownership',
+    label: 'Origin',
+    options: valueFacets(items, (theme) => (theme.bundled ? 'bundled' : 'community')),
+  },
+  {
+    id: 'tone',
+    label: 'Tone',
+    options: valueFacets(items, (theme) => theme.tone),
+  },
+  // No tag facet here: every theme tag (official / bundled / dark / light) is
+  // already a structured field above, so the row would only repeat itself.
+];
+---
+
+<Base
+  path="/themes/"
+  title="Themes"
+  description={`${counts.bundledThemes} bundled Omarchy themes and ${counts.extraThemes} community themes, each with the exact install command.`}
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Themes</h1>
+    <p class="pagehead__lede">
+      The {counts.bundledThemes} themes Omarchy ships, plus a cut of the community extras.
+      Bundled themes are applied with <code>omarchy theme set</code>; extras are cloned with
+      <code>omarchy theme install</code>. <a href="https://omarchy.org/themes/" rel="noopener">
+        omarchy.org/themes</a
+      > stays the canonical list.
+    </p>
+  </div>
+
+  <Gallery
+    groups={groups}
+    total={items.length}
+    defaultSort="name"
+    sorts={[
+      { value: 'name', label: 'a→z' },
+      { value: 'newest', label: 'newest' },
+    ]}
+  >
+    {items.map((theme, index) => <Card type="theme" item={theme} eager={index < 4} />)}
+  </Gallery>
+</Base>

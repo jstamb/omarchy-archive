@@ -1,0 +1,79 @@
+---
+import Card from '../components/Card.astro';
+import Search from '../components/Search.astro';
+import Base from '../layouts/Base.astro';
+import { counts, featuredPosts, hostOf, meta, mixedFeed, sources } from '../lib/content';
+
+const featured = featuredPosts.slice(0, 4);
+const latest = mixedFeed(24);
+const directory = sources.slice(0, 6);
+---
+
+<Base
+  path="/"
+  description={`${meta.tagline} ${counts.setups} setups, ${counts.themes} themes, ${counts.plugins} plugins, ${counts.sources} community sites.`}
+>
+  <section class="hero">
+    <h1>{meta.tagline}</h1>
+    <p class="pagehead__lede">
+      {meta.positioning} Every install command here is copied from the official CLI — the
+      catalogs stay canonical, this is the layer that collects the desks and the posts they
+      do not.
+    </p>
+    <Search />
+    <ul class="hero__stats">
+      <li><b>{counts.setups}</b> setups</li>
+      <li><b>{counts.bundledThemes}</b> bundled themes</li>
+      <li><b>{counts.extraThemes}</b> extra themes</li>
+      <li><b>{counts.plugins}</b> plugins</li>
+      <li><b>{counts.sources}</b> community sites</li>
+    </ul>
+  </section>
+
+  {
+    featured.length > 0 && (
+      <section class="section" data-pagefind-ignore="all">
+        <div class="section__head">
+          <h2>Featured <span class="section__count">hand-picked</span></h2>
+          <a class="card__sub" href="/posts/?sort=featured">All posts →</a>
+        </div>
+        <div class="grid">
+          {featured.map((post, index) => (
+            <Card type="post" item={post} eager={index < 2} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section" data-pagefind-ignore="all">
+    <div class="section__head">
+      <h2>The rest of the Omarchy web <span class="section__count">{counts.sources} sites</span></h2>
+      <a class="card__sub" href="/sources/">Full directory →</a>
+    </div>
+    <div class="grid grid--tight">
+      {
+        directory.map((source) => (
+          <article class="sourcecard">
+            <div class="sourcecard__head">
+              <h3><a href={source.url} rel="noopener nofollow">{source.name}</a></h3>
+              {source.official && <span class="tag tag--accent">official</span>}
+            </div>
+            <span class="sourcecard__host">{hostOf(source.url)}</span>
+            {source.blurb && <p>{source.blurb}</p>}
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" data-pagefind-ignore="all">
+    <div class="section__head">
+      <h2>Latest <span class="section__count">{latest.length} newest records</span></h2>
+      <a class="card__sub" href="/posts/">Everything →</a>
+    </div>
+    <div class="grid">
+      {latest.map((entry) => <Card {...entry} />)}
+    </div>
+  </section>
+</Base>

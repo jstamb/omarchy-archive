@@ -1,0 +1,25 @@
+---
+import FilterBar, { type FacetGroup } from './FilterBar.astro';
+
+interface Props {
+  groups: FacetGroup[];
+  total: number;
+  sorts?: { value: string; label: string }[];
+  defaultSort?: string;
+  gridClass?: string;
+}
+
+const { groups, total, sorts, defaultSort = 'newest', gridClass = 'grid' } = Astro.props;
+---
+
+<div data-gallery-scope>
+  <FilterBar groups={groups} total={total} sorts={sorts} defaultSort={defaultSort} />
+  <div class={gridClass} data-gallery>
+    <slot />
+  </div>
+  <p class="empty" data-gallery-empty hidden>No records match those filters.</p>
+</div>
+
+<script>
+  import '../scripts/gallery';
+</script>

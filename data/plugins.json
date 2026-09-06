@@ -1,0 +1,652 @@
+[
+  {
+    "id": "io.github.letsfg.flights",
+    "name": "LetsFG Flights",
+    "author": "LetsFG",
+    "summary": "Search hundreds of airlines from the bar. Uses your own LetsFG token; no keys are bundled.",
+    "repo_url": "https://github.com/LetsFG/LetsFG",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=io.github.letsfg.flights",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/6-letsfg-letsfg-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "productivity"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Productivity",
+    "first_party": false,
+    "stars": 1974,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/LetsFG/LetsFG.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-25"
+  },
+  {
+    "id": "akitaonrails.ai-usagebar",
+    "name": "AI Usage",
+    "author": "AkitaOnRails",
+    "summary": "Multi-provider AI plan usage and balances in a native Omarchy Quattro panel.",
+    "repo_url": "https://github.com/akitaonrails/ai-usagebar",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=akitaonrails.ai-usagebar",
+    "image": null,
+    "image_hosted": false,
+    "tags": [
+      "ai",
+      "bar",
+      "quickshell",
+      "widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Widgets",
+    "first_party": false,
+    "stars": 404,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/akitaonrails/ai-usagebar.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-14"
+  },
+  {
+    "id": "omamail",
+    "name": "Omamail",
+    "author": "huacnlee",
+    "summary": "Email client for Omarchy: read, triage, and reply to Gmail, HEY and any IMAP mailbox in a native window. Fastmail, iCloud, Outlook, Zoho, Proton Bridge, or your own server — several accounts at once, each with its own inbox and unread count. Keyboard-first, three columns when there is room and one when there is not, and it follows your theme. Meeting invitations are drawn as meetings you can answer, newsletters unsubscribe in one click, and remote images stay blocked until you ask.",
+    "repo_url": "https://github.com/huacnlee/omamail",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=omamail",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/8-huacnlee-omamail-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "quickshell",
+      "bar",
+      "productivity"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Productivity",
+    "first_party": false,
+    "stars": 170,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/huacnlee/omamail.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-20"
+  },
+  {
+    "id": "io.github.sirjul1337.lock-explorer",
+    "name": "Lock Screen Explorer",
+    "author": "SirJul1337",
+    "summary": "Lock screen designs for Omarchy with a picker to preview and switch between them",
+    "repo_url": "https://github.com/SirJul1337/omarchy-lock-explorer",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=io.github.sirjul1337.lock-explorer",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/10-sirjul1337-omarchy-lock-explorer-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "quickshell",
+      "hyprland",
+      "appearance"
+    ],
+    "kinds": [
+      "overlay"
+    ],
+    "category": "Appearance",
+    "first_party": false,
+    "stars": 121,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/SirJul1337/omarchy-lock-explorer.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-18"
+  },
+  {
+    "id": "jankeesvw.time-machine",
+    "name": "Time Machine",
+    "author": "Jankees",
+    "summary": "Scheduled restic backups with a destination picker and a snapshot browser",
+    "repo_url": "https://github.com/jankeesvw/omarchy-time-machine",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=jankeesvw.time-machine",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/9-jankeesvw-omarchy-time-machine-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "system",
+      "security"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "System",
+    "first_party": false,
+    "stars": 93,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/jankeesvw/omarchy-time-machine.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-29"
+  },
+  {
+    "id": "crmne.hyprmoncfg",
+    "name": "hyprmoncfg: Multi-Monitor Manager for Omarchy",
+    "author": "Carmine Paolino",
+    "summary": "Plug your monitors in and the right layout comes back. Save a profile per setup and hyprmoncfg applies it automatically on hotplug, on lid open and close, and after suspend. Layout editor with per-display brightness, snapping, per-output scale and sharpness checking, HDR, wide gamut and ICC colour management, mirroring, rotation, and a workspace planner. Profiles match monitors by make, model and serial rather than the port they are plugged into, so moving a cable does not break your layout.",
+    "repo_url": "https://github.com/crmne/omarchy-hyprmoncfg",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=crmne.hyprmoncfg",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/5-crmne-omarchy-hyprmoncfg-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "hyprland",
+      "quickshell",
+      "hardware"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Hardware",
+    "first_party": false,
+    "stars": 77,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/crmne/omarchy-hyprmoncfg.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-14"
+  },
+  {
+    "id": "jankeesvw.tesla",
+    "name": "Tesla",
+    "author": "Jankees van Woezik",
+    "summary": "Your Tesla in the bar: where it is, how full it is, and how far that gets you",
+    "repo_url": "https://github.com/jankeesvw/omarchy-tesla",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=jankeesvw.tesla",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/9-jankeesvw-omarchy-tesla-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system",
+      "widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Widgets",
+    "first_party": false,
+    "stars": 73,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/jankeesvw/omarchy-tesla.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-21"
+  },
+  {
+    "id": "b.okomart",
+    "name": "Okomart",
+    "author": "Brian Blakely",
+    "summary": "Browse, install, enable, disable, update, and remove Omarchy plugins from a storefront interface",
+    "repo_url": "https://github.com/brianblakely/omarchy-plugins",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=b.okomart",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/12-brianblakely-omarchy-plugins-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "launcher",
+      "system",
+      "quickshell"
+    ],
+    "kinds": [
+      "panel"
+    ],
+    "category": "System",
+    "first_party": false,
+    "stars": 58,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/brianblakely/omarchy-plugins.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-11"
+  },
+  {
+    "id": "io.github.lijiawei0305-pixel.mihomo",
+    "name": "Mihomo",
+    "author": "lijiawei0305-pixel",
+    "summary": "Control panel for the mihomo core: Home, Proxies, Config, Connections, Rules. Talks to the external controller directly; no GUI client required.",
+    "repo_url": "https://github.com/lijiawei0305-pixel/omarchy-mihomo-plugin",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=io.github.lijiawei0305-pixel.mihomo",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/18-lijiawei0305-pixel-omarchy-mihomo-plugin-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "System",
+    "first_party": false,
+    "stars": 53,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/lijiawei0305-pixel/omarchy-mihomo-plugin.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-24"
+  },
+  {
+    "id": "robzolkos.github",
+    "name": "GitHub",
+    "author": "Rob Zolkos",
+    "summary": "A keyboard-friendly GitHub inbox for notifications, reviews, your own pull requests, assigned issues, Actions, and repositories.",
+    "repo_url": "https://github.com/robzolkos/omarchy-github",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=robzolkos.github",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/9-robzolkos-omarchy-github-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "developer-tools"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Developer Tools",
+    "first_party": false,
+    "stars": 51,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/robzolkos/omarchy-github.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-14"
+  },
+  {
+    "id": "io.github.grichard99.omaproton-vpn",
+    "name": "OmaProton VPN",
+    "author": "grichard99",
+    "summary": "Proton VPN, built for Omarchy. No terminal: one click to connect, a world map of cities, Kill Switch, in a widget that wears every Omarchy theme.",
+    "repo_url": "https://github.com/grichard99/omaproton-vpn",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=io.github.grichard99.omaproton-vpn",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/10-grichard99-omaproton-vpn-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "security",
+      "quickshell",
+      "widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Widgets",
+    "first_party": false,
+    "stars": 49,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/grichard99/omaproton-vpn.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-25"
+  },
+  {
+    "id": "akshar.radio-atlas",
+    "name": "Radio Atlas",
+    "author": "Akshar Patel",
+    "summary": "Explore live radio on a rotatable globe and play stations through Omarchy's media controls.",
+    "repo_url": "https://github.com/AksharP5/omarchy-radio-atlas",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=akshar.radio-atlas",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/8-aksharp5-omarchy-radio-atlas-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "media",
+      "quickshell",
+      "bar",
+      "widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Widgets",
+    "first_party": false,
+    "stars": 48,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/AksharP5/omarchy-radio-atlas.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-14"
+  },
+  {
+    "id": "omaplug",
+    "name": "Plugin Manager",
+    "author": "Fross",
+    "summary": "Manage installed Omarchy plugins: enable/disable, update, install from git, and remove third-party plugins",
+    "repo_url": "https://github.com/fross100/omaplug",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=omaplug",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/8-fross100-omaplug-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "System",
+    "first_party": false,
+    "stars": 46,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/fross100/omaplug.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-23"
+  },
+  {
+    "id": "jankeesvw.notification-center",
+    "name": "Notification Center",
+    "author": "Jankees van Woezik",
+    "summary": "Every notification you were sent, kept, and readable again",
+    "repo_url": "https://github.com/jankeesvw/omarchy-notification-center",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=jankeesvw.notification-center",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/9-jankeesvw-omarchy-notification-center-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "desktop"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Desktop",
+    "first_party": false,
+    "stars": 44,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/jankeesvw/omarchy-notification-center.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-21"
+  },
+  {
+    "id": "io.github.x3me.nexthop",
+    "name": "Nexthop",
+    "author": "Extreme Labs",
+    "summary": "Splits your Wi-Fi from your ISP, hop by hop. Continuous latency, jitter and loss on both legs of your connection, with history, outage detection and speed tests.",
+    "repo_url": "https://github.com/x3me/omarchy-nexthop",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=io.github.x3me.nexthop",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/4-x3me-omarchy-nexthop-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "System",
+    "first_party": false,
+    "stars": 44,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/x3me/omarchy-nexthop.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-30"
+  },
+  {
+    "id": "bobbynicholas.omaland",
+    "name": "Omaland",
+    "author": "Bobby Nicholas",
+    "summary": "A panel for editing Hyprland's visual look and feel, with live preview. Writes a managed block into ~/.config/hypr/looknfeel.lua. Open from the Omarchy menu by searching 'Omaland' or from the terminal with: omarchy-shell shell toggle bobbynicholas.omaland",
+    "repo_url": "https://github.com/bobby-nicholas/omaland",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=bobbynicholas.omaland",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/14-bobby-nicholas-omaland-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "hyprland",
+      "quickshell",
+      "appearance"
+    ],
+    "kinds": [
+      "panel"
+    ],
+    "category": "Appearance",
+    "first_party": false,
+    "stars": 43,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/bobby-nicholas/omaland.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-17"
+  },
+  {
+    "id": "io.github.tyrichards.tray",
+    "name": "Tray",
+    "author": "Ty Richards",
+    "summary": "A better system tray: everything the stock tray does, plus drag any bar widget into its slide-out drawer.",
+    "repo_url": "https://github.com/TyRichards/omarchy-tray",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=io.github.tyrichards.tray",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/10-tyrichards-omarchy-tray-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system",
+      "widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Widgets",
+    "first_party": false,
+    "stars": 41,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/TyRichards/omarchy-tray.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-28"
+  },
+  {
+    "id": "zeru.portwatch",
+    "name": "Port Watch",
+    "author": "ZerubbabelT",
+    "summary": "Shows local listening ports/dev servers in the bar with a popup to stop them",
+    "repo_url": "https://github.com/ZerubbabelT/portwatch",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=zeru.portwatch",
+    "image": null,
+    "image_hosted": false,
+    "tags": [
+      "quickshell",
+      "bar",
+      "system",
+      "developer-tools"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Developer Tools",
+    "first_party": false,
+    "stars": 38,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/ZerubbabelT/portwatch.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-09-02"
+  },
+  {
+    "id": "local.prayer-times",
+    "name": "Prayer times",
+    "author": "husamemad",
+    "summary": "Mosque icon with next prayer countdown and a popup with today's five prayers",
+    "repo_url": "https://github.com/husamemadH/omarchy-quattro-prayer-times",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=local.prayer-times",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/10-husamemadh-omarchy-quattro-prayer-times-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system",
+      "widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Widgets",
+    "first_party": false,
+    "stars": 37,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/husamemadH/omarchy-quattro-prayer-times.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-07-29"
+  },
+  {
+    "id": "stappmus.activity-monitor",
+    "name": "Activity Monitor",
+    "author": "Kristoffer Haugland",
+    "summary": "A calm, low-overhead glance at CPU, memory, GPU, storage, and processes — with a die that matches your chip",
+    "repo_url": "https://github.com/stappmus/omarchy-activity-monitor",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=stappmus.activity-monitor",
+    "image": "https://plugins.omarchy.org/assets/img/plugins/8-stappmus-omarchy-activity-monitor-card.webp",
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "quickshell",
+      "system"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "System",
+    "first_party": false,
+    "stars": 36,
+    "install": {
+      "type": "plugin-add",
+      "command": "omarchy plugin add https://github.com/stappmus/omarchy-activity-monitor.git --enable"
+    },
+    "warning": "Third-party plugins run unsandboxed. Review the repo before enabling.",
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-08-11"
+  },
+  {
+    "id": "omarchy.agents",
+    "name": "Agents",
+    "author": "Omarchy",
+    "summary": "Claude Code, Codex, and Fireworks usage, limits, and pace in a native Omarchy bar panel.",
+    "repo_url": "https://github.com/omacom/omarchy",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=omarchy.agents",
+    "image": null,
+    "image_hosted": false,
+    "tags": [
+      "bar-widget",
+      "ai",
+      "bar-widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Bar widgets",
+    "first_party": true,
+    "stars": null,
+    "install": {
+      "type": "plugin-enable",
+      "command": "omarchy plugin enable omarchy.agents"
+    },
+    "warning": null,
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "omarchy.bar",
+    "name": "Bar",
+    "author": "Omarchy",
+    "summary": "Status bar with widgets",
+    "repo_url": "https://github.com/omacom/omarchy",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=omarchy.bar",
+    "image": null,
+    "image_hosted": false,
+    "tags": [
+      "bar",
+      "bars"
+    ],
+    "kinds": [
+      "bar"
+    ],
+    "category": "Bars",
+    "first_party": true,
+    "stars": null,
+    "install": {
+      "type": "bar-use",
+      "command": "omarchy bar use omarchy.bar"
+    },
+    "warning": null,
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "omarchy.clock",
+    "name": "Clock",
+    "author": "Omarchy",
+    "summary": "Date/time label with a calendar popup",
+    "repo_url": "https://github.com/omacom/omarchy",
+    "listing_url": "https://plugins.omarchy.org/plugin.html?id=omarchy.clock",
+    "image": null,
+    "image_hosted": false,
+    "tags": [
+      "bar-widget",
+      "bar-widgets"
+    ],
+    "kinds": [
+      "bar-widget"
+    ],
+    "category": "Bar widgets",
+    "first_party": true,
+    "stars": null,
+    "install": {
+      "type": "plugin-enable",
+      "command": "omarchy plugin enable omarchy.clock"
+    },
+    "warning": null,
+    "seen_on": "omarchy-plugins",
+    "added_at": "2026-09-06"
+  }
+]

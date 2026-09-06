@@ -1,0 +1,1102 @@
+[
+  {
+    "id": "catppuccin",
+    "name": "Catppuccin",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/catppuccin",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/catppuccin.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#1e1e2e",
+      "#89b4fa",
+      "#f38ba8",
+      "#f9e2af",
+      "#a6e3a1",
+      "#94e2d5",
+      "#f5c2e7",
+      "#cdd6f4"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set catppuccin"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "catppuccin-latte",
+    "name": "Catppuccin Latte",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/catppuccin-latte",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/catppuccin-latte.webp",
+    "image_hosted": true,
+    "tone": "light",
+    "palette": [
+      "#eff1f5",
+      "#1e66f5",
+      "#d20f39",
+      "#df8e1d",
+      "#40a02b",
+      "#179299",
+      "#ea76cb",
+      "#4c4f69"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "light"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set catppuccin-latte"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "ethereal",
+    "name": "Ethereal",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/ethereal",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/ethereal.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#060B1E",
+      "#7d82d9",
+      "#ED5B5A",
+      "#E9BB4F",
+      "#92a593",
+      "#a3bfd1",
+      "#c89dc1",
+      "#ffcead"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set ethereal"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "everforest",
+    "name": "Everforest",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/everforest",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/everforest.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#2d353b",
+      "#7fbbb3",
+      "#e67e80",
+      "#dbbc7f",
+      "#a7c080",
+      "#83c092",
+      "#d699b6",
+      "#d3c6aa"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set everforest"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "flexoki-light",
+    "name": "Flexoki Light",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/flexoki-light",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/flexoki-light.webp",
+    "image_hosted": true,
+    "tone": "light",
+    "palette": [
+      "#FFFCF0",
+      "#205EA6",
+      "#D14D41",
+      "#D0A215",
+      "#879A39",
+      "#3AA99F",
+      "#CE5D97",
+      "#100F0F"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "light"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set flexoki-light"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "gruvbox",
+    "name": "Gruvbox",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/gruvbox",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/gruvbox.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#282828",
+      "#7daea3",
+      "#ea6962",
+      "#d8a657",
+      "#a9b665",
+      "#89b482",
+      "#d3869b",
+      "#d4be98"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set gruvbox"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "hackerman",
+    "name": "Hackerman",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/hackerman",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/hackerman.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#0B0C16",
+      "#82FB9C",
+      "#50f872",
+      "#50f7d4",
+      "#4fe88f",
+      "#7cf8f7",
+      "#829dd4",
+      "#86a7df",
+      "#ddf7ff"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set hackerman"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "kanagawa",
+    "name": "Kanagawa",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/kanagawa",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/kanagawa.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#1f1f28",
+      "#dcd7ba",
+      "#c34043",
+      "#c0a36e",
+      "#76946a",
+      "#6a9589",
+      "#7e9cd8",
+      "#957fb8"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set kanagawa"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "last-horizon",
+    "name": "Last Horizon",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/last-horizon",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/last-horizon.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#0c0b0c",
+      "#b59790",
+      "#c38b7b",
+      "#6B5E73",
+      "#87a9b0",
+      "#a5a0b6",
+      "#c4d8e2",
+      "#FAFCFB"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set last-horizon"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "lumon",
+    "name": "Lumon",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/lumon",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/lumon.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#16242d",
+      "#8bc9eb",
+      "#4d86b0",
+      "#6fa4c9",
+      "#5e95bc",
+      "#b4e4f6",
+      "#6fb8e3",
+      "#d6e2ee"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set lumon"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "lupine",
+    "name": "Lupine",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/lupine",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/lupine.webp",
+    "image_hosted": true,
+    "tone": "light",
+    "palette": [
+      "#fafafa",
+      "#3264eb",
+      "#c900c4",
+      "#026fde",
+      "#4a2fd0",
+      "#0c67de",
+      "#8a4ad7",
+      "#212121"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "light"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set lupine"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "matte-black",
+    "name": "Matte Black",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/matte-black",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/matte-black.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#121212",
+      "#e68e0d",
+      "#D35F5F",
+      "#b91c1c",
+      "#FFC107",
+      "#bebebe"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set matte-black"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "miasma",
+    "name": "Miasma",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/miasma",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/miasma.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#222222",
+      "#78824b",
+      "#685742",
+      "#b36d43",
+      "#5f875f",
+      "#c9a554",
+      "#bb7744",
+      "#c2c2b0"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set miasma"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "nord",
+    "name": "Nord",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/nord",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/nord.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#2e3440",
+      "#81a1c1",
+      "#bf616a",
+      "#ebcb8b",
+      "#a3be8c",
+      "#88c0d0",
+      "#b48ead",
+      "#d8dee9"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set nord"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "osaka-jade",
+    "name": "Osaka Jade",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/osaka-jade",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/osaka-jade.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#111c18",
+      "#509475",
+      "#FF5345",
+      "#459451",
+      "#549e6a",
+      "#2DD5B7",
+      "#D2689C",
+      "#C1C497"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set osaka-jade"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "retro-82",
+    "name": "Retro 82",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/retro-82",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/retro-82.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#05182e",
+      "#faa968",
+      "#f85525",
+      "#e97b3c",
+      "#028391",
+      "#8cbfb8",
+      "#3f8f8a",
+      "#f6dcac"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set retro-82"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "ristretto",
+    "name": "Ristretto",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/ristretto",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/ristretto.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#2c2525",
+      "#f38d70",
+      "#fd6883",
+      "#f9cc6c",
+      "#adda78",
+      "#85dacc",
+      "#a8a9eb",
+      "#e6d9db"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set ristretto"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "rose-pine",
+    "name": "Rosé Pine",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/rose-pine",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/rose-pine.webp",
+    "image_hosted": true,
+    "tone": "light",
+    "palette": [
+      "#faf4ed",
+      "#56949f",
+      "#b4637a",
+      "#ea9d34",
+      "#286983",
+      "#d7827e",
+      "#907aa9",
+      "#575279"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "light"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set rose-pine"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "solitude",
+    "name": "Solitude",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/solitude",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/solitude.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#101315",
+      "#798186",
+      "#565d60",
+      "#d9dbdc",
+      "#9fa5a9",
+      "#707070",
+      "#aeaeae",
+      "#cacccc"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set solitude"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "tokyo-night",
+    "name": "Tokyo Night",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/tokyo-night",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/tokyo-night.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#1a1b26",
+      "#7aa2f7",
+      "#f7768e",
+      "#e0af68",
+      "#9ece6a",
+      "#449dab",
+      "#ad8ee6",
+      "#a9b1d6"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set tokyo-night"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "vantablack",
+    "name": "Vantablack",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/vantablack",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/vantablack.webp",
+    "image_hosted": true,
+    "tone": "dark",
+    "palette": [
+      "#000000",
+      "#8d8d8d",
+      "#a4a4a4",
+      "#cecece",
+      "#b6b6b6",
+      "#b0b0b0",
+      "#9b9b9b",
+      "#ffffff"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set vantablack"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "white",
+    "name": "White",
+    "author": "Omarchy",
+    "official": true,
+    "bundled": true,
+    "repo_url": "https://github.com/omacom/omarchy/tree/quattro/themes/white",
+    "listing_url": "https://omarchy.org/manual/themes/",
+    "image": "/images/themes/white.webp",
+    "image_hosted": true,
+    "tone": "light",
+    "palette": [
+      "#ffffff",
+      "#6e6e6e",
+      "#2a2a2a",
+      "#4a4a4a",
+      "#3a3a3a",
+      "#3e3e3e",
+      "#1a1a1a",
+      "#2e2e2e",
+      "#000000"
+    ],
+    "tags": [
+      "official",
+      "bundled",
+      "light"
+    ],
+    "install": {
+      "type": "theme-set",
+      "command": "omarchy theme set white"
+    },
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "bauhaus",
+    "name": "Bauhaus",
+    "author": "somerocketeer",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/somerocketeer/omarchy-bauhaus-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/bauhaus.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/somerocketeer/omarchy-bauhaus-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "cobalt2",
+    "name": "Cobalt2",
+    "author": "hoblin",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/hoblin/omarchy-cobalt2-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/cobalt2.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/hoblin/omarchy-cobalt2-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "dracula",
+    "name": "Dracula",
+    "author": "catlee",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/catlee/omarchy-dracula-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/dracula.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/catlee/omarchy-dracula-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "evergarden",
+    "name": "Evergarden",
+    "author": "celsobenedetti",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/celsobenedetti/omarchy-evergarden",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/evergarden.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/celsobenedetti/omarchy-evergarden.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "gruvbox-material",
+    "name": "Gruvbox Material",
+    "author": "curbol",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/curbol/omarchy-gruvbox-material",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/gruvbox-material.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/curbol/omarchy-gruvbox-material.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "matrix",
+    "name": "Matrix",
+    "author": "BVisagie",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/BVisagie/omarchy-matrix-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/matrix.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/BVisagie/omarchy-matrix-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "milky-matcha",
+    "name": "Milky Matcha",
+    "author": "hipsterusername",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/hipsterusername/omarchy-milkmatcha-light-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/milky-matcha.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/hipsterusername/omarchy-milkmatcha-light-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "monokai",
+    "name": "Monokai",
+    "author": "bjarneo",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/bjarneo/omarchy-monokai-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/monokai.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/bjarneo/omarchy-monokai-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "neon-dusk",
+    "name": "Neon Dusk",
+    "author": "daniel-felipe",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/daniel-felipe/omarchy-neon-dusk-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/neon-dusk.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/daniel-felipe/omarchy-neon-dusk-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "nujabes",
+    "name": "Nujabes",
+    "author": "HalmyLyseas",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/HalmyLyseas/omarchy-nujabes-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/nujabes.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/HalmyLyseas/omarchy-nujabes-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "oxo-carbon",
+    "name": "Oxo Carbon",
+    "author": "HANCORE-linux",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/HANCORE-linux/omarchy-oxocarbon-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/oxo-carbon.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/HANCORE-linux/omarchy-oxocarbon-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "retropc",
+    "name": "RetroPC",
+    "author": "rondilley",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/rondilley/omarchy-retropc-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/retropc.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/rondilley/omarchy-retropc-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "sakura-mochi",
+    "name": "Sakura Mochi",
+    "author": "OldJobobo",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/OldJobobo/omarchy-sakura-mochi-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/sakura-mochi.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/OldJobobo/omarchy-sakura-mochi-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "solarized-light",
+    "name": "Solarized Light",
+    "author": "dfrico",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/dfrico/omarchy-solarized-light-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/solarized-light.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/dfrico/omarchy-solarized-light-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "synthwave-84",
+    "name": "Synthwave '84",
+    "author": "omacom-io",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/omacom-io/omarchy-synthwave84-theme/",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/synthwave-84.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/omacom-io/omarchy-synthwave84-theme/.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "tycho",
+    "name": "Tycho",
+    "author": "leonardobetti",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/leonardobetti/omarchy-tycho",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/tycho.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/leonardobetti/omarchy-tycho.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "van-gogh",
+    "name": "Van Gogh",
+    "author": "Nirmal314",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/Nirmal314/omarchy-van-gogh-theme",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/van-gogh.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/Nirmal314/omarchy-van-gogh-theme.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  },
+  {
+    "id": "venice-from-above",
+    "name": "Venice from Above",
+    "author": "mattbbia",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/mattbbia/venice-from-above-omarchy",
+    "listing_url": "https://omarchy.org/themes/",
+    "image": "https://omarchy.org/assets/themes/venice-from-above.webp",
+    "image_hosted": false,
+    "tone": null,
+    "palette": [],
+    "tags": [
+      "community"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/mattbbia/venice-from-above-omarchy.git"
+    },
+    "seen_on": "omarchy-org-themes",
+    "added_at": "2026-09-06"
+  }
+]

@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import { counts, formatDate, hostOf, meta, sources } from '../lib/content';
+---
+
+<Base
+  path="/about/"
+  title="About"
+  description="What this site is, what it deliberately is not, how content gets added, and credit to every source it indexes."
+>
+  <div class="pagehead">
+    <h1>About</h1>
+    <p class="pagehead__lede">{meta.positioning}</p>
+  </div>
+
+  <div class="prose">
+    <section class="block">
+      <h2>What this is</h2>
+      <p>
+        A community index of Omarchy inspiration: {counts.setups} desks, {counts.themes} themes,
+        {counts.plugins} plugins, and {counts.sources} other sites — filterable, searchable, with
+        the official install command next to each record.
+      </p>
+      <p>
+        The missing layer it adds is <em>posts plus desks plus "install this from here"</em>. The
+        official catalogs collect what ships; nobody was collecting the workstations, the threads,
+        and the write-ups alongside the command that reproduces them.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>What it is not</h2>
+      <ul>
+        <li><strong>Not official.</strong> {meta.disclaimer}</li>
+        <li>
+          <strong>Not a replacement.</strong>
+          <a href="https://omarchy.org/themes/" rel="noopener">omarchy.org/themes</a>,
+          <a href="https://plugins.omarchy.org/" rel="noopener">plugins.omarchy.org</a>, and the
+          community galleries stay canonical. This indexes them and links out.
+        </li>
+        <li>
+          <strong>Not a mirror.</strong> The plugin marketplace has thousands of entries; this
+          site carries a curated cut on purpose.
+        </li>
+        <li>
+          <strong>Not a security review.</strong> Plugins run as unsandboxed code. Read the repo.
+        </li>
+        <li><strong>No accounts, comments, ratings, or tracking.</strong> There is no server.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>How content gets added</h2>
+      <p>
+        Content is files in git. Humans ship the site; a bot ships the content. Every record is a
+        JSON object in <code>data/</code>, every hosted image is a WebP in
+        <code>public/images/</code>, and both arrive as an ordinary commit to <code>main</code>.
+        Cloudflare Pages rebuilds on push.
+      </p>
+      <ul>
+        <li>
+          <code>node bot/ingest-sources.mjs …</code> pulls the public catalogs (themes, the
+          plugin <code>catalog.json</code>, the hub's setup list).
+        </li>
+        <li>
+          <code>node bot/validate.mjs</code> runs first in <code>npm run build</code>. Duplicate
+          ids, missing fields, an install command that is not an <code>omarchy</code> command, or
+          a hosted image path that does not exist all fail the build.
+        </li>
+        <li>
+          Install commands are never composed by hand — they come from the upstream catalog or
+          the verified table on <a href="/install/">the install page</a>.
+        </li>
+      </ul>
+      <p>
+        Last content update: <strong>{formatDate(meta.updated_at)}</strong>. Everything is on
+        <a href={meta.repo_url} rel="noopener">GitHub</a>; corrections are a pull request.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Images</h2>
+      <p>
+        Where a record's image is mirrored here it is re-encoded to WebP, max edge 1200px,
+        quality 80, metadata stripped, and the record says <code>image_hosted: true</code>.
+        Bundled theme previews come from the MIT-licensed Omarchy repo; setup screenshots come
+        from the MIT-licensed Omarchy Hub, credited on each card. Where an image is a listing
+        thumbnail we do not host, the record says so and the detail page tells you.
+      </p>
+      <p>
+        Any owner who wants a shot removed: open an issue and it goes, no argument.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Credit</h2>
+      <p>Every site this one indexes, and would be nothing without:</p>
+      <ul>
+        {
+          sources.map((source) => (
+            <li>
+              <a href={source.url} rel="noopener">
+                {source.name}
+              </a>{' '}
+              — <span class="sourcecard__host">{hostOf(source.url)}</span>
+              {source.blurb && <> · {source.blurb}</>}
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        Omarchy itself is by <a href="https://omarchy.org/" rel="noopener">Omacom</a> and the
+        people who send it patches.
+      </p>
+    </section>
+  </div>
+</Base>

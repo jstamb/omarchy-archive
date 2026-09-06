@@ -1,0 +1,58 @@
+---
+import Card from '../../components/Card.astro';
+import Gallery from '../../components/Gallery.astro';
+import Base from '../../layouts/Base.astro';
+import { plugins, tagFacets, valueFacets } from '../../lib/content';
+
+const items = plugins;
+
+const groups = [
+  {
+    id: 'ownership',
+    label: 'Origin',
+    options: valueFacets(items, (plugin) => (plugin.first_party ? 'first-party' : 'third-party')),
+  },
+  {
+    id: 'kind',
+    label: 'Kind',
+    options: valueFacets(items, (plugin) => plugin.kinds[0]),
+  },
+  {
+    id: 'tag',
+    label: 'Tags',
+    options: tagFacets(items, 2),
+  },
+];
+---
+
+<Base
+  path="/plugins/"
+  title="Plugins"
+  description="A curated cut of the Omarchy plugin marketplace, with the install command from the official catalog."
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Plugins</h1>
+    <p class="pagehead__lede">
+      A curated cut of the marketplace — not a mirror of it. Install commands come straight from
+      the official <a href="https://plugins.omarchy.org/" rel="noopener">catalog</a>, which lists
+      thousands more.
+    </p>
+    <p class="notice">
+      Plugins run as unsandboxed code. This site does not verify security. Read the repo before
+      you enable anything.
+    </p>
+  </div>
+
+  <Gallery
+    groups={groups}
+    total={items.length}
+    defaultSort="newest"
+    sorts={[
+      { value: 'newest', label: 'newest' },
+      { value: 'name', label: 'a→z' },
+    ]}
+  >
+    {items.map((plugin, index) => <Card type="plugin" item={plugin} eager={index < 4} />)}
+  </Gallery>
+</Base>

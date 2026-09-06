@@ -1,0 +1,94 @@
+[
+  {
+    "id": "omarchy-org",
+    "name": "omarchy.org",
+    "url": "https://omarchy.org/",
+    "kinds": ["docs", "themes", "resources"],
+    "blurb": "The official site and manual. Canonical for everything Omarchy ships.",
+    "official": true,
+    "ingest": "manual"
+  },
+  {
+    "id": "omarchy-org-themes",
+    "name": "Official extra themes",
+    "url": "https://omarchy.org/themes/",
+    "kinds": ["themes"],
+    "blurb": "Canonical extra-theme grid. Submit via PR to omarchy-site.",
+    "official": true,
+    "ingest": "scrape"
+  },
+  {
+    "id": "omarchy-plugins",
+    "name": "Omarchy Plugins",
+    "url": "https://plugins.omarchy.org/",
+    "kinds": ["plugins"],
+    "blurb": "Official marketplace. catalog.json is public.",
+    "official": true,
+    "ingest": "catalog",
+    "catalog_url": "https://plugins.omarchy.org/catalog.json"
+  },
+  {
+    "id": "omarchy-hub",
+    "name": "Omarchy Hub",
+    "url": "https://omarchy.deepakness.com/",
+    "kinds": ["setups", "themes", "resources"],
+    "blurb": "112+ workstation shots and community themes. Closest existing inspo gallery.",
+    "official": false,
+    "ingest": "catalog",
+    "catalog_url": "https://raw.githubusercontent.com/deepakness/omarchy-hub/main/data/setups.json"
+  },
+  {
+    "id": "omarchytheme-com",
+    "name": "omarchytheme.com",
+    "url": "https://omarchytheme.com/",
+    "kinds": ["themes"],
+    "blurb": "Searchable community theme gallery with palettes and star sort.",
+    "official": false,
+    "ingest": "manual"
+  },
+  {
+    "id": "omarchythemes-com",
+    "name": "omarchythemes.com",
+    "url": "https://omarchythemes.com/",
+    "kinds": ["themes"],
+    "blurb": "Another community theme directory. Different cut of the same ecosystem.",
+    "official": false,
+    "ingest": "manual"
+  },
+  {
+    "id": "oldjobobo-themes",
+    "name": "OldJobobo Themes",
+    "url": "https://www.oldjobobo.com/themes/",
+    "kinds": ["themes"],
+    "blurb": "One prolific theme author's own gallery, previews included.",
+    "official": false,
+    "ingest": "manual"
+  },
+  {
+    "id": "bjarneo-themes",
+    "name": "Bjarneo wallpaper themes",
+    "url": "https://bjarneo.github.io/omarchy-themes/",
+    "kinds": ["themes", "wallpapers"],
+    "blurb": "Themes built around wallpapers, with the palettes derived from them.",
+    "official": false,
+    "ingest": "manual"
+  },
+  {
+    "id": "awesome-omarchy",
+    "name": "Awesome Omarchy",
+    "url": "https://github.com/aorumbayev/awesome-omarchy",
+    "kinds": ["list"],
+    "blurb": "The awesome-list for Omarchy. Tools, themes, guides, dotfiles.",
+    "official": false,
+    "ingest": "manual"
+  },
+  {
+    "id": "reddit-omarchy",
+    "name": "r/omarchy",
+    "url": "https://www.reddit.com/r/omarchy/",
+    "kinds": ["discussion", "setups"],
+    "blurb": "Where the questions and the desk shots that never hit X end up.",
+    "official": false,
+    "ingest": "manual"
+  }
+]

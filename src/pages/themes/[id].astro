@@ -1,0 +1,187 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Card from '../../components/Card.astro';
+import CommandBox from '../../components/CommandBox.astro';
+import SourceBadge from '../../components/SourceBadge.astro';
+import TagList from '../../components/TagList.astro';
+import Base from '../../layouts/Base.astro';
+import { formatDate, postsForTheme, themes, type Theme } from '../../lib/content';
+
+export const getStaticPaths = (() =>
+  themes.map((theme) => ({ params: { id: theme.id }, props: { theme } }))) satisfies GetStaticPaths;
+
+interface Props {
+  theme: Theme;
+}
+
+const { theme } = Astro.props;
+const inTheWild = postsForTheme(theme.id);
+const siblings = themes
+  .filter((other) => other.id !== theme.id && other.tone === theme.tone && other.bundled === theme.bundled)
+  .slice(0, 3);
+---
+
+<Base
+  path={`/themes/${theme.id}/`}
+  title={theme.name}
+  description={`${theme.name} — ${theme.bundled ? 'a theme Omarchy ships' : 'a community Omarchy theme'}. ${
+    theme.install.command ?? ''
+  }`.trim()}
+  image={theme.image_hosted && theme.image ? theme.image : '/og.png'}
+>
+  <p class="pagehead__meta" data-pagefind-ignore="all">
+    <a href="/themes/">Themes</a> / {theme.bundled ? 'bundled' : 'community'}
+  </p>
+
+  <div class="detail">
+    <div>
+      <div class="pagehead">
+        <h1>{theme.name}</h1>
+        <p class="pagehead__lede">
+          {
+            theme.bundled
+              ? 'Ships with Omarchy. Apply it with one command or from the Style menu.'
+              : 'A community theme. Omarchy clones the repo into ~/.config/omarchy/themes.'
+          }
+        </p>
+      </div>
+
+      {
+        theme.image && (
+          <div class="detail__hero">
+            <img
+              src={theme.image}
+              alt={`${theme.name} theme preview`}
+              width="1200"
+              height="675"
+              loading="eager"
+            />
+          </div>
+        )
+      }
+
+      <section class="section">
+        <div class="section__head">
+          <h2>Install</h2>
+        </div>
+        <CommandBox
+          install={theme.install}
+          fallbackUrl={theme.listing_url}
+          fallbackLabel="Open the theme listing"
+        />
+        {
+          !theme.bundled && (
+            <p class="pagehead__meta" style="margin-top:0.6rem">
+              Themes installed from git are staged colour-only — Omarchy refuses the
+              <code>.lua</code>, terminal, and VS Code files a repo might ship.
+            </p>
+          )
+        }
+      </section>
+
+      {
+        inTheWild.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>Seen in the wild <span class="section__count">{inTheWild.length}</span></h2>
+            </div>
+            <div class="grid">
+              {inTheWild.map((post) => (
+                <Card type="post" item={post} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        siblings.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>
+                More {theme.tone ?? ''} {theme.bundled ? 'bundled' : 'community'} themes
+              </h2>
+            </div>
+            <div class="grid">
+              {siblings.map((other) => (
+                <Card type="theme" item={other} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </div>
+
+    <aside class="detail__aside">
+      {
+        theme.palette.length > 0 && (
+          <div class="panel">
+            <span class="panel__title">Palette</span>
+            <span class="palette">
+              {theme.palette.map((hex) => (
+                <span style={`background:${hex}`} title={hex} />
+              ))}
+            </span>
+            <TagList tags={theme.palette} />
+          </div>
+        )
+      }
+
+      <div class="panel">
+        <span class="panel__title">Facts</span>
+        <dl class="facts">
+          <div>
+            <dt>Origin</dt>
+            <dd>{theme.bundled ? 'Bundled with Omarchy' : 'Community'}</dd>
+          </div>
+          {
+            theme.author && (
+              <div>
+                <dt>Author</dt>
+                <dd>{theme.author}</dd>
+              </div>
+            )
+          }
+          {
+            theme.tone && (
+              <div>
+                <dt>Tone</dt>
+                <dd>{theme.tone}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Indexed</dt>
+            <dd>{formatDate(theme.added_at)}</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          {
+            theme.repo_url && (
+              <a class="btn" href={theme.repo_url} rel="noopener nofollow">
+                Repo ↗
+              </a>
+            )
+          }
+          {
+            theme.listing_url && (
+              <a class="btn" href={theme.listing_url} rel="noopener">
+                Listing ↗
+              </a>
+            )
+          }
+        </div>
+        <SourceBadge seenOn={theme.seen_on} />
+      </div>
+
+      {
+        theme.tags.length > 0 && (
+          <div class="panel">
+            <span class="panel__title">Tags</span>
+            <TagList tags={theme.tags} linkBase="/themes/" />
+          </div>
+        )
+      }
+    </aside>
+  </div>
+</Base>

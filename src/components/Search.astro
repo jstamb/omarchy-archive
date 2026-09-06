@@ -1,0 +1,107 @@
+---
+interface Props {
+  placeholder?: string;
+  /** Rendered under the field until the first query. */
+  note?: string;
+}
+
+const {
+  placeholder = 'Search setups, themes, plugins…',
+  note = 'Full-text search across every record.',
+} = Astro.props;
+---
+
+<div class="search" data-search data-pagefind-ignore="all">
+  <label class="search__label" for="site-search" hidden>Search</label>
+  <input
+    class="search__input"
+    id="site-search"
+    type="search"
+    autocomplete="off"
+    placeholder={placeholder}
+    data-search-input
+  />
+  <p class="search__note" data-search-note>{note}</p>
+  <ol class="search__results" data-search-results></ol>
+</div>
+
+<script>
+  // Pagefind's index only exists after `pagefind --site dist`, so the bundle is
+  // loaded on first use and a missing index degrades to a note, not an error.
+  const root = document.querySelector<HTMLElement>('[data-search]');
+  const input = root?.querySelector<HTMLInputElement>('[data-search-input]');
+  const results = root?.querySelector<HTMLOListElement>('[data-search-results]');
+  const note = root?.querySelector<HTMLElement>('[data-search-note]');
+
+  if (root && input && results && note) {
+    const idleNote = note.textContent ?? '';
+    let engine: any = null;
+    let loading: Promise<any> | null = null;
+    let token = 0;
+
+    const load = () => {
+      if (loading) return loading;
+      loading = (async () => {
+        const path = '/pagefind/pagefind.js';
+        const module = await import(/* @vite-ignore */ path);
+        // noWorker is required, not an optimisation: pagefind 1.5.2's shared
+        // web worker answers `init` and then never answers `search`, so the
+        // query hangs forever. On the main thread the whole search is <100ms
+        // for an index this size.
+        await module.options({ noWorker: true });
+        await module.init();
+        return module;
+      })();
+      return loading;
+    };
+
+    const run = async (query: string) => {
+      const current = ++token;
+      if (query.trim().length < 2) {
+        results.replaceChildren();
+        note.textContent = idleNote;
+        return;
+      }
+
+      if (!engine) {
+        note.textContent = 'Loading index…';
+        try {
+          engine = await load();
+        } catch {
+          note.textContent = 'Search index is built by `npm run build` — not available in dev.';
+          return;
+        }
+        if (current !== token) return;
+      }
+
+      const search = await engine.search(query);
+      if (current !== token) return;
+
+      const top = await Promise.all(search.results.slice(0, 8).map((hit: any) => hit.data()));
+      if (current !== token) return;
+
+      results.replaceChildren(
+        ...top.map((hit: any) => {
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = hit.url;
+          link.textContent = hit.meta?.title || hit.url;
+          const excerpt = document.createElement('p');
+          excerpt.innerHTML = hit.excerpt;
+          li.append(link, excerpt);
+          return li;
+        }),
+      );
+      note.textContent = search.results.length
+        ? `${search.results.length} match${search.results.length === 1 ? '' : 'es'}`
+        : 'No matches.';
+    };
+
+    let timer = 0;
+    input.addEventListener('input', () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => void run(input.value), 150);
+    });
+    input.addEventListener('focus', () => void load().catch(() => {}));
+  }
+</script>

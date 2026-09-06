@@ -1,0 +1,139 @@
+---
+import '../styles/global.css';
+import { counts, formatDate, meta } from '../lib/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Path of this page, trailing slash, for canonical + nav highlighting. */
+  path: string;
+  /** Set false on pages that should not be in the Pagefind index. */
+  indexable?: boolean;
+  /** og:image override; defaults to the site card. */
+  image?: string;
+}
+
+const { title, description, path, indexable = true, image = '/og.png' } = Astro.props;
+
+const pageTitle = title ? `${title} — ${meta.site_name}` : `${meta.site_name} — ${meta.tagline}`;
+const pageDescription = description ?? meta.tagline;
+const canonical = new URL(path, meta.site_url).href;
+const ogImage = new URL(image, meta.site_url).href;
+
+const nav = [
+  { href: '/posts/', label: 'Feed' },
+  { href: '/setups/', label: 'Setups' },
+  { href: '/themes/', label: 'Themes' },
+  { href: '/plugins/', label: 'Plugins' },
+  { href: '/sources/', label: 'Sources' },
+  { href: '/install/', label: 'Install' },
+  { href: '/about/', label: 'About' },
+];
+
+const isCurrent = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0b0d0c" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={meta.site_name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="shell masthead__inner">
+        <a class="brand" href="/">
+          <span class="brand__mark">◆</span>
+          <span>{meta.site_name}</span>
+        </a>
+        <nav class="nav" aria-label="Sections">
+          {
+            nav.map((item) => (
+              <a
+                class="nav__link"
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+        <a class="nav__link" href={meta.repo_url} rel="noopener">GitHub</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="shell" data-pagefind-body={indexable ? '' : undefined}>
+        <slot />
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer__row">
+        <span>{meta.positioning}</span>
+        <span>
+          {counts.posts} posts · {counts.themes} themes · {counts.plugins} plugins ·{' '}
+          {counts.sources} sources
+        </span>
+        <span>Last updated {formatDate(meta.updated_at)}</span>
+        <a href={meta.repo_url} rel="noopener">Source on GitHub</a>
+        <a href="/about/">About</a>
+      </div>
+    </footer>
+
+    <script>
+      // One delegated listener for every copy button on the page.
+      document.addEventListener('click', async (event) => {
+        const button = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(
+          '[data-copy]',
+        );
+        if (!button) return;
+        const value = button.dataset.copy ?? '';
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch {
+          // Clipboard API needs a secure context; fall back to a selection copy.
+          const scratch = document.createElement('textarea');
+          scratch.value = value;
+          scratch.setAttribute('readonly', '');
+          scratch.style.position = 'fixed';
+          scratch.style.opacity = '0';
+          document.body.append(scratch);
+          scratch.select();
+          document.execCommand('copy');
+          scratch.remove();
+        }
+        const label = button.querySelector('[data-copy-label]') ?? button;
+        const original = button.dataset.copyOriginal ?? label.textContent ?? 'Copy';
+        button.dataset.copyOriginal = original;
+        label.textContent = 'Copied';
+        button.dataset.copied = 'true';
+        window.setTimeout(() => {
+          label.textContent = original;
+          delete button.dataset.copied;
+        }, 1400);
+      });
+    </script>
+  </body>
+</html>

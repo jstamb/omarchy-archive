@@ -1,0 +1,53 @@
+---
+import Card from '../../components/Card.astro';
+import Gallery from '../../components/Gallery.astro';
+import Base from '../../layouts/Base.astro';
+import { byNewest, setups, tagFacets, valueFacets } from '../../lib/content';
+
+// Setups are posts with kind "setup" — one record, one URL, no duplicate pages.
+const items = byNewest(setups);
+
+const groups = [
+  {
+    id: 'form-factor',
+    label: 'Form factor',
+    options: valueFacets(
+      items,
+      (post) => post.form_factor,
+      (value) => value.charAt(0).toUpperCase() + value.slice(1),
+    ),
+  },
+  {
+    id: 'platform',
+    label: 'Source',
+    options: valueFacets(items, (post) => post.source_platform),
+  },
+  {
+    id: 'tag',
+    label: 'Hardware',
+    options: tagFacets(items, 2),
+  },
+];
+---
+
+<Base
+  path="/setups/"
+  title="Setups"
+  description="Community Omarchy workstations: laptops, desktops, ultrawides, and revived hardware."
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Setups</h1>
+    <p class="pagehead__lede">
+      Desks running Omarchy. Every card links to the post it came from; the hardware line is
+      whatever the owner said it was.
+    </p>
+    <p class="pagehead__meta">
+      {items.length} setups · derived from posts where kind = setup
+    </p>
+  </div>
+
+  <Gallery groups={groups} total={items.length} gridClass="grid grid--wide">
+    {items.map((post, index) => <Card type="post" item={post} tagBase="/setups/" eager={index < 4} />)}
+  </Gallery>
+</Base>

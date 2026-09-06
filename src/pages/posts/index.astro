@@ -1,0 +1,47 @@
+---
+import Card from '../../components/Card.astro';
+import Gallery from '../../components/Gallery.astro';
+import Search from '../../components/Search.astro';
+import Base from '../../layouts/Base.astro';
+import { byNewest, posts, tagFacets, valueFacets } from '../../lib/content';
+
+const items = byNewest(posts);
+
+const groups = [
+  {
+    id: 'kind',
+    label: 'Kind',
+    options: valueFacets(items, (post) => post.kind),
+  },
+  {
+    id: 'platform',
+    label: 'Source',
+    options: valueFacets(items, (post) => post.source_platform),
+  },
+  {
+    id: 'tag',
+    label: 'Tags',
+    options: tagFacets(items, 2),
+  },
+];
+---
+
+<Base
+  path="/posts/"
+  title="Feed"
+  description="Every community post we index: desks, themes, plugins, guides, and ideas — newest first."
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Feed</h1>
+    <p class="pagehead__lede">
+      Everything we index from the community, newest first. Posts link straight back to the
+      original — nothing is embedded or re-hosted without saying so.
+    </p>
+    <Search note="Search the whole index." />
+  </div>
+
+  <Gallery groups={groups} total={items.length}>
+    {items.map((post, index) => <Card type="post" item={post} eager={index < 4} />)}
+  </Gallery>
+</Base>

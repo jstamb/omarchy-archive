@@ -1,0 +1,206 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Card from '../../components/Card.astro';
+import CommandBox from '../../components/CommandBox.astro';
+import SourceBadge from '../../components/SourceBadge.astro';
+import TagList from '../../components/TagList.astro';
+import Base from '../../layouts/Base.astro';
+import {
+  authorLabel,
+  byNewest,
+  formatDate,
+  hostOf,
+  pluginById,
+  posts,
+  themeById,
+  type Post,
+} from '../../lib/content';
+
+export const getStaticPaths = (() =>
+  posts.map((post) => ({ params: { id: post.id }, props: { post } }))) satisfies GetStaticPaths;
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+
+const relatedThemes = post.related_theme_ids
+  .map((id) => themeById.get(id))
+  .filter((theme) => theme !== undefined);
+const relatedPlugins = post.related_plugin_ids
+  .map((id) => pluginById.get(id))
+  .filter((plugin) => plugin !== undefined);
+
+// Same kind, sharing at least one tag — the "more like this" row.
+const nearby = byNewest(
+  posts.filter(
+    (other) =>
+      other.id !== post.id &&
+      other.kind === post.kind &&
+      other.tags.some((tag) => post.tags.includes(tag)),
+  ),
+).slice(0, 3);
+---
+
+<Base
+  path={`/posts/${post.id}/`}
+  title={post.title}
+  description={post.summary ?? `${post.kind} from the Omarchy community.`}
+  image={post.image ?? '/og.png'}
+>
+  <p class="pagehead__meta" data-pagefind-ignore="all">
+    <a href="/posts/">Feed</a> / {post.kind}
+    {post.kind === 'setup' && <> · <a href="/setups/">all setups</a></>}
+  </p>
+
+  <div class="detail">
+    <div>
+      <div class="pagehead">
+        <h1>{post.title}</h1>
+        {post.summary && <p class="pagehead__lede">{post.summary}</p>}
+      </div>
+
+      {
+        post.image && (
+          <div class="detail__hero">
+            <img src={post.image} alt={post.title} width="1200" height="675" loading="eager" />
+          </div>
+        )
+      }
+
+      {
+        relatedThemes.length > 0 && (
+          <section class="section">
+            <div class="section__head">
+              <h2>Theme in this post</h2>
+            </div>
+            {relatedThemes.map((theme) => (
+              <div class="panel">
+                <span class="panel__title">
+                  <a href={`/themes/${theme.id}/`}>{theme.name}</a>
+                  {theme.bundled ? ' · bundled' : ' · community'}
+                </span>
+                {theme.palette.length > 0 && (
+                  <span class="palette">
+                    {theme.palette.map((hex) => (
+                      <span style={`background:${hex}`} />
+                    ))}
+                  </span>
+                )}
+                <CommandBox install={theme.install} fallbackUrl={theme.listing_url} />
+              </div>
+            ))}
+          </section>
+        )
+      }
+
+      {
+        relatedPlugins.length > 0 && (
+          <section class="section">
+            <div class="section__head">
+              <h2>Plugins in this post</h2>
+            </div>
+            {relatedPlugins.map((plugin) => (
+              <div class="panel">
+                <span class="panel__title">
+                  <a href={`/plugins/${plugin.id}/`}>{plugin.name}</a>
+                </span>
+                <CommandBox install={plugin.install} fallbackUrl={plugin.listing_url} />
+                {plugin.warning && <p class="notice">{plugin.warning}</p>}
+              </div>
+            ))}
+          </section>
+        )
+      }
+
+      {
+        nearby.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>More like this</h2>
+            </div>
+            <div class="grid">
+              {nearby.map((other) => (
+                <Card type="post" item={other} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </div>
+
+    <aside class="detail__aside">
+      <div class="panel">
+        <span class="panel__title">Source</span>
+        <a class="btn btn--primary" href={post.source_url} rel="noopener nofollow" target="_blank">
+          View on {hostOf(post.source_url)} ↗
+        </a>
+        <dl class="facts">
+          {
+            post.author && (
+              <div>
+                <dt>Author</dt>
+                <dd>
+                  {post.author_url ? (
+                    <a href={post.author_url} rel="noopener nofollow">
+                      {authorLabel(post)}
+                    </a>
+                  ) : (
+                    authorLabel(post)
+                  )}
+                </dd>
+              </div>
+            )
+          }
+          {
+            post.device && (
+              <div>
+                <dt>Hardware</dt>
+                <dd>{post.device}</dd>
+              </div>
+            )
+          }
+          {
+            post.form_factor && (
+              <div>
+                <dt>Form factor</dt>
+                <dd>{post.form_factor}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Platform</dt>
+            <dd>{post.source_platform}</dd>
+          </div>
+          {
+            formatDate(post.created_at) && (
+              <div>
+                <dt>Posted</dt>
+                <dd>{formatDate(post.created_at)}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Indexed</dt>
+            <dd>{formatDate(post.added_at)}</dd>
+          </div>
+          <div>
+            <dt>Image</dt>
+            <dd>{post.image ? (post.image_hosted ? 'mirrored here' : 'hotlinked') : 'none'}</dd>
+          </div>
+        </dl>
+        <SourceBadge seenOn={post.seen_on} />
+      </div>
+
+      {
+        post.tags.length > 0 && (
+          <div class="panel">
+            <span class="panel__title">Tags</span>
+            <TagList tags={post.tags} linkBase={post.kind === 'setup' ? '/setups/' : '/posts/'} />
+          </div>
+        )
+      }
+    </aside>
+  </div>
+</Base>

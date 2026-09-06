@@ -1,0 +1,16 @@
+# Cloudflare Pages headers. Content changes on every bot commit, so HTML is
+# short-lived; images are content-addressed by record id and effectively frozen.
+/*
+  Cache-Control: public, max-age=300
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/pagefind/*
+  Cache-Control: public, max-age=3600
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

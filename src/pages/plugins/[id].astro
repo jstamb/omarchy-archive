@@ -1,0 +1,172 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Card from '../../components/Card.astro';
+import CommandBox from '../../components/CommandBox.astro';
+import SourceBadge from '../../components/SourceBadge.astro';
+import TagList from '../../components/TagList.astro';
+import Base from '../../layouts/Base.astro';
+import { formatDate, pluginSlug, plugins, postsForPlugin, type Plugin } from '../../lib/content';
+
+export const getStaticPaths = (() =>
+  plugins.map((plugin) => ({
+    params: { id: pluginSlug(plugin.id) },
+    props: { plugin },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  plugin: Plugin;
+}
+
+const { plugin } = Astro.props;
+const inTheWild = postsForPlugin(plugin.id);
+const siblings = plugins
+  .filter((other) => other.id !== plugin.id && other.category === plugin.category)
+  .slice(0, 3);
+---
+
+<Base
+  path={`/plugins/${pluginSlug(plugin.id)}/`}
+  title={plugin.name}
+  description={plugin.summary ?? `${plugin.name} — an Omarchy plugin.`}
+>
+  <p class="pagehead__meta" data-pagefind-ignore="all">
+    <a href="/plugins/">Plugins</a> / {plugin.first_party ? 'first-party' : 'third-party'}
+    {plugin.category && <> / {plugin.category}</>}
+  </p>
+
+  <div class="detail">
+    <div>
+      <div class="pagehead">
+        <h1>{plugin.name}</h1>
+        {plugin.summary && <p class="pagehead__lede">{plugin.summary}</p>}
+        <p class="pagehead__meta">{plugin.id}</p>
+      </div>
+
+      {
+        plugin.image && (
+          <div class="detail__hero">
+            <img
+              src={plugin.image}
+              alt={`${plugin.name} preview`}
+              width="1200"
+              height="675"
+              loading="eager"
+              referrerpolicy="no-referrer"
+            />
+          </div>
+        )
+      }
+
+      <section class="section">
+        <div class="section__head">
+          <h2>Install</h2>
+        </div>
+        <CommandBox
+          install={plugin.install}
+          fallbackUrl={plugin.listing_url}
+          fallbackLabel="Open the marketplace listing"
+        />
+        <p class="notice" style="margin-top:0.75rem">
+          Plugins run as unsandboxed code. This site does not verify security.
+          {plugin.warning}
+        </p>
+      </section>
+
+      {
+        inTheWild.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>Seen in the wild <span class="section__count">{inTheWild.length}</span></h2>
+            </div>
+            <div class="grid">
+              {inTheWild.map((post) => (
+                <Card type="post" item={post} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        siblings.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>More in {plugin.category ?? 'the catalog'}</h2>
+            </div>
+            <div class="grid">
+              {siblings.map((other) => (
+                <Card type="plugin" item={other} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </div>
+
+    <aside class="detail__aside">
+      <div class="panel">
+        <span class="panel__title">Facts</span>
+        <dl class="facts">
+          <div>
+            <dt>Origin</dt>
+            <dd>{plugin.first_party ? 'Ships with Omarchy' : 'Third-party'}</dd>
+          </div>
+          {
+            plugin.author && (
+              <div>
+                <dt>Author</dt>
+                <dd>{plugin.author}</dd>
+              </div>
+            )
+          }
+          {
+            plugin.kinds.length > 0 && (
+              <div>
+                <dt>Kind</dt>
+                <dd>{plugin.kinds.join(' + ')}</dd>
+              </div>
+            )
+          }
+          {
+            plugin.stars !== null && (
+              <div>
+                <dt>Stars</dt>
+                <dd>★ {plugin.stars}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Indexed</dt>
+            <dd>{formatDate(plugin.added_at)}</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          {
+            plugin.repo_url && (
+              <a class="btn" href={plugin.repo_url} rel="noopener nofollow">
+                Repo ↗
+              </a>
+            )
+          }
+          {
+            plugin.listing_url && (
+              <a class="btn" href={plugin.listing_url} rel="noopener">
+                Marketplace ↗
+              </a>
+            )
+          }
+        </div>
+        <SourceBadge seenOn={plugin.seen_on} />
+      </div>
+
+      {
+        plugin.tags.length > 0 && (
+          <div class="panel">
+            <span class="panel__title">Tags</span>
+            <TagList tags={plugin.tags} linkBase="/plugins/" />
+          </div>
+        )
+      }
+    </aside>
+  </div>
+</Base>

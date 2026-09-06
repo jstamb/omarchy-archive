@@ -1,0 +1,11 @@
+# Cloudflare Pages, static output. There are no Functions and no secrets, so
+# this file only pins the project name and the build output directory.
+#
+# Note: because this file exists, Cloudflare manages plaintext variables from a
+# [vars] block here rather than the dashboard. Do not put credentials in it —
+# it is committed. If the site ever needs a runtime secret, add it as an
+# encrypted Secret in Pages → Settings → Variables and Secrets, and read it from
+# `locals.runtime.env` in a Function.
+name = "omarchy-inspo"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "./dist"

@@ -1,0 +1,36 @@
+---
+interface Props {
+  tags: string[];
+  /** Gallery page these tags filter on; makes each tag a deep link. */
+  linkBase?: string;
+  limit?: number;
+  class?: string;
+}
+
+const { tags, linkBase, limit, class: className } = Astro.props;
+const shown = limit ? tags.slice(0, limit) : tags;
+const hidden = limit ? Math.max(0, tags.length - limit) : 0;
+---
+
+{
+  shown.length > 0 && (
+    <ul class:list={['tags', className]}>
+      {shown.map((tag) => (
+        <li>
+          {linkBase ? (
+            <a class="tag" href={`${linkBase}?tag=${encodeURIComponent(tag)}`}>
+              {tag}
+            </a>
+          ) : (
+            <span class="tag">{tag}</span>
+          )}
+        </li>
+      ))}
+      {hidden > 0 && (
+        <li>
+          <span class="tag">+{hidden}</span>
+        </li>
+      )}
+    </ul>
+  )
+}

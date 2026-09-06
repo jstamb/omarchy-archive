@@ -1,0 +1,60 @@
+---
+import { installLabels, installMenuPaths, type Install } from '../lib/content';
+
+interface Props {
+  install: Install;
+  /** Overrides the label derived from install.type. */
+  label?: string;
+  /** Where to go in the Omarchy menu instead of typing the command. */
+  menuPath?: string | null;
+  /** Fallback link when there is no command (a listing page, usually). */
+  fallbackUrl?: string | null;
+  fallbackLabel?: string;
+}
+
+const { install, label, menuPath, fallbackUrl, fallbackLabel = 'Open the listing' } = Astro.props;
+
+const heading = label ?? installLabels[install.type] ?? 'Install';
+const path = menuPath === undefined ? installMenuPaths[install.type] : menuPath;
+const hint = install.hint ?? null;
+---
+
+<div class:list={['command', !install.command && 'command--unknown']} data-pagefind-ignore="all">
+  <div class="command__label">
+    <span>{heading}</span>
+    {install.command && <span>{install.type}</span>}
+  </div>
+
+  {
+    install.command ? (
+      <div class="command__body">
+        <pre><code>{install.command}</code></pre>
+        <button class="command__copy" type="button" data-copy={install.command}>
+          <span data-copy-label>Copy</span>
+        </button>
+      </div>
+    ) : (
+      <div class="command__body">
+        <pre><code>{hint ?? 'No copy-paste command — use the menu or the listing.'}</code></pre>
+      </div>
+    )
+  }
+
+  {
+    (path || (hint && install.command) || (!install.command && fallbackUrl)) && (
+      <p class="command__hint">
+        {path && <span>Menu: {path}</span>}
+        {path && hint && install.command && <span> · </span>}
+        {hint && install.command && <span>{hint}</span>}
+        {!install.command && fallbackUrl && (
+          <>
+            {path && <span> · </span>}
+            <a href={fallbackUrl} rel="noopener">
+              {fallbackLabel}
+            </a>
+          </>
+        )}
+      </p>
+    )
+  }
+</div>
