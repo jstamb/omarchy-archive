@@ -15,7 +15,7 @@ directories do not collect.
 ## Quick start
 
 ```bash
-git clone https://github.com/omarchyinspo/omarchy-inspo
+git clone https://github.com/jstamb/omarchy-inspo
 cd omarchy-inspo
 npm install
 npm run dev          # http://localhost:4321

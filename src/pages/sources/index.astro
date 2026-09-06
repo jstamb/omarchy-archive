@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { counts, hostOf, posts, plugins, sources, themes } from '../../lib/content';
+import { counts, hostOf, meta, posts, plugins, sources, themes } from '../../lib/content';
 
 const official = sources.filter((source) => source.official);
 const community = sources.filter((source) => !source.official);
@@ -107,8 +107,7 @@ const ingestLabel: Record<string, string> = {
       <h2>Missing one?</h2>
     </div>
     <p class="pagehead__lede">
-      Open an issue on <a href="https://github.com/omarchyinspo/omarchy-inspo" rel="noopener">
-        the repo</a
+      Open an issue on <a href={meta.repo_url} rel="noopener">the repo</a
       >. Sources are a hand-curated file — <code>data/sources.json</code> — so adding one is a
       three-line diff.
     </p>
