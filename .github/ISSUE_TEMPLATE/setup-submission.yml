@@ -1,0 +1,80 @@
+name: Submit your setup
+description: Get your Omarchy desk into the archive. No git required.
+title: 'setup: '
+labels: ['setup submission']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sending your desk in.
+
+        Everything here except the link is optional — the link alone is enough,
+        the rest just makes the card better. Your setup is credited to you and
+        links back to your original post.
+
+  - type: input
+    id: source_url
+    attributes:
+      label: Link to your post
+      description: >
+        X, Reddit, Mastodon, YouTube, a blog — wherever you posted it. The
+        archive links back here; it never re-hosts a post.
+      placeholder: https://x.com/yourhandle/status/1234567890
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Hardware
+      description: Whatever you'd tell someone who asked what they're looking at.
+      placeholder: Framework 13 (AMD Ryzen AI 9 HX 370) + 34" ultrawide
+    validations:
+      required: false
+
+  - type: dropdown
+    id: form_factor
+    attributes:
+      label: Form factor
+      options:
+        - desktop
+        - laptop
+        - tablet
+        - handheld
+        - server
+    validations:
+      required: false
+
+  - type: input
+    id: theme
+    attributes:
+      label: Which theme are you running?
+      description: >
+        This is the useful one. Naming the theme puts your photo on that
+        theme's page next to the command that reproduces it. Bundled slug
+        (`osaka-jade`) or a link to the theme repo.
+      placeholder: osaka-jade
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: >
+        Plugins you're running, a one-line description, or a screenshot dragged
+        straight into this box if your post doesn't have a good one.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Before you send
+      options:
+        - label: This is my setup, and the screenshot is mine to share.
+          required: true
+        - label: >
+            I understand the record can be removed at any time by asking — just
+            open an issue.
+          required: true

@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Take my setup down
+    url: https://github.com/jstamb/omarchy-archive/issues/new?title=takedown%3A%20&body=Link%20to%20the%20record%20or%20the%20original%20post%3A
+    about: Open a blank issue with the link. It comes down, no argument.
+  - name: Add a site to the sources directory
+    url: https://github.com/jstamb/omarchy-archive/issues/new?title=source%3A%20&body=Site%20name%3A%0AURL%3A%0AWhat%20it%20collects%3A
+    about: Another Omarchy gallery, list, or resource worth indexing.
+  - name: Browse the archive
+    url: https://omarchyarchive.com
+    about: The site itself.

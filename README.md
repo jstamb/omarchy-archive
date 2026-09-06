@@ -106,147 +106,72 @@ contains shell metacharacters.
   curated cut, on purpose.
 - **No accounts, comments, ratings, or tracking.** There is no server.
 
-## Get your setup in
+## Get your setup on the site
 
-Two ways, both a pull request:
+This repo is public for exactly one reason: **so you can put your desk in the
+archive.** Pull requests are read and merged by hand.
 
-1. **Open an issue** with a link to your post — that's enough.
-2. **Add the record yourself.** One JSON object in `data/posts.json`, one WebP
-   in `public/images/posts/`. Run `node bot/validate.mjs` and open a PR.
+### The easy way
+
+**[Open a setup submission →](https://github.com/jstamb/omarchy-archive/issues/new?template=setup-submission.yml)**
+
+Paste a link to your post, answer four short questions, done. No git, no JSON.
+
+### The direct way
+
+Add the record yourself and open a pull request. You do **not** need to run the
+site — CI validates every PR and tells you if something is off.
+
+1. Add one object to [`data/posts.json`](data/posts.json).
+2. Add your screenshot to `public/images/posts/` as `<id>.webp` — WebP, max
+   1200px on the long edge, under 400KB.
+3. Open the PR.
 
 ```jsonc
 {
-  "id": "framework-13-osaka-jade",
+  "id": "framework-13-osaka-jade",        // kebab-case, unique, permanent
   "kind": "setup",
   "title": "Framework 13, Osaka Jade, single ultrawide",
   "summary": "Clean desk, Osaka Jade, btop + nvim tiled.",
-  "author": "somehandle",
-  "source_platform": "x",
+  "author": "somehandle",                 // your handle, no @
+  "author_url": "https://x.com/somehandle",
+  "source_platform": "x",                 // x | reddit | github | youtube | mastodon | web
   "source_url": "https://x.com/somehandle/status/123",
   "image": "/images/posts/framework-13-osaka-jade.webp",
   "image_hosted": true,
   "device": "Framework 13",
-  "form_factor": "laptop",
+  "form_factor": "laptop",                // desktop | laptop | tablet | handheld | server
   "tags": ["framework-13", "laptop", "ultrawide"],
-  "related_theme_ids": ["osaka-jade"],
+  "related_theme_ids": ["osaka-jade"],    // <- the good part
   "related_plugin_ids": [],
+  "created_at": null,
   "added_at": "2026-09-06",
   "featured": false
 }
 ```
 
-That `related_theme_ids` is the whole point: it turns a photo into a theme page
-with a copy-paste command.
+**`related_theme_ids` is the whole point.** Naming the theme you're running
+turns your photo into a link on that theme's page, right next to the one
+command that reproduces it. That is what this archive does that a gallery
+doesn't — so if you know what you're running, say so.
 
----
+Full field reference: [`bot/schema.json`](bot/schema.json).
 
-<div align="center">
+### What gets merged
 
-## For developers
+- It runs Omarchy, and the screenshot is yours to share.
+- There's a real link back to the original post.
+- CI is green — no duplicate id, no missing field, image present and under the
+  size cap.
 
-</div>
+### What doesn't
 
-Humans ship the site. A bot ships the content. Content is files in git.
+- Someone else's photo without credit.
+- An install command written from memory. Commands are copied from the official
+  CLI or the marketplace catalog, or they stay `null`.
+- Anything that needs an account, a tracker, or a server to work.
 
-```bash
-git clone https://github.com/jstamb/omarchy-archive
-cd omarchy-archive
-npm install
-npm run dev          # http://localhost:4321
-```
-
-```bash
-npm run build        # validate -> astro build -> pagefind
-npm test             # the validator's rejection gates
-npm run check        # astro check
-```
-
-Search only works after a build — Pagefind indexes `dist/`. In dev the field
-says so instead of spinning.
-
-### How it works
-
-```
-data/*.json ──▶ src/lib/content.ts ──▶ pages ──▶ dist/ ──▶ Cloudflare Pages
-     ▲                                             │
-     └── bot/ingest-sources.mjs                    └── pagefind --site dist
-```
-
-- **Static.** No server, no database, no auth, no SSR. 103 pages build in under
-  a second.
-- **`npm run build` validates first.** `bot/validate.mjs` fails the build on a
-  duplicate id, a missing field, a bogus install command, or a hosted image
-  that isn't on disk. A broken bot commit never reaches the site.
-- **Filters are server-rendered.** Every card ships in the HTML;
-  `src/scripts/gallery.ts` hides, sorts, and syncs the URL. No framework.
-- **One record, one URL.** A setup is a post with `kind: "setup"`, so `/setups/`
-  is a filtered view — there's nothing to keep in sync.
-
-### Layout
-
-```
-data/                 the content — meta, sources, posts, themes, plugins, apps
-public/images/        committed WebP, {kind}/{id}.webp
-public/fonts/         JetBrains Mono (OFL) + Omarchy Font (MIT, Mark Cuda)
-public/brand/         the Omarchy mark and wordmark, as vector
-src/lib/content.ts    the only module that reads data/; types + derived views
-src/components/       Card, Gallery, FilterBar, CommandBox, TagList, Search
-src/pages/            index, posts, setups, themes, plugins, sources, install, about
-bot/                  ingest, validate, schema, tests   (see bot/README.md)
-scripts/              brand marks, ASCII art, linux lockfile
-AGENTS.md             the content bot's operating contract
-```
-
-### Design
-
-The visual language is lifted from omarchy.org's own tokens, not approximated:
-
-- **Tokyo Night**, the exact values omarchy.org publishes in `root.css`
-- **JetBrains Mono** for everything, the same face it sets on `body`
-- Uppercase solid buttons, `0.4em` radius, and the same easing curve
-- **Omarchy Font** for the logo and `h2` only — a logo cut, not a text face
-
-Every text colour clears **WCAG AA against both surfaces**, page and card.
-The lowest tier is 6.00:1; the previous palette's faint grey was 2.61:1 on a
-card, which is legible in a screenshot and not on a monitor.
-
-Brand marks are baked to outlines so nothing depends on a font being installed
-wherever the images get rendered:
-
-```bash
-node scripts/make-mark.mjs            # -> public/brand/omarchy-mark.svg
-python3 scripts/extract-wordmark.py   # -> public/brand/wordmark.svg, public/favicon.svg
-npm run og                            # -> public/og.png, public/apple-touch-icon.png
-node scripts/make-ascii.mjs           # -> the banner at the top of this file
-```
-
-### Adding content
-
-```bash
-node bot/ingest-sources.mjs setups --limit 10
-node bot/validate.mjs
-git add data public/images && git commit -m "content: ingest setups" && git push
-```
-
-`bot/commit-example.sh` is the whole run. `AGENTS.md` is the contract the bot
-follows — scope, allowed sources, the command table, image rules, and the
-claims it may not make.
-
-### Deploying
-
-| Setting | Value |
-|---|---|
-| Framework preset | Astro |
-| Build command | `npm run build` |
-| Output directory | `dist` |
-| Production branch | `main` |
-| Node version | 20+ |
-
-Static output means no adapter and no Functions — Pages serves `dist/`
-directly. Deployment triggers on **push**, not on commit. The lockfile is
-regenerated and `npm ci`-verified on linux/amd64 via
-`scripts/fix-lockfile-linux.sh`, because `sharp` records host-specific optional
-deps and a passing `npm ci` on macOS proves nothing about Cloudflare.
+Changed your mind later? Open an issue and your setup comes down. No argument.
 
 ## Credit
 

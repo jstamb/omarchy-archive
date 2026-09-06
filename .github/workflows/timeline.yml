@@ -1,0 +1,90 @@
+name: Refresh timeline
+
+# Rebuilds data/timeline.json from the Omarchy repo's releases and commits the
+# result straight to main, which is what triggers the Cloudflare Pages build.
+#
+# Why an Action and not a Worker: the output is static content, so there is
+# nothing to serve at runtime. This way the timeline is an ordinary reviewable
+# commit in git — same pipeline as every other record — with no extra service,
+# no external state, and no credentials beyond the token Actions already gives.
+on:
+  schedule:
+    # 06:20 UTC daily. Off the hour so it isn't queued behind the world's cron.
+    - cron: '20 6 * * *'
+  workflow_dispatch:
+
+# Only the commit needs write. Nothing here touches issues or PRs.
+permissions:
+  contents: write
+
+# A manual run during a scheduled one would race on the same file.
+concurrency:
+  group: timeline
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch releases and re-tier
+        env:
+          # Lifts the GitHub API rate limit from 60/hr to 5000/hr.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node bot/ingest-timeline.mjs
+
+      # The gate. Nobody reads this diff before it deploys, so if the GitHub API
+      # shape changes and the parse degrades — no nodes, wrong order, a bogus
+      # contributor URL — the run fails here and main is left alone.
+      - name: Validate
+        run: node bot/validate.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit if the history moved
+        run: |
+          set -euo pipefail
+          git config user.name  "omarchy-archive-bot"
+          git config user.email "bot@omarchyarchive.com"
+
+          # Stage first, then compare against the index. `git diff` alone
+          # reports nothing for an untracked file, so if timeline.json were ever
+          # missing from the repo this step would silently skip forever.
+          git add data/timeline.json
+
+          # meta.json's updated_at changes on every run; on its own that is not
+          # a reason to deploy. Only commit when the timeline itself moved.
+          if git diff --cached --quiet -- data/timeline.json; then
+            echo "No release changes." >> "$GITHUB_STEP_SUMMARY"
+            git restore --staged data/timeline.json 2>/dev/null || true
+            git checkout -- data/meta.json 2>/dev/null || true
+            exit 0
+          fi
+
+          NODES=$(node -e "const t=require('./data/timeline.json');console.log(t.filter(r=>r.tier==='node').length)")
+          TOTAL=$(node -e "console.log(require('./data/timeline.json').length)")
+          LATEST=$(node -e "console.log(require('./data/timeline.json')[0].version)")
+
+          git add data/meta.json
+          git commit -m "content: refresh Omarchy release timeline
+
+          ${TOTAL} releases, ${NODES} milestones, newest v${LATEST}."
+          git push
+
+          {
+            echo "### Timeline updated"
+            echo ""
+            echo "- newest release: **v${LATEST}**"
+            echo "- ${TOTAL} releases, ${NODES} milestones"
+            echo ""
+            echo "Pushed to main; Cloudflare Pages is rebuilding."
+          } >> "$GITHUB_STEP_SUMMARY"

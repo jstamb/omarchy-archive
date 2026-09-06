@@ -1,0 +1,54 @@
+name: Validate
+
+# Every pull request runs the same gate the deploy runs, so a submission can be
+# merged on the strength of a green check rather than a local checkout.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` on linux/amd64 — the same thing Cloudflare Pages does, so a
+      # lockfile that only works on the author's machine fails here first.
+      - run: npm ci
+
+      # Records first. This is the check that matters for a setup submission,
+      # and its output names the offending field.
+      - name: Validate records
+        run: node bot/validate.mjs
+
+      - name: Validator gates still hold
+        run: npm test
+
+      - name: Typecheck
+        run: npx astro check
+
+      - name: Build
+        run: npm run build
+
+      - name: Report
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "### Validation passed" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Records are valid and the site builds. Safe to merge." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Validation failed" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Open the failing step above — the message names the field and the reason." >> "$GITHUB_STEP_SUMMARY"
+            echo "Nothing is wrong with your account or your setup; it is a data fix." >> "$GITHUB_STEP_SUMMARY"
+          fi

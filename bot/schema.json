@@ -189,5 +189,50 @@
         "added_at": { "$ref": "#/$defs/isoDate" }
       }
     }
+  },
+
+  "timeline": {
+    "type": "array",
+    "description": "Omarchy's release history, written by bot/ingest-timeline.mjs from the repo's own releases. Newest first. Never hand-edited — the scheduled Action overwrites it.",
+    "items": {
+      "type": "object",
+      "required": ["id", "version", "date", "tier", "release_url"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^v\\d+\\.\\d+\\.\\d+" },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+" },
+        "major": { "type": "integer" },
+        "date": { "$ref": "#/$defs/isoDate" },
+        "published_at": { "type": "string" },
+        "tier": {
+          "enum": ["node", "tick"],
+          "description": "node = a release worth stopping at, rendered in full. tick = a mark on the line between nodes."
+        },
+        "score": { "type": "integer" },
+        "headline": {
+          "type": ["string", "null"],
+          "description": "The release's own editorial name — \"The Quattro Release\". Null when the notes only carry a version number."
+        },
+        "summary": { "type": ["string", "null"] },
+        "highlights": { "type": "array", "items": { "type": "string" } },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["handle"],
+            "additionalProperties": false,
+            "properties": {
+              "handle": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,38}$" },
+              "first_time": {
+                "type": "boolean",
+                "description": "GitHub's own \"made their first contribution\" line — the release someone joined."
+              },
+              "pull_request": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "release_url": { "$ref": "#/$defs/url" },
+        "notes_chars": { "type": "integer" }
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@ import pluginsJson from '../../data/plugins.json';
 import postsJson from '../../data/posts.json';
 import sourcesJson from '../../data/sources.json';
 import themesJson from '../../data/themes.json';
+import timelineJson from '../../data/timeline.json';
 
 export type InstallType =
   | 'theme-set'
@@ -113,12 +114,37 @@ export interface App {
   added_at?: string;
 }
 
+export interface Contributor {
+  handle: string;
+  /** GitHub's own "made their first contribution" line — the release they joined. */
+  first_time?: boolean;
+  pull_request?: string | null;
+}
+
+export interface Release {
+  id: string;
+  version: string;
+  major: number;
+  date: string;
+  published_at: string;
+  /** node = worth stopping at, rendered in full. tick = a mark on the line. */
+  tier: 'node' | 'tick';
+  score: number;
+  headline: string | null;
+  summary: string | null;
+  highlights: string[];
+  contributors: Contributor[];
+  release_url: string;
+  notes_chars: number;
+}
+
 export const meta = metaJson as Meta;
 export const sources = sourcesJson as Source[];
 export const posts = postsJson as Post[];
 export const themes = themesJson as Theme[];
 export const plugins = pluginsJson as Plugin[];
 export const apps = appsJson as App[];
+export const timeline = timelineJson as Release[];
 
 export const sourceById = new Map(sources.map((source) => [source.id, source]));
 export const themeById = new Map(themes.map((theme) => [theme.id, theme]));
@@ -169,6 +195,52 @@ const HANDLE_PLATFORMS: Record<string, true> = {
 export function authorLabel(post: Pick<Post, 'author' | 'source_platform'>) {
   if (!post.author) return null;
   return HANDLE_PLATFORMS[post.source_platform] ? `@${post.author}` : post.author;
+}
+
+/**
+ * The timeline as the history page draws it: each node, followed by the ticks
+ * released between it and the next node down. Input is newest first and stays
+ * that way — the page never re-sorts.
+ */
+export function releaseGroups() {
+  const groups: { node: Release; ticks: Release[] }[] = [];
+  let pending: Release[] = [];
+
+  for (const release of timeline) {
+    if (release.tier === 'node') {
+      groups.push({ node: release, ticks: pending });
+      pending = [];
+    } else {
+      pending.push(release);
+    }
+  }
+  // Anything older than the last node has no node to hang from; the oldest
+  // group absorbs it so no release is silently dropped from the page.
+  if (pending.length > 0 && groups.length > 0) {
+    groups[groups.length - 1].ticks.push(...pending);
+  }
+  return groups;
+}
+
+/** Everyone credited across the whole history, most-credited first. */
+export function topContributors(limit = 24) {
+  const counts = new Map<string, { handle: string; releases: number; firstTime: boolean }>();
+  for (const release of timeline) {
+    for (const person of release.contributors) {
+      const existing = counts.get(person.handle.toLowerCase());
+      if (existing) existing.releases++;
+      else {
+        counts.set(person.handle.toLowerCase(), {
+          handle: person.handle,
+          releases: 1,
+          firstTime: Boolean(person.first_time),
+        });
+      }
+    }
+  }
+  return [...counts.values()]
+    .sort((a, b) => b.releases - a.releases || a.handle.localeCompare(b.handle))
+    .slice(0, limit);
 }
 
 /** Tag counts, most used first — the chip row on every gallery page. */
@@ -224,6 +296,8 @@ export const counts = {
   plugins: plugins.length,
   sources: sources.length,
   apps: apps.length,
+  releases: timeline.length,
+  milestones: timeline.filter((release) => release.tier === 'node').length,
 };
 
 /** Human label for an install command, shown above the copy box. */

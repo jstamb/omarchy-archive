@@ -1,0 +1,194 @@
+---
+import Base from '../../layouts/Base.astro';
+import {
+  counts,
+  formatDate,
+  releaseGroups,
+  themeById,
+  timeline,
+  topContributors,
+} from '../../lib/content';
+
+const groups = releaseGroups();
+const contributors = topContributors(28);
+
+const first = timeline[timeline.length - 1];
+const latest = timeline[0];
+const everyone = new Set(timeline.flatMap((r) => r.contributors.map((c) => c.handle.toLowerCase())));
+
+// A node earns a link into the catalogue when the archive holds a theme that
+// shipped in that release. Bundled themes carry no version, so this matches on
+// name appearing in the notes — deliberately conservative: a miss costs a link,
+// a false positive costs trust.
+const bundled = [...themeById.values()].filter((theme) => theme.bundled);
+function themesNamedIn(text: string | null) {
+  if (!text) return [];
+  const haystack = text.toLowerCase();
+  return bundled.filter((theme) => haystack.includes(theme.name.toLowerCase())).slice(0, 4);
+}
+---
+
+<Base
+  path="/history/"
+  title="History"
+  description={`Every Omarchy release from ${first?.version} to ${latest?.version} — ${counts.milestones} milestones, ${counts.releases} releases, and the people who shipped them.`}
+>
+  <div class="pagehead">
+    <h1>History</h1>
+    <p class="pagehead__lede">
+      Every Omarchy release, newest first. The big ones get a stop on the line;
+      the rest are ticks between them. Built from the project's own release
+      notes — nothing here is editorialised by this site.
+    </p>
+    <p class="pagehead__meta">
+      {counts.releases} releases · {counts.milestones} milestones · {everyone.size} people credited
+      · {formatDate(first?.date)} → {formatDate(latest?.date)}
+    </p>
+  </div>
+
+  <ol class="timeline" data-timeline>
+    {
+      groups.map(({ node, ticks }) => {
+        const firstTimers = node.contributors.filter((person) => person.first_time);
+        const others = node.contributors.filter((person) => !person.first_time);
+        const related = themesNamedIn(`${node.headline ?? ''} ${node.summary ?? ''} ${node.highlights.join(' ')}`);
+        return (
+          <li class="tl" data-tl-node>
+            <div class="tl__rail" aria-hidden="true">
+              <span class="tl__dot" />
+            </div>
+
+            <article class="tl__body">
+              <header class="tl__head">
+                <a class="tl__version" href={node.release_url} rel="noopener">
+                  {node.version}
+                </a>
+                <time class="tl__date" datetime={node.date}>{formatDate(node.date)}</time>
+              </header>
+
+              {node.headline && <h2 class="tl__headline">{node.headline}</h2>}
+              {node.summary && <p class="tl__summary">{node.summary}</p>}
+
+              {
+                node.highlights.length > 0 && (
+                  <ul class="tl__highlights">
+                    {node.highlights.map((line) => (
+                      <li>{line}</li>
+                    ))}
+                  </ul>
+                )
+              }
+
+              {
+                related.length > 0 && (
+                  <p class="tl__related">
+                    In the archive:{' '}
+                    {related.map((theme, index) => (
+                      <>
+                        {index > 0 && ' · '}
+                        <a href={`/themes/${theme.id}/`}>{theme.name}</a>
+                      </>
+                    ))}
+                  </p>
+                )
+              }
+
+              {
+                node.contributors.length > 0 && (
+                  <div class="tl__people">
+                    <span class="tl__people-label">
+                      {node.contributors.length} credited
+                      {firstTimers.length > 0 && ` · ${firstTimers.length} first-time`}
+                    </span>
+                    <ul class="tl__handles">
+                      {firstTimers.slice(0, 18).map((person) => (
+                        <li>
+                          <a
+                            class="handle handle--new"
+                            href={person.pull_request ?? `https://github.com/${person.handle}`}
+                            rel="noopener nofollow"
+                            title={`@${person.handle} — first contribution`}
+                          >
+                            @{person.handle}
+                          </a>
+                        </li>
+                      ))}
+                      {others.slice(0, 12).map((person) => (
+                        <li>
+                          <a
+                            class="handle"
+                            href={`https://github.com/${person.handle}`}
+                            rel="noopener nofollow"
+                          >
+                            @{person.handle}
+                          </a>
+                        </li>
+                      ))}
+                      {node.contributors.length > 30 && (
+                        <li>
+                          <a class="handle" href={node.release_url} rel="noopener">
+                            +{node.contributors.length - 30} more
+                          </a>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                )
+              }
+            </article>
+
+            {
+              ticks.length > 0 && (
+                <details class="tl__ticks">
+                  <summary>
+                    <span class="tl__ticks-count">{ticks.length}</span>
+                    {ticks.length === 1 ? 'release' : 'releases'} before this
+                    <span class="tl__ticks-range">
+                      {ticks[ticks.length - 1].version} – {ticks[0].version}
+                    </span>
+                  </summary>
+                  <ul class="tl__tick-list">
+                    {ticks.map((tick) => (
+                      <li>
+                        <a href={tick.release_url} rel="noopener">{tick.version}</a>
+                        <time datetime={tick.date}>{formatDate(tick.date)}</time>
+                        <span>{tick.headline ?? tick.summary ?? ''}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )
+            }
+          </li>
+        );
+      })
+    }
+  </ol>
+
+  <section class="section" data-pagefind-ignore="all">
+    <div class="section__head">
+      <h2>Most credited <span class="section__count">across {counts.releases} releases</span></h2>
+    </div>
+    <ul class="tl__handles tl__handles--wide">
+      {
+        contributors.map((person) => (
+          <li>
+            <a class="handle" href={`https://github.com/${person.handle}`} rel="noopener nofollow">
+              @{person.handle}
+              <span class="handle__count">{person.releases}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="pagehead__meta" style="margin-top:1rem">
+      Parsed from the release notes in the
+      <a href="https://github.com/basecamp/omarchy/releases" rel="noopener">Omarchy repository</a>.
+      Refreshed daily; last checked {formatDate(latest?.date)}.
+    </p>
+  </section>
+</Base>
+
+<script>
+  import '../../scripts/timeline';
+</script>

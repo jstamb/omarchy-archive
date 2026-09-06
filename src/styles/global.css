@@ -1060,6 +1060,259 @@ a.tag:hover {
   margin: 0;
 }
 
+/* ------------------------------------------------------------------ timeline */
+
+/*
+ * The history page. A single spine runs down the left; nodes hang off it and
+ * the ticks between them collapse into a <details>. The spine is two stacked
+ * gradients: a dim full-height track, and a bright one clipped to
+ * --tl-progress, which the scroll observer raises as nodes are revealed.
+ */
+.timeline {
+  --tl-rail: 1.6rem;
+  --tl-progress: 0%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: grid;
+  gap: 3rem;
+}
+.timeline::before,
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--tl-rail) / 2 - 1px);
+  top: 0.4rem;
+  width: 2px;
+  border-radius: 2px;
+}
+.timeline::before {
+  bottom: 0.4rem;
+  background: var(--line-soft);
+}
+.timeline::after {
+  height: var(--tl-progress);
+  background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 25%, transparent));
+  transition: height 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.tl {
+  display: grid;
+  grid-template-columns: var(--tl-rail) minmax(0, 1fr);
+  column-gap: 1.25rem;
+  row-gap: 0.85rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.tl[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.tl__rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.35rem;
+}
+.tl__dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 5px var(--bg);
+  transform: scale(0.4);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s,
+    background 0.45s var(--transition);
+}
+.tl[data-revealed='true'] .tl__dot {
+  transform: scale(1);
+  background: var(--accent);
+}
+
+.tl__body {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+  min-width: 0;
+}
+.tl__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+.tl__version {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  text-decoration: none;
+  line-height: 1;
+}
+.tl__version:hover {
+  color: var(--highlight);
+}
+.tl__date {
+  color: var(--ink-meta);
+  font-size: 0.9rem;
+}
+.tl__headline {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+.tl__summary {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  max-width: 74ch;
+}
+.tl__highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+  max-width: 78ch;
+}
+.tl__highlights li {
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  padding-left: 1.4rem;
+  position: relative;
+}
+.tl__highlights li::before {
+  content: '+';
+  position: absolute;
+  left: 0.25rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.tl__related {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-meta);
+}
+
+.tl__people {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+.tl__people-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-meta);
+}
+.tl__handles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tl__handles--wide {
+  gap: 0.45rem;
+}
+.handle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+  background: var(--bg-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.handle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+/* The release someone joined the project. Worth more than a grey chip. */
+.handle--new {
+  color: var(--accent);
+  background: var(--accent-sunken);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.handle--new:hover {
+  color: var(--highlight);
+  border-color: var(--highlight);
+}
+.handle__count {
+  color: var(--ink-meta);
+  font-size: 0.75rem;
+}
+
+.tl__ticks {
+  grid-column: 2;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+.tl__ticks summary {
+  cursor: pointer;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.88rem;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.tl__ticks summary:hover {
+  color: var(--ink);
+}
+.tl__ticks-count {
+  color: var(--accent);
+  font-weight: 700;
+}
+.tl__ticks-range {
+  color: var(--ink-meta);
+  font-size: 0.82rem;
+  margin-left: auto;
+}
+.tl__tick-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.8rem 0.7rem;
+  display: grid;
+  gap: 0.3rem;
+}
+.tl__tick-list li {
+  display: grid;
+  grid-template-columns: 5rem 8rem minmax(0, 1fr);
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--ink-meta);
+  border-top: 1px solid var(--line-soft);
+  padding-top: 0.3rem;
+  align-items: baseline;
+}
+.tl__tick-list a {
+  font-weight: 700;
+  text-decoration: none;
+}
+.tl__tick-list span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* --------------------------------------------------------------------- small */
 
 @media (max-width: 700px) {
@@ -1098,6 +1351,29 @@ a.tag:hover {
   }
   .filters__label {
     min-width: 100%;
+  }
+  .timeline {
+    --tl-rail: 1.1rem;
+    gap: 2.25rem;
+  }
+  .tl {
+    column-gap: 0.8rem;
+  }
+  .tl__version {
+    font-size: 1.45rem;
+  }
+  /* Three columns of release metadata do not fit; stack version+date over the
+     description instead of truncating everything to nothing. */
+  .tl__tick-list li {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+  .tl__tick-list li span {
+    grid-column: 1 / -1;
+    white-space: normal;
+  }
+  .tl__ticks-range {
+    margin-left: 0;
+    width: 100%;
   }
 }
 

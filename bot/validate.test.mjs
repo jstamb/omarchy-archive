@@ -11,7 +11,7 @@ import { after, describe, it } from 'node:test';
 import { DATA_DIR, ROOT } from './lib/util.mjs';
 
 const VALIDATOR = join(ROOT, 'bot', 'validate.mjs');
-const FILES = ['meta', 'sources', 'posts', 'themes', 'plugins', 'apps'];
+const FILES = ['meta', 'sources', 'posts', 'themes', 'plugins', 'apps', 'timeline'];
 
 const real = Object.fromEntries(
   FILES.map((name) => [name, JSON.parse(readFileSync(join(DATA_DIR, `${name}.json`), 'utf8'))]),
@@ -171,5 +171,76 @@ describe('validate.mjs', () => {
     });
     assert.equal(code, 0, out);
     assert.match(out, /no featured posts/);
+  });
+
+  // The timeline is written by a scheduled Action that commits to main with
+  // nobody reading the diff, so these gates are the only review it gets.
+
+  it('rejects an empty timeline', () => {
+    const { code, out } = run((data) => {
+      data.timeline = [];
+    });
+    assert.equal(code, 1);
+    assert.match(out, /is empty/);
+  });
+
+  it('rejects a timeline where nothing scored as a node', () => {
+    const { code, out } = run((data) => {
+      for (const entry of data.timeline) entry.tier = 'tick';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /has no nodes/);
+  });
+
+  it('rejects a timeline where the tiering stopped discriminating', () => {
+    const { code, out } = run((data) => {
+      for (const entry of data.timeline) entry.tier = 'node';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /not discriminating/);
+  });
+
+  it('rejects a timeline that is not newest first', () => {
+    const { code, out } = run((data) => {
+      data.timeline.reverse();
+    });
+    assert.equal(code, 1);
+    assert.match(out, /out of order/);
+  });
+
+  it('rejects an unknown tier', () => {
+    const { code, out } = run((data) => {
+      data.timeline[0].tier = 'milestone';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /is not one of/);
+  });
+
+  it('rejects a node with nothing to render', () => {
+    const { code, out } = run((data) => {
+      const node = data.timeline.find((entry) => entry.tier === 'node');
+      node.headline = null;
+      node.summary = null;
+    });
+    assert.equal(code, 1);
+    assert.match(out, /neither a headline nor a summary/);
+  });
+
+  it('rejects a malformed contributor pull request URL', () => {
+    const { code, out } = run((data) => {
+      const node = data.timeline.find((e) => e.contributors?.length);
+      node.contributors[0].pull_request = 'https://evil.example.com/pull/1';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /malformed pull_request/);
+  });
+
+  it('rejects a bogus contributor handle', () => {
+    const { code, out } = run((data) => {
+      const node = data.timeline.find((e) => e.contributors?.length);
+      node.contributors[0].handle = 'not a handle!';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /does not match/);
   });
 });

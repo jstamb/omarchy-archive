@@ -35,6 +35,7 @@ const files = {
   themes: read('themes.json'),
   plugins: read('plugins.json'),
   apps: read('apps.json'),
+  timeline: read('timeline.json'),
 };
 
 function read(name) {
@@ -235,6 +236,50 @@ function checkHostedImage(at, image) {
     }
   } catch {
     fail(at, `${image} is missing from public/`);
+  }
+}
+
+// ------------------------------------------------------------------- timeline
+
+/*
+ * data/timeline.json is written by a scheduled Action that commits straight to
+ * main with nobody reading the diff first, so the shape checks below are the
+ * only thing standing between a GitHub API change and a broken history page.
+ */
+if (Array.isArray(files.timeline)) {
+  const timeline = files.timeline;
+  const where = 'data/timeline.json';
+
+  if (timeline.length === 0) {
+    fail(where, 'is empty — the release fetch produced nothing');
+  }
+
+  const nodes = timeline.filter((entry) => entry.tier === 'node');
+  if (timeline.length > 0 && nodes.length === 0) {
+    fail(where, 'has no nodes — the tiering scored every release as a tick, so the parser broke');
+  }
+  if (nodes.length > timeline.length / 2) {
+    fail(where, `${nodes.length} of ${timeline.length} releases scored as nodes — the tiering is not discriminating`);
+  }
+
+  let previous = null;
+  for (const [index, entry] of timeline.entries()) {
+    const at = `${where}[${index}] ${entry?.id ?? '<no id>'}`;
+
+    // Newest first. The page renders in array order and never re-sorts.
+    if (previous && entry.published_at > previous) {
+      fail(at, 'is out of order — the timeline must be newest first');
+    }
+    previous = entry.published_at;
+
+    if (entry.tier === 'node' && !entry.headline && !entry.summary) {
+      fail(at, 'is a node with neither a headline nor a summary — nothing to render');
+    }
+    for (const person of entry.contributors ?? []) {
+      if (person.pull_request && !/^https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/pull\/\d+$/.test(person.pull_request)) {
+        fail(at, `contributor @${person.handle} has a malformed pull_request URL`);
+      }
+    }
   }
 }
 

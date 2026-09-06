@@ -1,0 +1,5153 @@
+[
+  {
+    "id": "v4.0.2",
+    "version": "4.0.2",
+    "major": 4,
+    "date": "2026-08-31",
+    "published_at": "2026-08-31T03:42:33Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": "Improvements",
+    "summary": "This is an additional set of security fixes that were validated and examined by the Omarchy Security team. If you ever find security issues with Omarchy, please follow the responsible disclosure procedure on omarchy.org/security. 🙏",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "acrogenesis",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Adolanium",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "AFOliveira",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "bastidotnet",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Chessing234",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ErikMelton",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "fuchsblau",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "hjanuschka",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "itz4blitz",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mdisec",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "omarchybot",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "orienw",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Skeptomenos",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.2",
+    "notes_chars": 2315
+  },
+  {
+    "id": "v4.0.1",
+    "version": "4.0.1",
+    "major": 4,
+    "date": "2026-08-25",
+    "published_at": "2026-08-25T11:24:30Z",
+    "tier": "tick",
+    "score": 4,
+    "headline": "Fast-Follow Fixes",
+    "summary": "This is mostly for a collection of security fixes that was validated and examined by the new Omarchy Security team. If you ever find security issues with Omarchy, please follow the responsible disclosure procedure on omarchy.org/security 🙏",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "bastidotnet",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/8067"
+      },
+      {
+        "handle": "fuchsblau",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/7581"
+      },
+      {
+        "handle": "mdisec",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/8172"
+      },
+      {
+        "handle": "acrogenesis",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "DataDave-Dev",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "omarchybot",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.1",
+    "notes_chars": 3394
+  },
+  {
+    "id": "v4.0.0",
+    "version": "4.0.0",
+    "major": 4,
+    "date": "2026-08-14",
+    "published_at": "2026-08-14T16:35:40Z",
+    "tier": "node",
+    "score": 12,
+    "headline": "The Quattro Release",
+    "summary": "Omarchy 4 aka Quattro is the biggest release since the project started. The entire desktop shell has been reimagined in Quickshell: the bar, launcher, menus, notifications, on-screen displays, control panels, lock screen, and polkit agent now all live insid…",
+    "highlights": [
+      "Reimagine the entire desktop shell in Quickshell.",
+      "Move Omarchy internals from git to system packages for safely separating user modifications.",
+      "Offer dual-boot installation when free space is available (remember to turn off Bitlocker for Windows!).",
+      "Setup a machine for a new owner during install, so OEMs and gift givers can prepare a machine for others.",
+      "Allow for factory reset (Setup > Reset Computer) from new Quattro installs for safe resale/gifting of your machine.",
+      "Shrink the ISO by over a gigabyte (now under 6GB!)."
+    ],
+    "contributors": [
+      {
+        "handle": "acidkill",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6539"
+      },
+      {
+        "handle": "acrogenesis",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6842"
+      },
+      {
+        "handle": "akashgagda",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6482"
+      },
+      {
+        "handle": "AksharP5",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6775"
+      },
+      {
+        "handle": "almondsun",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6338"
+      },
+      {
+        "handle": "atomashevic",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6801"
+      },
+      {
+        "handle": "axelfontaine",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5901"
+      },
+      {
+        "handle": "berenddeboer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5937"
+      },
+      {
+        "handle": "bwynnyck",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6640"
+      },
+      {
+        "handle": "crmne",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6052"
+      },
+      {
+        "handle": "cupatea",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6652"
+      },
+      {
+        "handle": "dalmasluca",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6655"
+      },
+      {
+        "handle": "DataDave-Dev",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6584"
+      },
+      {
+        "handle": "e2escobar",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6817"
+      },
+      {
+        "handle": "EFrMG",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6788"
+      },
+      {
+        "handle": "ericvrp",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6432"
+      },
+      {
+        "handle": "fayimora",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6857"
+      },
+      {
+        "handle": "flavorjones",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6610"
+      },
+      {
+        "handle": "franciscoaccabral",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6772"
+      },
+      {
+        "handle": "GebaRoanoke",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6691"
+      },
+      {
+        "handle": "glafeara",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6418"
+      },
+      {
+        "handle": "grantwiley",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6773"
+      },
+      {
+        "handle": "heymaikol",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5683"
+      },
+      {
+        "handle": "heyssh",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6336"
+      },
+      {
+        "handle": "husamemadH",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6322"
+      },
+      {
+        "handle": "InfeCtlll3",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6348"
+      },
+      {
+        "handle": "jeremy",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6434"
+      },
+      {
+        "handle": "jitendradara12",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6809"
+      },
+      {
+        "handle": "JustMrMendez",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6619"
+      },
+      {
+        "handle": "jzimdars",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5769"
+      },
+      {
+        "handle": "KazeTachinuu",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6334"
+      },
+      {
+        "handle": "khpark43",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6357"
+      },
+      {
+        "handle": "lu-jim",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6867"
+      },
+      {
+        "handle": "lukewalker2010",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6546"
+      },
+      {
+        "handle": "Malanius",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5756"
+      },
+      {
+        "handle": "markbus-ai",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6568"
+      },
+      {
+        "handle": "matjam",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6791"
+      },
+      {
+        "handle": "MoizIbnYousaf",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6480"
+      },
+      {
+        "handle": "monorkin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6236"
+      },
+      {
+        "handle": "mwikala",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6384"
+      },
+      {
+        "handle": "nille",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6580"
+      },
+      {
+        "handle": "Ninso112",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5700"
+      },
+      {
+        "handle": "OldJobobo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6422"
+      },
+      {
+        "handle": "Pegorim",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5806"
+      },
+      {
+        "handle": "r3quie",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5897"
+      },
+      {
+        "handle": "rahmatov-abdullaxon",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5867"
+      },
+      {
+        "handle": "richardlences",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6446"
+      },
+      {
+        "handle": "RushiChaganti",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6307"
+      },
+      {
+        "handle": "s-gato",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6688"
+      },
+      {
+        "handle": "scottjones",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6317"
+      },
+      {
+        "handle": "setiapam",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6457"
+      },
+      {
+        "handle": "ShiroKSH",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6424"
+      },
+      {
+        "handle": "shrijit37",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6717"
+      },
+      {
+        "handle": "ssupt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6343"
+      },
+      {
+        "handle": "taxin-404",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6400"
+      },
+      {
+        "handle": "tobi",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6408"
+      },
+      {
+        "handle": "tuklu",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5922"
+      },
+      {
+        "handle": "vivek7405",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6677"
+      },
+      {
+        "handle": "Vtorrealba",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6737"
+      },
+      {
+        "handle": "yashranaway",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6738"
+      },
+      {
+        "handle": "yuters",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6354"
+      },
+      {
+        "handle": "zainsyedz",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6353"
+      },
+      {
+        "handle": "28allday",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "aikazu",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "artfwo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "bjarneo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "defer",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "DiegoMirner",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "factory",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "HANCORE-linux",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jasonfried",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jondkinney",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "kevinmcconnell",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "lukehsiao",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mateuszkowalczyk",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "meirdick",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nt1998",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pkwagner",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "stephentaylor-com",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tmn73",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tyvsmith",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "virtualabishek",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vtmx",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vulturetone",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Wondertan",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "zaborowskimichal",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Zeus-Deus",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.0",
+    "notes_chars": 37220
+  },
+  {
+    "id": "v3.8.4",
+    "version": "3.8.4",
+    "major": 3,
+    "date": "2026-07-21",
+    "published_at": "2026-07-21T00:21:50Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "SHA256: 7bc1dc7d98f3d088e57dc06581a494ea441fb15f3edd191360fd1696931bd895",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.4",
+    "notes_chars": 596
+  },
+  {
+    "id": "v3.8.3",
+    "version": "3.8.3",
+    "major": 3,
+    "date": "2026-07-13",
+    "published_at": "2026-07-13T23:10:19Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "SHA256: 40c9368eeb7e021a13d0899b379517843b4839f6e7721473169369fbd0fe61ac",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "DiegoMirner",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6091"
+      },
+      {
+        "handle": "sridhar-3009",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6199"
+      },
+      {
+        "handle": "Zeus-Deus",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/6183"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.3",
+    "notes_chars": 2267
+  },
+  {
+    "id": "v3.8.2",
+    "version": "3.8.2",
+    "major": 3,
+    "date": "2026-05-24",
+    "published_at": "2026-05-24T11:23:18Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "SHA256: dc3d096ed17f50cadc74d5f2fe1914b12e1ba6b69e84447225deaf1896a0820d",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "tuklu",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5922"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.2",
+    "notes_chars": 754
+  },
+  {
+    "id": "v3.8.1",
+    "version": "3.8.1",
+    "major": 3,
+    "date": "2026-05-14",
+    "published_at": "2026-05-14T17:24:53Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.1",
+    "notes_chars": 243
+  },
+  {
+    "id": "v3.8.0",
+    "version": "3.8.0",
+    "major": 3,
+    "date": "2026-05-09",
+    "published_at": "2026-05-09T15:22:29Z",
+    "tier": "node",
+    "score": 8,
+    "headline": "The Defaults Edition",
+    "summary": "Omarchy now has a built-in way to set simple reminders based on a countdown timer and with a message. You can do this via Super + Ctrl + R, seeing all the ones set via Super + Ctrl + Alt + R, and clearing all via Super + Ctrl + Shift + R. Everything also ac…",
+    "highlights": [
+      "Add live weather in the waybar and as a notification on Super + Ctrl + Alt + W by @dhh",
+      "Add Trigger > Transcode, Super + Ctrl + ., and omarchy transcode menu/CLI for video, audio, and gif transcoding by @dhh",
+      "Add transcode option to right-click file menu in file manager by @28allday",
+      "Add Amiga, C64, and Amstrad cores to the default RetroArch setup by @dhh",
+      "Add post-boot notification hooks by @dhh",
+      "Add offer to install Voxtype Dictation on new installers after first update by @dhh"
+    ],
+    "contributors": [
+      {
+        "handle": "28allday",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5635"
+      },
+      {
+        "handle": "aikazu",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5597"
+      },
+      {
+        "handle": "alexoxte",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5612"
+      },
+      {
+        "handle": "dandresrp",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5336"
+      },
+      {
+        "handle": "ilyaZar",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5593"
+      },
+      {
+        "handle": "jacob-vincent-mink",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5534"
+      },
+      {
+        "handle": "jscorbalan",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5572"
+      },
+      {
+        "handle": "Jzwnl",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5677"
+      },
+      {
+        "handle": "mateuszkowalczyk",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5620"
+      },
+      {
+        "handle": "mtp13",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5660"
+      },
+      {
+        "handle": "patrickrodrigues-aa",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5656"
+      },
+      {
+        "handle": "twagner12",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5661"
+      },
+      {
+        "handle": "vitalibondar",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5623"
+      },
+      {
+        "handle": "danielmain",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "earendil-works",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jcorbalan",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "lukehsiao",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "maxguzenski",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "miharekar",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mijuny",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "peteonrails",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pomartel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.0",
+    "notes_chars": 10275
+  },
+  {
+    "id": "v3.7.1",
+    "version": "3.7.1",
+    "major": 3,
+    "date": "2026-05-04",
+    "published_at": "2026-05-04T23:53:20Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.7.1",
+    "notes_chars": 232
+  },
+  {
+    "id": "v3.7.0",
+    "version": "3.7.0",
+    "major": 3,
+    "date": "2026-05-04",
+    "published_at": "2026-05-04T13:59:51Z",
+    "tier": "node",
+    "score": 10,
+    "headline": "The Gaming Edition",
+    "summary": "There's now a single omarchy command that is both documented and bash tab-completing. It gives you access to all the underlying omarchy-* commands without having to look up the source to learn what they do.",
+    "highlights": [
+      "Add unified omarchy CLI by @ryanrhughes",
+      "Add text extraction from anywhere on the screen via Trigger > Capture > Text Extract and Super + Ctrl + PrtScr using tereseract OCR by @Prajwal-Prathiksh",
+      "Add cliamp TUI music player on Super + Shift + Alt + M by @bjarneo",
+      "Add lazy-installed GitHub TUI called ghui by @kitlangton",
+      "Add new aliases ic (= tdl c), ix (= tdl cx), and icx (= tdl c cx) by @dhh",
+      "Add dosfstools as a default package so you have fsck.fat and mkfs.fat available in case you need to fix a corrupted /boot partition by @niraletter"
+    ],
+    "contributors": [
+      {
+        "handle": "17xande",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5511"
+      },
+      {
+        "handle": "afurm",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5513"
+      },
+      {
+        "handle": "bontalor",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5479"
+      },
+      {
+        "handle": "boobachad",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5525"
+      },
+      {
+        "handle": "cfulton",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5498"
+      },
+      {
+        "handle": "Cliffback",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5452"
+      },
+      {
+        "handle": "davzucky",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5465"
+      },
+      {
+        "handle": "dotsilva",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5541"
+      },
+      {
+        "handle": "hegjon",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5551"
+      },
+      {
+        "handle": "icodealot",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5466"
+      },
+      {
+        "handle": "imanubdesigner",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5471"
+      },
+      {
+        "handle": "mijuny",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5435"
+      },
+      {
+        "handle": "niraletter",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5448"
+      },
+      {
+        "handle": "Prajwal-Prathiksh",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1918"
+      },
+      {
+        "handle": "severin-richner",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4467"
+      },
+      {
+        "handle": "shmall03",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5493"
+      },
+      {
+        "handle": "spitfire05",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5491"
+      },
+      {
+        "handle": "stryboh",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5515"
+      },
+      {
+        "handle": "timbelmon",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5462"
+      },
+      {
+        "handle": "tushar-chauhan",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5524"
+      },
+      {
+        "handle": "bjarneo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "cyppe",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jardahrazdera",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jennpiatkowski87",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "kitlangton",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "lukehsiao",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mlombardi96",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mplaczek99",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pipetogrep",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "prepin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "RyanBreaker",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Vargrul",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.7.0",
+    "notes_chars": 20007
+  },
+  {
+    "id": "v3.6.0",
+    "version": "3.6.0",
+    "major": 3,
+    "date": "2026-04-23",
+    "published_at": "2026-04-23T13:31:06Z",
+    "tier": "node",
+    "score": 6,
+    "headline": "The Panther Lake Plus Extreme Efficiency Edition",
+    "summary": "Intel and Dell continue to refine our custom 6.19 kernel for Panther Lake with more backports from 7.0 and other improvements. We're now able to hit 2w idle on the new Framework 13 Pro with IPS panel and 2.2w idle using the Vantablack theme for the Dell XPS…",
+    "highlights": [
+      "Add additional kernel patches to custom kernel 6.19.13 build for Panther Lake to extract maximum efficiency by @TsaiGaggery, @spencerbull",
+      "Add persistent toggle system so window gap, single-window aspect, and other flags survive hyprctl reload and restarts by @dhh",
+      "Add touchpad enable/disable/toggle support via XF86TouchpadOn/Off/Toggle with OSD feedback and persistent state by @drunkleen, @dhh",
+      "Add 1.25 as a scaling option and allow traveling backwards through the resolution scaling cycle by @dhh",
+      "Add screen recording audio normalization to -14 LUFS so quiet recordings are lifted to a consistent level by @robzolkos",
+      "Add pause_media to voxtype by default so MPRIS players pause while dictating by @peteonrails"
+    ],
+    "contributors": [
+      {
+        "handle": "danflood94",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4918"
+      },
+      {
+        "handle": "drunkleen",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5353"
+      },
+      {
+        "handle": "endafk",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5392"
+      },
+      {
+        "handle": "lewispb",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5369"
+      },
+      {
+        "handle": "maxwell7774",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4953"
+      },
+      {
+        "handle": "pontino",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5233"
+      },
+      {
+        "handle": "sergiojrdotnet",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5236"
+      },
+      {
+        "handle": "waleedhkirmani",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5269"
+      },
+      {
+        "handle": "annoyedmilk",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "innerviewer",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "NicolasDorier",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "peteonrails",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "robzolkos",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "TsaiGaggery",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.6.0",
+    "notes_chars": 7034
+  },
+  {
+    "id": "v3.5.1",
+    "version": "3.5.1",
+    "major": 3,
+    "date": "2026-04-16",
+    "published_at": "2026-04-16T14:32:15Z",
+    "tier": "tick",
+    "score": 4,
+    "headline": "The New Release",
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "felipe3dfx",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5285"
+      },
+      {
+        "handle": "geonizeli",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5301"
+      },
+      {
+        "handle": "liamcmitchell",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5288"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "felipegonzalez",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "joaovictor",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "liammitchell",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "marco",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pipetogrep",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pomartel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "stefangrundel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.5.1",
+    "notes_chars": 3208
+  },
+  {
+    "id": "v3.5.0",
+    "version": "3.5.0",
+    "major": 3,
+    "date": "2026-04-03",
+    "published_at": "2026-04-03T17:31:42Z",
+    "tier": "node",
+    "score": 6,
+    "headline": "The Panther Lake Edition",
+    "summary": "Intel's new Panther Lake processor is a milestone for efficiency and performance on Linux. It's built on the company's new 18A node in Arizona, and it delivers single-core performance on par with an Apple M3, multi-core performance on par with an Apple M5,…",
+    "highlights": [
+      "Add LocalSend send action in Nautilus file manager by @marciobbj",
+      "Add sff function for using fuzzy find to send files over scp by @dhh",
+      "Add ONCE installer to Install > Services by @kevinmcconnell",
+      "Add omarchy-sudo-passwordless-toggle to give AI full access to run sudo commands for a limited period during high-risk debugging by @dhh",
+      "Add lazy-install stubs for Opencode, Gemini, Codex, Copilot, and Playwright CLIs via npx due to rapid churn updates by @dhh",
+      "Add battery-low hook for things like sound warnings by @Lo0rd3"
+    ],
+    "contributors": [
+      {
+        "handle": "Alex23rodriguez",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5009"
+      },
+      {
+        "handle": "brunorwx",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5181"
+      },
+      {
+        "handle": "fedesapuppo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5145"
+      },
+      {
+        "handle": "jra3",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5115"
+      },
+      {
+        "handle": "Lo0rd3",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4945"
+      },
+      {
+        "handle": "marciobbj",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4946"
+      },
+      {
+        "handle": "milllan",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5116"
+      },
+      {
+        "handle": "patrick-boc",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5056"
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5106"
+      },
+      {
+        "handle": "tyvsmith",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5119"
+      },
+      {
+        "handle": "vtmx",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/5028"
+      },
+      {
+        "handle": "alansikora",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "annoyedmilk",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "kevinmcconnell",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "NicolasDorier",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "oldjobobo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "robzolkos",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "TsaiGaggery",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.5.0",
+    "notes_chars": 6635
+  },
+  {
+    "id": "v3.4.2",
+    "version": "3.4.2",
+    "major": 3,
+    "date": "2026-03-08",
+    "published_at": "2026-03-08T16:29:53Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "alex-budkar-amplitude",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4909"
+      },
+      {
+        "handle": "davidguttman",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4877"
+      },
+      {
+        "handle": "jadonwb",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4910"
+      },
+      {
+        "handle": "jorgemanrubia",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4844"
+      },
+      {
+        "handle": "justindotdevv",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4923"
+      },
+      {
+        "handle": "Riddlerrr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4922"
+      },
+      {
+        "handle": "Cammisuli",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "shelldandy",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.4.2",
+    "notes_chars": 2812
+  },
+  {
+    "id": "v3.4.1",
+    "version": "3.4.1",
+    "major": 3,
+    "date": "2026-02-28",
+    "published_at": "2026-02-28T17:47:46Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "alexpgates",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4782"
+      },
+      {
+        "handle": "garethson",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4766"
+      },
+      {
+        "handle": "KrisKind75",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4771"
+      },
+      {
+        "handle": "Trippie-Redd",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4789"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ieocin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "marcotroisi",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pomartel",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.4.1",
+    "notes_chars": 2013
+  },
+  {
+    "id": "v3.4.0",
+    "version": "3.4.0",
+    "major": 3,
+    "date": "2026-02-26",
+    "published_at": "2026-02-26T18:43:32Z",
+    "tier": "node",
+    "score": 7,
+    "headline": null,
+    "summary": "PrintScr will now immediately save the screenshot to file and clipboard, then a notification will offer the opportunity to edit it afterwards. This means skipping Satty when all you want is the screenshot. It also means we no longer need Shift + PrintScr to…",
+    "highlights": [
+      "Add single screenshot flow on PrintScr with editing option pushed to notification by @ryanrhughes",
+      "Add Tmux with tailored config for improved aesthetics and ergonomics accessible via t alias in any terminal by @dhh",
+      "Add AI agent-focused Tmux layouts via tdl (Tmux Dev Layout), tdlm (Tmux Dev Layout Multiplier), and tsl (Tmux Swarm Layout) by @dhh",
+      "Add Claude Code as default install with cx alias to start it in accept-all mode by @dhh",
+      "Add hibernation by default on new installs by @dhh",
+      "Add idle-lock and notification-silencing icons to Waybar by @dhh"
+    ],
+    "contributors": [
+      {
+        "handle": "amrxtgh69",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4514"
+      },
+      {
+        "handle": "annoyedmilk",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4339"
+      },
+      {
+        "handle": "arcangelo7",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4217"
+      },
+      {
+        "handle": "bhaveshsooka",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4311"
+      },
+      {
+        "handle": "Cakez0r",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4502"
+      },
+      {
+        "handle": "coolbotic",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4634"
+      },
+      {
+        "handle": "CryptoCain",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4676"
+      },
+      {
+        "handle": "dhms013",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4631"
+      },
+      {
+        "handle": "dipeshbabu",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4658"
+      },
+      {
+        "handle": "dommmel",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4171"
+      },
+      {
+        "handle": "foucist",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4366"
+      },
+      {
+        "handle": "funkybooboo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4640"
+      },
+      {
+        "handle": "godlewski",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4524"
+      },
+      {
+        "handle": "guidovicino",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4671"
+      },
+      {
+        "handle": "hattapauzi",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3730"
+      },
+      {
+        "handle": "horaceko",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4586"
+      },
+      {
+        "handle": "incpo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4247"
+      },
+      {
+        "handle": "jamerrq",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4468"
+      },
+      {
+        "handle": "jamolweb",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4497"
+      },
+      {
+        "handle": "jmargeta",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4314"
+      },
+      {
+        "handle": "johnzfitch",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4491"
+      },
+      {
+        "handle": "jtaw5649",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3107"
+      },
+      {
+        "handle": "l1ghty",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4404"
+      },
+      {
+        "handle": "loud-func",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4512"
+      },
+      {
+        "handle": "LucaNerlich",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4386"
+      },
+      {
+        "handle": "mitanjan",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4250"
+      },
+      {
+        "handle": "mlambert125",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2922"
+      },
+      {
+        "handle": "Mrid22",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4531"
+      },
+      {
+        "handle": "nnutter",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4503"
+      },
+      {
+        "handle": "prepin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4290"
+      },
+      {
+        "handle": "riozee",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2953"
+      },
+      {
+        "handle": "RyanLatimer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4672"
+      },
+      {
+        "handle": "saftacatalinmihai",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2602"
+      },
+      {
+        "handle": "Sameer292",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4499"
+      },
+      {
+        "handle": "schwepmo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4331"
+      },
+      {
+        "handle": "SerrpentDagger",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4566"
+      },
+      {
+        "handle": "shreyansh-malviya",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4615"
+      },
+      {
+        "handle": "tmn73",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4547"
+      },
+      {
+        "handle": "Whamp",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4162"
+      },
+      {
+        "handle": "yaroslavrick",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3711"
+      },
+      {
+        "handle": "zachfleeman",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4641"
+      },
+      {
+        "handle": "bjarneo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "defer",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ElBrodino",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "felixzsh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "gilescope",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "glauberdmo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jamesrobey",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "johnbarney",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "KR9SIS",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "manuel-rams",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Maxteabag",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Mridul-Agarwal",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "NicolasDorier",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nptr",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "OldJobobo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pelephant2",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pomartel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pukljak",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "robzolkos",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "shawnyeager",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.4.0",
+    "notes_chars": 18336
+  },
+  {
+    "id": "v3.3.3",
+    "version": "3.3.3",
+    "major": 3,
+    "date": "2026-01-08",
+    "published_at": "2026-01-08T23:53:02Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.3",
+    "notes_chars": 286
+  },
+  {
+    "id": "v3.3.2",
+    "version": "3.3.2",
+    "major": 3,
+    "date": "2026-01-08",
+    "published_at": "2026-01-08T23:23:37Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "PhaedrusFlow",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.2",
+    "notes_chars": 616
+  },
+  {
+    "id": "v3.3.1",
+    "version": "3.3.1",
+    "major": 3,
+    "date": "2026-01-08",
+    "published_at": "2026-01-08T13:04:50Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "Nm1ss",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4138"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.1",
+    "notes_chars": 1204
+  },
+  {
+    "id": "v3.3.0",
+    "version": "3.3.0",
+    "major": 3,
+    "date": "2026-01-07",
+    "published_at": "2026-01-07T20:37:17Z",
+    "tier": "node",
+    "score": 7,
+    "headline": null,
+    "summary": "Voxtype offers a variety of different local AI dictation models. You can install it using Install > AI > Dictation where the default is a 150MB base English model. After it's installed, you can start dictating using Super + Ctrl + X. While dictating, you'll…",
+    "highlights": [
+      "Add opt-in dictation via Voxtype through Install > AI > Dictation (then Super + Ctrl + X to dictate) by @dhh",
+      "Add opt-in hibernation through Setup > System Sleep > Enable Hibernate by @dhh + @killeik",
+      "Add option to restore suspend to System menu via _Setup > System Sleep > Enable Suspend by @dhh",
+      "Add OpenCode using c as a terminal alias by @dhh",
+      "Add new colors.toml and template-based configs to simplify theme configuration by @dhh",
+      "Add new impressionist background (The Backwater, 1903) for Gruvbox theme by @dhh"
+    ],
+    "contributors": [
+      {
+        "handle": "ashddev",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3956"
+      },
+      {
+        "handle": "defer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3894"
+      },
+      {
+        "handle": "DerekWW",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4032"
+      },
+      {
+        "handle": "FredrikMWold",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3959"
+      },
+      {
+        "handle": "gilren",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4098"
+      },
+      {
+        "handle": "Jan747",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3990"
+      },
+      {
+        "handle": "jessecrouch",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4015"
+      },
+      {
+        "handle": "jkbdco",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4002"
+      },
+      {
+        "handle": "JustinMissmahl",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4065"
+      },
+      {
+        "handle": "lazaronixon",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4041"
+      },
+      {
+        "handle": "LunarLollipop",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4025"
+      },
+      {
+        "handle": "marcotroisi",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4028"
+      },
+      {
+        "handle": "peteonrails",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4106"
+      },
+      {
+        "handle": "pomartel",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4042"
+      },
+      {
+        "handle": "rizkyfauziilmi",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3948"
+      },
+      {
+        "handle": "shbernal",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3933"
+      },
+      {
+        "handle": "Tsurgcom",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/4080"
+      },
+      {
+        "handle": "3x3cut0r",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ddVital",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jbnunn",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "killeik",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Werzu25old",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.0",
+    "notes_chars": 8249
+  },
+  {
+    "id": "v3.2.3",
+    "version": "3.2.3",
+    "major": 3,
+    "date": "2025-12-15",
+    "published_at": "2025-12-15T22:30:01Z",
+    "tier": "tick",
+    "score": 1,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "Darthrocket",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3849"
+      },
+      {
+        "handle": "dcchambers",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3759"
+      },
+      {
+        "handle": "dimitrieh",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3792"
+      },
+      {
+        "handle": "iknevo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3694"
+      },
+      {
+        "handle": "jazzzooo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3756"
+      },
+      {
+        "handle": "lbreede",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3811"
+      },
+      {
+        "handle": "lochel",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3763"
+      },
+      {
+        "handle": "robergd83",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3781"
+      },
+      {
+        "handle": "scale03",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3838"
+      },
+      {
+        "handle": "SoAp9035",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3492"
+      },
+      {
+        "handle": "TheAhumMaitra",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3842"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Ibreede",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "madhurdhama",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "MirasMustimov",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nacapulque",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "s-pra1ham",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "wolfgangw",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ZarK",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.3",
+    "notes_chars": 3884
+  },
+  {
+    "id": "v3.2.2",
+    "version": "3.2.2",
+    "major": 3,
+    "date": "2025-11-29",
+    "published_at": "2025-11-29T01:17:02Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "jbnunn",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3620"
+      },
+      {
+        "handle": "nbw",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3651"
+      },
+      {
+        "handle": "scoop",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3634"
+      },
+      {
+        "handle": "Traap",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3546"
+      },
+      {
+        "handle": "vander00",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3580"
+      },
+      {
+        "handle": "Ziryt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3541"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.2",
+    "notes_chars": 1655
+  },
+  {
+    "id": "v3.2.1",
+    "version": "3.2.1",
+    "major": 3,
+    "date": "2025-11-26",
+    "published_at": "2025-11-26T07:29:47Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "Blinkuu",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3017"
+      },
+      {
+        "handle": "felixzsh",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3499"
+      },
+      {
+        "handle": "MirasMustimov",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3553"
+      },
+      {
+        "handle": "neurapy",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3552"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.1",
+    "notes_chars": 1933
+  },
+  {
+    "id": "v3.2.0",
+    "version": "3.2.0",
+    "major": 3,
+    "date": "2025-11-21",
+    "published_at": "2025-11-21T19:44:42Z",
+    "tier": "node",
+    "score": 7,
+    "headline": null,
+    "summary": "With hundreds of thousands of people having downloaded the Omarchy ISO, it's time to ensure that the bleeding edge of Arch package upgrades isn't automatically rolling out to everyone without vetting. So we're introducing a new stable mirror that'll lag the…",
+    "highlights": [
+      "Add Ghostty as the new default terminal (existing users can switch using Install > Terminal) by @dhh",
+      "Add JetBrainsMono Nerd Font as the new default font (because Caskaydia doesn't render as well in Ghostty, existing users can switch using Style > Font) by @dhh",
+      "Add Ethereal and Hackerman as new theme options by @bjarneo",
+      "Add visual theme picker by @tahayvr",
+      "Add BlueTUI instead of GTK bluetooth configuration by @a-sologub + @dhh",
+      "Add @tobi's excellent try command by @dhh"
+    ],
+    "contributors": [
+      {
+        "handle": "a-sologub",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3207"
+      },
+      {
+        "handle": "adam-zluva",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3233"
+      },
+      {
+        "handle": "bjarneo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3317"
+      },
+      {
+        "handle": "budnik",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3253"
+      },
+      {
+        "handle": "chrislewis",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3325"
+      },
+      {
+        "handle": "czroth",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3232"
+      },
+      {
+        "handle": "DanteIs897",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3330"
+      },
+      {
+        "handle": "DarrenVictoriano",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3456"
+      },
+      {
+        "handle": "daviewales",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3428"
+      },
+      {
+        "handle": "ericjim",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2009"
+      },
+      {
+        "handle": "innerviewer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3064"
+      },
+      {
+        "handle": "jelenv",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3447"
+      },
+      {
+        "handle": "landsman",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3336"
+      },
+      {
+        "handle": "larrydewey",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3404"
+      },
+      {
+        "handle": "MangelMaxime",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3482"
+      },
+      {
+        "handle": "MatyiFKBT",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3225"
+      },
+      {
+        "handle": "MidnightSlicer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3212"
+      },
+      {
+        "handle": "MislavPukljak",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3298"
+      },
+      {
+        "handle": "NicolasDorier",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3326"
+      },
+      {
+        "handle": "patroza",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3145"
+      },
+      {
+        "handle": "tionichm",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3280"
+      },
+      {
+        "handle": "tonysm",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3339"
+      },
+      {
+        "handle": "wolfgangw",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2648"
+      },
+      {
+        "handle": "y0no",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3174"
+      },
+      {
+        "handle": "abenz1267",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "brink-lab",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dec05eba",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jheuing",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mitchellh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mlombardi96",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nicoestrada",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "robzolkos",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "shelldandy",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tobi",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vander00",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.0",
+    "notes_chars": 9928
+  },
+  {
+    "id": "v3.1.7",
+    "version": "3.1.7",
+    "major": 3,
+    "date": "2025-11-09",
+    "published_at": "2025-11-09T06:48:15Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "SHA256: e264648d0b96c49a664fea82c92d9aa16737913cdec29eb5c8e4154e9665bbae",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "sk4rrjin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/3258"
+      },
+      {
+        "handle": "mikailbayram",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tibbe",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.7",
+    "notes_chars": 707
+  },
+  {
+    "id": "v3.1.6",
+    "version": "3.1.6",
+    "major": 3,
+    "date": "2025-11-07",
+    "published_at": "2025-11-07T20:54:35Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "SHA256: 39858b4f20f1db75a9dc81a4975a300ad72dddca6e8bdb70cc486ae6c3e621c2",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.6",
+    "notes_chars": 476
+  },
+  {
+    "id": "v3.1.5",
+    "version": "3.1.5",
+    "major": 3,
+    "date": "2025-11-03",
+    "published_at": "2025-11-03T17:34:10Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "SHA256: 92c417f153a1af112973f5af52104d9dd0442d270b0f241bf91a232dd2b5b8df",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "joshuafouch",
+        "first_time": true,
+        "pull_request": null
+      },
+      {
+        "handle": "ryrobes",
+        "first_time": true,
+        "pull_request": null
+      },
+      {
+        "handle": "brianblakely",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "davidszp",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "killeik",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "maromalo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "miharekar",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.5",
+    "notes_chars": 1448
+  },
+  {
+    "id": "v3.1.4",
+    "version": "3.1.4",
+    "major": 3,
+    "date": "2025-10-28",
+    "published_at": "2025-10-28T15:20:05Z",
+    "tier": "tick",
+    "score": 1,
+    "headline": null,
+    "summary": "SHA256: d845db165a2878e9543251e56e68750b4ce61b61b0e260e2797939ea2ac07caf",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "AdamMusa",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2899"
+      },
+      {
+        "handle": "alexandersix",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2752"
+      },
+      {
+        "handle": "brennancoslett",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2621"
+      },
+      {
+        "handle": "fldc",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2669"
+      },
+      {
+        "handle": "gyaaniguy",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2821"
+      },
+      {
+        "handle": "jwkicklighter",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2915"
+      },
+      {
+        "handle": "LinAnt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2907"
+      },
+      {
+        "handle": "NeimadTL",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2888"
+      },
+      {
+        "handle": "Rishabh-Sarang",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2788"
+      },
+      {
+        "handle": "wiehann",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2609"
+      },
+      {
+        "handle": "zachasme",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1601"
+      },
+      {
+        "handle": "ZorudaRinku",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/2516"
+      },
+      {
+        "handle": "brennancoslette",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "cairin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ctarx",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ctarxctarx",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dakshesh14",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "manuel1618",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.4",
+    "notes_chars": 3500
+  },
+  {
+    "id": "v3.1.3",
+    "version": "3.1.3",
+    "major": 3,
+    "date": "2025-10-24",
+    "published_at": "2025-10-24T08:33:29Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.3",
+    "notes_chars": 402
+  },
+  {
+    "id": "v3.1.2",
+    "version": "3.1.2",
+    "major": 3,
+    "date": "2025-10-24",
+    "published_at": "2025-10-24T07:15:24Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ATeal",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "boozlbork",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "garovu",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mythz",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.2",
+    "notes_chars": 1752
+  },
+  {
+    "id": "v3.1.1",
+    "version": "3.1.1",
+    "major": 3,
+    "date": "2025-10-20",
+    "published_at": "2025-10-20T16:48:48Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "brianblakely",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "brunoh3art",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jondkinney",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "timohubois",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.1",
+    "notes_chars": 775
+  },
+  {
+    "id": "v3.1.0",
+    "version": "3.1.0",
+    "major": 3,
+    "date": "2025-10-19",
+    "published_at": "2025-10-19T08:09:07Z",
+    "tier": "node",
+    "score": 7,
+    "headline": null,
+    "summary": "No more remembering that terminals need Shift + Ctrl + C / V and all other apps use Ctrl + C / V. Now you can use Super + C / V as a unified shortcut for copy/paste. Super + X is also mapped as cut, but note that this doesn't (and never did) work in the ter…",
+    "highlights": [
+      "Add universal copy/paste on Super + C / V by @ryanrhughes",
+      "Add clipboard manager on Super + Ctrl + V by @dhh",
+      "Add tiling groups hotkeys and styling by @reshadman",
+      "Add screenrecording with webcam to new unified Alt + PrtScrn hotkey by @ryanrhughes",
+      "Add smart screenshot selection so region/window/display can be capture by PrtScr alone by @ryanrhughes",
+      "Add straight-to-clipboard screenshot capture on Shift + PrtScr by @dhh"
+    ],
+    "contributors": [
+      {
+        "handle": "abenz1267",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "aislandener",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "alexperreault",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "bjarneo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "brink-lab",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Cammisuli",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "CantC0unt",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "carljohanlandin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "celsobenedetti",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "d-cas",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "darcy",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "davidwinter",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dharmavagabond",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "efir",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "euandeas",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "giovantenne",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "gkurts",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jardahrazdera",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "johannesnormannjensen",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "killeik",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ludagoo",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "martinmose",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "matt-h",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "meirdick",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "miharekar",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mirzap",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mlombardi96",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nqst",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "qasimsk20",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "rajofearth",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "reshadman",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sa-dd",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "scossar",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "shawnyeager",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sspaeti",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Thundernirmal",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vaqMAD",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vladkhard",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vyrx-dev",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "wey-gu",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "woopstar",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.0",
+    "notes_chars": 11618
+  },
+  {
+    "id": "v3.0.2",
+    "version": "3.0.2",
+    "major": 3,
+    "date": "2025-09-28",
+    "published_at": "2025-09-28T21:11:45Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "Existing installations can upgrade as per-normal using Update > Omarchy.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "CastilhoBorges",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "djordje",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "e-minguez",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Furyfree",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "iamobservable",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "joelgaff",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "John-Lin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "js",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mrlarsendk",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "OmarSkalli",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "rixlabs",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "shawnyeager",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "vrinek",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.0.2",
+    "notes_chars": 1783
+  },
+  {
+    "id": "v3.0.0",
+    "version": "3.0.0",
+    "major": 3,
+    "date": "2025-09-17",
+    "published_at": "2025-09-17T18:53:16Z",
+    "tier": "node",
+    "score": 9,
+    "headline": null,
+    "summary": "Omarchy 3.0 is a major upgrade for new installations and a wonderful level-up for existing users. The new ISO doesn't require internet at all, and you can install it in less than two minutes on the fastest systems.",
+    "highlights": [
+      "Add everything needed for new all-inclusive ISO that doesn't need internet by @ryanrhughes",
+      "Add new styled install flow with centered logo and tailed logging by @ryanrhughes",
+      "Add option to upload install logs to 0x0.st if installation fails by @ryanrhughes",
+      "Add invitation to setup wifi and update system on new ISO installations by @dhh",
+      "Add precompiled lazyvim installation for nvim by @ryanrhughes",
+      "Add support for T2 macs with custom kernel and drivers by @ryanrhughes + @nunix"
+    ],
+    "contributors": [
+      {
+        "handle": "ATeal",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1542"
+      },
+      {
+        "handle": "denisu14",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1596"
+      },
+      {
+        "handle": "DoKoB0512",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1718"
+      },
+      {
+        "handle": "eifr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1561"
+      },
+      {
+        "handle": "elpritchos",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1555"
+      },
+      {
+        "handle": "gustavokurtz",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1689"
+      },
+      {
+        "handle": "hjanuschka",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1251"
+      },
+      {
+        "handle": "jankeesvw",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1458"
+      },
+      {
+        "handle": "joelgaff",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1313"
+      },
+      {
+        "handle": "kodnin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1324"
+      },
+      {
+        "handle": "OmarSkalli",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/800"
+      },
+      {
+        "handle": "SamrudhNelli",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1585"
+      },
+      {
+        "handle": "sgruendel",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1242"
+      },
+      {
+        "handle": "tmkn",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1638"
+      },
+      {
+        "handle": "v-oleg",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/925"
+      },
+      {
+        "handle": "vyrx-dev",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1296"
+      },
+      {
+        "handle": "alexperreault",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ashutoshbw",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "c4software",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "guilhermetk",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "manuel1618",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "med502",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mitchellh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nunix",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "rajayonin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "zaborowskimichal",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.0.0",
+    "notes_chars": 9039
+  },
+  {
+    "id": "v2.1.2",
+    "version": "2.1.2",
+    "major": 2,
+    "date": "2025-09-10",
+    "published_at": "2025-09-10T15:33:51Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.1.2",
+    "notes_chars": 365
+  },
+  {
+    "id": "v2.1.1",
+    "version": "2.1.1",
+    "major": 2,
+    "date": "2025-09-09",
+    "published_at": "2025-09-09T19:37:39Z",
+    "tier": "tick",
+    "score": 1,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "aliismayilov",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1524"
+      },
+      {
+        "handle": "arni1981",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1380"
+      },
+      {
+        "handle": "bftanase",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1443"
+      },
+      {
+        "handle": "cluah",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1474"
+      },
+      {
+        "handle": "eclecticc",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1368"
+      },
+      {
+        "handle": "Esteban-Bermudez",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1459"
+      },
+      {
+        "handle": "iccodes",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1100"
+      },
+      {
+        "handle": "keyfer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1517"
+      },
+      {
+        "handle": "martinmose",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1429"
+      },
+      {
+        "handle": "mgbaron",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1480"
+      },
+      {
+        "handle": "mrjoedang",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1152"
+      },
+      {
+        "handle": "naxels",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1238"
+      },
+      {
+        "handle": "ncr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1376"
+      },
+      {
+        "handle": "ollymarkey",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1426"
+      },
+      {
+        "handle": "rsd",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1471"
+      },
+      {
+        "handle": "typeshaper",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1427"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jardahrazdera",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "pipetogrep",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "roberto-aguilar",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.1.1",
+    "notes_chars": 3572
+  },
+  {
+    "id": "v2.1.0",
+    "version": "2.1.0",
+    "major": 2,
+    "date": "2025-08-31",
+    "published_at": "2025-08-31T14:12:37Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": null,
+    "summary": "This release completes the transition to having all package and mirror activity hitting our own setup behind Cloudflare 🎉",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "chantastic",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1327"
+      },
+      {
+        "handle": "cossssmin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1245"
+      },
+      {
+        "handle": "crbelaus",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1044"
+      },
+      {
+        "handle": "JordanAnthonyKing",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1303"
+      },
+      {
+        "handle": "pipetogrep",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1114"
+      },
+      {
+        "handle": "ramtinJ95",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1084"
+      },
+      {
+        "handle": "rickdotnet",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1259"
+      },
+      {
+        "handle": "szcharlesji",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1141"
+      },
+      {
+        "handle": "ankurkotwal",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Gazler",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jardahrazdera",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "oppegard",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "roelandmoors",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spdawson",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "theamit-969",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "valbertoenoc",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.1.0",
+    "notes_chars": 3291
+  },
+  {
+    "id": "v2.0.5",
+    "version": "2.0.5",
+    "major": 2,
+    "date": "2025-08-28",
+    "published_at": "2025-08-28T09:16:06Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "michielryvers",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1160"
+      },
+      {
+        "handle": "roberto-aguilar",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1201"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.5",
+    "notes_chars": 904
+  },
+  {
+    "id": "v2.0.4",
+    "version": "2.0.4",
+    "major": 2,
+    "date": "2025-08-28",
+    "published_at": "2025-08-28T05:11:44Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "bastnic",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1188"
+      },
+      {
+        "handle": "cstrickjacke",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1178"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.4",
+    "notes_chars": 682
+  },
+  {
+    "id": "v2.0.3",
+    "version": "2.0.3",
+    "major": 2,
+    "date": "2025-08-27",
+    "published_at": "2025-08-27T14:12:02Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.3",
+    "notes_chars": 459
+  },
+  {
+    "id": "v2.0.2",
+    "version": "2.0.2",
+    "major": 2,
+    "date": "2025-08-27",
+    "published_at": "2025-08-27T10:53:57Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "Update as per usual using Update > Omarchy from the Omarchy Menu.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.2",
+    "notes_chars": 932
+  },
+  {
+    "id": "v2.0.1",
+    "version": "2.0.1",
+    "major": 2,
+    "date": "2025-08-26",
+    "published_at": "2025-08-26T10:32:47Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "AdiY00",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1091"
+      },
+      {
+        "handle": "arcbjorn",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1098"
+      },
+      {
+        "handle": "hipsterusername",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1104"
+      },
+      {
+        "handle": "jopesh",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1087"
+      },
+      {
+        "handle": "joshleblanc",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1090"
+      },
+      {
+        "handle": "manofcolombia",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1076"
+      },
+      {
+        "handle": "meerzulee",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1103"
+      },
+      {
+        "handle": "WToa",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1101"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.1",
+    "notes_chars": 1773
+  },
+  {
+    "id": "v2.0.0",
+    "version": "2.0.0",
+    "major": 2,
+    "date": "2025-08-25",
+    "published_at": "2025-08-25T14:11:33Z",
+    "tier": "node",
+    "score": 9,
+    "headline": null,
+    "summary": "Existing installations can upgrade by running Update > Omarchy from the Omarchy Menu (or omarchy-menu if they're still on a version predating that). Everything will be brought up to the latest EXCEPT the switch to limine bootloader and snapper snapshot rest…",
+    "highlights": [
+      "Add new Omarchy ISO online installer using the Omarchy Configurator front-end to archinstall by @torxed + @dhh + @ryanrhughes + @jardahrazdera + @tahayvr",
+      "Add Limine/Snapper setup which snapshots before omarchy-update and allow for rollbacks in Limine bootloader by @ryanrhughes.",
+      "Add Omarchy Chromium micro-fork that gives us live theme switching in the browser without having to close all windows by @hjanuschka",
+      "Add minimal Starship prompt to terminal by @tobi + @dhh",
+      "Add Install > TUI as a new TUI-wrapper like Install > Web App by @dhh + @ryanrhughes",
+      "Add new Omarchy icon to About and top-left Omarchy Menu icon by @tahayvr"
+    ],
+    "contributors": [
+      {
+        "handle": "ankurkotwal",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/871"
+      },
+      {
+        "handle": "bcye",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/746"
+      },
+      {
+        "handle": "chriopter",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/941"
+      },
+      {
+        "handle": "Chris24680",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/863"
+      },
+      {
+        "handle": "domingo2000",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/760"
+      },
+      {
+        "handle": "dylanbr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/684"
+      },
+      {
+        "handle": "eamonburns",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1001"
+      },
+      {
+        "handle": "ericrswanny",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/585"
+      },
+      {
+        "handle": "Gazler",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/889"
+      },
+      {
+        "handle": "guilhermetk",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1023"
+      },
+      {
+        "handle": "iamobservable",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/874"
+      },
+      {
+        "handle": "jardahrazdera",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/822"
+      },
+      {
+        "handle": "johanneserhardt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/676"
+      },
+      {
+        "handle": "jonnyace",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/906"
+      },
+      {
+        "handle": "Kasui92",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1056"
+      },
+      {
+        "handle": "kataqatsi",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/858"
+      },
+      {
+        "handle": "kevinmcconnell",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/812"
+      },
+      {
+        "handle": "lsc",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/820"
+      },
+      {
+        "handle": "luigig44",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/795"
+      },
+      {
+        "handle": "MikeVeerman",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/888"
+      },
+      {
+        "handle": "not-NEK0",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/692"
+      },
+      {
+        "handle": "r3ap3r2004",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/715"
+      },
+      {
+        "handle": "rajayonin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/852"
+      },
+      {
+        "handle": "remshams",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1041"
+      },
+      {
+        "handle": "rez1coder",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/990"
+      },
+      {
+        "handle": "robzolkos",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/701"
+      },
+      {
+        "handle": "saeedvaziry",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/917"
+      },
+      {
+        "handle": "samuelpecher",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/679"
+      },
+      {
+        "handle": "shawnyeager",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1008"
+      },
+      {
+        "handle": "Swarnim114",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/707"
+      },
+      {
+        "handle": "taylorminton",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/1003"
+      },
+      {
+        "handle": "v3rtx",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/769"
+      },
+      {
+        "handle": "vaibhav-mattoo",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/807"
+      },
+      {
+        "handle": "valbertoenoc",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/972"
+      },
+      {
+        "handle": "vlofgren",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/823"
+      },
+      {
+        "handle": "zaborowskimichal",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/670"
+      },
+      {
+        "handle": "alansikora",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "gthelding",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "halilozercan",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "hjanuschka",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "manuel1618",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sailoz",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tobi",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "torxed",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "uigig44",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.0",
+    "notes_chars": 10560
+  },
+  {
+    "id": "v1.13.0",
+    "version": "1.13.0",
+    "major": 1,
+    "date": "2025-08-11",
+    "published_at": "2025-08-11T16:31:43Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": null,
+    "summary": "This release includes a revamp of the PATH and how Omarchy finds its bins. It's very important that when you are asked to relaunch Hyprland, that you do so, and then run Omarchy > Update (or omarchy-update) again afterwards. That'll ensure everything is mig…",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "alexperreault",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/663"
+      },
+      {
+        "handle": "devmobasa",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/615"
+      },
+      {
+        "handle": "fhammerschmidt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/598"
+      },
+      {
+        "handle": "florianbeer",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/594"
+      },
+      {
+        "handle": "Macho0x",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/595"
+      },
+      {
+        "handle": "maxguzenski",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/569"
+      },
+      {
+        "handle": "RaphaelKimmig",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/564"
+      },
+      {
+        "handle": "abdellahrk",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "c4software",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "daltonbr",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Justikun",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "LeonardoTrapani",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "sailoz",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.13.0",
+    "notes_chars": 3284
+  },
+  {
+    "id": "v1.12.1",
+    "version": "1.12.1",
+    "major": 1,
+    "date": "2025-08-08",
+    "published_at": "2025-08-08T15:35:58Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "catlee",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/561"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.12.1",
+    "notes_chars": 1052
+  },
+  {
+    "id": "v1.12.0",
+    "version": "1.12.0",
+    "major": 1,
+    "date": "2025-08-07",
+    "published_at": "2025-08-07T11:13:22Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "gyllen",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/533"
+      },
+      {
+        "handle": "Justikun",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/514"
+      },
+      {
+        "handle": "manuel1618",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/526"
+      },
+      {
+        "handle": "oppegard",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/521"
+      },
+      {
+        "handle": "pastr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/522"
+      },
+      {
+        "handle": "xadcv",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/505"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.12.0",
+    "notes_chars": 2283
+  },
+  {
+    "id": "v1.11.0",
+    "version": "1.11.0",
+    "major": 1,
+    "date": "2025-08-05",
+    "published_at": "2025-08-05T15:24:41Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "Update using omarchy-update. From this version forward, you can update via the Omarchy menu.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "DavidHoenisch",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/494"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ElFitaFlores",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "rmacklin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.11.0",
+    "notes_chars": 1511
+  },
+  {
+    "id": "v1.10.0",
+    "version": "1.10.0",
+    "major": 1,
+    "date": "2025-08-03",
+    "published_at": "2025-08-03T14:13:54Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "erik-brueggemann",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/466"
+      },
+      {
+        "handle": "rosscondie",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/464"
+      },
+      {
+        "handle": "abenz1267",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "JaxonWright",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "precision",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "rockorager",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spdawson",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.10.0",
+    "notes_chars": 1568
+  },
+  {
+    "id": "v1.9.0",
+    "version": "1.9.0",
+    "major": 1,
+    "date": "2025-08-02",
+    "published_at": "2025-08-02T20:39:12Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "Update by running omarchy-update or Go to Update > Omarchy in the Omarchy TUI.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ardavis",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/402"
+      },
+      {
+        "handle": "brink-lab",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/444"
+      },
+      {
+        "handle": "cannikin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/438"
+      },
+      {
+        "handle": "Mohamedsayhii",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/396"
+      },
+      {
+        "handle": "sailoz",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/393"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "gthelding",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.9.0",
+    "notes_chars": 2789
+  },
+  {
+    "id": "v1.8.0",
+    "version": "1.8.0",
+    "major": 1,
+    "date": "2025-07-30",
+    "published_at": "2025-07-30T21:45:54Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "Update by running omarchy-update twice. That'll ensure that the new strategy for migrations is initialized, and any migrations you might have missed will be run. On your next update, you just run it once.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ardavis",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Mohamedsayhii",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.8.0",
+    "notes_chars": 1473
+  },
+  {
+    "id": "v1.7.0",
+    "version": "1.7.0",
+    "major": 1,
+    "date": "2025-07-28",
+    "published_at": "2025-07-28T12:15:38Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "gthelding",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/384"
+      },
+      {
+        "handle": "sobran",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/380"
+      },
+      {
+        "handle": "c4software",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "seanmitchell",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.7.0",
+    "notes_chars": 1259
+  },
+  {
+    "id": "v1.6.2",
+    "version": "1.6.2",
+    "major": 1,
+    "date": "2025-07-26",
+    "published_at": "2025-07-26T21:19:56Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "anagrius",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/337"
+      },
+      {
+        "handle": "benhoman",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/322"
+      },
+      {
+        "handle": "JaxonWright",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/351"
+      },
+      {
+        "handle": "michaldziurowski",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/342"
+      },
+      {
+        "handle": "seanmitchell",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/361"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "saullrb",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.6.2",
+    "notes_chars": 1932
+  },
+  {
+    "id": "v1.6.1",
+    "version": "1.6.1",
+    "major": 1,
+    "date": "2025-07-23",
+    "published_at": "2025-07-23T18:57:35Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "Use omarchy-update all if you're coming from a version prior to 1.6.0, otherwise just omarchy-update.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "aifrim",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/288"
+      },
+      {
+        "handle": "ludo237",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/302"
+      },
+      {
+        "handle": "precision",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/294"
+      },
+      {
+        "handle": "spdawson",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/297"
+      },
+      {
+        "handle": "abenz1267",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mtk3d",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spdawnson",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.6.1",
+    "notes_chars": 1160
+  },
+  {
+    "id": "v1.6.0",
+    "version": "1.6.0",
+    "major": 1,
+    "date": "2025-07-22",
+    "published_at": "2025-07-22T23:25:50Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": null,
+    "summary": "To update, please run omarchy-update all. That'll run all existing migrations to ensure that you're fully caught up. Then the next update should just need omarchy-update since we changed the migration strategy.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "andnig",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/278"
+      },
+      {
+        "handle": "blazskufca",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/281"
+      },
+      {
+        "handle": "mtk3d",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/274"
+      },
+      {
+        "handle": "rmacklin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/215"
+      },
+      {
+        "handle": "ryanyogan",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/212"
+      },
+      {
+        "handle": "saullrb",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/262"
+      },
+      {
+        "handle": "abenz1267",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "al3rez",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jhosdev",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "npenza",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "roel4d",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "saullbrandao",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.6.0",
+    "notes_chars": 5172
+  },
+  {
+    "id": "v1.5.2",
+    "version": "1.5.2",
+    "major": 1,
+    "date": "2025-07-19",
+    "published_at": "2025-07-19T00:54:28Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "alansikora",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/233"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.5.2",
+    "notes_chars": 430
+  },
+  {
+    "id": "v1.5.1",
+    "version": "1.5.1",
+    "major": 1,
+    "date": "2025-07-18",
+    "published_at": "2025-07-18T21:54:56Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.5.1",
+    "notes_chars": 200
+  },
+  {
+    "id": "v1.5.0",
+    "version": "1.5.0",
+    "major": 1,
+    "date": "2025-07-18",
+    "published_at": "2025-07-18T00:16:10Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "icehunt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/171"
+      },
+      {
+        "handle": "Shaps",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/206"
+      },
+      {
+        "handle": "t0gun",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/210"
+      },
+      {
+        "handle": "abenz1267",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "nullndr",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.5.0",
+    "notes_chars": 2092
+  },
+  {
+    "id": "v1.4.1",
+    "version": "1.4.1",
+    "major": 1,
+    "date": "2025-07-16",
+    "published_at": "2025-07-16T15:21:00Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "mrtnin",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/192"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.4.1",
+    "notes_chars": 564
+  },
+  {
+    "id": "v1.4.0",
+    "version": "1.4.0",
+    "major": 1,
+    "date": "2025-07-16",
+    "published_at": "2025-07-16T03:04:42Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "Run omarchy-update to get into this version.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "abenz1267",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/184"
+      },
+      {
+        "handle": "abradburne",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/180"
+      },
+      {
+        "handle": "deanpcmad",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/172"
+      },
+      {
+        "handle": "kieeps",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/158"
+      },
+      {
+        "handle": "nullndr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/131"
+      },
+      {
+        "handle": "tahayvr",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/164"
+      },
+      {
+        "handle": "anagrius",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "apiguy",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "cannikin",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "DrInfinite",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "leonhazen",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "npenza",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "rockorager",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.4.0",
+    "notes_chars": 2719
+  },
+  {
+    "id": "v1.3.2",
+    "version": "1.3.2",
+    "major": 1,
+    "date": "2025-07-11",
+    "published_at": "2025-07-11T01:57:47Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.3.2",
+    "notes_chars": 271
+  },
+  {
+    "id": "v1.3.1",
+    "version": "1.3.1",
+    "major": 1,
+    "date": "2025-07-11",
+    "published_at": "2025-07-11T00:14:13Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": null,
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "DrInfinite",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/119"
+      },
+      {
+        "handle": "Mane-Pal",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/121"
+      },
+      {
+        "handle": "rockorager",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/122"
+      },
+      {
+        "handle": "roel4d",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/113"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.3.1",
+    "notes_chars": 1402
+  },
+  {
+    "id": "v1.3.0",
+    "version": "1.3.0",
+    "major": 1,
+    "date": "2025-07-10",
+    "published_at": "2025-07-10T02:44:39Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "Run omarchy-update to update. Then enjoy this beautiful login flow on your next reboot:",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "anoldguy",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/108"
+      },
+      {
+        "handle": "da-maltsev",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/84"
+      },
+      {
+        "handle": "bbondier",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "npenza",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "reshadman",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.3.0",
+    "notes_chars": 1942
+  },
+  {
+    "id": "v1.2.0",
+    "version": "1.2.0",
+    "major": 1,
+    "date": "2025-07-07",
+    "published_at": "2025-07-07T04:03:27Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "You upgrade by running omarchy-update in the terminal. If you'd like to get the new power menu in the top bar, you can run omarchy-refresh-waybar — but only do that if you have not made changes to ~/.config/waybar/config or ~/.config/waybar/style.css! If yo…",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "npenza",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/65"
+      },
+      {
+        "handle": "olgkv",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/79"
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/63"
+      },
+      {
+        "handle": "smola",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/80"
+      },
+      {
+        "handle": "ThiaudioTT",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/77"
+      },
+      {
+        "handle": "zdehasek",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/69"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.2.0",
+    "notes_chars": 1810
+  },
+  {
+    "id": "v1.1.1",
+    "version": "1.1.1",
+    "major": 1,
+    "date": "2025-07-05",
+    "published_at": "2025-07-05T00:02:09Z",
+    "tier": "tick",
+    "score": 0,
+    "headline": null,
+    "summary": "As always, you update by running omarchy-update in a terminal. If you installed Omarchy more than 2 days ago and haven't updated yet, run omarchy-update all just this once to catch up with migrations.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "0xProt",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/15"
+      },
+      {
+        "handle": "c4software",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/55"
+      },
+      {
+        "handle": "calvinludwig",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/42"
+      },
+      {
+        "handle": "harilvfs",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/20"
+      },
+      {
+        "handle": "iharsuvorau",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/29"
+      },
+      {
+        "handle": "kennethgeerts",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/10"
+      },
+      {
+        "handle": "Kn0ax",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/13"
+      },
+      {
+        "handle": "martinstork",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/58"
+      },
+      {
+        "handle": "nicholaschiang",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/8"
+      },
+      {
+        "handle": "oca159",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/44"
+      },
+      {
+        "handle": "prertik",
+        "first_time": true,
+        "pull_request": "https://github.com/basecamp/omarchy/pull/37"
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "henrysipp",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.1.1",
+    "notes_chars": 2705
+  }
+]

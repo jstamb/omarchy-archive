@@ -53,10 +53,27 @@ export async function fetchText(url) {
 
 export async function fetchJson(url) {
   const response = await fetch(url, {
-    headers: { 'user-agent': UA, accept: 'application/json' },
+    headers: { 'user-agent': UA, accept: 'application/json', ...githubAuth(url) },
   });
-  if (!response.ok) throw new Error(`GET ${url} -> ${response.status}`);
+  if (!response.ok) {
+    const hint =
+      response.status === 403 && !process.env.GITHUB_TOKEN
+        ? ' (rate limited — set GITHUB_TOKEN to lift the 60/hr anonymous cap)'
+        : '';
+    throw new Error(`GET ${url} -> ${response.status}${hint}`);
+  }
   return response.json();
+}
+
+/**
+ * Authenticate GitHub API calls when a token is around. In Actions this lifts
+ * the rate limit from 60/hr to 5000/hr; locally it is simply absent and the
+ * anonymous limit is plenty for one ingest run.
+ */
+function githubAuth(url) {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token || !url.startsWith('https://api.github.com/')) return {};
+  return { authorization: `Bearer ${token}`, 'x-github-api-version': '2022-11-28' };
 }
 
 export async function fetchBuffer(url) {
