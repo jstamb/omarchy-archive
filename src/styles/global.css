@@ -328,7 +328,14 @@ main {
     display: grid;
     grid-template-columns: 15rem minmax(0, 1fr);
     gap: 2.5rem;
-    align-items: start;
+    /*
+     * No `align-items: start` here. The sticky element is .sidebar__inner,
+     * which is a CHILD of the grid item — so its containing block is the
+     * .sidebar box, not the grid area. Shrinking that box to its content
+     * height leaves sticky with nowhere to travel and the sidebar scrolls
+     * away the moment you pass it. Stretching the column is what gives the
+     * inner element the full height of the row to stick within.
+     */
   }
   .sidebar {
     display: block;
