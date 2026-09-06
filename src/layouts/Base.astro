@@ -1,4 +1,5 @@
 ---
+import markSvg from '../../public/brand/omarchy-mark.svg?raw';
 import '../styles/global.css';
 import { counts, formatDate, meta } from '../lib/content';
 
@@ -14,6 +15,14 @@ interface Props {
 }
 
 const { title, description, path, indexable = true, image = '/og.png' } = Astro.props;
+
+// Inlined rather than <img src>: it is 2KB, it saves a request on every page,
+// and inline SVG inherits `currentColor` so the mark tracks the link colour on
+// hover. Generated from the official PNG by scripts/make-mark.mjs.
+const markPaths = markSvg
+  .replace(/^[\s\S]*?<svg[^>]*>/, '')
+  .replace(/<\/svg>\s*$/, '')
+  .trim();
 
 const pageTitle = title ? `${title} — ${meta.site_name}` : `${meta.site_name} — ${meta.tagline}`;
 const pageDescription = description ?? meta.tagline;
@@ -43,8 +52,16 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    {/* The wordmark face paints the logo in the first viewport, so fetch it
-        with the HTML rather than after the stylesheet resolves. 7.7KB. */}
+    {/* Both faces paint above the fold — the UI face everywhere, the wordmark
+        in the logo — so fetch them with the HTML instead of waiting for the
+        stylesheet to resolve. 31KB + 7.7KB. */}
+    <link
+      rel="preload"
+      href="/fonts/jetbrains-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <link
       rel="preload"
       href="/fonts/omarchy-font.ttf"
@@ -52,7 +69,7 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
       type="font/ttf"
       crossorigin="anonymous"
     />
-    <meta name="theme-color" content="#0b0d0c" />
+    <meta name="theme-color" content="#1a1b26" />
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:type" content="website" />
@@ -72,7 +89,13 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <header class="masthead">
       <div class="shell masthead__inner">
         <a class="brand" href="/" aria-label={`${meta.site_name} — home`}>
-          <span class="brand__mark" aria-hidden="true">A</span>
+          <svg
+            class="brand__mark"
+            viewBox="0 0 15 15"
+            fill="currentColor"
+            aria-hidden="true"
+            set:html={markPaths}
+          />
           <span class="brand__name">{meta.site_name}</span>
         </a>
         <nav class="nav" aria-label="Sections">

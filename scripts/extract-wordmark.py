@@ -25,9 +25,10 @@ from fontTools.ttLib import TTFont
 ROOT = Path(__file__).resolve().parent.parent
 FONT = ROOT / "public" / "fonts" / "omarchy-font.ttf"
 
-INK = "#d8dcd7"
-ACCENT = "#7fc6a2"
-BG = "#0b0d0c"
+# Tokyo Night, the palette omarchy.org ships.
+INK = "#c0caf5"
+ACCENT = "#9ece6a"
+BG = "#1a1b26"
 
 
 def line_path(font, glyphs, text, tracking=0):
@@ -84,32 +85,23 @@ width="{width:.0f}" height="{height:.0f}" role="img" aria-label="Omarchy Archive
     out.write_text(wordmark)
     print(f"wordmark.svg  {width:.0f}x{height:.0f}  ({len(wordmark)} bytes)")
 
-    # --- favicon: the A knocked out of a solid accent tile ---
-    # A green outline of a narrow letter turns to mush at 16px. A filled tile
-    # with the letter punched out keeps a readable silhouette all the way down,
-    # because the shape is carried by the large area, not by thin strokes.
-    #
-    # "A" for Archive, not "O" for Omarchy: same letterform, but this site is
-    # explicitly unofficial and should not wear Omarchy's own initial. It also
-    # survives 16px better — the O closes up into a featureless slot.
-    mark, mark_w = line_path(font, glyphs, "A")
+    # --- favicon: the official Omarchy mark on our own tile ---
+    # The mark itself is Omarchy's, vectorised by scripts/make-mark.mjs. It sits
+    # on a dark rounded tile rather than being reproduced bare, so the tab icon
+    # is recognisably Omarchy-family without being byte-identical to
+    # omarchy.org's own favicon — this site says "unofficial" on every page and
+    # the icon should not undercut that.
+    mark_svg = (ROOT / "public" / "brand" / "omarchy-mark.svg").read_text()
+    inner = mark_svg.split(">", 1)[1].rsplit("</svg>", 1)[0].strip()
+
     box = 64
-    inset = 9
-    draw = box - inset * 2
-    scale = draw / cap
-    tx = (box - mark_w * scale) / 2
-    ty = (box - cap * scale) / 2 + cap * scale
+    inset = 8
+    scale = (box - inset * 2) / 15  # the mark is a 15x15 grid
 
     favicon = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {box} {box}" \
 role="img" aria-label="Omarchy Archive">
-  <defs>
-    <mask id="o">
-      <rect width="{box}" height="{box}" fill="#fff"/>
-      <g transform="translate({tx:.2f} {ty:.2f}) scale({scale:.4f})" fill="#000"><path d="{mark}"/></g>
-    </mask>
-  </defs>
-  <rect width="{box}" height="{box}" rx="13" fill="{BG}"/>
-  <rect width="{box}" height="{box}" rx="13" fill="{ACCENT}" mask="url(#o)"/>
+  <rect width="{box}" height="{box}" rx="12" fill="{BG}"/>
+  <g transform="translate({inset} {inset}) scale({scale:.4f})" fill="{ACCENT}">{inner}</g>
 </svg>
 """
     (ROOT / "public" / "favicon.svg").write_text(favicon)

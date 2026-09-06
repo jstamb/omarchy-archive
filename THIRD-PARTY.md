@@ -8,33 +8,58 @@ argument, no negotiation.
 
 ---
 
+## JetBrains Mono
+
+The UI typeface for the entire site — the same face omarchy.org sets on its
+`body` and never leaves.
+
+- **Copyright:** 2020 The JetBrains Mono Project Authors
+- **Source:** https://github.com/JetBrains/JetBrainsMono
+- **License:** SIL Open Font License 1.1 — full text at
+  [`public/fonts/JETBRAINS-MONO-OFL.txt`](public/fonts/JETBRAINS-MONO-OFL.txt)
+- **Files:** `public/fonts/jetbrains-mono-latin.woff2` (the Latin subset,
+  variable 400–700, as served by Google Fonts)
+
 ## Omarchy Font
 
-The Omarchy wordmark as a typeface. Used for the logo, the section headings,
-the favicon, the social card, and the ASCII banner in the README.
+The Omarchy wordmark as a typeface. Used for the logo and the section headings,
+and baked to outlines for the social card and the ASCII banner in the README.
 
 - **Author:** Mark Cuda
 - **Source:** https://github.com/markcuda/Omarchy-Font
 - **Version:** 2.1
 - **License:** MIT — full text at [`public/fonts/LICENSE.txt`](public/fonts/LICENSE.txt)
 - **Files:** `public/fonts/omarchy-font.ttf`, and the outlines baked into
-  `public/brand/wordmark.svg`, `public/favicon.svg`, `public/og.png`,
-  `public/apple-touch-icon.png`
+  `public/brand/wordmark.svg` and `public/og.png`
 
 The font's own embedded notice reads: *"Free to use, share and modify. Not
 affiliated with Omarchy or 37signals."* — which is exactly this site's posture.
 
 ## Omarchy
 
-Theme preview images and every bundled theme's palette come from the Omarchy
-repository. The install commands this site prints were read from its `bin/`.
+Three things: the mark, the palette, and the content.
 
 - **Copyright:** David Heinemeier Hansson
-- **Source:** https://github.com/basecamp/omarchy
+- **Source:** https://github.com/basecamp/omarchy · https://omarchy.org
 - **License:** MIT
-- **Files:** `public/images/themes/*.webp` (re-encoded from each theme's
-  `preview.png`), and the `palette` / `tone` fields in `data/themes.json`
-  (parsed from each theme's `colors.toml`)
+
+**The mark.** `public/brand/omarchy-mark.svg` is Omarchy's own logo, vectorised
+from `omarchy.org/assets/images/favicon.png` by `scripts/make-mark.mjs` — the
+PNG is a perfectly uniform 15×15 grid, so it traces losslessly. It appears in
+the masthead lockup and on the favicon tile.
+
+This site is **not** affiliated with Omarchy. The mark is used to say what the
+archive is *about*, the way a card catalogue names its subject. The favicon
+places it on a dark tile rather than reproducing omarchy.org's icon byte for
+byte, and every page carries the disclaimer.
+
+**The palette.** The Tokyo Night values in `src/styles/global.css` are the same
+ones omarchy.org publishes in its `assets/css/root.css`.
+
+**The content.** Theme previews are `public/images/themes/*.webp`, re-encoded
+from each theme's `preview.png`. The `palette` / `tone` fields in
+`data/themes.json` are parsed from each theme's `colors.toml`. Every install
+command the site prints was read from `bin/`.
 
 ## Omarchy Hub
 

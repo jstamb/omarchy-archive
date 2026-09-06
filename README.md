@@ -187,8 +187,8 @@ data/*.json ──▶ src/lib/content.ts ──▶ pages ──▶ dist/ ──�
 ```
 data/                 the content — meta, sources, posts, themes, plugins, apps
 public/images/        committed WebP, {kind}/{id}.webp
-public/fonts/         Omarchy Font (MIT, Mark Cuda)
-public/brand/         wordmark outlines, generated from the font
+public/fonts/         JetBrains Mono (OFL) + Omarchy Font (MIT, Mark Cuda)
+public/brand/         the Omarchy mark and wordmark, as vector
 src/lib/content.ts    the only module that reads data/; types + derived views
 src/components/       Card, Gallery, FilterBar, CommandBox, TagList, Search
 src/pages/            index, posts, setups, themes, plugins, sources, install, about
@@ -197,16 +197,27 @@ scripts/              brand marks, ASCII art, linux lockfile
 AGENTS.md             the content bot's operating contract
 ```
 
-### Brand assets
+### Design
 
-The logo, favicon, social card, and the banner at the top of this file are all
-the same source of truth — the **Omarchy Font** — rendered to outlines so
-nothing depends on a font being installed:
+The visual language is lifted from omarchy.org's own tokens, not approximated:
+
+- **Tokyo Night**, the exact values omarchy.org publishes in `root.css`
+- **JetBrains Mono** for everything, the same face it sets on `body`
+- Uppercase solid buttons, `0.4em` radius, and the same easing curve
+- **Omarchy Font** for the logo and `h2` only — a logo cut, not a text face
+
+Every text colour clears **WCAG AA against both surfaces**, page and card.
+The lowest tier is 6.00:1; the previous palette's faint grey was 2.61:1 on a
+card, which is legible in a screenshot and not on a monitor.
+
+Brand marks are baked to outlines so nothing depends on a font being installed
+wherever the images get rendered:
 
 ```bash
+node scripts/make-mark.mjs            # -> public/brand/omarchy-mark.svg
 python3 scripts/extract-wordmark.py   # -> public/brand/wordmark.svg, public/favicon.svg
 npm run og                            # -> public/og.png, public/apple-touch-icon.png
-node scripts/make-ascii.mjs           # -> the banner above
+node scripts/make-ascii.mjs           # -> the banner at the top of this file
 ```
 
 ### Adding content
