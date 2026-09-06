@@ -1,16 +1,29 @@
-# Cloudflare Pages headers. Content changes on every bot commit, so HTML is
-# short-lived; images are content-addressed by record id and effectively frozen.
+# Cloudflare Pages headers.
+#
+# Pages APPENDS every matching rule rather than letting a more specific one win,
+# so a `Cache-Control` on `/*` plus one on `/images/*` ships as a single
+# duplicated header — `max-age=300, public, max-age=31536000, immutable` — and
+# the browser honours the first value, silently destroying the immutable
+# caching. So `/*` carries security headers only, and Cache-Control is set on
+# exactly one matching prefix per asset class.
+#
+# Pages' default for HTML is `must-revalidate`, which is what a bot-updated
+# index wants: a content commit is visible on the next request, not up to five
+# minutes later.
 /*
-  Cache-Control: public, max-age=300
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
 
+# Filenames are the record id; a changed picture is a changed record id.
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
-/pagefind/*
-  Cache-Control: public, max-age=3600
-
+# Content-hashed by Astro.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Rebuilt by `pagefind --site dist` on every deploy and not hashed, so it has to
+# expire on its own.
+/pagefind/*
+  Cache-Control: public, max-age=3600
