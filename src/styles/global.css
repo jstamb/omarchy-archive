@@ -303,6 +303,153 @@ main {
   padding: 2.25rem 0 4rem;
 }
 
+/* ------------------------------------------------------------------- sidebar */
+
+/*
+ * Wide screens get a persistent sidebar and the masthead nav is hidden; narrow
+ * screens get the scrollable masthead row and the sidebar is hidden. Only one
+ * navigation is ever on screen, so there is nothing to keep in sync visually
+ * and no duplicated tab stops for a screen reader to wade through.
+ */
+.layout {
+  flex: 1 0 auto;
+  display: block;
+}
+.layout__main {
+  min-width: 0;
+}
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .sidebar {
+    display: block;
+    padding-top: 2.25rem;
+  }
+  /* The masthead nav is the small-screen navigation. */
+  .masthead .nav {
+    display: none;
+  }
+  .masthead__inner {
+    justify-content: space-between;
+  }
+}
+
+.sidebar__inner {
+  position: sticky;
+  top: 76px;
+  display: grid;
+  gap: 1.75rem;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-right: 0.35rem;
+}
+
+.sidebar__nav {
+  display: grid;
+  gap: 1.4rem;
+}
+.sidebar__group {
+  display: grid;
+  gap: 0.35rem;
+}
+.sidebar__group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.1rem;
+}
+.sidebar__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-meta);
+  padding-left: 0.55rem;
+}
+.sidebar__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: var(--radius);
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  font-weight: 400;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+}
+.sidebar__link:hover {
+  background: var(--bg-raised);
+  color: var(--ink);
+}
+.sidebar__link[aria-current='page'] {
+  color: var(--accent);
+  background: var(--accent-sunken);
+  border-left-color: var(--accent);
+  font-weight: 700;
+}
+.sidebar__count {
+  color: var(--ink-meta);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.sidebar__link[aria-current='page'] .sidebar__count {
+  color: var(--accent);
+}
+
+.sidebar__latest {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  text-decoration: none;
+}
+.sidebar__latest:hover {
+  border-color: var(--accent);
+}
+.sidebar__version {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* Compact search: the sidebar has no room for an excerpt list. */
+.search--compact .search__input {
+  font-size: 0.88rem;
+  padding: 0.45rem 0.6rem;
+}
+.search--compact .search__note {
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+.search--compact .search__results {
+  gap: 0.35rem;
+}
+.search--compact .search__results li {
+  padding: 0.4rem 0.5rem;
+}
+.search--compact .search__results a {
+  font-size: 0.85rem;
+}
+.search--compact .search__results p {
+  display: none;
+}
+
 .footer {
   border-top: 1px solid var(--line-soft);
   padding: 1.75rem 0 2.5rem;
@@ -765,7 +912,18 @@ a.tag:hover {
   grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
   align-items: start;
 }
+/*
+ * Two collapse points, because the space available to a detail page depends on
+ * whether the sidebar is out. Without it, two columns work down to 900px. With
+ * it, the sidebar takes ~280px and the hero was squeezing to 429px at 1120 —
+ * so between the sidebar appearing and 1280px, the aside goes underneath.
+ */
 @media (max-width: 900px) {
+  .detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (min-width: 1100px) and (max-width: 1279px) {
   .detail {
     grid-template-columns: minmax(0, 1fr);
   }

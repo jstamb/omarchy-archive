@@ -1,5 +1,6 @@
 ---
 import markSvg from '../../public/brand/omarchy-mark.svg?raw';
+import Sidebar from '../components/Sidebar.astro';
 import '../styles/global.css';
 import { counts, formatDate, meta } from '../lib/content';
 
@@ -117,11 +118,14 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
       </div>
     </header>
 
-    <main id="main">
-      <div class="shell" data-pagefind-body={indexable ? '' : undefined}>
-        <slot />
-      </div>
-    </main>
+    <div class="shell layout">
+      <Sidebar path={path} />
+      <main id="main" class="layout__main">
+        <div data-pagefind-body={indexable ? '' : undefined}>
+          <slot />
+        </div>
+      </main>
+    </div>
 
     <footer class="footer">
       <div class="shell footer__row">

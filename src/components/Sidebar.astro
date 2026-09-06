@@ -1,0 +1,105 @@
+---
+import Search from './Search.astro';
+import { counts, plugins, themes, timeline } from '../lib/content';
+
+interface Props {
+  /** Current path, trailing slash — for marking the active entry. */
+  path: string;
+}
+
+const { path } = Astro.props;
+
+const bundledThemes = themes.filter((theme) => theme.bundled).length;
+const bundledPlugins = plugins.filter((plugin) => plugin.first_party).length;
+const resources = counts.posts - counts.setups;
+const latest = timeline[0];
+
+/*
+ * Counts are the point. On an archive, "Plugins 2,153" tells you something
+ * "Plugins" does not — it is the difference between a menu and an index.
+ */
+const groups = [
+  {
+    label: 'Browse',
+    links: [
+      { href: '/posts/', label: 'Feed', count: counts.posts },
+      { href: '/setups/', label: 'Setups', count: counts.setups },
+      { href: '/themes/', label: 'Themes', count: counts.themes },
+      { href: '/plugins/', label: 'Plugins', count: counts.plugins },
+      { href: '/resources/', label: 'Resources', count: resources },
+    ],
+  },
+  {
+    label: 'Deeper',
+    links: [
+      { href: '/themes/?ownership=bundled', label: 'Bundled themes', count: bundledThemes },
+      { href: '/themes/?ownership=community', label: 'Community themes', count: counts.extraThemes },
+      { href: '/plugins/?ownership=first-party', label: 'Bundled plugins', count: bundledPlugins },
+      { href: '/plugins/all/', label: 'Every plugin', count: counts.plugins },
+    ],
+  },
+  {
+    label: 'The archive',
+    links: [
+      { href: '/history/', label: 'History', count: counts.releases },
+      { href: '/sources/', label: 'Sources', count: counts.sources },
+      { href: '/install/', label: 'Install', count: null },
+      { href: '/about/', label: 'About', count: null },
+    ],
+  },
+];
+
+// Query strings are filter deep-links, so compare on the path alone.
+const isCurrent = (href: string) => {
+  const base = href.split('?')[0];
+  if (href.includes('?')) return false;
+  return path === base;
+};
+---
+
+<aside class="sidebar" aria-label="Archive navigation">
+  <div class="sidebar__inner">
+    <Search
+      id="sidebar-search"
+      compact
+      placeholder="Search the archive…"
+      note={`${counts.posts + counts.themes + counts.plugins} records`}
+    />
+
+    <nav class="sidebar__nav">
+      {
+        groups.map((group) => (
+          <div class="sidebar__group">
+            <span class="sidebar__label">{group.label}</span>
+            <ul>
+              {group.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="sidebar__link"
+                    aria-current={isCurrent(link.href) ? 'page' : undefined}
+                  >
+                    <span>{link.label}</span>
+                    {link.count !== null && (
+                      <span class="sidebar__count">{link.count.toLocaleString('en-US')}</span>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </nav>
+
+    {
+      latest && (
+        <a class="sidebar__latest" href="/history/">
+          <span class="sidebar__label">Latest release</span>
+          <span class="sidebar__version">{latest.version}</span>
+          <span class="sidebar__count">{latest.date}</span>
+        </a>
+      )
+    }
+  </div>
+</aside>
