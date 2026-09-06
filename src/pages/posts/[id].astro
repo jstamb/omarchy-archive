@@ -41,6 +41,11 @@ const nearby = byNewest(
       other.tags.some((tag) => post.tags.includes(tag)),
   ),
 ).slice(0, 3);
+
+const isVideo = post.tags.includes('video');
+const sourceHost = hostOf(post.source_url);
+const watchLabel =
+  post.source_platform === 'youtube' ? 'YouTube' : post.source_platform === 'x' ? 'X' : sourceHost;
 ---
 
 <Base
@@ -64,7 +69,21 @@ const nearby = byNewest(
       {
         post.image && (
           <div class="detail__hero">
-            <img src={post.image} alt={post.title} width="1200" height="675" loading="eager" />
+            <a
+              class:list={['detail__hero-link', isVideo && 'is-video']}
+              href={post.source_url}
+              rel="noopener nofollow"
+              target="_blank"
+              aria-label={isVideo ? `Watch on ${watchLabel}` : `View original on ${sourceHost}`}
+            >
+              <img src={post.image} alt={post.title} width="1200" height="675" loading="eager" />
+              {isVideo && (
+                <span class="detail__hero-play" aria-hidden="true">
+                  <span class="detail__hero-play__icon" />
+                  <span class="detail__hero-play__label">Watch on {watchLabel}</span>
+                </span>
+              )}
+            </a>
           </div>
         )
       }
@@ -204,3 +223,67 @@ const nearby = byNewest(
     </aside>
   </div>
 </Base>
+
+<style>
+  .detail__hero-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+  }
+  .detail__hero-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter var(--transition);
+  }
+  .detail__hero-link:hover img,
+  .detail__hero-link:focus-visible img {
+    filter: brightness(0.82);
+  }
+  .detail__hero-play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(180deg, transparent 35%, rgba(22, 22, 30, 0.55));
+    pointer-events: none;
+  }
+  .detail__hero-play__icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 28%, transparent);
+    display: grid;
+    place-items: center;
+  }
+  .detail__hero-play__icon::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.55rem 0 0.55rem 0.9rem;
+    border-color: transparent transparent transparent currentColor;
+    margin-left: 0.2rem;
+  }
+  .detail__hero-play__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(22, 22, 30, 0.78);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.35rem 0.65rem;
+  }
+  .detail__hero-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+</style>

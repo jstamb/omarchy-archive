@@ -144,7 +144,8 @@
       "keybinds",
       "game",
       "learning",
-      "onboarding"
+      "onboarding",
+      "video"
     ],
     "related_theme_ids": [],
     "related_plugin_ids": [],
@@ -170,7 +171,8 @@
       "ai",
       "p2p",
       "opencode",
-      "ecosystem"
+      "ecosystem",
+      "video"
     ],
     "related_theme_ids": [],
     "related_plugin_ids": [],
@@ -195,7 +197,8 @@
     "tags": [
       "dhh",
       "install",
-      "official"
+      "official",
+      "video"
     ],
     "related_theme_ids": [],
     "related_plugin_ids": [],
