@@ -113,6 +113,78 @@ Rules:
   theme or plugin. Do not infer one from a screenshot.
 - `seen_on` is an id from `data/sources.json`, crediting where you found it.
 
+### Choosing `kind`
+
+Pick by **what the post is about**, not what it looks like:
+
+| `kind` | Use it for |
+| --- | --- |
+| `setup` | A photo of someone's machine running Omarchy. Shows up on `/setups/`. |
+| `theme` | A post announcing or showing off a theme. |
+| `plugin` | A post announcing or showing off a plugin, bar widget, or shell extension. |
+| `idea` | A guide, article, review, discussion, cheat sheet, or how-to. |
+| `hardware` | A post that is about the machine rather than the desktop — a laptop review, a build. |
+| `other` | A tool or project built around Omarchy that is none of the above. |
+
+A theme *announcement* is `kind: "theme"` in `posts.json`. The installable
+theme itself is a separate record in `themes.json`. Adding both is correct and
+they link to each other; adding neither because you could not decide is not.
+
+## Scraping X
+
+The scheduled X run happens every four hours, so **most runs should add
+nothing**. That is the expected outcome, not a failed run. Six posts a day of
+real signal is a good week.
+
+**Deduplicate first, always.** Load `data/posts.json` and build the set of
+existing `source_url` values before you add anything. The same post will keep
+appearing in search results run after run. Compare normalised: lowercase, strip
+`?` query strings and trailing slashes, treat `twitter.com` and `x.com` as the
+same host.
+
+**What is worth a record**
+
+- A desk running Omarchy, where you can see the desktop.
+- A theme, plugin, or config someone published — with a repo or a listing.
+- A guide, migration write-up, review, or a genuinely useful thread.
+- Omarchy news: a release, a talk, a notable mention.
+
+**What is not**
+
+- "just installed omarchy 🔥" with no picture and no link.
+- Screenshots that are mostly a terminal with no Omarchy-specific anything.
+- Engagement bait, giveaways, crypto, drop-shipped hardware ads.
+- A reply or quote-tweet when the original post is the real thing — record the
+  original, credit the original author.
+- Anything you cannot attribute to a named account.
+
+**Cap each run at 10 new records.** If a run finds more, take the best ten and
+leave the rest; they will still be there in four hours. A run that adds forty
+records is a run that added noise.
+
+**Images.** You will only ever have a CDN URL. Set `image` to it and
+`image_hosted: false`, then run:
+
+```bash
+node bot/mirror-images.mjs
+```
+
+That downloads every hotlinked post image, re-encodes it to the house rules,
+writes it to `public/images/posts/<id>.webp`, and flips `image_hosted` to
+`true`. **Do not skip it.** `pbs.twimg.com` URLs expire and get rewritten; a
+hotlinked desk is a blank card waiting to happen. A post with no usable image
+is still worth adding — the card falls back to the source host in the wordmark
+face.
+
+**The field that matters most is `related_theme_ids`.** If the post says which
+theme it is running, and that theme is in `data/themes.json`, put the id in.
+That is what turns a photo into a link on the theme's page next to the command
+that reproduces it. It is the single highest-value thing you can add.
+
+**Commit straight to `main`.** Do not open a pull request. Pull requests on
+this repo are for humans submitting their own setups; a bot opening and merging
+its own PR is just a slower commit with a misleading paper trail.
+
 ## Images
 
 - WebP only, max edge 1200px, quality ~80, metadata stripped.
@@ -120,12 +192,15 @@ Rules:
 - Nothing over 400KB. The validator enforces it.
 - Hosted image → path starts with `/images/`, and `image_hosted: true`.
 - Not hosted → absolute `https://` URL, and `image_hosted: false`.
-- **Host setup screenshots; link theme and plugin thumbnails.** Setups are the
-  archive's own collection and a dead upstream should not blank them, so those
-  113 images live in `public/images/posts/`. Theme and plugin previews stay on
+- **Host every post image; link theme and plugin thumbnails.** Posts are the
+  archive's own collection and a dead upstream should not blank them, so all
+  120 live in `public/images/posts/`. Theme and plugin previews stay on
   omarchy.org and plugins.omarchy.org — 1,800+ of those would be a mirror, not
   an index, and they are already served from a CDN built for it.
-- `node bot/ingest-sources.mjs` does all of this for you via `storeImage`.
+- `node bot/ingest-sources.mjs` handles this for catalog records via
+  `storeImage`. For anything you added by hand with a remote URL, run
+  `node bot/mirror-images.mjs` — it pulls every hotlinked post image local and
+  flips `image_hosted`. `--dry-run` lists what it would take.
 
 ## Coverage
 
@@ -166,10 +241,13 @@ on the gallery page, and a complete compact index alongside it
 ## Definition of done
 
 ```bash
-node bot/validate.mjs   # validate: ok
+node bot/mirror-images.mjs   # any remote image -> local WebP
+node bot/validate.mjs        # validate: ok
 git add data public/images
 git commit -m "content: …"
 git push origin main
 ```
 
 If the validator fails, the build fails and nothing ships. That is the point.
+
+If you added nothing this run, commit nothing. An empty run is a normal run.
