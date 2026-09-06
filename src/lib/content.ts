@@ -180,6 +180,25 @@ export function postsForPlugin(pluginId: string) {
   return byNewest(posts.filter((post) => post.related_plugin_ids.includes(pluginId)));
 }
 
+/**
+ * The plugin gallery renders every card into the HTML so the chip filter can
+ * work without a request. At 2,153 plugins that page was 2.8MB — the archive
+ * holds the whole catalogue, but no one should download all of it to browse.
+ *
+ * So /plugins/ shows this subset, and /plugins/all/ is the complete index as a
+ * compact table. Every plugin still gets its own page either way.
+ */
+export const BROWSABLE_PLUGIN_COUNT = 240;
+
+export const browsablePlugins = [
+  // Everything that ships with Omarchy, then the community by stars.
+  ...plugins.filter((plugin) => plugin.first_party),
+  ...plugins
+    .filter((plugin) => !plugin.first_party)
+    .sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+    .slice(0, BROWSABLE_PLUGIN_COUNT),
+];
+
 /** Platforms where the author string is a handle, so it reads with an @. */
 const HANDLE_PLATFORMS: Record<string, true> = {
   x: true,

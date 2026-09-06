@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { counts, pluginSlug, plugins } from '../../lib/content';
+
+/**
+ * The complete catalogue, as a table rather than a gallery.
+ *
+ * /plugins/ renders cards, which is 1.3KB of HTML each — fine for a few
+ * hundred, 2.8MB for all of them. A row is a tenth of that, so the whole
+ * archive fits in a page you can actually load on a phone. No images, no
+ * filter chips; the browser's own find-in-page is the right tool here, and
+ * every row links to the full record.
+ */
+const all = [...plugins].sort((a, b) => {
+  if (a.first_party !== b.first_party) return a.first_party ? -1 : 1;
+  return (b.stars ?? 0) - (a.stars ?? 0) || a.name.localeCompare(b.name);
+});
+
+const byCategory = new Map<string, number>();
+for (const plugin of plugins) {
+  const key = plugin.category ?? 'Uncategorised';
+  byCategory.set(key, (byCategory.get(key) ?? 0) + 1);
+}
+const categories = [...byCategory.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<Base
+  path="/plugins/all/"
+  title="Every plugin"
+  description={`The complete Omarchy plugin catalogue — all ${counts.plugins} installable plugins, with author, kind, stars and a link to each one.`}
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Every plugin</h1>
+    <p class="pagehead__lede">
+      The complete catalogue — every installable plugin the marketplace lists,
+      plus the {plugins.filter((p) => p.first_party).length} that ship with Omarchy.
+      Sorted by stars. Use <kbd>Ctrl</kbd> + <kbd>F</kbd>; each row links to the
+      full record and its install command.
+    </p>
+    <p class="pagehead__meta">
+      {counts.plugins} plugins · {categories.map(([name, n]) => `${name} ${n}`).join(' · ')}
+    </p>
+    <p class="actions">
+      <a class="btn" href="/plugins/">← Back to the gallery</a>
+    </p>
+  </div>
+
+  <table class="index">
+    <thead>
+      <tr>
+        <th scope="col">Plugin</th>
+        <th scope="col">Author</th>
+        <th scope="col">Kind</th>
+        <th scope="col" class="index__num">★</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        all.map((plugin) => (
+          <tr>
+            <td>
+              <a href={`/plugins/${pluginSlug(plugin.id)}/`}>{plugin.name}</a>
+              {plugin.first_party && <span class="tag tag--accent">bundled</span>}
+            </td>
+            <td class="index__dim">{plugin.author ?? '—'}</td>
+            <td class="index__dim">{plugin.category ?? plugin.kinds[0] ?? '—'}</td>
+            <td class="index__num">{plugin.stars || ''}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</Base>

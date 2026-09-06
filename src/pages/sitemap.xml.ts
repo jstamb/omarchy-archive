@@ -13,6 +13,7 @@ export const GET: APIRoute = () => {
     { path: '/setups/', priority: '0.9' },
     { path: '/themes/', priority: '0.9' },
     { path: '/plugins/', priority: '0.9' },
+    { path: '/resources/', priority: '0.9' },
     { path: '/sources/', priority: '0.8' },
     { path: '/history/', lastmod: timeline[0]?.date, priority: '0.8' },
     { path: '/install/', priority: '0.7' },

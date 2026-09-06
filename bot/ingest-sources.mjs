@@ -219,12 +219,20 @@ async function ingestPlugins() {
   let added = 0;
   let updated = 0;
 
+  // --all takes every plugin the marketplace says is installable, plus the
+  // ones that ship with Omarchy. That is the archive position: the catalogue
+  // is complete, and the gallery decides how much of it to show at once.
+  const installable = (p) =>
+    p.sourceType === 'builtin' || (p.installAvailable && p.installCommand);
+
   const selected = onlyIds.size
     ? upstream.filter((p) => onlyIds.has(p.id))
-    : upstream
-        .filter((p) => p.sourceType === 'community' && p.installAvailable && p.installCommand)
-        .sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
-        .slice(0, limit ?? 20);
+    : flags.all
+      ? upstream.filter(installable)
+      : upstream
+          .filter((p) => p.sourceType === 'community' && p.installAvailable && p.installCommand)
+          .sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+          .slice(0, limit ?? 20);
 
   for (const plugin of selected) {
     const record = toPluginRecord(plugin);

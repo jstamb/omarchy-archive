@@ -2,9 +2,9 @@
 import Card from '../../components/Card.astro';
 import Gallery from '../../components/Gallery.astro';
 import Base from '../../layouts/Base.astro';
-import { plugins, tagFacets, valueFacets } from '../../lib/content';
+import { browsablePlugins, counts, tagFacets, valueFacets } from '../../lib/content';
 
-const items = plugins;
+const items = browsablePlugins;
 
 const groups = [
   {
@@ -28,15 +28,23 @@ const groups = [
 <Base
   path="/plugins/"
   title="Plugins"
-  description="A curated cut of the Omarchy plugin marketplace, with the install command from the official catalog."
+  description={`The ${counts.plugins} plugins in the Omarchy marketplace, with the install command from the official catalog. Browse the most-starred, or open the complete index.`}
   indexable={false}
 >
   <div class="pagehead">
     <h1>Plugins</h1>
     <p class="pagehead__lede">
-      A curated cut of the marketplace — not a mirror of it. Install commands come straight from
-      the official <a href="https://plugins.omarchy.org/" rel="noopener">catalog</a>, which lists
-      thousands more.
+      Every installable plugin in the marketplace is in this archive —
+      <strong>{counts.plugins}</strong> of them, each with its own page and the
+      install command copied straight from the official
+      <a href="https://plugins.omarchy.org/" rel="noopener">catalog</a>. This page
+      shows the {items.length} worth browsing: everything Omarchy ships, then the
+      community by stars.
+    </p>
+    <p class="actions">
+      <a class="btn btn--primary" href="/plugins/all/">
+        Complete index · {counts.plugins} plugins
+      </a>
     </p>
     <p class="notice">
       Plugins run as unsandboxed code. This site does not verify security. Read the repo before

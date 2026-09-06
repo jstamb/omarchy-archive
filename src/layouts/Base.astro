@@ -32,6 +32,7 @@ const ogImage = new URL(image, meta.site_url).href;
 const nav = [
   { href: '/posts/', label: 'Feed' },
   { href: '/setups/', label: 'Setups' },
+  { href: '/resources/', label: 'Resources' },
   { href: '/themes/', label: 'Themes' },
   { href: '/plugins/', label: 'Plugins' },
   { href: '/sources/', label: 'Sources' },
@@ -127,11 +128,27 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
         <span>{meta.positioning}</span>
         <span>
           {counts.posts} posts · {counts.themes} themes · {counts.plugins} plugins ·{' '}
-          {counts.sources} sources
+          {counts.releases} releases · {counts.sources} sources
         </span>
         <span>Last updated {formatDate(meta.updated_at)}</span>
         <a href={meta.repo_url} rel="noopener">Source on GitHub</a>
         <a href="/about/">About</a>
+      </div>
+
+      <div class="shell">
+        <a class="madeby" href="https://www.stambaughdesigns.co" rel="noopener">
+          <span class="madeby__text">a</span>
+          <img
+            class="madeby__logo"
+            src="/brand/stambaugh-designs.webp"
+            alt="Stambaugh Designs"
+            width="420"
+            height="131"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="madeby__text">Project</span>
+        </a>
       </div>
     </footer>
 

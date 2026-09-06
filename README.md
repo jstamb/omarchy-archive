@@ -26,9 +26,10 @@
 [Setups](https://omarchyarchive.com/setups/) &nbsp;·&nbsp;
 [Themes](https://omarchyarchive.com/themes/) &nbsp;·&nbsp;
 [Plugins](https://omarchyarchive.com/plugins/) &nbsp;·&nbsp;
-[Sources](https://omarchyarchive.com/sources/)
+[Sources](https://omarchyarchive.com/sources/) &nbsp;·&nbsp;
+[History](https://omarchyarchive.com/history/)
 
-`17 setups` &nbsp; `22 bundled themes` &nbsp; `18 extra themes` &nbsp; `23 plugins` &nbsp; `10 community sites`
+`112 setups` &nbsp; `168 themes` &nbsp; `2,153 plugins` &nbsp; `64 releases` &nbsp; `10 community sites`
 
 </div>
 
@@ -55,9 +56,11 @@ One click to copy. No hunting, no guessing, no `curl | sh` from a stranger.
 
 | | |
 |---|---|
-| 🖥️ **[Setups](https://omarchyarchive.com/setups/)** | Real workstations running Omarchy — Framework laptops, resurrected 2009 MacBooks, 9.95L SFF builds, ultrawides. Filter by form factor and hardware. Every card links back to the original post. |
-| 🎨 **[Themes](https://omarchyarchive.com/themes/)** | All 22 themes Omarchy ships, each with its real palette pulled from the theme's own `colors.toml`, plus a curated cut of community extras. Filter by tone. Copy the command. |
-| 🧩 **[Plugins](https://omarchyarchive.com/plugins/)** | A hand-picked slice of the marketplace with install commands copied straight from the official catalog — not a 2,500-entry dump you have to wade through. |
+| 🖥️ **[Setups](https://omarchyarchive.com/setups/)** | Every workstation in the community showcase — Framework laptops, resurrected 2009 MacBooks, 9.95L SFF builds, ultrawides. Filter by form factor and hardware. Every card links back to the original post. |
+| 🎨 **[Themes](https://omarchyarchive.com/themes/)** | All 22 themes Omarchy ships — each with its real palette pulled from the theme's own `colors.toml` — plus all 146 community extras. Filter by tone. Copy the command. |
+| 🧩 **[Plugins](https://omarchyarchive.com/plugins/)** | The complete marketplace: 2,153 installable plugins, each with its own page and the command from the official catalog. Browse the most-starred, or open the [full index](https://omarchyarchive.com/plugins/all/). |
+| 🕰 **[History](https://omarchyarchive.com/history/)** | Every Omarchy release since v1.1.1, the milestones drawn as a timeline, and the 553 people credited in the notes. |
+| 📚 **[Resources](https://omarchyarchive.com/resources/)** | The manual, the cheat sheet, the migration write-ups, and the tools people built around Omarchy. |
 | 🌐 **[Sources](https://omarchyarchive.com/sources/)** | Every other Omarchy site worth knowing, in one directory. A directory of directories. |
 | 🔎 **Search** | Full-text across every record. Type `thinkpad`, get the ThinkPad desks. |
 
@@ -102,8 +105,8 @@ contains shell metacharacters.
 - **Not a replacement.** [omarchy.org/themes](https://omarchy.org/themes/) and
   [plugins.omarchy.org](https://plugins.omarchy.org/) stay canonical. This
   indexes them and links out.
-- **Not a mirror.** The marketplace has thousands of plugins. This carries a
-  curated cut, on purpose.
+- **Not a rehost.** Every record links out to wherever it came from. Screenshots
+  are credited, and come down on request.
 - **No accounts, comments, ratings, or tracking.** There is no server.
 
 ## Get your setup on the site

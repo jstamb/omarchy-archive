@@ -25,6 +25,13 @@ const schema = JSON.parse(readFileSync(join(ROOT, 'bot', 'schema.json'), 'utf8')
 const errors = [];
 const warnings = [];
 
+/** Sibling pages that would shadow a record with the same slug. */
+const RESERVED_SLUGS = {
+  plugins: { all: true, index: true },
+  themes: { index: true },
+  posts: { index: true },
+};
+
 const fail = (where, message) => errors.push(`${where}: ${message}`);
 const warn = (where, message) => warnings.push(`${where}: ${message}`);
 
@@ -147,6 +154,13 @@ for (const [name, records] of Object.entries(files)) {
       fail(at, `id collides with "${slugs.get(slug)}" once slugified for a URL ("${slug}")`);
     }
     slugs.set(slug, record.id);
+
+    // A record whose slug matches a sibling page would be shadowed by it —
+    // /plugins/all/ is a real page, so a plugin with the id "all" would never
+    // be reachable. Cheap to check, invisible until it bites.
+    if (RESERVED_SLUGS[name]?.[slug]) {
+      fail(at, `id "${record.id}" slugifies to "${slug}", which is a page under /${name}/`);
+    }
 
     if (name === 'posts' || name === 'themes') {
       if (!/^[a-z0-9][a-z0-9-]*$/.test(String(record.id ?? ''))) {

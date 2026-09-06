@@ -1,0 +1,75 @@
+---
+import Card from '../../components/Card.astro';
+import Gallery from '../../components/Gallery.astro';
+import Base from '../../layouts/Base.astro';
+import { byNewest, hostOf, posts, sources, tagFacets, valueFacets } from '../../lib/content';
+
+/**
+ * Everything that isn't a desk: guides, tools, write-ups, discussions, docs.
+ * These records already existed — they were only reachable by filtering the
+ * feed, which is no way to find the manual.
+ */
+const items = byNewest(posts.filter((post) => post.kind !== 'setup'));
+
+const groups = [
+  {
+    id: 'kind',
+    label: 'Kind',
+    options: valueFacets(items, (post) => post.kind),
+  },
+  {
+    id: 'platform',
+    label: 'Where',
+    options: valueFacets(items, (post) => post.source_platform),
+  },
+  {
+    id: 'tag',
+    label: 'Topic',
+    options: tagFacets(items, 2),
+  },
+];
+
+// The directories live on /sources/; this is a pointer, not a duplicate.
+const directories = sources.filter((source) => !source.official).slice(0, 4);
+---
+
+<Base
+  path="/resources/"
+  title="Resources"
+  description="Guides, tools, write-ups and discussions from the Omarchy community — the manual, the cheat sheet, the migration posts, and the software people built around it."
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Resources</h1>
+    <p class="pagehead__lede">
+      The things that aren't desks. Documentation, guides, tools people built,
+      reviews, and the threads worth reading. Everything links out to the
+      original — this is an index, not a copy.
+    </p>
+    <p class="pagehead__meta">{items.length} resources</p>
+  </div>
+
+  <Gallery
+    groups={groups}
+    total={items.length}
+    defaultSort="newest"
+    sorts={[
+      { value: 'newest', label: 'newest' },
+      { value: 'name', label: 'a→z' },
+    ]}
+  >
+    {items.map((post, index) => <Card type="post" item={post} tagBase="/resources/" eager={index < 4} />)}
+  </Gallery>
+
+  <section class="section" data-pagefind-ignore="all">
+    <div class="section__head">
+      <h2>Looking for a whole site?</h2>
+      <a class="card__sub" href="/sources/">Full directory →</a>
+    </div>
+    <p class="pagehead__lede">
+      These are individual things. For the other Omarchy galleries and
+      directories — {directories.map((source) => hostOf(source.url)).join(', ')} and
+      more — see <a href="/sources/">sources</a>.
+    </p>
+  </section>
+</Base>

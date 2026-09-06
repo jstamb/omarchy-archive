@@ -120,19 +120,48 @@ Rules:
 - Nothing over 400KB. The validator enforces it.
 - Hosted image → path starts with `/images/`, and `image_hosted: true`.
 - Not hosted → absolute `https://` URL, and `image_hosted: false`.
-- Prefer hosting, but **do not bulk-download media.** Host images for featured
-  posts and setups; themes and plugins may use their listing thumbnails.
+- **Host setup screenshots; link theme and plugin thumbnails.** Setups are the
+  archive's own collection and a dead upstream should not blank them, so those
+  113 images live in `public/images/posts/`. Theme and plugin previews stay on
+  omarchy.org and plugins.omarchy.org — 1,800+ of those would be a mirror, not
+  an index, and they are already served from a CDN built for it.
 - `node bot/ingest-sources.mjs` does all of this for you via `storeImage`.
 
-## Volume
+## Coverage
 
-Quality over coverage. A good run is **5–20 hand-picked posts**, not a mirror.
+This is an archive. **Completeness is the goal**, not curation — if a thing
+exists in the Omarchy world and it is public, it belongs here.
 
-- Do not dump the plugin marketplace (2,500+ entries) into the UI. Link it and
-  import on demand.
-- Do not add all 140+ extra themes at once. Curate.
-- v1 target: ~80 excellent posts, 22 bundled themes, ~30 extra themes,
-  ~20 plugins, and a complete sources directory.
+Current coverage, all of it ingested by `bot/ingest-sources.mjs`:
+
+| Source | Held | Upstream |
+| --- | --- | --- |
+| Setups (Omarchy Hub) | 112 | 112 — complete |
+| Bundled themes | 22 | 22 — complete |
+| Extra themes (omarchy.org) | 146 | 146 — complete |
+| Plugins (marketplace) | 2,153 | every installable one + all 36 bundled |
+| Releases | 64 | complete, refreshed daily by an Action |
+
+Keeping it complete:
+
+- Re-run the ingests. They are idempotent — dedup is on the normalised
+  `source_url` / `repo_url`, so a re-run only adds what is new.
+- `node bot/ingest-sources.mjs plugins --all` takes the whole catalogue.
+- Where coverage is *not* complete, it is because nothing machine-readable
+  exists upstream: omarchytheme.com, omarchythemes.com, OldJobobo and Bjarneo
+  are link-only on `/sources/`. Records from those need adding by hand.
+
+The one thing that stays hand-picked is `featured` — that is an editorial
+choice about the homepage, not a coverage decision.
+
+### What scale changed
+
+A gallery renders every card into the HTML so the chip filter works without a
+request. That is fine to a few hundred records and not fine at two thousand:
+`/plugins/` was 2.8MB before it was split. If a collection grows past roughly
+**500 records**, it needs the same treatment plugins got — a browsable subset
+on the gallery page, and a complete compact index alongside it
+(`/plugins/all/`). Do not let a gallery page grow unbounded.
 
 ## Definition of done
 
