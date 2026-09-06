@@ -4,11 +4,14 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-// ARCHIVE_DATA_DIR lets validate.test.mjs point the validator at a fixture copy.
+// ARCHIVE_DATA_DIR / ARCHIVE_PUBLIC_DIR let validate.test.mjs point the
+// validator at fixture copies instead of the real tree.
 export const DATA_DIR = process.env.ARCHIVE_DATA_DIR
   ? resolve(process.env.ARCHIVE_DATA_DIR)
   : join(ROOT, 'data');
-export const PUBLIC_DIR = join(ROOT, 'public');
+export const PUBLIC_DIR = process.env.ARCHIVE_PUBLIC_DIR
+  ? resolve(process.env.ARCHIVE_PUBLIC_DIR)
+  : join(ROOT, 'public');
 
 /** Kebab-case slug safe for use as a record id and as a URL segment. */
 export function slugify(input) {

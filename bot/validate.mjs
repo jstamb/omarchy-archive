@@ -14,12 +14,30 @@
  *   - a hosted image path that does not exist, is not WebP, or exceeds 400KB
  *   - image_hosted that disagrees with the image path
  *   - seen_on / related_*_ids that point at nothing
+ *   - public/images growing past a total budget, not just per-file
  */
-import { readFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { DATA_DIR, PUBLIC_DIR, ROOT } from './lib/util.mjs';
 
 const MAX_IMAGE_BYTES = 400 * 1024;
+
+/*
+ * A ceiling on the whole hosted collection, not just each file.
+ *
+ * The per-image cap above cannot catch the failure that actually matters: the
+ * scraper's quality bar eroding and it hosting a hundred junk screenshots a
+ * day. Every image individually passes; the repo quietly doubles every month.
+ *
+ * 250MB is chosen against a real number, not a round one. Mirroring every
+ * upstream asset this archive knows about — all ~1,975 theme and plugin
+ * thumbnails on top of the posts — lands near 155MB. So the warn line at 60%
+ * is roughly "you have hosted everything that exists", which is the point a
+ * human should be deciding, and the fail line is unreachable by any honest
+ * growth. Getting there means something is wrong, not that the archive got
+ * popular.
+ */
+const IMAGE_BUDGET_BYTES = 250 * 1024 * 1024;
 
 const schema = JSON.parse(readFileSync(join(ROOT, 'bot', 'schema.json'), 'utf8'));
 const errors = [];
@@ -316,6 +334,48 @@ const featured = (files.posts ?? []).filter((post) => post.featured);
 if (featured.length === 0) warn('data/posts.json', 'no featured posts — the homepage strip is empty');
 for (const post of featured) {
   if (!post.image) warn(`data/posts.json ${post.id}`, 'featured but has no image');
+}
+
+// ------------------------------------------------------------- image budget
+
+const imageDir = join(PUBLIC_DIR, 'images');
+let imageBytes = 0;
+let imageCount = 0;
+const walkImages = (dir) => {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walkImages(path);
+    } else {
+      imageBytes += statSync(path).size;
+      imageCount++;
+    }
+  }
+};
+try {
+  walkImages(imageDir);
+} catch {
+  // No images yet is a legitimate state for a fresh checkout.
+}
+
+const mb = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)}MB`;
+const offload =
+  'set image_hosted:false with an absolute URL and serve from R2 or ' +
+  'Cloudflare Images — the schema already allows it, so this is a data ' +
+  'migration and not a rewrite';
+
+if (imageBytes > IMAGE_BUDGET_BYTES) {
+  fail(
+    'public/images',
+    `${imageCount} files totalling ${mb(imageBytes)}, over the ${mb(IMAGE_BUDGET_BYTES)} budget. ` +
+      `Either the scraper is hosting junk, or it is genuinely time to ${offload}`,
+  );
+} else if (imageBytes > IMAGE_BUDGET_BYTES * 0.6) {
+  warn(
+    'public/images',
+    `${imageCount} files totalling ${mb(imageBytes)} — past 60% of the ${mb(IMAGE_BUDGET_BYTES)} budget. ` +
+      `Decide now, with room to spare: tighten what gets hosted, or ${offload}`,
+  );
 }
 
 // --------------------------------------------------------------------- report

@@ -190,6 +190,11 @@ its own PR is just a slower commit with a misleading paper trail.
 - WebP only, max edge 1200px, quality ~80, metadata stripped.
 - Filename is `{id}.webp` under `public/images/{setups|themes|plugins|posts|sources}/`.
 - Nothing over 400KB. The validator enforces it.
+- The collection has a total budget too, not just a per-file cap: 250MB across
+  `public/images/`, enforced by the same validator, warning at 60%. For scale,
+  120 post images is 8.9MB and the whole repo including history is 13MB, so
+  normal growth will not approach it. If a run ever trips that warning, the
+  quality bar has slipped — do not raise the budget, cut what you are hosting.
 - Hosted image → path starts with `/images/`, and `image_hosted: true`.
 - Not hosted → absolute `https://` URL, and `image_hosted: false`.
 - **Host every post image; link theme and plugin thumbnails.** Posts are the

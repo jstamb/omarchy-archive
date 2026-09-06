@@ -4,7 +4,7 @@
  */
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, truncateSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { after, describe, it } from 'node:test';
@@ -20,7 +20,7 @@ const real = Object.fromEntries(
 const temps = [];
 
 /** Write the real data with `mutate` applied, then run the validator over it. */
-function run(mutate = () => {}) {
+function run(mutate = () => {}, { publicDir } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'inspo-validate-'));
   temps.push(dir);
   const data = structuredClone(real);
@@ -30,10 +30,43 @@ function run(mutate = () => {}) {
   }
 
   const result = spawnSync(process.execPath, [VALIDATOR], {
-    env: { ...process.env, ARCHIVE_DATA_DIR: dir },
+    env: {
+      ...process.env,
+      ARCHIVE_DATA_DIR: dir,
+      ...(publicDir ? { ARCHIVE_PUBLIC_DIR: publicDir } : {}),
+    },
     encoding: 'utf8',
   });
   return { code: result.status, out: `${result.stdout}${result.stderr}` };
+}
+
+/*
+ * A stand-in public/ holding a single image of an arbitrary apparent size.
+ * Truncate gives a sparse file, so a 260MB fixture costs no actual disk and
+ * statSync still reports the full length the budget check reads.
+ */
+function fakePublic(bytes) {
+  const dir = mkdtempSync(join(tmpdir(), 'inspo-public-'));
+  temps.push(dir);
+  mkdirSync(join(dir, 'images', 'posts'), { recursive: true });
+  for (const name of ['og.png', 'favicon.svg']) writeFileSync(join(dir, name), '');
+  const image = join(dir, 'images', 'posts', 'big.webp');
+  writeFileSync(image, '');
+  truncateSync(image, bytes);
+  return dir;
+}
+
+/** Drop every hosted image reference, since the fake public/ has none of them. */
+function unhostImages(data) {
+  for (const name of ['posts', 'themes', 'plugins']) {
+    for (const record of data[name]) {
+      if (typeof record.image === 'string' && record.image.startsWith('/')) {
+        record.image = null;
+        record.image_hosted = false;
+      }
+    }
+  }
+  for (const post of data.posts) post.featured = false;
 }
 
 after(() => {
@@ -242,5 +275,23 @@ describe('validate.mjs', () => {
     });
     assert.equal(code, 1);
     assert.match(out, /does not match/);
+  });
+
+  it('accepts a hosted collection inside the budget', () => {
+    const { code, out } = run(unhostImages, { publicDir: fakePublic(20 * 1024 * 1024) });
+    assert.equal(code, 0, out);
+    assert.doesNotMatch(out, /budget/);
+  });
+
+  it('warns before the image budget is reached, not after', () => {
+    const { code, out } = run(unhostImages, { publicDir: fakePublic(200 * 1024 * 1024) });
+    assert.equal(code, 0, out);
+    assert.match(out, /past 60% of the/);
+  });
+
+  it('rejects a hosted collection over the image budget', () => {
+    const { code, out } = run(unhostImages, { publicDir: fakePublic(260 * 1024 * 1024) });
+    assert.equal(code, 1);
+    assert.match(out, /over the 250\.0MB budget/);
   });
 });
