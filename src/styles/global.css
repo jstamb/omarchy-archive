@@ -411,6 +411,7 @@ main {
   background: var(--bg-sunken);
   border-bottom: 1px solid var(--line-soft);
   overflow: hidden;
+  text-decoration: none;
 }
 .card__media img {
   width: 100%;
@@ -427,15 +428,28 @@ main {
   flex: 1;
 }
 
+/*
+ * Cards with no screenshot. This used to be one decorative glyph repeated on
+ * every card, which read as "image failed to load" rather than as a designed
+ * placeholder — and at 2.01:1 it was barely visible anyway. It now carries the
+ * record's own identity (the source host, the theme name, the plugin id) in
+ * the wordmark face, so it is both legible and different on every card.
+ */
 .card__glyph {
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
-  font-size: 2.4rem;
-  color: var(--line);
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--ink-dim);
+  overflow-wrap: anywhere;
   background:
-    radial-gradient(120% 120% at 15% 10%, var(--bg-raised) 0%, transparent 65%),
+    radial-gradient(120% 120% at 15% 10%, var(--bg-raised) 0%, transparent 70%),
     var(--bg-sunken);
 }
 
