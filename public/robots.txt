@@ -1,5 +1,5 @@
-# Omarchy Inspo — an index. Being read is the point.
+# Omarchy Archive — an index. Being read is the point.
 User-agent: *
 Allow: /
 
-Sitemap: https://omarchyinspo.com/sitemap.xml
+Sitemap: https://omarchyarchive.com/sitemap.xml

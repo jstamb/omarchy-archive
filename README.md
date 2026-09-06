@@ -1,10 +1,10 @@
-# Omarchy Inspo
+# Omarchy Archive
 
 **A community index of Omarchy setups, themes, plugins, and the other Omarchy
 sites** — filterable, searchable, with the official install command next to
 every record.
 
-Omarchy Inspo is a static catalog. Humans ship the site. The bot ships the
+Omarchy Archive is a static catalog. Humans ship the site. The bot ships the
 content. Official theme and plugin directories remain the source of truth for
 installs; this site copies their commands and points at desks and posts those
 directories do not collect.
@@ -15,8 +15,8 @@ directories do not collect.
 ## Quick start
 
 ```bash
-git clone https://github.com/jstamb/omarchy-inspo
-cd omarchy-inspo
+git clone https://github.com/jstamb/omarchy-archive
+cd omarchy-archive
 npm install
 npm run dev          # http://localhost:4321
 ```
@@ -143,8 +143,8 @@ any server-side anything.
 
 ## Credit
 
-Every site indexed here is credited on [`/sources/`](https://omarchyinspo.com/sources/)
-and [`/about/`](https://omarchyinspo.com/about/). Bundled theme previews come
+Every site indexed here is credited on [`/sources/`](https://omarchyarchive.com/sources/)
+and [`/about/`](https://omarchyarchive.com/about/). Bundled theme previews come
 from the MIT-licensed [omarchy](https://github.com/basecamp/omarchy) repo;
 setup screenshots come from the MIT-licensed
 [Omarchy Hub](https://github.com/deepakness/omarchy-hub). If you own a shot and

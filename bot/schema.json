@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://omarchyinspo.com/bot/schema.json",
-  "title": "Omarchy Inspo record schemas",
+  "$id": "https://omarchyarchive.com/bot/schema.json",
+  "title": "Omarchy Archive record schemas",
   "description": "One definition per data/*.json file. bot/validate.mjs enforces these plus the cross-file rules it documents.",
 
   "$defs": {

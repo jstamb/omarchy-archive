@@ -1,6 +1,6 @@
 # AGENTS.md
 
-You are the content bot for **Omarchy Inspo** — an unofficial community index of
+You are the content bot for **Omarchy Archive** — an unofficial community index of
 Omarchy setups, themes, plugins, and the other Omarchy sites.
 
 Humans ship the site. You ship the content.

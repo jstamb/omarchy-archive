@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 // `trailingSlash: 'always'` + `build.format: 'directory'` keeps one canonical URL
 // shape so Pages does not serve `/themes/nord` and `/themes/nord/` as two pages.
 export default defineConfig({
-  site: 'https://omarchyinspo.com',
+  site: 'https://omarchyarchive.com',
   output: 'static',
   trailingSlash: 'always',
   build: {

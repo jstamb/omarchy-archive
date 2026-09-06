@@ -30,7 +30,7 @@ function run(mutate = () => {}) {
   }
 
   const result = spawnSync(process.execPath, [VALIDATOR], {
-    env: { ...process.env, INSPO_DATA_DIR: dir },
+    env: { ...process.env, ARCHIVE_DATA_DIR: dir },
     encoding: 'utf8',
   });
   return { code: result.status, out: `${result.stdout}${result.stderr}` };

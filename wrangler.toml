@@ -6,6 +6,6 @@
 # it is committed. If the site ever needs a runtime secret, add it as an
 # encrypted Secret in Pages → Settings → Variables and Secrets, and read it from
 # `locals.runtime.env` in a Function.
-name = "omarchy-inspo"
+name = "omarchy-archive"
 compatibility_date = "2026-09-01"
 pages_build_output_dir = "./dist"
