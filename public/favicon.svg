@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Omarchy Archive">
-  <rect width="64" height="64" rx="12" fill="#0b0d0c" />
-  <path d="M32 12 52 32 32 52 12 32Z" fill="none" stroke="#509475" stroke-width="5" />
-  <path d="M32 23 41 32 32 41 23 32Z" fill="#7fc6a2" />
+  <defs>
+    <mask id="o">
+      <rect width="64" height="64" fill="#fff"/>
+      <g transform="translate(16.19 55.00) scale(0.0575)" fill="#000"><path d="M50 0V-350H0V-450H50V-700H100V-750H150V-800H500V-100H450V-50H400V0H350V-350H200V0ZM350 -700H200V-450H350Z"/></g>
+    </mask>
+  </defs>
+  <rect width="64" height="64" rx="13" fill="#0b0d0c"/>
+  <rect width="64" height="64" rx="13" fill="#7fc6a2" mask="url(#o)"/>
 </svg>

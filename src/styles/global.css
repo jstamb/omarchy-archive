@@ -3,6 +3,25 @@
  * Should look at home next to the Omarchy manual, not like a SaaS landing page.
  */
 
+/*
+ * Omarchy Font v2.1 — the Omarchy wordmark as a real typeface.
+ * Mark Cuda, MIT. https://github.com/markcuda/Omarchy-Font
+ * "Free to use, share and modify. Not affiliated with Omarchy or 37signals."
+ *
+ * 96 code points, ASCII only, and lowercase renders as capitals. The
+ * unicode-range is pinned to that ASCII block on purpose: anything outside it
+ * — an em dash, an arrow, a curly quote — silently falls back to the UI face
+ * instead of rendering tofu inside a headline.
+ */
+@font-face {
+  font-family: 'Omarchy';
+  src: url('/fonts/omarchy-font.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007E;
+}
+
 :root {
   color-scheme: dark;
 
@@ -24,6 +43,9 @@
     Arial, sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', 'Cascadia Mono', Menlo, Consolas,
     monospace;
+  /* Display face. Used for the wordmark and section headings only — it is a
+     logo cut, not a text face, and it stops being readable below ~14px. */
+  --font-display: 'Omarchy', var(--font-mono);
 
   --gutter: 1.25rem;
   --radius: 6px;
@@ -67,8 +89,17 @@ h4 {
 h1 {
   font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
 }
+/*
+ * Section headings are the one place the wordmark face earns its keep: they
+ * are short, they are always ASCII, and they read as terminal chrome rather
+ * than as a marketing headline. Everything else stays in the UI face.
+ */
 h2 {
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
 }
 h3 {
   font-size: 0.95rem;
@@ -162,13 +193,12 @@ hr {
   padding-bottom: 0.4rem;
 }
 
+/* The logo: the site name set in the actual Omarchy wordmark face. */
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.45rem;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--ink);
-  font-weight: 650;
-  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 .brand:hover {
@@ -176,8 +206,23 @@ hr {
   color: var(--accent-ink);
 }
 .brand__mark {
-  color: var(--accent);
-  font-family: var(--font-mono);
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 4px;
+  background: var(--accent-ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1;
+  padding-bottom: 0.05rem;
+}
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 .nav {

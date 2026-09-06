@@ -43,6 +43,15 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {/* The wordmark face paints the logo in the first viewport, so fetch it
+        with the HTML rather than after the stylesheet resolves. 7.7KB. */}
+    <link
+      rel="preload"
+      href="/fonts/omarchy-font.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
     <meta name="theme-color" content="#0b0d0c" />
     <meta name="generator" content={Astro.generator} />
 
@@ -62,9 +71,9 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
 
     <header class="masthead">
       <div class="shell masthead__inner">
-        <a class="brand" href="/">
-          <span class="brand__mark">◆</span>
-          <span>{meta.site_name}</span>
+        <a class="brand" href="/" aria-label={`${meta.site_name} — home`}>
+          <span class="brand__mark" aria-hidden="true">A</span>
+          <span class="brand__name">{meta.site_name}</span>
         </a>
         <nav class="nav" aria-label="Sections">
           {

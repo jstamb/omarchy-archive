@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 /**
- * Regenerate the social card and the touch icon from data/meta.json.
- * Run after changing the site name or tagline:  node bot/make-og.mjs
+ * Regenerate the social card and the touch icon.
+ *
+ * The wordmark comes from public/brand/wordmark.svg — real Omarchy Font
+ * outlines, baked to paths by scripts/extract-wordmark.py. Copy comes from
+ * data/meta.json. Nothing here depends on a font being installed on the
+ * machine doing the rendering, which is the whole point of using outlines.
+ *
+ * Run after changing the site name, the tagline, or the brand marks:
+ *     npm run og
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -10,54 +17,92 @@ import { PUBLIC_DIR, ROOT } from './lib/util.mjs';
 
 const meta = JSON.parse(await readFile(join(ROOT, 'data', 'meta.json'), 'utf8'));
 
-const escape = (text) =>
-  text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const BG = '#0b0d0c';
+const ACCENT = '#509475';
+const ACCENT_INK = '#7fc6a2';
+const INK = '#d8dcd7';
+const DIM = '#8b938c';
+const FAINT = '#626a64';
+
+const escape = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// --- wordmark ----------------------------------------------------------------
+
+const wordmarkSvg = await readFile(join(PUBLIC_DIR, 'brand', 'wordmark.svg'), 'utf8');
+const viewBox = /viewBox="0 0 ([\d.]+) ([\d.]+)"/.exec(wordmarkSvg);
+if (!viewBox) throw new Error('public/brand/wordmark.svg has no viewBox — rerun extract-wordmark.py');
+const [, wmW, wmH] = viewBox.map(Number);
+// Just the drawing, so it can be placed inside the card's own coordinate space.
+const wordmarkBody = wordmarkSvg
+  .replace(/^[\s\S]*?<svg[^>]*>/, '')
+  .replace(/<\/svg>\s*$/, '')
+  .replace('currentColor', INK);
+
+/** Place the wordmark at a given width, top-left anchored. */
+function wordmarkAt(x, y, width) {
+  const scale = width / wmW;
+  return `<g transform="translate(${x} ${y}) scale(${scale.toFixed(5)})">${wordmarkBody}</g>`;
+}
+
+// --- social card -------------------------------------------------------------
+
+const CARD_W = 1200;
+const CARD_H = 630;
+const PAD = 84;
+const MARK_W = 470;
+const markH = (MARK_W / wmW) * wmH;
 
 // Two lines of tagline, broken on a word near the middle.
 const words = meta.tagline.split(' ');
 const split = Math.ceil(words.length / 2);
-const taglineLines = [words.slice(0, split).join(' '), words.slice(split).join(' ')];
+const tagline = [words.slice(0, split).join(' '), words.slice(split).join(' ')];
 
-const card = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+// Lay out top-down against a cursor. Hardcoded offsets are how the tagline
+// ended up sitting on top of the meta line the first time.
+let y = 78;
+const markY = y;
+y += markH + 46;
+const ruleY = y;
+y += 50;
+const taglineY = [y, y + 44];
+
+const metaY = [CARD_H - 92, CARD_H - 50];
+if (taglineY[1] + 30 > metaY[0]) {
+  throw new Error(`og card overflows: tagline ends at ${taglineY[1]}, meta starts at ${metaY[0]}`);
+}
+
+const card = `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_W}" height="${CARD_H}" viewBox="0 0 ${CARD_W} ${CARD_H}">
   <defs>
-    <radialGradient id="glow" cx="14%" cy="8%" r="85%">
-      <stop offset="0%" stop-color="#16241d" />
-      <stop offset="100%" stop-color="#0b0d0c" />
+    <radialGradient id="glow" cx="12%" cy="0%" r="95%">
+      <stop offset="0%" stop-color="#16241d"/>
+      <stop offset="100%" stop-color="${BG}"/>
     </radialGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#glow)" />
-  <rect x="0" y="0" width="1200" height="6" fill="#509475" />
+  <rect width="${CARD_W}" height="${CARD_H}" fill="url(#glow)"/>
+  <rect width="${CARD_W}" height="7" fill="${ACCENT}"/>
 
-  <g transform="translate(88 132)">
-    <path d="M28 0 56 28 28 56 0 28Z" fill="none" stroke="#509475" stroke-width="5" />
-    <path d="M28 15 41 28 28 41 15 28Z" fill="#7fc6a2" />
-  </g>
+  ${wordmarkAt(PAD, markY, MARK_W)}
 
-  <text x="168" y="176" font-family="Helvetica, Arial, sans-serif" font-size="52" font-weight="700"
-        fill="#d8dcd7" letter-spacing="-1.5">${escape(meta.site_name)}</text>
+  <rect x="${PAD}" y="${ruleY.toFixed(0)}" width="${MARK_W}" height="2" fill="#1f2422"/>
 
-  <text x="88" y="300" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="600"
-        fill="#7fc6a2" letter-spacing="-1">${escape(taglineLines[0])}</text>
-  <text x="88" y="356" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="600"
-        fill="#7fc6a2" letter-spacing="-1">${escape(taglineLines[1])}</text>
+  <text x="${PAD}" y="${taglineY[0].toFixed(0)}" font-family="Helvetica, Arial, sans-serif" font-size="33"
+        font-weight="600" fill="${ACCENT_INK}" letter-spacing="-0.6">${escape(tagline[0])}</text>
+  <text x="${PAD}" y="${taglineY[1].toFixed(0)}" font-family="Helvetica, Arial, sans-serif" font-size="33"
+        font-weight="600" fill="${ACCENT_INK}" letter-spacing="-0.6">${escape(tagline[1])}</text>
 
-  <text x="88" y="470" font-family="Menlo, monospace" font-size="24"
-        fill="#8b938c">setups · themes · plugins · posts · sources</text>
-  <text x="88" y="520" font-family="Menlo, monospace" font-size="21"
-        fill="#626a64">${escape(meta.site_url.replace(/^https?:\/\//, ''))} — unofficial community index</text>
+  <text x="${PAD}" y="${metaY[0]}" font-family="Menlo, monospace" font-size="23"
+        fill="${DIM}">setups &#183; themes &#183; plugins &#183; posts &#183; sources</text>
+  <text x="${PAD}" y="${metaY[1]}" font-family="Menlo, monospace" font-size="20"
+        fill="${FAINT}">${escape(meta.site_url.replace(/^https?:\/\//, ''))} &#8212; unofficial community index</text>
 </svg>`;
 
-const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#0b0d0c" />
-  <path d="M32 12 52 32 32 52 12 32Z" fill="none" stroke="#509475" stroke-width="5" />
-  <path d="M32 23 41 32 32 41 23 32Z" fill="#7fc6a2" />
-</svg>`;
+const cardPng = await sharp(Buffer.from(card)).png({ compressionLevel: 9 }).toBuffer();
+await writeFile(join(PUBLIC_DIR, 'og.png'), cardPng);
+console.log(`og.png                 ${CARD_W}x${CARD_H}  ${Math.round(cardPng.length / 1024)}KB`);
 
-for (const [name, svg] of [
-  ['og.png', card],
-  ['apple-touch-icon.png', icon],
-]) {
-  const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toBuffer();
-  await writeFile(join(PUBLIC_DIR, name), png);
-  console.log(`${name} — ${Math.round(png.length / 1024)}KB`);
-}
+// --- touch icon --------------------------------------------------------------
+
+const favicon = await readFile(join(PUBLIC_DIR, 'favicon.svg'));
+const iconPng = await sharp(favicon).resize(180, 180).png({ compressionLevel: 9 }).toBuffer();
+await writeFile(join(PUBLIC_DIR, 'apple-touch-icon.png'), iconPng);
+console.log(`apple-touch-icon.png   180x180   ${Math.round(iconPng.length / 1024)}KB`);

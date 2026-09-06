@@ -23,6 +23,15 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
+# The wordmark face and the marks cut from it. Not content-hashed, so a month
+# rather than a year — long enough to be free, short enough that a brand change
+# lands without stale tabs.
+/fonts/*
+  Cache-Control: public, max-age=2592000
+
+/brand/*
+  Cache-Control: public, max-age=2592000
+
 # Rebuilt by `pagefind --site dist` on every deploy and not hashed, so it has to
 # expire on its own.
 /pagefind/*
