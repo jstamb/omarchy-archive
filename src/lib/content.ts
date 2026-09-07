@@ -218,9 +218,16 @@ export function pluginSlug(id: string) {
   return id.replace(/\./g, '-');
 }
 
-/** Newest first by when the archive indexed the record. */
+/**
+ * Newest first by when the archive indexed the record.
+ * `added_at` is a day, and ingest appends, so two records on the same day
+ * break the tie by file position — later in the array was indexed later.
+ */
 export function byNewest<T extends { created_at?: string | null; added_at?: string }>(items: T[]): T[] {
-  return [...items].sort((a, b) => dateKey(b).localeCompare(dateKey(a)));
+  return items
+    .map((item, index) => ({ item, index }))
+    .sort((a, b) => dateKey(b.item).localeCompare(dateKey(a.item)) || b.index - a.index)
+    .map((entry) => entry.item);
 }
 
 function dateKey(item: { created_at?: string | null; added_at?: string }) {
@@ -367,9 +374,9 @@ export type FeedItem =
 
 export function mixedFeed(limit?: number): FeedItem[] {
   const all: FeedItem[] = [
-    ...posts.map((item) => ({ type: 'post' as const, item })),
-    ...themes.map((item) => ({ type: 'theme' as const, item })),
-    ...plugins.map((item) => ({ type: 'plugin' as const, item })),
+    ...byNewest(posts).map((item) => ({ type: 'post' as const, item })),
+    ...byNewest(themes).map((item) => ({ type: 'theme' as const, item })),
+    ...byNewest(plugins).map((item) => ({ type: 'plugin' as const, item })),
   ];
   all.sort((a, b) => dateKey(b.item).localeCompare(dateKey(a.item)));
   return limit ? all.slice(0, limit) : all;

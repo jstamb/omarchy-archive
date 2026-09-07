@@ -1,4 +1,15 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { test, expect } from '@playwright/test';
+
+/** Last record in posts.json that carries the newest added_at — ingest appends. */
+function mostRecentlyIndexedPost() {
+  const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../data/posts.json');
+  const posts = JSON.parse(readFileSync(file, 'utf8'));
+  const newest = posts.reduce((max, post) => (post.added_at > max ? post.added_at : max), '');
+  return [...posts].reverse().find((post) => post.added_at === newest);
+}
 
 // These tests exercise the actual built Pagefind index, not substituted results.
 test('a preview exposes all matches beyond its eight visible links', async ({ page }) => {
@@ -184,8 +195,35 @@ test('the masthead shows when the index last ran, in Pacific Time', async ({ pag
   await page.goto('/');
   const live = page.locator('.index-live');
   await expect(live).toBeVisible();
-  await expect(live).toContainText(/last index:/i);
+  await expect(live).toContainText(/last indexed:/i);
   await expect(live).toContainText(/Pacific Time/);
+});
+
+test('the masthead index stamp stays on one line', async ({ page }) => {
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('/');
+    const live = page.locator('.index-live');
+    await expect(live).toBeVisible();
+    const box = await live.boundingBox();
+    expect(box, `index stamp missing at ${width}px`).not.toBeNull();
+    expect(box.height, `index stamp wrapped at ${width}px`).toBeLessThan(28);
+  }
+});
+
+test('the feed leads with the most recently indexed post', async ({ page }) => {
+  const latest = mostRecentlyIndexedPost();
+  expect(latest).toBeTruthy();
+  await page.goto('/posts/');
+  const first = page.locator('main article[data-card]').first();
+  await expect(first.locator('.card__title a')).toHaveAttribute('href', `/posts/${latest.id}/`);
+});
+
+test('the homepage just-indexed strip leads with the most recently indexed post', async ({ page }) => {
+  const latest = mostRecentlyIndexedPost();
+  await page.goto('/');
+  const first = page.locator('main article[data-card]').first();
+  await expect(first.locator('.card__title a')).toHaveAttribute('href', `/posts/${latest.id}/`);
 });
 
 test('the homepage leads with recently indexed posts, not a static featured strip', async ({ page }) => {
