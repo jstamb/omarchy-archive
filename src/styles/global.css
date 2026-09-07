@@ -423,7 +423,35 @@ main {
   max-height: calc(100vh - 96px);
   overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
   padding-right: 0.35rem;
+}
+/*
+ * The sidebar and picker scrollbars take the theme's line colour: a thin
+ * thumb that brightens to the accent on hover, no track. `scrollbar-color`
+ * covers Firefox and current Chromium; the ::-webkit rules are the
+ * fallback for the older ones.
+ */
+.sidebar__inner::-webkit-scrollbar,
+.themepick__list::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar__inner::-webkit-scrollbar-track,
+.themepick__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar__inner::-webkit-scrollbar-thumb,
+.themepick__list::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+.sidebar__inner::-webkit-scrollbar-thumb:hover,
+.themepick__list::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+.sidebar__inner:hover,
+.themepick__list:hover {
+  scrollbar-color: var(--accent) transparent;
 }
 
 .sidebar__nav {
@@ -1844,6 +1872,7 @@ a.tag:hover {
   max-height: min(22rem, 50vh);
   overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
   display: grid;
   gap: 1px;
 }
