@@ -6,8 +6,10 @@ reads `data/*.json` and nothing else.
 | File                | Does                                                                    |
 | ------------------- | ----------------------------------------------------------------------- |
 | `schema.json`       | Record shape per `data/*.json` file. The contract.                      |
-| `validate.mjs`      | The gate. Runs first in `npm run build`; exits non-zero on a bad record. |
-| `validate.test.mjs` | One test per documented failure mode. `npm test`.                        |
+| `validate.mjs`      | The build gate. Runs first in `npm run build`; exits non-zero on a bad record. |
+| `precommit.mjs`     | The commit gate. Run this instead of committing by hand — refuses a clobbered file, a dropped count, a vanished id. |
+| `mirror-images.mjs` | Pulls every hotlinked post image local and flips `image_hosted`.        |
+| `*.test.mjs`        | One test per documented failure mode, for both gates. `npm test`.       |
 | `ingest-sources.mjs`| Pulls the public catalogs into `data/`.                                  |
 | `make-og.mjs`       | Regenerates `public/og.png` + `apple-touch-icon.png` from `meta.json`.  |
 | `commit-example.sh` | The reference content run, start to push.                               |
@@ -49,9 +51,17 @@ never rewritten.
 ## Validate
 
 ```bash
-node bot/validate.mjs     # or: npm run validate
-npm test                  # proves the gate actually rejects each failure mode
+node bot/precommit.mjs    # the one to run before committing — or: npm run precommit
+node bot/validate.mjs     # what the build runs — or: npm run validate
+npm test                  # proves both gates actually reject each failure mode
 ```
+
+`precommit` runs `validate` for you and adds the checks a build cannot make,
+because it compares the tree against `HEAD`: a file that stopped parsing, a
+record count that went down, a published id that disappeared. It prints the
+commit message, counted from the diff. Two scrape runs have replaced
+`data/posts.json` with a single sentinel string and committed it under a
+message claiming new posts; this is the gate that would have stopped both.
 
 It fails the build on: schema violations, duplicate ids, ids that collide once
 slugified into a URL, duplicate dedup keys, an install command that is not an

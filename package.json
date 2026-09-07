@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "validate": "node bot/validate.mjs",
+    "precommit": "node bot/precommit.mjs",
     "test": "node --test \"bot/**/*.test.mjs\"",
     "build": "node bot/validate.mjs && astro build && pagefind --site dist",
     "preview": "astro preview",

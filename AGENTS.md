@@ -18,6 +18,23 @@ data/meta.json  (updated_at)
 **Never edit `src/`, `bot/`, `astro.config.mjs`, `package.json`, or anything in
 `public/` other than `images/`** unless a human asks in that session.
 
+## How to write a data file
+
+Read the whole file, push onto the array, write the whole array back. Never
+write a fragment, a path, a placeholder, or a partial array over one of these
+files. They are added to, never replaced.
+
+Two runs have failed here in the same way, and both reached `main`:
+
+```
+2026-09-06  data/posts.json  <- "file:///workspace/omarchy-archive/data/posts.json"
+2026-09-07  data/posts.json  <- "PLACEHOLDER_WILL_FAIL"
+```
+
+Both times all 134 records were gone in one commit, and both times the commit
+message announced new posts. If a value like that can reach the write call,
+the write is wrong — a record count must never go down.
+
 ## Workflow
 
 1. Read `bot/schema.json` and the existing ids in the file you are about to
@@ -26,19 +43,46 @@ data/meta.json  (updated_at)
    update only `tags`, `image`, `summary`, and `featured`.
 3. A new record needs: `id`, `title` (or `name`), `source_url` or `repo_url`,
    `tags`, and `added_at` (ISO `YYYY-MM-DD`).
-4. Run the gate:
+4. Pull any hotlinked images local:
    ```bash
-   node bot/validate.mjs
+   node bot/mirror-images.mjs
    ```
-   It must print `validate: ok`. If it prints errors, fix the data — do not
-   weaken the validator.
-5. Commit only content paths, one logical batch per commit:
+5. Run the gate. This is not optional and it is not the same as `validate`:
+   ```bash
+   node bot/precommit.mjs
    ```
-   content: add <id>
-   content: ingest <source>
+   It exits non-zero and commits nothing if a file stopped parsing, a record
+   count dropped, a published id vanished, or `validate` fails. When it
+   passes it prints the commit message to use, generated from the counted
+   delta.
+6. Commit only content paths, using the message it printed:
+   ```bash
+   git add data public/images
+   git commit -m "content: add 3 posts"
    ```
-6. Push to `main`. Cloudflare Pages builds on push. `bot/commit-example.sh` is
+7. Push to `main`. Cloudflare Pages builds on push. `bot/commit-example.sh` is
    the whole run end to end.
+
+Chain it so a failure actually stops the run:
+
+```bash
+node bot/mirror-images.mjs && node bot/precommit.mjs && git add data public/images && git commit -m "…" && git push origin main
+```
+
+## The commit message must be the counted number
+
+Say what the diff contains, not what the run set out to do. `precommit` counts
+it for you — use its number. Three commits have now claimed 8 and 18 new posts
+on top of a file that did not change by a single byte, and a message that
+reports work the diff does not contain is worse than a crash, because it is
+the part a human reads instead of checking.
+
+If you added nothing, commit nothing. An empty run is the expected outcome
+most days and needs no commit to prove it happened.
+
+Never open a pull request. PRs on this repo are for humans submitting their
+own setups; a bot opening and merging its own PR is a slower commit with a
+misleading paper trail.
 
 ## Where records come from
 
@@ -246,13 +290,19 @@ on the gallery page, and a complete compact index alongside it
 ## Definition of done
 
 ```bash
-node bot/mirror-images.mjs   # any remote image -> local WebP
-node bot/validate.mjs        # validate: ok
-git add data public/images
-git commit -m "content: …"
-git push origin main
+node bot/mirror-images.mjs \
+  && node bot/precommit.mjs \
+  && git add data public/images \
+  && git commit -m "content: add 3 posts" \
+  && git push origin main
 ```
 
-If the validator fails, the build fails and nothing ships. That is the point.
+`precommit` is the whole contract in one command. It refuses to let a run
+commit if a data file stopped parsing, if a record count went down, if a
+published id disappeared, or if `validate` fails — and when it passes it
+prints the commit message, counted from the diff rather than from intent.
 
-If you added nothing this run, commit nothing. An empty run is a normal run.
+Use `&&`, not newlines. A run that ignores a non-zero exit and commits anyway
+is how both of the breaks above shipped.
+
+If it says `tree is clean`, commit nothing. An empty run is a normal run.
