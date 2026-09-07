@@ -41,6 +41,8 @@ const {
    * promise, so the index is fetched and initialised once no matter how many
    * boxes are wired up.
    */
+  import { cleanQuery, track } from '../scripts/analytics';
+
   let loading: Promise<any> | null = null;
 
   const loadEngine = () => {
@@ -111,12 +113,64 @@ const {
         : 'No matches.';
     };
 
+    /*
+     * Query tracking is deliberately not wired to `run`. This is a live search
+     * — `run` fires on a 150ms debounce while you type, so "thinkpad" would
+     * report eight searches for t, th, thi, … and the useful row would be
+     * buried under its own prefixes.
+     *
+     * There is no form and no submit button here, so a submit has to be
+     * defined. Two signals count, both unambiguous intent:
+     *
+     *   enter         - the explicit one.
+     *   result_click  - the one that actually happens. Results appear as you
+     *                   type, so most people never press Enter; they read the
+     *                   list and click. Tracking Enter alone would have missed
+     *                   most real searches and made the data look like nobody
+     *                   searches.
+     *
+     * A query counts once either way: pressing Enter and then clicking a
+     * result is one search, not two, which is what `tracked` is for.
+     */
+    let tracked = '';
+    const submitted = (via: string) => {
+      const query = cleanQuery(input.value);
+      if (!query || query === tracked) return;
+      tracked = query;
+      track('search', {
+        query,
+        results: results.children.length,
+        // Which box: the sidebar one is on every page, the hero one is not.
+        box: root.classList.contains('search--compact') ? 'sidebar' : 'page',
+        via,
+      });
+    };
+
     let timer = 0;
     input.addEventListener('input', () => {
       window.clearTimeout(timer);
       timer = window.setTimeout(() => void run(input.value), 150);
     });
     input.addEventListener('focus', () => void loadEngine().catch(() => {}));
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      // Enter can land before the debounce has run; search now, then report.
+      window.clearTimeout(timer);
+      void run(input.value).then(() => submitted('enter'));
+    });
+
+    results.addEventListener('click', (event) => {
+      const link = (event.target as HTMLElement | null)?.closest('a');
+      if (!link) return;
+      const items = [...results.querySelectorAll('li')];
+      submitted('result_click');
+      track('search_result_click', {
+        query: cleanQuery(input.value),
+        position: items.findIndex((li) => li.contains(link)) + 1,
+        to: new URL(link.href).pathname,
+      });
+    });
   }
 
   for (const root of document.querySelectorAll<HTMLElement>('[data-search]')) wire(root);

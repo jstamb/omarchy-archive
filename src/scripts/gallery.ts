@@ -5,6 +5,7 @@
  * Facet values live on the cards as `data-facet-<name>` / `data-tags`, so the
  * filter never parses visible text and stays correct when copy changes.
  */
+import { track } from './analytics';
 
 type Facet = string;
 
@@ -80,7 +81,8 @@ function invert(date: string): string {
     : 'zzzz';
 }
 
-function render(gallery: Gallery) {
+/** Applies the current filter + sort, and returns how many cards survived. */
+function render(gallery: Gallery): number {
   let visible = 0;
   for (const card of gallery.cards) {
     const show = matches(card, gallery.selected);
@@ -117,6 +119,7 @@ function render(gallery: Gallery) {
   for (const chip of gallery.sortChips) {
     chip.setAttribute('aria-pressed', chip.dataset.sort === gallery.sort ? 'true' : 'false');
   }
+  return visible;
 }
 
 function syncUrl(gallery: Gallery) {
@@ -157,9 +160,19 @@ export function initGalleries() {
 
     for (const chip of gallery.chips) {
       chip.addEventListener('click', () => {
-        toggle(gallery, chip.dataset.facet ?? '', chip.dataset.value ?? '');
-        render(gallery);
+        const facet = chip.dataset.facet ?? '';
+        const value = chip.dataset.value ?? '';
+        toggle(gallery, facet, value);
+        const results = render(gallery);
         syncUrl(gallery);
+        /*
+         * Only on the way in. A chip is a toggle, and "turned it off" says
+         * nothing about what someone was looking for — it is the same signal
+         * as never having pressed it.
+         */
+        if (gallery.selected.get(facet)?.has(value)) {
+          track('filter', { facet, value, results });
+        }
       });
     }
 

@@ -85,6 +85,24 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage} />
+
+    {/*
+      Rybbit. Injected rather than written as a plain tag because the hosted
+      script has no localhost guard of its own — I checked, there is not a
+      single reference to localhost or 127.0.0.1 in it — so a `dist` served
+      locally for a screenshot posts real pageviews into the production site's
+      numbers. Skipping local hostnames keeps development out of the data.
+
+      Custom events are fired from src/scripts/analytics.ts.
+    */}
+    <script is:inline data-rybbit-loader>
+      if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && !location.hostname.endsWith('.local')) {
+        const tag = document.createElement('script');
+        tag.src = 'https://app.rybbit.io/api/script.js?siteId=3c1d3040bd5f';
+        tag.defer = true;
+        document.head.append(tag);
+      }
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -157,12 +175,25 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     </footer>
 
     <script>
+      import { track } from '../scripts/analytics';
+
       // One delegated listener for every copy button on the page.
       document.addEventListener('click', async (event) => {
         const button = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(
           '[data-copy]',
         );
         if (!button) return;
+        /*
+         * Copying an install command is the thing this site is for. Every card
+         * and every detail page ends in one of these buttons, so this is the
+         * closest thing the archive has to a conversion.
+         */
+        track('copy_command', {
+          // The command's first two words - `omarchy theme set`, `omarchy
+          // plugin add` - not the whole string, which would make one row per
+          // record instead of one per kind of install.
+          command: (button.dataset.copy ?? '').split(/\s+/).slice(0, 3).join(' '),
+        });
         const value = button.dataset.copy ?? '';
         try {
           await navigator.clipboard.writeText(value);
@@ -187,6 +218,20 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
           label.textContent = original;
           delete button.dataset.copied;
         }, 1400);
+      });
+
+      /*
+       * Outbound clicks. The whole premise is pointing at other people's work,
+       * so which records send people onward is the measure of whether the
+       * index earns its keep. Host only - the destination URL is already on
+       * the record in git.
+       */
+      document.addEventListener('click', (event) => {
+        const link = (event.target as HTMLElement | null)?.closest('a');
+        if (!link?.href.startsWith('http')) return;
+        const url = new URL(link.href);
+        if (url.host === location.host) return;
+        track('outbound', { host: url.host });
       });
     </script>
   </body>
