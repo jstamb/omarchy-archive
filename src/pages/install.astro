@@ -1,7 +1,7 @@
 ---
 import CommandBox from '../components/CommandBox.astro';
 import Base from '../layouts/Base.astro';
-import { apps, meta, type Install } from '../lib/content';
+import { apps, meta, omarchyOfficial, type Install } from '../lib/content';
 
 const webapp: Install = {
   type: 'webapp',
@@ -70,7 +70,7 @@ const commands = [
     <p class="pagehead__lede">
       Two things live here: how to use this archive as an app, and the command table every
       record copies from. Omarchy itself is installed from
-      <a href="https://omarchy.org/download" rel="noopener">omarchy.org</a> — this page does not
+      <a href={omarchyOfficial.install} rel="noopener">omarchy.org</a> — this page does not
       ship the ISO.
     </p>
   </div>
@@ -81,10 +81,15 @@ const commands = [
         <h2>Start with Omarchy</h2>
       </div>
       <p>
-        Download and install from the official site. The manual stays canonical:
-        <a href="https://omarchy.org/" rel="noopener">omarchy.org</a>,
-        <a href="https://omarchy.org/download" rel="noopener">download</a>,
-        <a href="https://omarchy.org/manual" rel="noopener">manual</a>.
+        Get the ISO from the
+        <a href={omarchyOfficial.install} rel="noopener">homepage install section</a>. Direct
+        file:
+        <a href={omarchyOfficial.iso} rel="noopener">Omarchy {omarchyOfficial.isoVersion} ISO</a>
+        (<a href={omarchyOfficial.isoSha256} rel="noopener">SHA-256</a>,
+        <a href={omarchyOfficial.isoSig} rel="noopener">signature</a>). The manual stays
+        canonical:
+        <a href={omarchyOfficial.manual} rel="noopener">omarchy.org/manual</a>,
+        <a href={omarchyOfficial.gettingStarted} rel="noopener">getting started</a>.
       </p>
     </section>
 

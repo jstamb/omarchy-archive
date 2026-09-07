@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { counts, meta } from '../lib/content';
+import { counts, omarchyOfficial } from '../lib/content';
 ---
 
 <Base
@@ -12,7 +12,7 @@ import { counts, meta } from '../lib/content';
     <h1>Start here</h1>
     <p class="pagehead__lede">
       This site is an unofficial index. Omarchy itself is installed from
-      <a href="https://omarchy.org/" rel="noopener">omarchy.org</a>. Use this page to pick an
+      <a href={omarchyOfficial.site} rel="noopener">omarchy.org</a>. Use this page to pick an
       entry, then copy commands from the record pages.
     </p>
   </div>
@@ -20,8 +20,12 @@ import { counts, meta } from '../lib/content';
   <div class="prose">
     <ol>
       <li>
-        <a href="https://omarchy.org/download" rel="noopener">Install Omarchy from the official download</a>
-        — this archive does not ship the ISO.
+        <a href={omarchyOfficial.install} rel="noopener">Get Omarchy from the official site</a>
+        — the ISO is on the homepage install section. Direct file:
+        <a href={omarchyOfficial.iso} rel="noopener">Omarchy {omarchyOfficial.isoVersion} ISO</a>
+        (<a href={omarchyOfficial.isoSha256} rel="noopener">SHA-256</a>,
+        <a href={omarchyOfficial.isoSig} rel="noopener">signature</a>). This archive does not
+        ship the ISO.
       </li>
       <li>
         Browse <a href="/setups/">{counts.setups} desks</a> if you want to see what a machine
@@ -38,7 +42,9 @@ import { counts, meta } from '../lib/content';
       </li>
     </ol>
     <p>
-      Official docs stay canonical: <a href="https://omarchy.org/manual" rel="noopener">{meta.site_name === 'Omarchy Archive' ? 'omarchy.org/manual' : 'the manual'}</a>.
+      Official docs stay canonical:
+      <a href={omarchyOfficial.manual} rel="noopener">omarchy.org/manual</a>,
+      <a href={omarchyOfficial.gettingStarted} rel="noopener">getting started</a>.
     </p>
   </div>
 </Base>

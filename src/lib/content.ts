@@ -32,6 +32,26 @@ export interface Meta {
   updated_at: string;
 }
 
+/**
+ * Official Omarchy URLs, checked live against omarchy.org (2026-09-07).
+ * There is no /download path — that 404s. Get Omarchy is the homepage
+ * #install section; the ISO file is served from iso.omarchy.org.
+ */
+export const omarchyOfficial = {
+  site: 'https://omarchy.org/',
+  install: 'https://omarchy.org/#install',
+  manual: 'https://omarchy.org/manual/',
+  gettingStarted: 'https://omarchy.org/manual/getting-started/',
+  themes: 'https://omarchy.org/themes/',
+  plugins: 'https://plugins.omarchy.org/',
+  repo: 'https://github.com/omacom/omarchy',
+  releases: 'https://github.com/omacom/omarchy/releases',
+  isoVersion: '4.0.2',
+  iso: 'https://iso.omarchy.org/omarchy-4.0.2.iso',
+  isoSha256: 'https://iso.omarchy.org/omarchy-4.0.2.iso.sha256',
+  isoSig: 'https://iso.omarchy.org/omarchy-4.0.2.iso.sig',
+};
+
 export interface Source {
   id: string;
   name: string;

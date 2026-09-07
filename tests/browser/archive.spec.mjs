@@ -194,6 +194,18 @@ test('the homepage leads with recently indexed posts, not a static featured stri
   await expect(page.locator('main h2', { hasText: 'Featured' })).toHaveCount(0);
 });
 
+test('start and install pages link the official ISO, not a fabricated /download path', async ({ page }) => {
+  for (const path of ['/start/', '/install/']) {
+    await page.goto(path);
+    await expect(page.locator('a[href="https://omarchy.org/download"]')).toHaveCount(0);
+    await expect(page.locator('a[href="https://omarchy.org/#install"]').first()).toBeVisible();
+    const iso = page.locator('a[href^="https://iso.omarchy.org/"][href$=".iso"]');
+    await expect(iso.first()).toBeVisible();
+    await expect(page.locator('a[href$=".iso.sha256"]').first()).toBeVisible();
+    await expect(page.locator('a[href$=".iso.sig"]').first()).toBeVisible();
+  }
+});
+
 test('an out of range search page recovers to a reachable results page', async ({ page }) => {
   const response = await page.goto('/search/?q=tailscale&type=plugin&page=99999');
   expect(response.status()).toBe(200);
