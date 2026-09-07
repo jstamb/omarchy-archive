@@ -1719,3 +1719,213 @@ a.tag:hover {
     scroll-behavior: auto !important;
   }
 }
+
+/* -------------------------------------------------------------------- pixels */
+
+/*
+ * A theme as a row of pixels: the same mark in the masthead picker, on theme
+ * cards and at the top of a theme page, so a theme is recognisable by shape
+ * before its name is read. Hard edges on purpose — it is a swatch, not a chip.
+ */
+.pixels {
+  display: inline-flex;
+  gap: 2px;
+  vertical-align: middle;
+  line-height: 0;
+}
+.pixels i {
+  display: block;
+  width: 0.6em;
+  height: 0.6em;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+.pixels--sm i {
+  width: 0.55rem;
+  height: 0.55rem;
+}
+.pixels--md i {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.pixels--lg {
+  gap: 3px;
+}
+.pixels--lg i {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.card__pixels {
+  margin: 0.15rem 0 0.1rem;
+}
+
+/* ---------------------------------------------------------------- theme picker */
+
+.themepick {
+  position: relative;
+  flex: 0 0 auto;
+}
+.themepick__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-dim);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.themepick__btn:hover,
+.themepick__btn[aria-expanded='true'] {
+  background: var(--bg-raised);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+/* Following the machine's theme: the button carries a live dot like the index stamp. */
+.themepick[data-source='local'] .themepick__name::after {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-left: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: middle;
+}
+.themepick__pop {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  width: min(24rem, calc(100vw - 2 * var(--gutter)));
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  box-shadow: 0 12px 32px color-mix(in srgb, #000 40%, transparent);
+}
+.themepick__pop[hidden] {
+  display: none;
+}
+.themepick__search {
+  width: 100%;
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.75rem;
+}
+.themepick__search:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.themepick__search::placeholder {
+  color: var(--ink-meta);
+}
+.themepick__note {
+  margin: 0;
+  color: var(--ink-meta);
+  font-size: 0.8rem;
+}
+.themepick__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: min(22rem, 50vh);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  display: grid;
+  gap: 1px;
+}
+.themepick__list:empty {
+  display: none;
+}
+.themepick__list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.themepick__list li[aria-selected='true'] {
+  background: var(--bg-sunken);
+}
+.themepick__list li[data-current='true'] .themepick__label {
+  color: var(--accent);
+}
+.themepick__list li .pixels {
+  flex: 0 0 auto;
+}
+.themepick__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.themepick__kind {
+  flex: 0 0 auto;
+  color: var(--ink-meta);
+  font-size: 0.75rem;
+}
+.themepick__foot {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line-soft);
+}
+.themepick__action {
+  justify-self: start;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--link);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.themepick__action:hover {
+  color: var(--link-hover);
+}
+.themepick__hint {
+  margin: 0;
+  color: var(--ink-meta);
+  font-size: 0.75rem;
+}
+.themepick__hint code {
+  color: var(--ink-dim);
+}
+
+/* Light themes: the browser's form controls and scrollbars should follow. */
+:root[data-tone='light'] {
+  color-scheme: light;
+}
+
+@media (max-width: 700px) {
+  /* The picker is the only masthead control that stays on small screens;
+     the name is what costs width, the pixels alone identify it. */
+  .themepick__name {
+    display: none;
+  }
+  .themepick[data-source='local'] .themepick__btn::after {
+    content: '';
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+}

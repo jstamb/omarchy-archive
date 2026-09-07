@@ -72,6 +72,12 @@ The archive pins to your launcher like any other app:
 omarchy-webapp-install 'Omarchy Archive' 'https://omarchyarchive.com' 'https://omarchyarchive.com/og.png'
 ```
 
+The archive can wear any of its own themes. The picker in the masthead searches
+every indexed theme and restyles the site with its colours, in your browser
+only. In Chromium-family browsers, "Follow my Omarchy theme" asks for read
+access to `~/.local/state/omarchy/current` and then tracks `omarchy theme set`
+live, so the web app matches the desktop. Nothing is uploaded.
+
 Or from the menu: <kbd>Super</kbd> + <kbd>Space</kbd> → Install → Web App.
 
 ## Every command is real

@@ -163,6 +163,11 @@
           "type": "array",
           "items": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
         },
+        "colors": {
+          "type": "object",
+          "description": "Semantic colours from the theme's colors.toml (or alacritty.toml), keyed as Omarchy names them: background, lighter_background, foreground, accent, red … Only keys the theme ships. The site switcher is built from this.",
+          "additionalProperties": { "type": "string", "pattern": "^#[0-9a-f]{6}$" }
+        },
         "tags": { "$ref": "#/$defs/tags" },
         "install": { "$ref": "#/$defs/install" },
         "seen_on": { "type": ["string", "null"] },

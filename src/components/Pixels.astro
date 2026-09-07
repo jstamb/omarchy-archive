@@ -1,0 +1,28 @@
+---
+/**
+ * A theme's colours as a row of pixels. The same mark the switcher draws in
+ * the masthead, so a theme looks like itself everywhere it appears.
+ */
+interface Props {
+  colors: string[];
+  /** `sm` sits inline with text; `lg` is the detail-page mark. */
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { colors, size = 'md', class: className } = Astro.props;
+---
+
+{
+  colors.length > 0 && (
+    <span
+      class:list={['pixels', `pixels--${size}`, className]}
+      role="img"
+      aria-label={`Palette: ${colors.join(', ')}`}
+    >
+      {colors.map((hex) => (
+        <i style={`--c:${hex}`} />
+      ))}
+    </span>
+  )
+}

@@ -92,6 +92,7 @@ invent a command:
 ```bash
 node bot/ingest-sources.mjs themes-bundled
 node bot/ingest-sources.mjs themes-extra --limit 10
+node bot/ingest-sources.mjs themes-colors           # after any theme add: fills `colors` from the repo
 node bot/ingest-sources.mjs plugins --limit 20
 node bot/ingest-sources.mjs setups --limit 10
 node bot/ingest-sources.mjs ideas

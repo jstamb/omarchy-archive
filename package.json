@@ -16,6 +16,7 @@
     "check": "astro check",
     "og": "node bot/make-og.mjs",
     "ingest:themes": "node bot/ingest-sources.mjs themes",
+    "ingest:colors": "node bot/ingest-sources.mjs themes-colors",
     "ingest:plugins": "node bot/ingest-sources.mjs plugins",
     "ingest:setups": "node bot/ingest-sources.mjs setups",
     "ingest:ideas": "node bot/ingest-sources.mjs ideas"

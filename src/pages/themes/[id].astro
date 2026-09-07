@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import ArchiveActions from '../../components/ArchiveActions.astro';
 import Card from '../../components/Card.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import Pixels from '../../components/Pixels.astro';
 import CommandBox from '../../components/CommandBox.astro';
 import SourceBadge from '../../components/SourceBadge.astro';
 import TagList from '../../components/TagList.astro';
@@ -44,6 +45,7 @@ const siblings = themes
     <div>
       <div class="pagehead">
         <h1>{theme.name}</h1>
+        {theme.palette.length > 0 && <Pixels colors={theme.palette} size="lg" />}
         <p class="pagehead__lede">
           {
             theme.bundled
@@ -130,6 +132,11 @@ const siblings = themes
               ))}
             </span>
             <TagList tags={theme.palette} />
+            {theme.colors && Object.keys(theme.colors).length > 0 && (
+              <button class="btn" type="button" data-theme-apply={theme.id} aria-pressed="false">
+                Use on this site
+              </button>
+            )}
           </div>
         )
       }

@@ -25,6 +25,7 @@ const VERIFIED_KEYS = [
   'category',
   'tone',
   'palette',
+  'colors',
   'warning',
   'original_asset_url',
   'upstream_rev',

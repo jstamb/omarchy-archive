@@ -5,6 +5,7 @@
  * Usage:
  *   node bot/ingest-sources.mjs themes-bundled
  *   node bot/ingest-sources.mjs themes-extra  --limit 12
+ *   node bot/ingest-sources.mjs themes-colors --id dracula --force
  *   node bot/ingest-sources.mjs plugins       --limit 20
  *   node bot/ingest-sources.mjs plugins       --id omamail --id robzolkos.github
  *   node bot/ingest-sources.mjs setups        --limit 16
@@ -28,6 +29,7 @@ import {
   today,
   uniqueSlug,
 } from './lib/util.mjs';
+import { paletteFrom, parseThemeColors } from './lib/colors.mjs';
 import { applyNew, applySeen, markMissing, recordSourceStatus } from './lib/reconcile.mjs';
 import { runStagedIngest } from './lib/staging.mjs';
 
@@ -51,9 +53,11 @@ const onlyNames = new Set(asList(flags.name));
 const commands = {
   'themes-bundled': ingestBundledThemes,
   'themes-extra': ingestExtraThemes,
+  'themes-colors': ingestThemeColors,
   themes: async (ctx) => {
     await ingestBundledThemes(ctx);
     await ingestExtraThemes(ctx);
+    await ingestThemeColors(ctx);
   },
   plugins: ingestPlugins,
   setups: ingestSetups,
@@ -114,7 +118,7 @@ async function ingestBundledThemes(ctx) {
   for (const slug of slugs) {
     if (onlyIds.size && !onlyIds.has(slug)) continue;
     const raw = `https://raw.githubusercontent.com/${OMARCHY_REPO}/${branch}/themes/${slug}`;
-    const colors = parseColorsToml(await fetchText(`${raw}/colors.toml`));
+    const colors = parseThemeColors(await fetchText(`${raw}/colors.toml`));
     const preview = `${raw}/preview.png`;
 
     let image = byId.get(slug)?.image ?? null;
@@ -135,7 +139,8 @@ async function ingestBundledThemes(ctx) {
       image,
       image_hosted: true,
       tone: colors.mode === 'light' ? 'light' : 'dark',
-      palette: colors.palette,
+      palette: paletteFrom(colors.colors),
+      colors: colors.colors,
       tags: ['official', 'bundled', colors.mode === 'light' ? 'light' : 'dark'],
       install: { type: 'theme-set', command: `omarchy theme set ${slug}` },
       original_asset_url: byId.get(slug)?.original_asset_url ?? preview,
@@ -168,18 +173,82 @@ async function ingestBundledThemes(ctx) {
   console.log(`themes-bundled: +${added} added, ${updated} updated (${slugs.length} upstream)`);
 }
 
-function parseColorsToml(text) {
-  const values = new Map();
-  for (const line of text.split('\n')) {
-    const match = /^\s*([a-z_]+)\s*=\s*"([^"]*)"/.exec(line);
-    if (match) values.set(match[1], match[2]);
+/**
+ * Raw-file base for a GitHub repo URL, including the `tree/<ref>/<path>`
+ * form bundled themes use. `HEAD` resolves to the default branch without an
+ * API call, which keeps a 170-theme run inside the anonymous rate limit.
+ */
+function rawBase(repoUrl) {
+  const match = /^https:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/tree\/([^/]+)(\/.*)?)?\/?$/.exec(repoUrl ?? '');
+  if (!match) return null;
+  const [, owner, repo, ref = 'HEAD', path = ''] = match;
+  return `https://raw.githubusercontent.com/${owner}/${repo}/${ref}${path}`;
+}
+
+/**
+ * Fetch a theme's colours from its repo: colors.toml first, alacritty.toml
+ * for the pre-colors.toml layout. Null when the repo ships neither, or when
+ * what it ships has no background — a palette without one is not a theme.
+ */
+async function fetchThemeColors(repoUrl) {
+  const base = rawBase(repoUrl);
+  if (!base) return null;
+  for (const file of ['colors.toml', 'alacritty.toml']) {
+    let text;
+    try {
+      text = await fetchText(`${base}/${file}`);
+    } catch {
+      continue;
+    }
+    const parsed = parseThemeColors(text);
+    if (parsed.colors.background) return parsed;
   }
-  // A swatch a human can read at card size: background, accent, then the hues.
-  const order = ['background', 'accent', 'red', 'yellow', 'green', 'cyan', 'blue', 'magenta', 'foreground'];
-  const palette = order
-    .map((key) => values.get(key))
-    .filter((hex) => typeof hex === 'string' && /^#[0-9a-fA-F]{6}$/.test(hex));
-  return { mode: values.get('mode') ?? 'dark', palette: [...new Set(palette)] };
+  return null;
+}
+
+// ------------------------------------------------------------------ theme colours
+
+/**
+ * Backfill `colors` / `palette` / `tone` on every theme that has a repo. The
+ * site's theme switcher is built from this field, so a theme without it is
+ * listed but cannot be applied. Idempotent: a theme that already carries
+ * colours is skipped unless --force or --id names it. Never marks anything
+ * missing: a repo that has dropped its colour file keeps the last good set.
+ */
+async function ingestThemeColors(ctx) {
+  const themes = await ctx.readData('themes.json', []);
+  const day = today();
+  let filled = 0;
+  let unchanged = 0;
+  let none = 0;
+  for (const theme of themes) {
+    if (onlyIds.size && !onlyIds.has(theme.id)) continue;
+    if (!theme.repo_url) continue;
+    const have = theme.colors && Object.keys(theme.colors).length > 0;
+    if (have && !flags.force && !onlyIds.size) continue;
+    if (limit !== undefined && filled >= limit) break;
+    const fetched = await fetchThemeColors(theme.repo_url);
+    if (!fetched) {
+      none++;
+      console.log(`  ${theme.id}: no colour file`);
+      continue;
+    }
+    const update = {
+      colors: fetched.colors,
+      palette: paletteFrom(fetched.colors),
+      // A tone the catalog stated stays; the derived one only fills a blank.
+      tone: theme.tone ?? fetched.mode,
+    };
+    const next = applySeen(theme, update, day);
+    if (JSON.stringify(next.colors) === JSON.stringify(theme.colors)) {
+      unchanged++;
+      continue;
+    }
+    Object.assign(theme, next);
+    filled++;
+  }
+  await ctx.writeData('themes.json', sortThemes(themes));
+  console.log(`themes-colors: ${filled} filled, ${unchanged} unchanged, ${none} without a colour file`);
 }
 
 // ------------------------------------------------------------------ extra themes

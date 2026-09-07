@@ -1,0 +1,58 @@
+---
+/**
+ * The masthead theme picker. Any indexed theme with colours restyles the
+ * archive; the choice lives in this browser. Markup only — behaviour is in
+ * scripts/site-theme.ts, imported by the layout, and the stored theme is
+ * painted before first render by the inline script in Base.astro's <head>.
+ */
+import { counts } from '../lib/content';
+---
+
+<div class="themepick" data-themepick data-pagefind-ignore="all">
+  <button
+    class="themepick__btn"
+    type="button"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-label="Site theme"
+    title="Restyle the archive with any indexed theme"
+    data-themepick-toggle
+  >
+    <span class="pixels pixels--sm" aria-hidden="true" data-themepick-pixels>
+      <i style="--c:#1a1b26"></i><i style="--c:#7aa2f7"></i><i style="--c:#f7768e"></i><i style="--c:#9ece6a"></i><i style="--c:#e0af68"></i>
+    </span>
+    <span class="themepick__name" data-themepick-name>Tokyo Night</span>
+  </button>
+
+  <div class="themepick__pop" role="dialog" aria-label="Choose a site theme" hidden data-themepick-pop>
+    <label class="themepick__search-label" for="themepick-search" hidden>Search themes</label>
+    <input
+      class="themepick__search"
+      id="themepick-search"
+      type="search"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-controls="themepick-list"
+      aria-expanded="true"
+      autocomplete="off"
+      placeholder={`Search ${counts.themes} themes…`}
+      data-themepick-search
+    />
+    <p class="themepick__note" role="status" aria-live="polite" data-themepick-note>Loading themes…</p>
+    <ul class="themepick__list" id="themepick-list" role="listbox" aria-label="Themes" data-themepick-list></ul>
+    <div class="themepick__foot">
+      <button class="themepick__action" type="button" data-themepick-reset>Default · Tokyo Night</button>
+      <button class="themepick__action" type="button" data-themepick-local hidden>
+        Follow my Omarchy theme
+      </button>
+      <button class="themepick__action" type="button" data-themepick-local-off hidden>
+        Stop following
+      </button>
+      <p class="themepick__hint">
+        Themes are applied in this browser only. “Follow” reads
+        <code>~/.local/state/omarchy/current</code> with your permission and tracks
+        <code>omarchy theme set</code> live; nothing is uploaded.
+      </p>
+    </div>
+  </div>
+</div>

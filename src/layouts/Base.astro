@@ -1,6 +1,7 @@
 ---
 import markSvg from '../../public/brand/omarchy-mark.svg?raw';
 import Sidebar from '../components/Sidebar.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 import '../styles/global.css';
 import { counts, formatDate, formatIndexStamp, meta } from '../lib/content';
 
@@ -84,6 +85,26 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <meta name="theme-color" content="#1a1b26" />
     <meta name="generator" content={Astro.generator} />
 
+    {/*
+      Site theme, painted before first render. The picker (scripts/site-theme.ts)
+      stores the chosen theme as computed CSS custom properties, so this needs
+      no catalog: read, set, done — no flash of Tokyo Night on a Gruvbox
+      browser. Keep the shape in step with StoredTheme in that script.
+    */}
+    <script is:inline>
+      try {
+        var stored = JSON.parse(localStorage.getItem('omarchy-archive-theme') || 'null');
+        if (stored && stored.tokens) {
+          var root = document.documentElement;
+          for (var name in stored.tokens) root.style.setProperty(name, stored.tokens[name]);
+          root.dataset.siteTheme = stored.id;
+          root.dataset.tone = stored.tone;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta && stored.tokens['--bg']) meta.content = stored.tokens['--bg'];
+        }
+      } catch (e) {}
+    </script>
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={meta.site_name} />
     <meta property="og:title" content={pageTitle} />
@@ -154,6 +175,7 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
           }
         </nav>
         <a class="nav__link" href={meta.repo_url} rel="noopener">GitHub</a>
+        <ThemeSwitcher />
       </div>
     </header>
 
@@ -202,6 +224,7 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
       import { track } from '../scripts/analytics';
       import '../scripts/saved';
       import '../scripts/pixelfield';
+      import '../scripts/site-theme';
 
       const RESET_MS = 1400;
       const resetTimers = new WeakMap<HTMLButtonElement, number>();

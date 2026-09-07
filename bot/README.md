@@ -14,6 +14,7 @@ reads `data/*.json` and nothing else.
 | `make-og.mjs`       | Regenerates `public/og.png` + `apple-touch-icon.png` from `meta.json`.  |
 | `commit-example.sh` | The reference content run, start to push.                               |
 | `lib/util.mjs`      | Fetch, slug, dedup-key, and WebP image storage helpers.                  |
+| `lib/colors.mjs`    | Reads a theme's colors.toml / alacritty.toml into the semantic `colors` field the site's theme switcher runs on. |
 
 ## Ingest
 
@@ -21,6 +22,8 @@ reads `data/*.json` and nothing else.
 node bot/ingest-sources.mjs themes-bundled            # omarchy repo themes/ dirs
 node bot/ingest-sources.mjs themes-extra --limit 10   # omarchy.org/themes grid
 node bot/ingest-sources.mjs themes-extra --name "Dracula" --name "Monokai"
+node bot/ingest-sources.mjs themes-colors                # colors.toml -> theme.colors, for the site switcher
+node bot/ingest-sources.mjs themes-colors --id dracula --force
 node bot/ingest-sources.mjs plugins --limit 20        # marketplace, by stars
 node bot/ingest-sources.mjs plugins --id omamail      # specific plugins
 node bot/ingest-sources.mjs setups --limit 16         # newest desks from the hub

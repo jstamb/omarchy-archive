@@ -108,6 +108,8 @@ export interface Theme {
   image_hosted?: boolean;
   tone: 'dark' | 'light' | null;
   palette: string[];
+  /** Semantic colours as Omarchy's colors.toml names them. Drives the site theme switcher. */
+  colors?: Record<string, string>;
   tags: string[];
   install: Install;
   seen_on?: string | null;
