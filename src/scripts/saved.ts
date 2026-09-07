@@ -29,9 +29,19 @@ function toggleArchiveSaved(item: ArchiveSavedItem) {
   return isArchiveSaved(item.url);
 }
 
+function paintSavedCount() {
+  const n = loadArchiveSaved().length;
+  document.querySelectorAll<HTMLElement>('[data-saved-count]').forEach((node) => {
+    node.hidden = n === 0;
+    node.textContent = String(n);
+  });
+}
+
 function label(button: HTMLButtonElement, saved: boolean) {
   button.textContent = saved ? 'Saved' : 'Save';
   button.setAttribute('aria-pressed', saved ? 'true' : 'false');
+  const dest = button.parentElement?.querySelector<HTMLElement>('[data-save-dest]');
+  if (dest) dest.hidden = !saved;
 }
 
 document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => {
@@ -43,8 +53,10 @@ document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((button) => 
   button.addEventListener('click', () => {
     const saved = toggleArchiveSaved({ url, title, type });
     label(button, saved);
+    paintSavedCount();
   });
 });
+paintSavedCount();
 
 const feed = document.querySelector('[data-posts-feed]');
 if (feed) {

@@ -174,8 +174,24 @@ test('saved collections persist in this browser', async ({ page }) => {
   const href = await card.locator('.card__title a').getAttribute('href');
   await card.locator('[data-save]').click();
   await expect(card.locator('[data-save]')).toHaveAttribute('aria-pressed', 'true');
-  await page.goto('/saved/');
+  await expect(card.locator('[data-save-dest]')).toBeVisible();
+  await card.locator('[data-save-dest]').click();
+  await expect(page).toHaveURL(/\/saved\//);
   await expect(page.locator(`[data-saved-list] a[href="${href}"]`)).toBeVisible();
+});
+
+test('the masthead shows when the index last ran, in Pacific Time', async ({ page }) => {
+  await page.goto('/');
+  const live = page.locator('.index-live');
+  await expect(live).toBeVisible();
+  await expect(live).toContainText(/last index:/i);
+  await expect(live).toContainText(/Pacific Time/);
+});
+
+test('the homepage leads with recently indexed posts, not a static featured strip', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('main h2').first()).toContainText(/just indexed/i);
+  await expect(page.locator('main h2', { hasText: 'Featured' })).toHaveCount(0);
 });
 
 test('an out of range search page recovers to a reachable results page', async ({ page }) => {

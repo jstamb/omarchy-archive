@@ -18,7 +18,10 @@ const latest = timeline[0];
  * Counts are the point. On an archive, "Plugins 2,153" tells you something
  * "Plugins" does not — it is the difference between a menu and an index.
  */
-const groups = [
+const groups: {
+  label: string;
+  links: { href: string; label: string; count: number | null; saved?: boolean }[];
+}[] = [
   {
     label: 'Browse',
     links: [
@@ -47,7 +50,7 @@ const groups = [
       { href: '/creators/', label: 'Creators', count: null },
       { href: '/hardware/', label: 'Hardware', count: null },
       { href: '/themes/compare/', label: 'Compare themes', count: null },
-      { href: '/saved/', label: 'Saved', count: null },
+      { href: '/saved/', label: 'Saved', count: null, saved: true },
       { href: '/install/', label: 'Install', count: null },
       { href: '/about/', label: 'About', count: null },
     ],
@@ -88,6 +91,7 @@ const isCurrent = (href: string) => {
                     {link.count !== null && (
                       <span class="sidebar__count">{link.count.toLocaleString('en-US')}</span>
                     )}
+                    {link.saved && <span class="sidebar__count" data-saved-count hidden></span>}
                   </a>
                 </li>
               ))}

@@ -198,17 +198,18 @@ export function pluginSlug(id: string) {
   return id.replace(/\./g, '-');
 }
 
-/** Newest first. `created_at` when the source dated it, else the day we added it. */
+/** Newest first by when the archive indexed the record. */
 export function byNewest<T extends { created_at?: string | null; added_at?: string }>(items: T[]): T[] {
   return [...items].sort((a, b) => dateKey(b).localeCompare(dateKey(a)));
 }
 
 function dateKey(item: { created_at?: string | null; added_at?: string }) {
-  return item.created_at ?? item.added_at ?? '';
+  return item.added_at ?? item.created_at ?? '';
 }
 
 export const setups = posts.filter((post) => post.kind === 'setup');
 export const featuredPosts = byNewest(posts.filter((post) => post.featured));
+export const recentlyIndexed = byNewest(posts);
 
 /** Posts that name a theme or plugin, for the "seen in the wild" block. */
 export function postsForTheme(themeId: string) {
@@ -409,4 +410,23 @@ export function formatDate(value: string | null | undefined) {
     day: 'numeric',
     timeZone: 'UTC',
   });
+}
+
+/** Index timestamp in Pacific Time, for the live masthead stamp. */
+export function formatIndexStamp(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  const zone = 'America/Los_Angeles';
+  const day = date.toLocaleDateString('en-US', {
+    timeZone: zone,
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+  const time = date.toLocaleTimeString('en-US', {
+    timeZone: zone,
+    hour: 'numeric',
+    minute: '2-digit',
+  });
+  return `${day}, ${time} (Pacific Time)`;
 }

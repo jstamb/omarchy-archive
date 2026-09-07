@@ -2,7 +2,7 @@
 import markSvg from '../../public/brand/omarchy-mark.svg?raw';
 import Sidebar from '../components/Sidebar.astro';
 import '../styles/global.css';
-import { counts, formatDate, meta } from '../lib/content';
+import { counts, formatDate, formatIndexStamp, meta } from '../lib/content';
 
 interface Props {
   title?: string;
@@ -121,16 +121,22 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
 
     <header class="masthead">
       <div class="shell masthead__inner">
-        <a class="brand" href="/" aria-label={`${meta.site_name} — home`}>
-          <svg
-            class="brand__mark"
-            viewBox="0 0 15 15"
-            fill="currentColor"
-            aria-hidden="true"
-            set:html={markPaths}
-          />
-          <span class="brand__name">{meta.site_name}</span>
-        </a>
+        <div class="brand-cluster">
+          <a class="brand" href="/" aria-label={`${meta.site_name} — home`}>
+            <svg
+              class="brand__mark"
+              viewBox="0 0 15 15"
+              fill="currentColor"
+              aria-hidden="true"
+              set:html={markPaths}
+            />
+            <span class="brand__name">{meta.site_name}</span>
+          </a>
+          <p class="index-live">
+            <span class="index-live__dot" aria-hidden="true"></span>
+            <time datetime={meta.updated_at}>last index: {formatIndexStamp(meta.updated_at)}</time>
+          </p>
+        </div>
         <a class="masthead__search" href="/search/">Search</a>
         <nav class="nav" aria-label="Sections">
           {

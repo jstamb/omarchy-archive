@@ -2,9 +2,9 @@
 import Card from '../components/Card.astro';
 import Search from '../components/Search.astro';
 import Base from '../layouts/Base.astro';
-import { counts, featuredPosts, hostOf, meta, mixedFeed, sources } from '../lib/content';
+import { counts, hostOf, meta, mixedFeed, recentlyIndexed, sources } from '../lib/content';
 
-const featured = featuredPosts.slice(0, 4);
+const fresh = recentlyIndexed.slice(0, 8);
 const latest = mixedFeed(24);
 const directory = sources.slice(0, 6);
 ---
@@ -41,14 +41,14 @@ const directory = sources.slice(0, 6);
   </section>
 
   {
-    featured.length > 0 && (
+    fresh.length > 0 && (
       <section class="section" data-pagefind-ignore="all">
         <div class="section__head">
-          <h2>Featured <span class="section__count">hand-picked</span></h2>
-          <a class="card__sub" href="/posts/?sort=featured">All posts →</a>
+          <h2>Just indexed <span class="section__count">newest we added</span></h2>
+          <a class="card__sub" href="/posts/">Full feed →</a>
         </div>
         <div class="grid">
-          {featured.map((post, index) => (
+          {fresh.map((post, index) => (
             <Card type="post" item={post} eager={index < 2} />
           ))}
         </div>
@@ -79,7 +79,7 @@ const directory = sources.slice(0, 6);
 
   <section class="section" data-pagefind-ignore="all">
     <div class="section__head">
-      <h2>Latest <span class="section__count">{latest.length} newest records</span></h2>
+      <h2>Latest <span class="section__count">{latest.length} newest indexed</span></h2>
       <a class="card__sub" href="/posts/">Everything →</a>
     </div>
     <div class="grid">

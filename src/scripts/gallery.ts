@@ -114,9 +114,10 @@ function matches(card: HTMLElement, selected: Map<Facet, Set<string>>): boolean 
 
 function sortKey(card: HTMLElement, mode: string): string {
   if (mode === 'featured') {
-    // Featured first, then newest inside each bucket.
+    // Featured first, then newest-indexed inside each bucket.
     return `${card.dataset.featured === 'true' ? '0' : '1'}:${invert(card.dataset.date ?? '')}`;
   }
+  if (mode === 'posted') return invert(card.dataset.posted ?? card.dataset.date ?? '');
   if (mode === 'name') return card.dataset.title ?? '';
   return invert(card.dataset.date ?? '');
 }
