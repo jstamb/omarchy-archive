@@ -76,12 +76,12 @@ jobs:
           # missing from the repo this step would silently skip forever.
           git add data/timeline.json
 
-          # meta.json's updated_at changes on every run; on its own that is not
-          # a reason to deploy. Only commit when the timeline itself moved.
+          # meta.json is only stamped when a content file actually moved, so an
+          # unchanged timeline leaves it alone. Still gated on timeline.json:
+          # nothing else in this run is a reason to deploy.
           if git diff --cached --quiet -- data/timeline.json; then
             echo "No release changes." >> "$GITHUB_STEP_SUMMARY"
             git restore --staged data/timeline.json 2>/dev/null || true
-            git checkout -- data/meta.json 2>/dev/null || true
             exit 0
           fi
 

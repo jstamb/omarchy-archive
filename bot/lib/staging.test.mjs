@@ -17,7 +17,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { after, describe, it } from 'node:test';
 import { DATA_DIR, PUBLIC_DIR } from './util.mjs';
-import { DATA_FILES, runStagedIngest, seedPublicDir } from './staging.mjs';
+import { DATA_FILES, runStagedIngest, seedPublicDir, stampContentUpdate } from './staging.mjs';
 
 const temps = [];
 after(() => {
@@ -201,5 +201,53 @@ describe('runStagedIngest — owned temporaries only', () => {
     assert.equal(readArray(base.dataDir, 'plugins').length, before.length + 1);
     assert.equal(existsSync(result.staging), false, "this run's temp is cleaned");
     assert.equal(existsSync(stale), true, 'a foreign/owned prior temp is never blindly deleted');
+  });
+});
+
+describe('stampContentUpdate — meta.updated_at dates content, not runs', () => {
+  const metaOf = (dir) => JSON.parse(readFileSync(join(dir, 'meta.json'), 'utf8'));
+
+  it('leaves the stamp alone when the run changed nothing', async () => {
+    const base = makeBase();
+    const before = metaOf(base.dataDir).updated_at;
+
+    const result = await run(async (ctx) => {
+      const themes = await ctx.readData('themes.json', []);
+      await ctx.writeData('themes.json', themes); // re-write, byte-identical
+      await stampContentUpdate(ctx);
+    }, base);
+
+    assert.equal(metaOf(base.dataDir).updated_at, before);
+    assert.deepEqual(result.published, []);
+  });
+
+  it('leaves the stamp alone when only run bookkeeping moved', async () => {
+    const base = makeBase();
+    const before = metaOf(base.dataDir).updated_at;
+
+    await run(async (ctx) => {
+      const status = await ctx.readData('source-status.json', {});
+      status['omarchy-org'] = { ...(status['omarchy-org'] ?? {}), last_attempt_at: '2030-01-01' };
+      await ctx.writeData('source-status.json', status);
+      await stampContentUpdate(ctx);
+    }, base);
+
+    assert.equal(metaOf(base.dataDir).updated_at, before);
+  });
+
+  it('stamps when the run actually added a record', async () => {
+    const base = makeBase();
+    const before = metaOf(base.dataDir).updated_at;
+
+    await run(async (ctx) => {
+      const plugins = await ctx.readData('plugins.json', []);
+      plugins.push(newCommunityPlugin(plugins[0], { id: 'stamp-me', repo_url: 'https://github.com/example/stamp-me' }));
+      await ctx.writeData('plugins.json', plugins);
+      await stampContentUpdate(ctx);
+    }, base);
+
+    const after = metaOf(base.dataDir).updated_at;
+    assert.notEqual(after, before);
+    assert.ok(Date.parse(after) >= Date.parse(before), 'stamp moves forward');
   });
 });

@@ -22,7 +22,6 @@ import {
   dedupKey,
   fetchJson,
   fetchText,
-  nowIso,
   parseArgs,
   requireArray,
   slugify,
@@ -31,7 +30,7 @@ import {
 } from './lib/util.mjs';
 import { paletteFrom, parseThemeColors } from './lib/colors.mjs';
 import { applyNew, applySeen, markMissing, recordSourceStatus } from './lib/reconcile.mjs';
-import { runStagedIngest } from './lib/staging.mjs';
+import { runStagedIngest, stampContentUpdate } from './lib/staging.mjs';
 
 const OMARCHY_REPO = 'omacom/omarchy';
 const PLUGIN_CATALOG = process.env.ARCHIVE_PLUGIN_CATALOG ?? 'https://plugins.omarchy.org/catalog.json';
@@ -74,7 +73,7 @@ if (!command || !commands[command]) {
 // published into the working tree.
 const { published } = await runStagedIngest(async (ctx) => {
   await commands[command](ctx);
-  await touchMeta(ctx);
+  await stampContentUpdate(ctx);
 });
 console.log(
   published.length
@@ -670,11 +669,4 @@ function decodeEntities(text) {
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>');
-}
-
-async function touchMeta(ctx) {
-  const meta = await ctx.readData('meta.json', null);
-  if (!meta) return;
-  meta.updated_at = nowIso();
-  await ctx.writeData('meta.json', meta);
 }

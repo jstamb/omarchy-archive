@@ -29,8 +29,8 @@
  */
 import { createHash } from 'node:crypto';
 import { fetchAllPages } from './lib/pagination.mjs';
-import { githubHeaders, nowIso, parseArgs } from './lib/util.mjs';
-import { runStagedIngest } from './lib/staging.mjs';
+import { githubHeaders, parseArgs } from './lib/util.mjs';
+import { runStagedIngest, stampContentUpdate } from './lib/staging.mjs';
 
 const REPO = 'basecamp/omarchy';
 const RELEASES =
@@ -65,7 +65,7 @@ if (flags['dry-run']) {
 
 const { published } = await runStagedIngest(async (ctx) => {
   await ctx.writeData('timeline.json', entries);
-  await touchMeta(ctx);
+  await stampContentUpdate(ctx);
 });
 console.log(
   `timeline: ${entries.length} releases — ${nodes.length} nodes, ${entries.length - nodes.length} ticks` +
@@ -216,11 +216,4 @@ function cleanPr(url) {
   if (!url) return null;
   const match = /https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/pull\/\d+/.exec(url);
   return match ? match[0] : null;
-}
-
-async function touchMeta(ctx) {
-  const meta = await ctx.readData('meta.json', null);
-  if (!meta) return;
-  meta.updated_at = nowIso();
-  await ctx.writeData('meta.json', meta);
 }

@@ -43,11 +43,29 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, relative, sep } from 'node:path';
-import { DATA_DIR, PUBLIC_DIR, ROOT, readJson, storeImage, writeFileAtomic, writeJson } from './util.mjs';
+import { DATA_DIR, PUBLIC_DIR, ROOT, nowIso, readJson, storeImage, writeFileAtomic, writeJson } from './util.mjs';
 
 export const DATA_FILES = ['meta', 'sources', 'posts', 'themes', 'plugins', 'apps', 'timeline', 'source-status'];
+/** Files whose changes are run bookkeeping, not content the site dates. */
+const BOOKKEEPING_FILES = new Set(['meta', 'source-status']);
 const VALIDATOR = join(ROOT, 'bot', 'validate.mjs');
 const STAGE_PREFIX = 'omarchy-ingest-';
+
+/**
+ * Stamp `meta.updated_at`, but only when the run changed a content file. Every
+ * ingest used to stamp it unconditionally, so a run that filled nothing still
+ * put its clock on the masthead — "last indexed" then reported a time at which
+ * nothing was indexed. `source-status.json` moves on every attempt, so it does
+ * not count as content. Returns whether the stamp was written.
+ */
+export async function stampContentUpdate(ctx) {
+  const meta = await ctx.readData('meta.json', null);
+  if (!meta) return false;
+  if (!ctx.changedData().some((name) => !BOOKKEEPING_FILES.has(name))) return false;
+  meta.updated_at = nowIso();
+  await ctx.writeData('meta.json', meta);
+  return true;
+}
 
 /** Preservation the ingest defaults to; imported lazily so tests can inject. */
 async function defaultPreserve(before, after, options) {
@@ -90,6 +108,12 @@ export async function runStagedIngest(
       readData: (name, fallback) => readJson(join(stageData, name), fallback),
       writeData: (name, value) => writeJson(join(stageData, name), value),
       storeImage: (kind, id, sourceUrl) => storeImage(kind, id, sourceUrl, { publicDir: stagePublic }),
+      changedData: () =>
+        files.filter((name) => {
+          const staged = join(stageData, `${name}.json`);
+          // A staged file still seeded as a symlink was never written by the run.
+          return !isSeededLink(staged) && !sameBytes(staged, join(dataDir, `${name}.json`));
+        }),
     });
 
     validateStaging(stageData, stagePublic, validator);
