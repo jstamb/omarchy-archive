@@ -322,10 +322,20 @@ hr {
   }
 }
 
+/* Pixel field canvas — behind everything, never interactive. */
+.pixelfield {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .card__save {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
 }
 
 .nav {
@@ -757,16 +767,21 @@ main {
 
 .card__foot {
   margin-top: auto;
-  padding-top: 0.6rem;
+  padding-top: 0.75rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
   justify-content: space-between;
+}
+.card__foot .btn {
+  white-space: nowrap;
 }
 .card__foot .card__sub {
   text-decoration: none;
   color: var(--link);
   font-weight: 700;
+  white-space: nowrap;
 }
 .card__foot .card__sub:hover {
   color: var(--link-hover);

@@ -119,6 +119,8 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
   <body>
     <a class="skip" href="#main">Skip to content</a>
 
+    <canvas class="pixelfield" data-pixelfield aria-hidden="true"></canvas>
+
     <header class="masthead">
       <div class="shell masthead__inner">
         <div class="brand-cluster">
@@ -199,6 +201,7 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <script>
       import { track } from '../scripts/analytics';
       import '../scripts/saved';
+      import '../scripts/pixelfield';
 
       const RESET_MS = 1400;
       const resetTimers = new WeakMap<HTMLButtonElement, number>();
