@@ -46,7 +46,7 @@ const warnings = [];
 /** Sibling pages that would shadow a record with the same slug. */
 const RESERVED_SLUGS = {
   plugins: { all: true, index: true },
-  themes: { index: true },
+  themes: { index: true, compare: true },
   posts: { index: true },
 };
 
@@ -121,6 +121,12 @@ function check(value, node, where) {
       for (const key of Object.keys(value)) {
         if (!(key in (node.properties ?? {}))) fail(where, `unknown field "${key}"`);
       }
+    } else if (node.additionalProperties && node.additionalProperties !== true) {
+      for (const [key, child] of Object.entries(value)) {
+        if (!(key in (node.properties ?? {}))) {
+          check(child, node.additionalProperties, `${where}.${key}`);
+        }
+      }
     }
   }
 }
@@ -150,6 +156,33 @@ for (const [name, records] of Object.entries(files)) {
 const sourceIds = new Set((files.sources ?? []).map((source) => source.id));
 const themeIds = new Set((files.themes ?? []).map((theme) => theme.id));
 const pluginIds = new Set((files.plugins ?? []).map((plugin) => plugin.id));
+const postIds = new Set((files.posts ?? []).map((post) => post.id));
+const collectionIds = { posts: postIds, themes: themeIds, plugins: pluginIds };
+
+function readOptional(name) {
+  const path = join(DATA_DIR, name);
+  try {
+    return JSON.parse(readFileSync(path, 'utf8'));
+  } catch (error) {
+    if (error && error.code === 'ENOENT') return undefined;
+    fail(`data/${name}`, `unreadable or invalid JSON — ${error.message}`);
+    return null;
+  }
+}
+
+const sourceStatus = readOptional('source-status.json');
+if (sourceStatus !== undefined && sourceStatus !== null) {
+  if (schema.source_status) check(sourceStatus, schema.source_status, 'data/source-status.json');
+  if (sourceStatus && typeof sourceStatus === 'object' && !Array.isArray(sourceStatus)) {
+    for (const key of Object.keys(sourceStatus)) {
+      if (!sourceIds.has(key)) {
+        fail(`data/source-status.json.${key}`, `is not an id in data/sources.json`);
+      }
+    }
+  } else if (sourceStatus !== null) {
+    fail('data/source-status.json', 'must be an object keyed by source id');
+  }
+}
 
 for (const [name, records] of Object.entries(files)) {
   if (!Array.isArray(records)) continue;
@@ -239,6 +272,18 @@ for (const [name, records] of Object.entries(files)) {
     }
     for (const id of record.related_plugin_ids ?? []) {
       if (!pluginIds.has(id)) fail(at, `related_plugin_ids "${id}" is not in data/plugins.json`);
+    }
+
+    if (record.replaced_by) {
+      if (record.status !== 'replaced') {
+        fail(at, 'replaced_by requires status "replaced"');
+      }
+      const ids = collectionIds[name];
+      if (ids && !ids.has(record.replaced_by)) {
+        fail(at, `replaced_by "${record.replaced_by}" is not in data/${name}.json`);
+      }
+    } else if (record.status === 'replaced') {
+      fail(at, 'status "replaced" requires replaced_by');
     }
 
     if (record.bundled && !record.official) fail(at, 'bundled themes are official by definition');

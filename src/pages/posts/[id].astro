@@ -1,6 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import ArchiveActions from '../../components/ArchiveActions.astro';
 import Card from '../../components/Card.astro';
+import Lightbox from '../../components/Lightbox.astro';
 import CommandBox from '../../components/CommandBox.astro';
 import SourceBadge from '../../components/SourceBadge.astro';
 import TagList from '../../components/TagList.astro';
@@ -12,9 +14,11 @@ import {
   hostOf,
   pluginById,
   posts,
+  statusLabel,
   themeById,
   type Post,
 } from '../../lib/content';
+import { creatorHref } from '../../lib/creators';
 
 export const getStaticPaths = (() =>
   posts.map((post) => ({ params: { id: post.id }, props: { post } }))) satisfies GetStaticPaths;
@@ -24,6 +28,9 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const authorLink = creatorHref(post.author);
+const state = statusLabel(post.status);
+const replacement = post.replaced_by ? posts.find((other) => other.id === post.replaced_by) : null;
 
 const relatedThemes = post.related_theme_ids
   .map((id) => themeById.get(id))
@@ -64,12 +71,13 @@ const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'gui
       <div class="pagehead">
         <h1>{post.title}</h1>
         {post.summary && <p class="pagehead__lede">{post.summary}</p>}
+        {state && <p class="notice">{state}{replacement && <> — now <a href={`/posts/${replacement.id}/`}>{replacement.title}</a></>}</p>}
       </div>
 
       {
         post.image && (
           <div class="detail__hero">
-            <img src={post.image} alt={post.title} width="1200" height="675" loading="eager" />
+            <Lightbox src={post.image} alt={post.title} />
           </div>
         )
       }
@@ -147,7 +155,9 @@ const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'gui
               <div>
                 <dt>Author</dt>
                 <dd>
-                  {post.author_url ? (
+                  {authorLink ? (
+                    <a href={authorLink}>{authorLabel(post)}</a>
+                  ) : post.author_url ? (
                     <a href={post.author_url} rel="noopener nofollow">
                       {authorLabel(post)}
                     </a>
@@ -155,6 +165,50 @@ const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'gui
                     authorLabel(post)
                   )}
                 </dd>
+              </div>
+            )
+          }
+          {
+            state && (
+              <div>
+                <dt>Status</dt>
+                <dd>{state}</dd>
+              </div>
+            )
+          }
+          {
+            post.config_url && (
+              <div>
+                <dt>Config</dt>
+                <dd>
+                  <a href={post.config_url} rel="noopener nofollow">
+                    {hostOf(post.config_url)}
+                  </a>
+                </dd>
+              </div>
+            )
+          }
+          {
+            post.first_seen_at && (
+              <div>
+                <dt>First seen</dt>
+                <dd>{formatDate(post.first_seen_at)}</dd>
+              </div>
+            )
+          }
+          {
+            post.last_seen_at && (
+              <div>
+                <dt>Last seen</dt>
+                <dd>{formatDate(post.last_seen_at)}</dd>
+              </div>
+            )
+          }
+          {
+            post.rights_note && (
+              <div>
+                <dt>Rights</dt>
+                <dd>{post.rights_note}</dd>
               </div>
             )
           }
@@ -196,6 +250,7 @@ const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'gui
           </div>
         </dl>
         <SourceBadge seenOn={post.seen_on} />
+        <ArchiveActions recordId={post.id} recordUrl={`/posts/${post.id}/`} kind={post.kind} />
       </div>
 
       {

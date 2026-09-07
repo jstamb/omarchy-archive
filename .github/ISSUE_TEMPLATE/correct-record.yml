@@ -1,0 +1,47 @@
+name: Correct a record
+description: Something on an archive page is wrong or incomplete.
+title: 'correct: '
+labels: ['record correction']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The archive copies what public catalogs and posts already say. A correction
+        here is a data fix, not a security review.
+
+  - type: input
+    id: record_id
+    attributes:
+      label: Record id
+      description: The last path segment of the archive page (for example `nord` or `omamail`).
+    validations:
+      required: true
+
+  - type: input
+    id: record_url
+    attributes:
+      label: Archive URL
+      placeholder: https://omarchyarchive.com/themes/nord/
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - theme
+        - plugin
+        - setup
+        - post
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What should change
+      description: The field and the evidence (a catalog URL, a commit, a post). Do not invent a command.
+    validations:
+      required: true

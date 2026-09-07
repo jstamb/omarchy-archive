@@ -75,6 +75,6 @@ body:
         - label: This is my setup, and the screenshot is mine to share.
           required: true
         - label: >
-            I understand the record can be removed at any time by asking — just
-            open an issue.
+            I understand the record can be removed at any time by asking — use
+            the Request removal form, or open an issue.
           required: true

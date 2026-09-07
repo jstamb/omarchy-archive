@@ -1,0 +1,46 @@
+name: Request removal
+description: Ask to unpublish a record that should not stay in the archive.
+title: 'removal: '
+labels: ['removal request']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The archive does not delete published ids silently. A removal is reviewed.
+        Say who you are in relation to the record (author, subject, rights holder).
+
+  - type: input
+    id: record_id
+    attributes:
+      label: Record id
+    validations:
+      required: true
+
+  - type: input
+    id: record_url
+    attributes:
+      label: Archive URL
+      placeholder: https://omarchyarchive.com/posts/example/
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - theme
+        - plugin
+        - setup
+        - post
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why it should come down
+      description: Rights, privacy, or a record that was never yours to index. No security claims.
+    validations:
+      required: true

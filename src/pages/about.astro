@@ -114,7 +114,18 @@ import { counts, formatDate, hostOf, meta, sources } from '../lib/content';
       </ul>
       <p>
         Last content update: <strong>{formatDate(meta.updated_at)}</strong>. Everything is on
-        <a href={meta.repo_url} rel="noopener">GitHub</a>; corrections are a pull request.
+        <a href={meta.repo_url} rel="noopener">GitHub</a>.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Contribute or correct</h2>
+      <p>
+        You do not need git. Every detail page has <strong>Correct this record</strong> and
+        <strong>Request removal</strong> links that open a GitHub issue with the record id
+        already filled. Setups can also be sent with the
+        <a href={`${meta.repo_url}/issues/new?template=setup-submission.yml`}>setup form</a>.
+        A removal is reviewed; published ids are not deleted on a silent scrape.
       </p>
     </section>
 

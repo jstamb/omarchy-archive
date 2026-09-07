@@ -11,7 +11,24 @@
       "description": "Stable, unique within its file, kebab-case (plugins keep their reverse-DNS catalog id). Never rewritten once published."
     },
     "isoDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "nullableIsoDate": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
     "url": { "type": "string", "pattern": "^https://" },
+    "nullableUrl": {
+      "type": ["string", "null"],
+      "pattern": "^https://"
+    },
+    "recordStatus": {
+      "type": "string",
+      "enum": ["active", "unavailable", "deprecated", "replaced"]
+    },
+    "nullableId": {
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "nullableInt": { "type": ["integer", "null"] },
     "image": {
       "type": ["string", "null"],
       "description": "Site-absolute path to a committed WebP (/images/<kind>/<id>.webp) or an https URL when hotlinking a listing thumb.",
@@ -109,7 +126,16 @@
         "created_at": { "type": ["string", "null"] },
         "added_at": { "$ref": "#/$defs/isoDate" },
         "featured": { "type": "boolean" },
-        "seen_on": { "type": ["string", "null"] }
+        "seen_on": { "type": ["string", "null"] },
+        "first_seen_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_seen_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_changed_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "status": { "$ref": "#/$defs/recordStatus" },
+        "replaced_by": { "$ref": "#/$defs/nullableId" },
+        "original_asset_url": { "$ref": "#/$defs/nullableUrl" },
+        "upstream_rev": { "type": ["string", "null"] },
+        "rights_note": { "type": ["string", "null"] },
+        "config_url": { "$ref": "#/$defs/nullableUrl" }
       }
     }
   },
@@ -140,7 +166,16 @@
         "tags": { "$ref": "#/$defs/tags" },
         "install": { "$ref": "#/$defs/install" },
         "seen_on": { "type": ["string", "null"] },
-        "added_at": { "$ref": "#/$defs/isoDate" }
+        "added_at": { "$ref": "#/$defs/isoDate" },
+        "first_seen_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_seen_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_changed_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "status": { "$ref": "#/$defs/recordStatus" },
+        "replaced_by": { "$ref": "#/$defs/nullableId" },
+        "original_asset_url": { "$ref": "#/$defs/nullableUrl" },
+        "upstream_rev": { "type": ["string", "null"] },
+        "rights_note": { "type": ["string", "null"] },
+        "supported_releases": { "type": "array", "items": { "type": "string" } }
       }
     }
   },
@@ -170,7 +205,16 @@
         "install": { "$ref": "#/$defs/install" },
         "warning": { "type": ["string", "null"] },
         "seen_on": { "type": ["string", "null"] },
-        "added_at": { "$ref": "#/$defs/isoDate" }
+        "added_at": { "$ref": "#/$defs/isoDate" },
+        "first_seen_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_seen_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_changed_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "status": { "$ref": "#/$defs/recordStatus" },
+        "replaced_by": { "$ref": "#/$defs/nullableId" },
+        "original_asset_url": { "$ref": "#/$defs/nullableUrl" },
+        "upstream_rev": { "type": ["string", "null"] },
+        "rights_note": { "type": ["string", "null"] },
+        "supported_releases": { "type": "array", "items": { "type": "string" } }
       }
     }
   },
@@ -231,7 +275,25 @@
           }
         },
         "release_url": { "$ref": "#/$defs/url" },
-        "notes_chars": { "type": "integer" }
+        "notes_chars": { "type": "integer" },
+        "upstream_id": { "type": ["string", "null"] },
+        "payload_hash": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "parser_version": { "type": ["integer", "null"] }
+      }
+    }
+  },
+
+  "source_status": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "object",
+      "properties": {
+        "last_attempt_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "last_success_at": { "$ref": "#/$defs/nullableIsoDate" },
+        "upstream_count": { "$ref": "#/$defs/nullableInt" },
+        "indexed_count": { "$ref": "#/$defs/nullableInt" },
+        "excluded_count": { "$ref": "#/$defs/nullableInt" },
+        "note": { "type": ["string", "null"] }
       }
     }
   }

@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import { themes } from '../../lib/content';
+
+const catalog = themes.map((theme) => ({
+  id: theme.id,
+  name: theme.name,
+  image: theme.image,
+  palette: theme.palette,
+  tone: theme.tone,
+  bundled: theme.bundled,
+  command: theme.install.command,
+}));
+---
+
+<Base
+  path="/themes/compare/"
+  title="Compare themes"
+  description="Put two or more Omarchy themes side by side — previews and palettes."
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Compare themes</h1>
+    <p class="pagehead__lede">
+      Pick two or more. The URL holds the selection, so a comparison is shareable.
+      <a href="/themes/">Back to the gallery</a>.
+    </p>
+  </div>
+
+  <form class="compare-pick" data-compare-form>
+    <p class="pagehead__meta" data-compare-status role="status">Select at least two themes.</p>
+    <ul class="compare-pick__list">
+      {
+        catalog.map((theme) => (
+          <li>
+            <label>
+              <input type="checkbox" name="ids" value={theme.id} />
+              {theme.name}
+            </label>
+          </li>
+        ))
+      }
+    </ul>
+  </form>
+
+  <div class="compare-grid" data-compare-grid></div>
+
+  <script type="application/json" id="compare-catalog" is:inline set:html={JSON.stringify(catalog)} />
+  <script>
+    import '../../scripts/compare';
+  </script>
+</Base>
+
+<style>
+  .compare-pick__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 0.35rem 1rem;
+    list-style: none;
+    padding: 0;
+    max-height: 16rem;
+    overflow: auto;
+    border: 1px solid var(--line-soft);
+    padding: 0.75rem;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .compare-col img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .compare-col .palette {
+    display: flex;
+    gap: 0.2rem;
+    margin-top: 0.5rem;
+  }
+  .compare-col .palette span {
+    flex: 1;
+    height: 1.2rem;
+  }
+</style>

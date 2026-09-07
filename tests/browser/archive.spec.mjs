@@ -12,7 +12,11 @@ test('a preview exposes all matches beyond its eight visible links', async ({ pa
   await expect(continuation).toBeVisible();
   await continuation.click();
   await expect(page).toHaveURL(/\/search\/\?q=tailscale/);
-  await expect(page.locator('main [data-search-results] > li')).toHaveCount(total);
+  const pageSize = Math.min(20, total);
+  await expect(page.locator('main [data-search-results] > li')).toHaveCount(pageSize);
+  if (total > 20) {
+    await expect(page.getByRole('link', { name: /next/i })).toBeVisible();
+  }
 });
 
 test('pagination and entity filters restore from shared URLs', async ({ page }) => {
@@ -145,6 +149,33 @@ test('the complete index discovers a plugin absent from the browsing subset', as
   expect(candidate).not.toBeNull();
   await page.locator('main').getByRole('searchbox').fill(candidate.name);
   await expect(page.locator(`main tbody tr:visible a[href="${candidate.href}"]`)).toBeVisible();
+});
+
+test('creator pages link from a named theme author', async ({ page }) => {
+  await page.goto('/themes/nord/');
+  const author = page.locator('.facts a[href^="/creators/"]');
+  await expect(author).toBeVisible();
+  await author.click();
+  await expect(page).toHaveURL(/\/creators\//);
+  await expect(page.locator('main h1')).not.toHaveText('');
+  await expect(page.locator('main article, main .grid .card').first()).toBeVisible();
+});
+
+test('theme compare restores ids from the URL', async ({ page }) => {
+  const response = await page.goto('/themes/compare/?ids=nord,gruvbox');
+  expect(response.status()).toBe(200);
+  await expect(page.locator('[data-compare-grid] article')).toHaveCount(2);
+  await expect(page).toHaveURL(/ids=nord,gruvbox/);
+});
+
+test('saved collections persist in this browser', async ({ page }) => {
+  await page.goto('/themes/');
+  const card = page.locator('article[data-card]').first();
+  const href = await card.locator('.card__title a').getAttribute('href');
+  await card.locator('[data-save]').click();
+  await expect(card.locator('[data-save]')).toHaveAttribute('aria-pressed', 'true');
+  await page.goto('/saved/');
+  await expect(page.locator(`[data-saved-list] a[href="${href}"]`)).toBeVisible();
 });
 
 test('an out of range search page recovers to a reachable results page', async ({ page }) => {

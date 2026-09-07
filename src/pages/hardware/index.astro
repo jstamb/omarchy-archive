@@ -1,0 +1,45 @@
+---
+import Card from '../../components/Card.astro';
+import Base from '../../layouts/Base.astro';
+import { posts } from '../../lib/content';
+
+const hardware = posts.filter((post) => post.form_factor || post.device || post.kind === 'hardware');
+const byFactor = new Map<string, typeof hardware>();
+for (const post of hardware) {
+  const key = post.form_factor || 'unspecified';
+  const list = byFactor.get(key) ?? [];
+  list.push(post);
+  byFactor.set(key, list);
+}
+const groups = [...byFactor.entries()].sort(([a], [b]) => a.localeCompare(b));
+---
+
+<Base
+  path="/hardware/"
+  title="Hardware"
+  description="Desks and machines in the archive, grouped by the form factor the post named."
+>
+  <div class="pagehead">
+    <h1>Hardware</h1>
+    <p class="pagehead__lede">
+      Only posts that name a device or form factor. Nothing here is inferred from a photo.
+    </p>
+  </div>
+
+  {
+    groups.map(([factor, items]) => (
+      <section class="section">
+        <div class="section__head">
+          <h2>
+            {factor} <span class="section__count">{items.length}</span>
+          </h2>
+        </div>
+        <div class="grid">
+          {items.map((post) => (
+            <Card type="post" item={post} />
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</Base>

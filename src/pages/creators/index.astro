@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allCreators, creatorCount } from '../../lib/creators';
+
+const creators = allCreators().sort((a, b) => creatorCount(b) - creatorCount(a) || a.name.localeCompare(b.name));
+---
+
+<Base
+  path="/creators/"
+  title="Creators"
+  description={`${creators.length} people with themes, plugins, or posts in the Omarchy archive.`}
+>
+  <div class="pagehead">
+    <h1>Creators</h1>
+    <p class="pagehead__lede">
+      Authors named on a theme, plugin, or post. Names come from the records themselves — this
+      page does not infer credit from a screenshot or a host.
+    </p>
+  </div>
+
+  <ul class="creator-index">
+    {
+      creators.map((creator) => (
+        <li>
+          <a href={`/creators/${creator.slug}/`}>
+            <span>{creator.name}</span>
+            <span class="card__sub">
+              {[
+                creator.themes.length ? `${creator.themes.length} theme${creator.themes.length === 1 ? '' : 's'}` : null,
+                creator.plugins.length ? `${creator.plugins.length} plugin${creator.plugins.length === 1 ? '' : 's'}` : null,
+                creator.posts.length ? `${creator.posts.length} post${creator.posts.length === 1 ? '' : 's'}` : null,
+              ]
+                .filter(Boolean)
+                .join(' · ')}
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
+
+<style>
+  .creator-index {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+  .creator-index a {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border, currentColor);
+    text-decoration: none;
+  }
+  .creator-index a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+</style>

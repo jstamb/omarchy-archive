@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base path="/saved/" title="Saved" description="Records you saved in this browser." indexable={false}>
+  <div class="pagehead">
+    <h1>Saved</h1>
+    <p class="pagehead__lede">
+      Stored in this browser only — nothing is sent to the archive. Clear site data and the list
+      goes with it.
+    </p>
+  </div>
+  <p class="pagehead__meta" data-saved-status role="status">Loading saved records…</p>
+  <ul class="saved-list" data-saved-list></ul>
+  <script>
+    import '../scripts/saved-page';
+  </script>
+</Base>
+
+<style>
+  .saved-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+  }
+  .saved-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+</style>

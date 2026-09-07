@@ -28,6 +28,9 @@ function run(mutate = () => {}, { publicDir } = {}) {
   for (const name of FILES) {
     writeFileSync(join(dir, `${name}.json`), JSON.stringify(data[name], null, 2));
   }
+  if (data.sourceStatus !== undefined) {
+    writeFileSync(join(dir, 'source-status.json'), JSON.stringify(data.sourceStatus, null, 2));
+  }
 
   const result = spawnSync(process.execPath, [VALIDATOR], {
     env: {
@@ -293,5 +296,118 @@ describe('validate.mjs', () => {
     const { code, out } = run(unhostImages, { publicDir: fakePublic(260 * 1024 * 1024) });
     assert.equal(code, 1);
     assert.match(out, /over the 250\.0MB budget/);
+  });
+
+  it('accepts optional provenance fields on an existing record', () => {
+    const { code, out } = run((data) => {
+      Object.assign(data.posts[0], {
+        first_seen_at: '2026-09-07',
+        last_seen_at: '2026-09-07',
+        last_changed_at: null,
+        status: 'active',
+        replaced_by: null,
+        original_asset_url: 'https://pbs.twimg.com/media/example.jpg',
+        upstream_rev: null,
+        rights_note: null,
+        config_url: 'https://github.com/example/dotfiles',
+      });
+    });
+    assert.equal(code, 0, out);
+  });
+
+  it('rejects an unknown record status', () => {
+    const { code, out } = run((data) => {
+      data.themes[0].status = 'deleted';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /is not one of/);
+  });
+
+  it('rejects replaced_by unless status is replaced', () => {
+    const { code, out } = run((data) => {
+      data.themes[0].status = 'active';
+      data.themes[0].replaced_by = data.themes[1].id;
+    });
+    assert.equal(code, 1);
+    assert.match(out, /replaced_by requires status "replaced"/);
+  });
+
+  it('rejects status replaced without replaced_by', () => {
+    const { code, out } = run((data) => {
+      data.plugins[0].status = 'replaced';
+      data.plugins[0].replaced_by = null;
+    });
+    assert.equal(code, 1);
+    assert.match(out, /status "replaced" requires replaced_by/);
+  });
+
+  it('rejects a replaced_by id that is not in the same collection', () => {
+    const { code, out } = run((data) => {
+      data.posts[0].status = 'replaced';
+      data.posts[0].replaced_by = 'no-such-post';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /replaced_by "no-such-post" is not in data\/posts\.json/);
+  });
+
+  it('accepts a replaced record that points at a sibling id', () => {
+    const { code, out } = run((data) => {
+      data.themes[0].status = 'replaced';
+      data.themes[0].replaced_by = data.themes[1].id;
+    });
+    assert.equal(code, 0, out);
+  });
+
+  it('rejects a provenance date that is not ISO YYYY-MM-DD', () => {
+    const { code, out } = run((data) => {
+      data.posts[0].first_seen_at = '2026/09/07';
+    });
+    assert.equal(code, 1);
+    assert.match(out, /does not match/);
+  });
+
+  it('is fine when source-status.json is absent', () => {
+    const { code, out } = run();
+    assert.equal(code, 0, out);
+  });
+
+  it('accepts a well-shaped source-status.json keyed by source ids', () => {
+    const { code, out } = run((data) => {
+      data.sourceStatus = {
+        [data.sources[0].id]: {
+          last_attempt_at: '2026-09-07',
+          last_success_at: '2026-09-07',
+          upstream_count: 10,
+          indexed_count: 8,
+          excluded_count: 2,
+          note: null,
+        },
+      };
+    });
+    assert.equal(code, 0, out);
+  });
+
+  it('rejects a source-status key that is not a sources.json id', () => {
+    const { code, out } = run((data) => {
+      data.sourceStatus = {
+        'no-such-source': {
+          last_attempt_at: null,
+          last_success_at: null,
+          upstream_count: null,
+          indexed_count: null,
+          excluded_count: null,
+          note: null,
+        },
+      };
+    });
+    assert.equal(code, 1);
+    assert.match(out, /is not an id in data\/sources\.json/);
+  });
+
+  it('accepts supported_releases as an array of strings', () => {
+    const { code, out } = run((data) => {
+      data.themes[0].supported_releases = ['3.0.0', '3.1.0'];
+    });
+    assert.equal(code, 0, out);
   });
 });

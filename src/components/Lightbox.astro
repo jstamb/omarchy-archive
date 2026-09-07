@@ -1,0 +1,53 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class="lightbox" data-lightbox>
+  <button type="button" class="lightbox__open" data-lightbox-open aria-haspopup="dialog">
+    <img src={src} alt={alt} width="1200" height="675" loading="eager" />
+  </button>
+  <dialog class="lightbox__dialog" data-lightbox-dialog aria-label={alt}>
+    <img src={src} alt={alt} />
+    <form method="dialog">
+      <button type="submit" class="btn">Close</button>
+    </form>
+  </dialog>
+</div>
+
+<script>
+  import '../scripts/lightbox';
+</script>
+
+<style>
+  .lightbox__open {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+  .lightbox__open img,
+  .lightbox__dialog img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: var(--bg-sunken);
+  }
+  .lightbox__dialog {
+    max-width: min(96vw, 1200px);
+    padding: 1rem;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .lightbox__dialog::backdrop {
+    background: rgb(0 0 0 / 0.72);
+  }
+</style>

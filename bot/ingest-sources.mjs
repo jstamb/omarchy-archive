@@ -28,6 +28,7 @@ import {
   today,
   uniqueSlug,
 } from './lib/util.mjs';
+import { applyNew, applySeen, markMissing, recordSourceStatus } from './lib/reconcile.mjs';
 import { runStagedIngest } from './lib/staging.mjs';
 
 const OMARCHY_REPO = 'omacom/omarchy';
@@ -77,6 +78,22 @@ console.log(
     : 'ingest: candidate matched the live tree, nothing to publish',
 );
 
+async function commitSourceStatus(ctx, sourceId, stats, { complete }) {
+  const day = today();
+  const current = await ctx.readData('source-status.json', {});
+  await ctx.writeData(
+    'source-status.json',
+    recordSourceStatus(current, sourceId, {
+      last_attempt_at: day,
+      last_success_at: day,
+      upstream_count: stats.upstream_count,
+      indexed_count: stats.indexed_count,
+      excluded_count: stats.excluded_count,
+      note: complete ? null : 'partial fetch; missing records not marked unavailable',
+    }),
+  );
+}
+
 // ---------------------------------------------------------------- bundled themes
 
 async function ingestBundledThemes(ctx) {
@@ -89,6 +106,8 @@ async function ingestBundledThemes(ctx) {
 
   const themes = await ctx.readData('themes.json', []);
   const byId = new Map(themes.map((t) => [t.id, t]));
+  const seenIds = new Set();
+  const day = today();
   let added = 0;
   let updated = 0;
 
@@ -96,10 +115,11 @@ async function ingestBundledThemes(ctx) {
     if (onlyIds.size && !onlyIds.has(slug)) continue;
     const raw = `https://raw.githubusercontent.com/${OMARCHY_REPO}/${branch}/themes/${slug}`;
     const colors = parseColorsToml(await fetchText(`${raw}/colors.toml`));
+    const preview = `${raw}/preview.png`;
 
     let image = byId.get(slug)?.image ?? null;
     if (!image || flags.force) {
-      const stored = await ctx.storeImage('themes', slug, `${raw}/preview.png`);
+      const stored = await ctx.storeImage('themes', slug, preview);
       image = stored.path;
       console.log(`  image ${stored.path} (${Math.round(stored.bytes / 1024)}KB)`);
     }
@@ -118,20 +138,33 @@ async function ingestBundledThemes(ctx) {
       palette: colors.palette,
       tags: ['official', 'bundled', colors.mode === 'light' ? 'light' : 'dark'],
       install: { type: 'theme-set', command: `omarchy theme set ${slug}` },
-      added_at: byId.get(slug)?.added_at ?? today(),
+      original_asset_url: byId.get(slug)?.original_asset_url ?? preview,
+      upstream_rev: branch,
     };
 
     if (byId.has(slug)) {
-      Object.assign(byId.get(slug), record);
+      const next = applySeen(byId.get(slug), record, day);
+      Object.assign(byId.get(slug), next);
+      seenIds.add(slug);
       updated++;
     } else {
-      themes.push(record);
-      byId.set(slug, record);
+      const created = applyNew({ ...record, added_at: day }, day);
+      themes.push(created);
+      byId.set(slug, created);
+      seenIds.add(slug);
       added++;
     }
   }
 
-  await ctx.writeData('themes.json', sortThemes(themes));
+  const complete = onlyIds.size === 0;
+  const marked = markMissing(themes, {
+    seenIds,
+    complete,
+    today: day,
+    inScope: (record) => record.bundled,
+  });
+  await ctx.writeData('themes.json', sortThemes(marked.records));
+  await commitSourceStatus(ctx, 'omarchy-org', marked.stats, { complete });
   console.log(`themes-bundled: +${added} added, ${updated} updated (${slugs.length} upstream)`);
 }
 
@@ -163,6 +196,8 @@ async function ingestExtraThemes(ctx) {
   const themes = await ctx.readData('themes.json', []);
   const seen = new Set(themes.map((t) => dedupKey(t.repo_url)).filter(Boolean));
   const ids = new Set(themes.map((t) => t.id));
+  const seenIds = new Set();
+  const day = today();
   let added = 0;
   let skipped = 0;
   // With --name, pick exactly those themes in the order given: a curated cut
@@ -170,38 +205,59 @@ async function ingestExtraThemes(ctx) {
   const wanted = onlyNames.size
     ? [...onlyNames].map((name) => upstream.find((t) => t.name.toLowerCase() === name.toLowerCase()))
     : upstream;
+  const complete = !onlyIds.size && !onlyNames.size && limit === undefined;
   for (const theme of wanted) {
     if (!theme) continue;
     if (limit !== undefined && added >= limit) break;
     if (onlyIds.size && !onlyIds.has(slugify(theme.name))) continue;
-    if (seen.has(dedupKey(theme.repo_url))) {
-      skipped++;
-      continue;
-    }
-    const id = uniqueSlug(slugify(theme.name), ids);
-    ids.add(id);
-    seen.add(dedupKey(theme.repo_url));
-    themes.push({
-      id,
+    const key = dedupKey(theme.repo_url);
+    const existing = themes.find((t) => dedupKey(t.repo_url) === key);
+    const update = {
       name: theme.name,
       author: theme.author,
       official: false,
       bundled: false,
       repo_url: theme.repo_url,
       listing_url: EXTRA_THEMES_PAGE,
-      image: theme.image,
-      image_hosted: false,
-      tone: null,
-      palette: [],
-      tags: ['community'],
-      install: { type: 'theme-install', command: `omarchy theme install ${theme.repo_url}.git` },
+      image: existing?.image ?? theme.image,
+      image_hosted: existing?.image_hosted ?? false,
       seen_on: 'omarchy-org-themes',
-      added_at: today(),
-    });
+      original_asset_url: existing?.original_asset_url ?? theme.image ?? null,
+      install: { type: 'theme-install', command: `omarchy theme install ${theme.repo_url}.git` },
+    };
+    if (existing) {
+      Object.assign(existing, applySeen(existing, update, day));
+      seenIds.add(existing.id);
+      skipped++;
+      continue;
+    }
+    const id = uniqueSlug(slugify(theme.name), ids);
+    ids.add(id);
+    seen.add(key);
+    const created = applyNew(
+      {
+        id,
+        ...update,
+        tone: null,
+        palette: [],
+        tags: ['community'],
+        added_at: day,
+      },
+      day,
+    );
+    themes.push(created);
+    seenIds.add(id);
     added++;
   }
 
-  await ctx.writeData('themes.json', sortThemes(themes));
+  const marked = markMissing(themes, {
+    seenIds,
+    complete,
+    today: day,
+    inScope: (record) => !record.bundled && record.seen_on === 'omarchy-org-themes',
+  });
+  await ctx.writeData('themes.json', sortThemes(marked.records));
+  await commitSourceStatus(ctx, 'omarchy-org-themes', marked.stats, { complete });
   console.log(`themes-extra: +${added} added, ${skipped} already present (${upstream.length} upstream)`);
 }
 
@@ -231,6 +287,8 @@ async function ingestPlugins(ctx) {
 
   const plugins = await ctx.readData('plugins.json', []);
   const byId = new Map(plugins.map((p) => [p.id, p]));
+  const seenIds = new Set();
+  const day = today();
   let added = 0;
   let updated = 0;
 
@@ -254,16 +312,27 @@ async function ingestPlugins(ctx) {
     if (!record) continue;
     if (byId.has(record.id)) {
       const existing = byId.get(record.id);
-      Object.assign(existing, record, { added_at: existing.added_at });
+      Object.assign(existing, applySeen(existing, record, day));
+      seenIds.add(record.id);
       updated++;
     } else {
-      plugins.push(record);
-      byId.set(record.id, record);
+      const created = applyNew(record, day);
+      plugins.push(created);
+      byId.set(record.id, created);
+      seenIds.add(record.id);
       added++;
     }
   }
 
-  await ctx.writeData('plugins.json', plugins.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)));
+  const complete = Boolean(flags.all) && onlyIds.size === 0;
+  const marked = markMissing(plugins, {
+    seenIds,
+    complete,
+    today: day,
+    inScope: (record) => record.seen_on === 'omarchy-plugins',
+  });
+  await ctx.writeData('plugins.json', marked.records.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)));
+  await commitSourceStatus(ctx, 'omarchy-plugins', marked.stats, { complete });
   console.log(`plugins: +${added} added, ${updated} updated (${upstream.length} in catalog)`);
 }
 
@@ -294,6 +363,9 @@ function toPluginRecord(plugin) {
     listing_url: `${PLUGIN_LISTING}${encodeURIComponent(plugin.id)}`,
     image: plugin.previewThumbnail ? new URL(plugin.previewThumbnail, PLUGIN_CATALOG).href : null,
     image_hosted: false,
+    original_asset_url: plugin.previewThumbnail
+      ? new URL(plugin.previewThumbnail, PLUGIN_CATALOG).href
+      : null,
     tags: [...new Set([...(plugin.tags ?? []), slugify(plugin.category ?? '')].filter(Boolean))],
     kinds,
     category: plugin.category ?? null,
@@ -316,16 +388,26 @@ async function ingestSetups(ctx) {
   const posts = await ctx.readData('posts.json', []);
   const seen = new Set(posts.map((p) => dedupKey(p.source_url)).filter(Boolean));
   const ids = new Set(posts.map((p) => p.id));
+  const seenIds = new Set();
+  const day = today();
   let added = 0;
   let skipped = 0;
 
   const selected = onlyIds.size
     ? upstream.filter((s) => onlyIds.has(String(s.id)))
     : [...upstream].reverse();
+  const complete = !onlyIds.size && limit === undefined;
 
   for (const setup of selected) {
     if (limit !== undefined && added >= limit) break;
-    if (!setup.link || seen.has(dedupKey(setup.link))) {
+    if (!setup.link) {
+      skipped++;
+      continue;
+    }
+    const existing = posts.find((p) => dedupKey(p.source_url) === dedupKey(setup.link));
+    if (existing) {
+      Object.assign(existing, applySeen(existing, { title: setup.name, summary: setup.description ?? existing.summary }, day));
+      seenIds.add(existing.id);
       skipped++;
       continue;
     }
@@ -343,31 +425,45 @@ async function ingestSetups(ctx) {
     }
 
     const { platform, author, authorUrl } = attribution(setup.link);
-    posts.push({
-      id,
-      kind: 'setup',
-      title: setup.name,
-      summary: setup.description ?? null,
-      author,
-      author_url: authorUrl,
-      source_platform: platform,
-      source_url: setup.link,
-      image,
-      image_hosted: hosted,
-      device: setup.device ?? null,
-      form_factor: slugify(setup.category ?? '') || null,
-      tags: setup.tags ?? [],
-      related_theme_ids: [],
-      related_plugin_ids: [],
-      created_at: null,
-      added_at: today(),
-      featured: false,
-      seen_on: 'omarchy-hub',
-    });
+    const remoteImage = setup.screenshot ? new URL(setup.screenshot, HUB_ASSETS).href : null;
+    const created = applyNew(
+      {
+        id,
+        kind: 'setup',
+        title: setup.name,
+        summary: setup.description ?? null,
+        author,
+        author_url: authorUrl,
+        source_platform: platform,
+        source_url: setup.link,
+        image,
+        image_hosted: hosted,
+        device: setup.device ?? null,
+        form_factor: slugify(setup.category ?? '') || null,
+        tags: setup.tags ?? [],
+        related_theme_ids: [],
+        related_plugin_ids: [],
+        created_at: null,
+        added_at: day,
+        featured: false,
+        seen_on: 'omarchy-hub',
+        original_asset_url: remoteImage,
+      },
+      day,
+    );
+    posts.push(created);
+    seenIds.add(id);
     added++;
   }
 
-  await ctx.writeData('posts.json', posts);
+  const marked = markMissing(posts, {
+    seenIds,
+    complete,
+    today: day,
+    inScope: (record) => record.kind === 'setup' && record.seen_on === 'omarchy-hub',
+  });
+  await ctx.writeData('posts.json', marked.records);
+  await commitSourceStatus(ctx, 'omarchy-hub', marked.stats, { complete });
   console.log(`setups: +${added} added, ${skipped} skipped (${upstream.length} upstream)`);
 }
 
@@ -383,15 +479,28 @@ async function ingestIdeas(ctx) {
   const posts = await ctx.readData('posts.json', []);
   const seen = new Set(posts.map((p) => dedupKey(p.source_url)).filter(Boolean));
   const ids = new Set(posts.map((p) => p.id));
+  const seenIds = new Set();
+  const day = today();
   let added = 0;
   let skipped = 0;
 
   const kindFor = { Application: 'other', Development: 'other', Tool: 'other' };
+  const complete = !onlyIds.size && limit === undefined;
 
   for (const item of upstream) {
     if (limit !== undefined && added >= limit) break;
     if (onlyIds.size && !onlyIds.has(String(item.id))) continue;
-    if (!item.link || seen.has(dedupKey(item.link))) {
+    if (!item.link) {
+      skipped++;
+      continue;
+    }
+    const existing = posts.find((p) => dedupKey(p.source_url) === dedupKey(item.link));
+    if (existing) {
+      Object.assign(
+        existing,
+        applySeen(existing, { title: item.name, summary: item.description ?? existing.summary, author: item.author ?? existing.author }, day),
+      );
+      seenIds.add(existing.id);
       skipped++;
       continue;
     }
@@ -400,31 +509,43 @@ async function ingestIdeas(ctx) {
     seen.add(dedupKey(item.link));
 
     const { platform, authorUrl } = attribution(item.link);
-    posts.push({
-      id,
-      kind: kindFor[item.category] ?? 'idea',
-      title: item.name,
-      summary: item.description ?? null,
-      author: item.author ?? null,
-      author_url: item.author ? authorUrl : null,
-      source_platform: platform,
-      source_url: item.link,
-      image: null,
-      image_hosted: false,
-      device: null,
-      form_factor: null,
-      tags: [...new Set([...(item.tags ?? []), slugify(item.category ?? '')].filter(Boolean))],
-      related_theme_ids: [],
-      related_plugin_ids: [],
-      created_at: null,
-      added_at: today(),
-      featured: false,
-      seen_on: 'omarchy-hub',
-    });
+    const created = applyNew(
+      {
+        id,
+        kind: kindFor[item.category] ?? 'idea',
+        title: item.name,
+        summary: item.description ?? null,
+        author: item.author ?? null,
+        author_url: item.author ? authorUrl : null,
+        source_platform: platform,
+        source_url: item.link,
+        image: null,
+        image_hosted: false,
+        device: null,
+        form_factor: null,
+        tags: [...new Set([...(item.tags ?? []), slugify(item.category ?? '')].filter(Boolean))],
+        related_theme_ids: [],
+        related_plugin_ids: [],
+        created_at: null,
+        added_at: day,
+        featured: false,
+        seen_on: 'omarchy-hub',
+      },
+      day,
+    );
+    posts.push(created);
+    seenIds.add(id);
     added++;
   }
 
-  await ctx.writeData('posts.json', posts);
+  const marked = markMissing(posts, {
+    seenIds,
+    complete,
+    today: day,
+    inScope: (record) => record.seen_on === 'omarchy-hub' && record.kind !== 'setup',
+  });
+  await ctx.writeData('posts.json', marked.records);
+  await commitSourceStatus(ctx, 'omarchy-hub', marked.stats, { complete });
   console.log(`ideas: +${added} added, ${skipped} skipped (${upstream.length} upstream)`);
 }
 

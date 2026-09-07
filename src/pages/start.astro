@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { counts, meta } from '../lib/content';
+---
+
+<Base
+  path="/start/"
+  title="Start here"
+  description="A short orientation for reading this archive and installing Omarchy."
+>
+  <div class="pagehead">
+    <h1>Start here</h1>
+    <p class="pagehead__lede">
+      This site is an unofficial index. Omarchy itself is installed from
+      <a href="https://omarchy.org/" rel="noopener">omarchy.org</a>. Use this page to pick an
+      entry, then copy commands from the record pages.
+    </p>
+  </div>
+
+  <div class="prose">
+    <ol>
+      <li>
+        <a href="https://omarchy.org/download" rel="noopener">Install Omarchy from the official download</a>
+        — this archive does not ship the ISO.
+      </li>
+      <li>
+        Browse <a href="/setups/">{counts.setups} desks</a> if you want to see what a machine
+        looks like, or <a href="/themes/">{counts.themes} themes</a> if you want a colour.
+      </li>
+      <li>
+        Plugins are a complete catalogue — start at
+        <a href="/plugins/?ownership=first-party">bundled</a> before third-party. Third-party
+        plugins run unsandboxed.
+      </li>
+      <li>
+        <a href="/search/">Search</a> when you already have a name. Pin the site as a web app
+        from <a href="/install/">Install</a>.
+      </li>
+    </ol>
+    <p>
+      Official docs stay canonical: <a href="https://omarchy.org/manual" rel="noopener">{meta.site_name === 'Omarchy Archive' ? 'omarchy.org/manual' : 'the manual'}</a>.
+    </p>
+  </div>
+</Base>

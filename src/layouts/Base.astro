@@ -192,6 +192,7 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
 
     <script>
       import { track } from '../scripts/analytics';
+      import '../scripts/saved';
 
       const RESET_MS = 1400;
       const resetTimers = new WeakMap<HTMLButtonElement, number>();

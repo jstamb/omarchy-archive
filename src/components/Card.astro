@@ -9,6 +9,7 @@ import {
   type Post,
   type Theme,
 } from '../lib/content';
+import { creatorHref } from '../lib/creators';
 
 type Props = FeedItem & {
   /** Where the tag chips deep-link to. Defaults to the item's own gallery. */
@@ -38,7 +39,9 @@ function describe() {
       tagBase: tagBase ?? '/posts/',
       date: post.created_at ?? post.added_at,
       featured: Boolean(post.featured),
-      sub: [authorLabel(post), post.device].filter(Boolean) as string[],
+      authorName: authorLabel(post),
+      authorHref: creatorHref(post.author),
+      sub: [post.device].filter(Boolean) as string[],
       facets: {
         kind: post.kind,
         'form-factor': post.form_factor ?? '',
@@ -63,7 +66,9 @@ function describe() {
       tagBase: tagBase ?? '/themes/',
       date: theme.added_at,
       featured: false,
-      sub: [theme.author ? `by ${theme.author}` : null, theme.tone].filter(Boolean) as string[],
+      authorName: theme.author ? `by ${theme.author}` : null,
+      authorHref: creatorHref(theme.author),
+      sub: [theme.tone].filter(Boolean) as string[],
       facets: {
         tone: theme.tone ?? '',
         ownership: theme.bundled ? 'bundled' : 'community',
@@ -86,10 +91,9 @@ function describe() {
     tagBase: tagBase ?? '/plugins/',
     date: plugin.added_at,
     featured: false,
-    sub: [
-      plugin.author ? `by ${plugin.author}` : null,
-      plugin.stars ? `★ ${plugin.stars}` : null,
-    ].filter(Boolean) as string[],
+    authorName: plugin.author ? `by ${plugin.author}` : null,
+    authorHref: creatorHref(plugin.author),
+    sub: [plugin.stars ? `★ ${plugin.stars}` : null].filter(Boolean) as string[],
     facets: {
       ownership: plugin.first_party ? 'first-party' : 'third-party',
       kind: plugin.kinds[0] ?? '',
@@ -144,12 +148,34 @@ const facetAttrs = Object.fromEntries(
   <div class="card__body">
     <h3 class="card__title"><a href={card.href}>{card.title}</a></h3>
 
-    {card.sub.length > 0 && <p class="card__sub">{card.sub.join(' · ')}</p>}
+    {
+      (card.authorName || card.sub.length > 0) && (
+        <p class="card__sub">
+          {card.authorHref && card.authorName ? (
+            <a href={card.authorHref}>{card.authorName}</a>
+          ) : (
+            card.authorName
+          )}
+          {card.authorName && card.sub.length > 0 && ' · '}
+          {card.sub.join(' · ')}
+        </p>
+      )
+    }
     {card.summary && <p class="card__summary">{card.summary}</p>}
 
     <TagList tags={card.tags} linkBase={card.tagBase} limit={4} />
 
     <div class="card__foot">
+      <button
+        class="btn"
+        type="button"
+        data-save
+        data-url={card.href}
+        data-title={card.title}
+        data-type={type}
+      >
+        Save
+      </button>
       {
         card.command ? (
           <button class="btn" type="button" data-copy={card.command}>

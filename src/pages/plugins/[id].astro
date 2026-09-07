@@ -1,11 +1,13 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import ArchiveActions from '../../components/ArchiveActions.astro';
 import Card from '../../components/Card.astro';
 import CommandBox from '../../components/CommandBox.astro';
 import SourceBadge from '../../components/SourceBadge.astro';
 import TagList from '../../components/TagList.astro';
 import Base from '../../layouts/Base.astro';
-import { formatDate, pluginSlug, plugins, postsForPlugin, type Plugin } from '../../lib/content';
+import { formatDate, pluginSlug, plugins, postsForPlugin, statusLabel, type Plugin } from '../../lib/content';
+import { creatorHref } from '../../lib/creators';
 
 export const getStaticPaths = (() =>
   plugins.map((plugin) => ({
@@ -19,6 +21,11 @@ interface Props {
 
 const { plugin } = Astro.props;
 const inTheWild = postsForPlugin(plugin.id);
+const authorLink = creatorHref(plugin.author);
+const state = statusLabel(plugin.status);
+const replacement = plugin.replaced_by
+  ? plugins.find((other) => other.id === plugin.replaced_by)
+  : null;
 const siblings = plugins
   .filter((other) => other.id !== plugin.id && other.category === plugin.category)
   .slice(0, 3);
@@ -41,6 +48,7 @@ const siblings = plugins
         <h1>{plugin.name}</h1>
         {plugin.summary && <p class="pagehead__lede">{plugin.summary}</p>}
         <p class="pagehead__meta">{plugin.id}</p>
+        {state && <p class="notice">{state}{replacement && <> — now <a href={`/plugins/${pluginSlug(replacement.id)}/`}>{replacement.name}</a></>}</p>}
       </div>
 
       {
@@ -62,6 +70,11 @@ const siblings = plugins
         <div class="section__head">
           <h2>Install</h2>
         </div>
+        {
+          plugin.status && plugin.status !== 'active' && (
+            <p class="pagehead__meta">This command is kept for history. Review the repo before enabling it.</p>
+          )
+        }
         <CommandBox
           install={plugin.install}
           fallbackUrl={plugin.listing_url}
@@ -116,7 +129,47 @@ const siblings = plugins
             plugin.author && (
               <div>
                 <dt>Author</dt>
-                <dd>{plugin.author}</dd>
+                <dd>
+                  {authorLink ? <a href={authorLink}>{plugin.author}</a> : plugin.author}
+                </dd>
+              </div>
+            )
+          }
+          {
+            state && (
+              <div>
+                <dt>Status</dt>
+                <dd>{state}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Supported releases</dt>
+            <dd>
+              {plugin.supported_releases?.length ? plugin.supported_releases.join(', ') : 'Unknown'}
+            </dd>
+          </div>
+          {
+            plugin.first_seen_at && (
+              <div>
+                <dt>First seen</dt>
+                <dd>{formatDate(plugin.first_seen_at)}</dd>
+              </div>
+            )
+          }
+          {
+            plugin.last_seen_at && (
+              <div>
+                <dt>Last seen</dt>
+                <dd>{formatDate(plugin.last_seen_at)}</dd>
+              </div>
+            )
+          }
+          {
+            plugin.rights_note && (
+              <div>
+                <dt>Rights</dt>
+                <dd>{plugin.rights_note}</dd>
               </div>
             )
           }
@@ -158,6 +211,11 @@ const siblings = plugins
           }
         </div>
         <SourceBadge seenOn={plugin.seen_on} />
+        <ArchiveActions
+          recordId={plugin.id}
+          recordUrl={`/plugins/${pluginSlug(plugin.id)}/`}
+          kind="plugin"
+        />
       </div>
 
       {

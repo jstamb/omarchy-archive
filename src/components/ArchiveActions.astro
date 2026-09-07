@@ -1,0 +1,26 @@
+---
+import { meta } from '../lib/content';
+
+interface Props {
+  recordId: string;
+  recordUrl: string;
+  kind: string;
+}
+
+const { recordId, recordUrl, kind } = Astro.props;
+const abs = new URL(recordUrl, meta.site_url).href;
+const qs = (template: string) => {
+  const params = new URLSearchParams({
+    template,
+    record_id: recordId,
+    record_url: abs,
+    kind,
+  });
+  return `${meta.repo_url}/issues/new?${params.toString()}`;
+};
+---
+
+<div class="actions" data-pagefind-ignore="all">
+  <a class="btn" href={qs('correct-record.yml')}>Correct this record</a>
+  <a class="btn" href={qs('removal-request.yml')}>Request removal</a>
+</div>

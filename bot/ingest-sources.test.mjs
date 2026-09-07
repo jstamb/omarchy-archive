@@ -116,6 +116,14 @@ describe('ingest-sources.mjs (fail-closed, real subprocess + local catalog)', ()
       assert.equal(after.length, before.length + 1);
       assert.ok(after.some((p) => p.id === 'com.example.task5-e2e'));
       for (const id of beforeIds) assert.ok(after.some((p) => p.id === id), `lost ${id}`);
+      assert.equal(
+        after.filter((p) => p.status === 'unavailable').length,
+        0,
+        'a partial catalog fetch must not mark records unavailable',
+      );
+      const status = JSON.parse(readFileSync(join(base.data, 'source-status.json'), 'utf8'));
+      assert.ok(status['omarchy-plugins']);
+      assert.equal(status['omarchy-plugins'].note, 'partial fetch; missing records not marked unavailable');
     },
   );
 

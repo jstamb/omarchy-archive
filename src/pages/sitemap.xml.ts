@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { meta, pluginSlug, plugins, posts, themes, timeline } from '../lib/content';
+import { allCreators } from '../lib/creators';
 
 /**
  * Hand-rolled so the site keeps zero integrations. Every record page plus the
@@ -17,7 +18,16 @@ export const GET: APIRoute = () => {
     { path: '/sources/', priority: '0.8' },
     { path: '/history/', lastmod: timeline[0]?.date, priority: '0.8' },
     { path: '/install/', priority: '0.7' },
+    { path: '/start/', priority: '0.8' },
+    { path: '/hardware/', priority: '0.7' },
+    { path: '/themes/compare/', priority: '0.5' },
+    { path: '/saved/', priority: '0.3' },
+    { path: '/creators/', priority: '0.6' },
     { path: '/about/', priority: '0.5' },
+    ...allCreators().map((creator) => ({
+      path: `/creators/${creator.slug}/`,
+      priority: '0.5',
+    })),
     ...posts.map((post) => ({
       path: `/posts/${post.id}/`,
       lastmod: post.added_at,

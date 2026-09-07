@@ -65,6 +65,15 @@ export interface Post {
   added_at: string;
   featured?: boolean;
   seen_on?: string | null;
+  first_seen_at?: string | null;
+  last_seen_at?: string | null;
+  last_changed_at?: string | null;
+  status?: 'active' | 'unavailable' | 'deprecated' | 'replaced';
+  replaced_by?: string | null;
+  original_asset_url?: string | null;
+  upstream_rev?: string | null;
+  rights_note?: string | null;
+  config_url?: string | null;
 }
 
 export interface Theme {
@@ -83,6 +92,15 @@ export interface Theme {
   install: Install;
   seen_on?: string | null;
   added_at: string;
+  first_seen_at?: string | null;
+  last_seen_at?: string | null;
+  last_changed_at?: string | null;
+  status?: 'active' | 'unavailable' | 'deprecated' | 'replaced';
+  replaced_by?: string | null;
+  original_asset_url?: string | null;
+  upstream_rev?: string | null;
+  rights_note?: string | null;
+  supported_releases?: string[];
 }
 
 export interface Plugin {
@@ -103,6 +121,15 @@ export interface Plugin {
   warning: string | null;
   seen_on?: string | null;
   added_at: string;
+  first_seen_at?: string | null;
+  last_seen_at?: string | null;
+  last_changed_at?: string | null;
+  status?: 'active' | 'unavailable' | 'deprecated' | 'replaced';
+  replaced_by?: string | null;
+  original_asset_url?: string | null;
+  upstream_rev?: string | null;
+  rights_note?: string | null;
+  supported_releases?: string[];
 }
 
 export interface App {
@@ -136,6 +163,18 @@ export interface Release {
   contributors: Contributor[];
   release_url: string;
   notes_chars: number;
+  upstream_id?: string | null;
+  payload_hash?: string | null;
+  parser_version?: number | null;
+}
+
+export interface SourceStatusEntry {
+  last_attempt_at?: string | null;
+  last_success_at?: string | null;
+  upstream_count?: number | null;
+  indexed_count?: number | null;
+  excluded_count?: number | null;
+  note?: string | null;
 }
 
 export const meta = metaJson as Meta;
@@ -214,6 +253,15 @@ const HANDLE_PLATFORMS: Record<string, true> = {
 export function authorLabel(post: Pick<Post, 'author' | 'source_platform'>) {
   if (!post.author) return null;
   return HANDLE_PLATFORMS[post.source_platform] ? `@${post.author}` : post.author;
+}
+
+/** Absent or active is the default; only non-active states are labeled. */
+export function statusLabel(status?: string | null) {
+  if (!status || status === 'active') return null;
+  if (status === 'unavailable') return 'Historical — no longer listed upstream';
+  if (status === 'deprecated') return 'Deprecated';
+  if (status === 'replaced') return 'Replaced';
+  return status;
 }
 
 /**

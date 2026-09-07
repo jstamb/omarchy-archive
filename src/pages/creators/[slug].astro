@@ -1,0 +1,83 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Card from '../../components/Card.astro';
+import Base from '../../layouts/Base.astro';
+import { allCreators, creatorCount, type Creator } from '../../lib/creators';
+
+export const getStaticPaths = (() =>
+  allCreators().map((creator) => ({
+    params: { slug: creator.slug },
+    props: { creator },
+  }))) satisfies GetStaticPaths;
+
+const { creator } = Astro.props as { creator: Creator };
+const total = creatorCount(creator);
+---
+
+<Base
+  path={`/creators/${creator.slug}/`}
+  title={creator.name}
+  description={`${creator.name} in the Omarchy archive — ${total} named record${total === 1 ? '' : 's'}.`}
+>
+  <p class="pagehead__meta" data-pagefind-ignore="all">
+    <a href="/creators/">Creators</a> / {creator.name}
+  </p>
+
+  <div class="pagehead">
+    <h1>{creator.name}</h1>
+    <p class="pagehead__lede">
+      Records that name {creator.name} as author. Nothing here is inferred from a screenshot.
+    </p>
+  </div>
+
+  {
+    creator.themes.length > 0 && (
+      <section class="section">
+        <div class="section__head">
+          <h2>
+            Themes <span class="section__count">{creator.themes.length}</span>
+          </h2>
+        </div>
+        <div class="grid">
+          {creator.themes.map((theme) => (
+            <Card type="theme" item={theme} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    creator.plugins.length > 0 && (
+      <section class="section">
+        <div class="section__head">
+          <h2>
+            Plugins <span class="section__count">{creator.plugins.length}</span>
+          </h2>
+        </div>
+        <div class="grid">
+          {creator.plugins.map((plugin) => (
+            <Card type="plugin" item={plugin} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    creator.posts.length > 0 && (
+      <section class="section">
+        <div class="section__head">
+          <h2>
+            Posts <span class="section__count">{creator.posts.length}</span>
+          </h2>
+        </div>
+        <div class="grid">
+          {creator.posts.map((post) => (
+            <Card type="post" item={post} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</Base>

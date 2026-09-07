@@ -45,7 +45,7 @@ import { tmpdir } from 'node:os';
 import { join, relative, sep } from 'node:path';
 import { DATA_DIR, PUBLIC_DIR, ROOT, readJson, storeImage, writeFileAtomic, writeJson } from './util.mjs';
 
-export const DATA_FILES = ['meta', 'sources', 'posts', 'themes', 'plugins', 'apps', 'timeline'];
+export const DATA_FILES = ['meta', 'sources', 'posts', 'themes', 'plugins', 'apps', 'timeline', 'source-status'];
 const VALIDATOR = join(ROOT, 'bot', 'validate.mjs');
 const STAGE_PREFIX = 'omarchy-ingest-';
 

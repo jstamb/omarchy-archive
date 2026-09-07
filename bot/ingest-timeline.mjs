@@ -27,6 +27,7 @@
  * "@user made their first contribution in <pull request url>" and
  * "Thanks also to [@user](...)" lines.
  */
+import { createHash } from 'node:crypto';
 import { fetchAllPages } from './lib/pagination.mjs';
 import { githubHeaders, nowIso, parseArgs } from './lib/util.mjs';
 import { runStagedIngest } from './lib/staging.mjs';
@@ -118,6 +119,9 @@ function toEntry(release) {
     contributors,
     release_url: release.html_url,
     notes_chars: body.length,
+    upstream_id: release.id != null ? String(release.id) : null,
+    payload_hash: createHash('sha256').update(body).digest('hex'),
+    parser_version: 1,
   };
 }
 

@@ -36,12 +36,15 @@ const groups = [
     <h1>Feed</h1>
     <p class="pagehead__lede">
       Everything we index from the community, newest first. Posts link straight back to the
-      original — nothing is embedded or re-hosted without saying so.
+      original — nothing is embedded or re-hosted without saying so. Cards added since your last
+      visit are marked new.
     </p>
     <Search note="Search the whole index." />
   </div>
 
-  <Gallery groups={groups} total={items.length}>
-    {items.map((post, index) => <Card type="post" item={post} eager={index < 4} />)}
-  </Gallery>
+  <div data-posts-feed>
+    <Gallery groups={groups} total={items.length}>
+      {items.map((post, index) => <Card type="post" item={post} eager={index < 4} />)}
+    </Gallery>
+  </div>
 </Base>
