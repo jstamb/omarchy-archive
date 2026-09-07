@@ -3914,5 +3914,29 @@
     },
     "seen_on": "omarchy-org-themes",
     "added_at": "2026-09-06"
+  },
+  {
+    "id": "silo",
+    "name": "Silo",
+    "author": "ripple0328",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/ripple0328/omarchy-silo-theme",
+    "listing_url": "https://github.com/ripple0328/omarchy-silo-theme",
+    "image": "https://pbs.twimg.com/media/HRmB9GLagAAO8xx.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "dark",
+      "silo"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/ripple0328/omarchy-silo-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-07"
   }
 ]

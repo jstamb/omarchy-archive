@@ -3548,5 +3548,85 @@
     "added_at": "2026-09-07",
     "featured": false,
     "seen_on": null
+  },
+  {
+    "id": "silo-theme-announcement",
+    "kind": "theme",
+    "title": "Silo theme for Omarchy",
+    "summary": "Silo-inspired Omarchy theme: charcoal, brass, olive, and industrial teal — with a full desktop screenshot and a public git install.",
+    "author": "Ripple",
+    "author_url": "https://x.com/ripple0328",
+    "source_platform": "x",
+    "source_url": "https://x.com/ripple0328/status/2096850077310673338",
+    "image": "/images/posts/silo-theme-announcement.webp",
+    "image_hosted": true,
+    "device": null,
+    "form_factor": null,
+    "tags": [
+      "theme",
+      "silo",
+      "dark",
+      "community"
+    ],
+    "related_theme_ids": [
+      "silo"
+    ],
+    "related_plugin_ids": [],
+    "created_at": "2026-09-07",
+    "added_at": "2026-09-07",
+    "featured": false,
+    "seen_on": null
+  },
+  {
+    "id": "learn-omarchy-plugin-splash",
+    "kind": "plugin",
+    "title": "Learn Omarchy plugin splash screen",
+    "summary": "Dan Wahlin shares the splash art for an upcoming Learn Omarchy plugin — “Your Desktop. Your Way.” — nearly ready to try.",
+    "author": "Dan Wahlin",
+    "author_url": "https://x.com/DanWahlin",
+    "source_platform": "x",
+    "source_url": "https://x.com/DanWahlin/status/2096864321376813061",
+    "image": "/images/posts/learn-omarchy-plugin-splash.webp",
+    "image_hosted": true,
+    "device": null,
+    "form_factor": null,
+    "tags": [
+      "plugin",
+      "learn",
+      "guide",
+      "splash"
+    ],
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "created_at": "2026-09-07",
+    "added_at": "2026-09-07",
+    "featured": false,
+    "seen_on": null
+  },
+  {
+    "id": "florent-omarchy-crash-agents",
+    "kind": "idea",
+    "title": "Omarchy spun up agents after a crash",
+    "summary": "After a hyprland-dialog or t3code crash, Omarchy already had two agents checking logs on reboot — Florent plans a PR if it is a real bug.",
+    "author": "florent",
+    "author_url": "https://x.com/florentmsl",
+    "source_platform": "x",
+    "source_url": "https://x.com/florentmsl/status/2096864335813288107",
+    "image": "/images/posts/florent-omarchy-crash-agents.webp",
+    "image_hosted": true,
+    "device": null,
+    "form_factor": "desktop",
+    "tags": [
+      "idea",
+      "agents",
+      "crash",
+      "hyprland"
+    ],
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "created_at": "2026-09-07",
+    "added_at": "2026-09-07",
+    "featured": false,
+    "seen_on": null
   }
 ]
