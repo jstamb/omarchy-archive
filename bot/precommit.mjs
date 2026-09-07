@@ -23,11 +23,17 @@
  * Says "commit nothing" when the tree is unchanged. An empty run is the
  * expected outcome most of the time and does not need a commit to prove it
  * happened.
+ *
+ * The parse / array-shape / count / id checks are the shared preservation rule
+ * (bot/lib/preservation.mjs), so this local gate, the CI gate (preserve.mjs)
+ * and the staged ingest all refuse the same losses in the same words. Only the
+ * baseline differs: here it is always HEAD.
  */
 import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DATA_DIR, ROOT } from './lib/util.mjs';
+import { checkFile, countedLabel } from './lib/preservation.mjs';
 
 const FILES = ['posts', 'themes', 'plugins', 'sources', 'apps', 'timeline'];
 
@@ -37,20 +43,13 @@ const problems = [];
 const lines = [];
 let changed = 0;
 
-/** The committed version of a file, or null when it is new. */
-function atHead(name) {
+/** The committed text of a data file, or null when it is not in HEAD. */
+function headText(name) {
   const result = git('show', `HEAD:data/${name}.json`);
-  if (result.status !== 0) return null;
-  try {
-    return JSON.parse(result.stdout);
-  } catch {
-    // A broken file already in history should not block fixing it.
-    return null;
-  }
+  return result.status === 0 ? result.stdout : null;
 }
 
 for (const name of FILES) {
-  let working;
   const raw = (() => {
     try {
       return readFileSync(join(DATA_DIR, `${name}.json`), 'utf8');
@@ -64,59 +63,20 @@ for (const name of FILES) {
     continue;
   }
 
-  try {
-    working = JSON.parse(raw);
-  } catch (error) {
-    /*
-     * This is the exact shape of both real failures. Show what is actually in
-     * the file, because "invalid JSON" sent someone looking for a syntax error
-     * when the file was 21 bytes of placeholder.
-     */
-    const preview = raw.trim().slice(0, 60);
-    problems.push(
-      `data/${name}.json does not parse — the file now begins ${JSON.stringify(preview)}. ` +
-        'If that is a path or a placeholder, the write replaced the file instead of ' +
-        'adding to it. Restore it with `git checkout HEAD -- data/' +
-        name +
-        '.json` and write the full array back, not a fragment.',
-    );
+  // The parse, array-shape, count and id checks live in the shared module, so
+  // the CI gate (preserve.mjs) and the staged ingest agree with this one to the
+  // byte. The baseline here is HEAD; preserve.mjs passes an explicit ref.
+  const result = checkFile(`data/${name}.json`, headText(name), raw);
+  if (!result.ok) {
+    problems.push(result.problem);
     continue;
   }
 
-  if (!Array.isArray(working)) {
-    problems.push(`data/${name}.json is a ${typeof working}, expected an array`);
-    continue;
-  }
-
-  const before = atHead(name);
-  if (before === null) continue;
-
-  const delta = working.length - before.length;
-  if (delta < 0) {
-    problems.push(
-      `data/${name}.json lost ${-delta} records (${before.length} → ${working.length}). ` +
-        'These files are added to, not rewritten. Read the file, push onto the array, ' +
-        'write it back.',
-    );
-    continue;
-  }
-
-  const goneIds = before
-    .map((record) => record.id)
-    .filter((id) => id && !working.some((record) => record.id === id));
-  if (goneIds.length > 0) {
-    problems.push(
-      `data/${name}.json dropped published ids: ${goneIds.slice(0, 5).join(', ')}` +
-        `${goneIds.length > 5 ? ` and ${goneIds.length - 5} more` : ''}. Ids are permanent.`,
-    );
-    continue;
-  }
-
-  if (delta > 0) {
-    changed += delta;
-    // `posts` → `1 post` / `3 posts`. The label is a filename, but it lands in
-    // a commit message, so it should read like English.
-    lines.push(`${delta} ${delta === 1 ? name.replace(/s$/, '') : name}`);
+  // A new file (delta null) is safe but uncounted, exactly as before: the
+  // message counts growth against a known baseline only.
+  if (typeof result.delta === 'number' && result.delta > 0) {
+    changed += result.delta;
+    lines.push(countedLabel(name, result.delta));
   }
 }
 

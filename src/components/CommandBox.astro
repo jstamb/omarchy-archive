@@ -57,4 +57,19 @@ const hint = install.hint ?? null;
       </p>
     )
   }
+  <p class="command__status" data-copy-status role="status" aria-live="polite"></p>
 </div>
+
+<style>
+  .command__status {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+  }
+  .command__status[data-copy-failed] {
+    color: var(--ink);
+  }
+  .command__status:empty {
+    display: none;
+  }
+</style>

@@ -7,10 +7,12 @@ import { counts, pluginSlug, plugins } from '../../lib/content';
  *
  * /plugins/ renders cards, which is 1.3KB of HTML each — fine for a few
  * hundred, 2.8MB for all of them. A row is a tenth of that, so the whole
- * archive fits in a page you can actually load on a phone. No images, no
- * filter chips; the browser's own find-in-page is the right tool here, and
- * every row links to the full record.
+ * archive fits in a page you can actually load on a phone. Every plugin is
+ * server-rendered, so find-in-page and the no-JS view see the whole catalogue;
+ * the filter below is an enhancement that only hides rows it doesn't rewrite.
  */
+const CATEGORY_FALLBACK = 'Uncategorised';
+
 const all = [...plugins].sort((a, b) => {
   if (a.first_party !== b.first_party) return a.first_party ? -1 : 1;
   return (b.stars ?? 0) - (a.stars ?? 0) || a.name.localeCompare(b.name);
@@ -18,25 +20,47 @@ const all = [...plugins].sort((a, b) => {
 
 const byCategory = new Map<string, number>();
 for (const plugin of plugins) {
-  const key = plugin.category ?? 'Uncategorised';
+  const key = plugin.category ?? CATEGORY_FALLBACK;
   byCategory.set(key, (byCategory.get(key) ?? 0) + 1);
 }
-const categories = [...byCategory.entries()].sort((a, b) => b[1] - a[1]);
+const categories = [...byCategory.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+const byKind = new Map<string, number>();
+for (const plugin of plugins) {
+  for (const kind of plugin.kinds) byKind.set(kind, (byKind.get(kind) ?? 0) + 1);
+}
+const kinds = [...byKind.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+const bundled = plugins.filter((plugin) => plugin.first_party).length;
+
+// Distinct authors, alphabetised, to back the author datalist.
+const authors = [
+  ...new Set(plugins.map((plugin) => plugin.author).filter((name): name is string => Boolean(name))),
+].sort((a, b) => a.localeCompare(b));
+
+/** Everything the row filter searches on, resolved once at build. */
+function searchText(plugin: (typeof plugins)[number], category: string) {
+  return [plugin.name, plugin.author, category, plugin.kinds.join(' '), plugin.id]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
 ---
 
 <Base
   path="/plugins/all/"
   title="Every plugin"
-  description={`The complete Omarchy plugin catalogue — all ${counts.plugins} installable plugins, with author, kind, stars and a link to each one.`}
+  description={`The complete Omarchy plugin catalogue — all ${counts.plugins} installable plugins, searchable by name, origin, category, kind and author, each with a link to its full record.`}
   indexable={false}
 >
   <div class="pagehead">
     <h1>Every plugin</h1>
     <p class="pagehead__lede">
       The complete catalogue — every installable plugin the marketplace lists,
-      plus the {plugins.filter((p) => p.first_party).length} that ship with Omarchy.
-      Sorted by stars. Use <kbd>Ctrl</kbd> + <kbd>F</kbd>; each row links to the
-      full record and its install command.
+      plus the {bundled} that ship with Omarchy. Filter by name, origin,
+      category, kind or author below; each row links to the full record and its
+      install command. <kbd>Ctrl</kbd> + <kbd>F</kbd> still searches the whole
+      table too.
     </p>
     <p class="pagehead__meta">
       {counts.plugins} plugins · {categories.map(([name, n]) => `${name} ${n}`).join(' · ')}
@@ -46,29 +70,181 @@ const categories = [...byCategory.entries()].sort((a, b) => b[1] - a[1]);
     </p>
   </div>
 
-  <table class="index">
-    <thead>
-      <tr>
-        <th scope="col">Plugin</th>
-        <th scope="col">Author</th>
-        <th scope="col">Kind</th>
-        <th scope="col" class="index__num">★</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        all.map((plugin) => (
+  <div class="pindex" data-plugin-index>
+    <div class="pindex__controls">
+      <label class="pindex__field pindex__field--wide">
+        <span class="pindex__label">Search</span>
+        <input type="search" data-pindex-q placeholder="name, author, category…" autocomplete="off" />
+      </label>
+      <label class="pindex__field">
+        <span class="pindex__label">Origin</span>
+        <select data-pindex-origin>
+          <option value="">All origins</option>
+          <option value="first-party">first-party ({bundled})</option>
+          <option value="third-party">third-party ({counts.plugins - bundled})</option>
+        </select>
+      </label>
+      <label class="pindex__field">
+        <span class="pindex__label">Category</span>
+        <select data-pindex-category>
+          <option value="">All categories</option>
+          {categories.map(([name, n]) => <option value={name}>{`${name} (${n})`}</option>)}
+        </select>
+      </label>
+      <label class="pindex__field">
+        <span class="pindex__label">Kind</span>
+        <select data-pindex-kind>
+          <option value="">All kinds</option>
+          {kinds.map(([name, n]) => <option value={name}>{`${name} (${n})`}</option>)}
+        </select>
+      </label>
+      <label class="pindex__field">
+        <span class="pindex__label">Author</span>
+        <input
+          type="text"
+          data-pindex-author
+          list="pindex-authors"
+          placeholder="exact author"
+          autocomplete="off"
+        />
+        <datalist id="pindex-authors">
+          {authors.map((name) => <option value={name} />)}
+        </datalist>
+      </label>
+      <button class="pindex__reset" type="button" data-pindex-reset hidden>Clear filters</button>
+    </div>
+
+    <p class="pindex__status" role="status" aria-live="polite" data-pindex-count>
+      {counts.plugins} plugins
+    </p>
+
+    <div class="pindex__scroll" role="region" aria-label="Every plugin" tabindex="0">
+      <table class="index">
+        <thead>
           <tr>
-            <td>
-              <a href={`/plugins/${pluginSlug(plugin.id)}/`}>{plugin.name}</a>
-              {plugin.first_party && <span class="tag tag--accent">bundled</span>}
-            </td>
-            <td class="index__dim">{plugin.author ?? '—'}</td>
-            <td class="index__dim">{plugin.category ?? plugin.kinds[0] ?? '—'}</td>
-            <td class="index__num">{plugin.stars || ''}</td>
+            <th scope="col">Plugin</th>
+            <th scope="col">Author</th>
+            <th scope="col">Category</th>
+            <th scope="col" class="index__num">★</th>
           </tr>
-        ))
-      }
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+          {
+            all.map((plugin) => {
+              const origin = plugin.first_party ? 'first-party' : 'third-party';
+              const category = plugin.category ?? CATEGORY_FALLBACK;
+              return (
+                <tr
+                  data-plugin-row
+                  data-origin={origin}
+                  data-category={category}
+                  data-kinds={plugin.kinds.join(' ')}
+                  data-author={plugin.author ?? ''}
+                  data-search={searchText(plugin, category)}
+                >
+                  <td>
+                    <a href={`/plugins/${pluginSlug(plugin.id)}/`}>{plugin.name}</a>
+                    {plugin.first_party && <span class="tag tag--accent">bundled</span>}
+                  </td>
+                  <td class="index__dim">{plugin.author ?? '—'}</td>
+                  <td class="index__dim">{category}</td>
+                  <td class="index__num">{plugin.stars || ''}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <p class="empty" data-pindex-empty hidden>
+      No plugins match those filters.
+      <button class="pindex__clear" type="button" data-pindex-reset>Clear filters</button>
+    </p>
+  </div>
 </Base>
+
+<style>
+  /* Feature-scoped styles for the index filter. The table itself keeps the
+     shared `.index` styling; only the controls, status and scroll shell are
+     new here. */
+  .pindex__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+  }
+  .pindex__field {
+    display: grid;
+    gap: 0.25rem;
+    flex: 1 1 12rem;
+  }
+  .pindex__field--wide {
+    flex: 2 1 16rem;
+  }
+  .pindex__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--ink-meta);
+  }
+  .pindex__field input,
+  .pindex__field select {
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.55rem;
+    width: 100%;
+  }
+  .pindex__field input:focus-visible,
+  .pindex__field select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .pindex__reset,
+  .pindex__clear {
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--link);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0.4rem 0;
+  }
+  .pindex__reset {
+    flex: 0 0 auto;
+  }
+  .pindex__reset:hover,
+  .pindex__clear:hover {
+    color: var(--link-hover);
+  }
+  .pindex__reset[hidden] {
+    display: none;
+  }
+  .pindex__status {
+    font-size: 0.85rem;
+    color: var(--ink-meta);
+    margin: 0 0 0.75rem;
+  }
+  .pindex__scroll {
+    overflow-x: auto;
+  }
+  .pindex__scroll:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  /* Rows the filter drops leave layout entirely, so the count and the table
+     agree and find-in-page skips them. */
+  .index tbody tr[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  import '../../scripts/plugin-index';
+</script>

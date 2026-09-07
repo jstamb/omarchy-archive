@@ -41,6 +41,10 @@ const nearby = byNewest(
       other.tags.some((tag) => post.tags.includes(tag)),
   ),
 ).slice(0, 3);
+
+// Search facet: setups stay setups, ideas read as guides, every other post kind
+// is a plain post — community posts about a theme/plugin are not the catalog entry.
+const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'guide' : 'post';
 ---
 
 <Base
@@ -48,6 +52,7 @@ const nearby = byNewest(
   title={post.title}
   description={post.summary ?? `${post.kind} from the Omarchy community.`}
   image={post.image ?? '/og.png'}
+  searchType={searchType}
 >
   <p class="pagehead__meta" data-pagefind-ignore="all">
     <a href="/posts/">Feed</a> / {post.kind}

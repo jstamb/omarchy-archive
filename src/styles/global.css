@@ -1280,13 +1280,15 @@ a.tag:hover {
 }
 
 @media (max-width: 700px) {
-  /* Author and kind are the first things to go on a phone; the name and the
-     star count are what you scan for. */
-  .index th:nth-child(2),
-  .index td:nth-child(2),
-  .index th:nth-child(3),
-  .index td:nth-child(3) {
-    display: none;
+  /* The complete index keeps every column on a phone: author and category are
+     searchable facts, not clutter to drop. Tighten the type so four columns
+     still fit, and let the page's scroll container carry any overflow. */
+  .index {
+    font-size: 0.8rem;
+  }
+  .index th,
+  .index td {
+    padding: 0.35rem 0.45rem;
   }
 }
 

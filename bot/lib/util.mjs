@@ -1,6 +1,6 @@
-import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+import { createHash, randomBytes } from 'node:crypto';
+import { mkdir, open, readFile, rename, unlink } from 'node:fs/promises';
+import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -43,9 +43,39 @@ export async function readJson(path, fallback) {
   }
 }
 
-export async function writeJson(path, value) {
+/**
+ * Write bytes so a failed or interrupted write can never strand a half-written
+ * file: the data goes to a sibling temp (same directory, so the rename is a
+ * cheap atomic metadata swap on the same filesystem), is flushed, and only then
+ * renamed over the target. A rename replaces a symlink rather than following
+ * it, so this is also safe over a staging tree seeded with links to the real
+ * files. Any failure removes the temp and leaves the original untouched.
+ */
+export async function writeFileAtomic(path, data) {
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+  const tmp = join(dirname(path), `.${basename(path)}.${process.pid}.${randomBytes(6).toString('hex')}.tmp`);
+  let handle;
+  try {
+    handle = await open(tmp, 'wx');
+    await handle.writeFile(data);
+    await handle.sync();
+    await handle.close();
+    handle = undefined;
+    await rename(tmp, path);
+  } catch (error) {
+    if (handle) await handle.close().catch(() => {});
+    await unlink(tmp).catch(() => {});
+    throw error;
+  }
+}
+
+/**
+ * Serialising first means a bad value (e.g. a BigInt) throws before any file is
+ * touched; the write itself is atomic, so the old file stays complete on
+ * failure.
+ */
+export async function writeJson(path, value) {
+  await writeFileAtomic(path, `${JSON.stringify(value, null, 2)}\n`);
 }
 
 export async function fetchText(url) {
@@ -55,9 +85,7 @@ export async function fetchText(url) {
 }
 
 export async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: { 'user-agent': UA, accept: 'application/json', ...githubAuth(url) },
-  });
+  const response = await fetch(url, { headers: githubHeaders(url) });
   if (!response.ok) {
     const hint =
       response.status === 403 && !process.env.GITHUB_TOKEN
@@ -79,6 +107,11 @@ function githubAuth(url) {
   return { authorization: `Bearer ${token}`, 'x-github-api-version': '2022-11-28' };
 }
 
+/** Headers for a GitHub JSON request: browser UA, JSON accept, auth when set. */
+export function githubHeaders(url) {
+  return { 'user-agent': UA, accept: 'application/json', ...githubAuth(url) };
+}
+
 export async function fetchBuffer(url) {
   const response = await fetch(url, { headers: { 'user-agent': UA } });
   if (!response.ok) throw new Error(`GET ${url} -> ${response.status}`);
@@ -92,7 +125,7 @@ const UA = 'omarchy-archive-bot (+https://omarchyarchive.com)';
  * rules: WebP only, max edge 1200px, quality 80, metadata stripped.
  * Returns the site-absolute path to put in the record.
  */
-export async function storeImage(kind, id, sourceUrl) {
+export async function storeImage(kind, id, sourceUrl, { publicDir = PUBLIC_DIR } = {}) {
   const { default: sharp } = await import('sharp').catch(() => {
     throw new Error('sharp is required to store images: npm install');
   });
@@ -103,9 +136,7 @@ export async function storeImage(kind, id, sourceUrl) {
     .webp({ quality: 80, effort: 5 })
     .toBuffer();
   const relative = `/images/${kind}/${id}.webp`;
-  const target = join(PUBLIC_DIR, relative);
-  await mkdir(dirname(target), { recursive: true });
-  await writeFile(target, output);
+  await writeFileAtomic(join(publicDir, relative), output);
   return { path: relative, bytes: output.length };
 }
 
@@ -161,4 +192,16 @@ export function parseArgs(argv) {
 export function asList(value) {
   if (value === undefined) return [];
   return [].concat(value);
+}
+
+/**
+ * A malformed upstream envelope is an error, not an empty success: a catalog
+ * that should be an array but isn't must stop the run, never quietly stand in
+ * for zero records and let the collection look intentionally emptied.
+ */
+export function requireArray(value, label) {
+  if (!Array.isArray(value)) {
+    throw new Error(`${label}: expected an array, got ${value === null ? 'null' : typeof value}`);
+  }
+  return value;
 }

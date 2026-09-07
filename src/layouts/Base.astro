@@ -13,9 +13,11 @@ interface Props {
   indexable?: boolean;
   /** og:image override; defaults to the site card. */
   image?: string;
+  /** Pagefind entity facet for the indexed body root, e.g. "setup" or "theme". */
+  searchType?: string;
 }
 
-const { title, description, path, indexable = true, image = '/og.png' } = Astro.props;
+const { title, description, path, indexable = true, image = '/og.png', searchType } = Astro.props;
 
 // Inlined rather than <img src>: it is 2KB, it saves a request on every page,
 // and inline SVG inherits `currentColor` so the mark tracks the link colour on
@@ -29,6 +31,13 @@ const pageTitle = title ? `${title} — ${meta.site_name}` : `${meta.site_name} 
 const pageDescription = description ?? meta.tagline;
 const canonical = new URL(path, meta.site_url).href;
 const ogImage = new URL(image, meta.site_url).href;
+
+// Analytics loads only on the canonical production host, derived from the
+// canonical config rather than hardcoded. The hosted Rybbit script has no host
+// guard of its own, so this allowlist is what keeps preview deploys and local
+// builds out of production's numbers. www is covered only if the canonical URL
+// uses it (it does not today — the canonical is the apex).
+const analyticsHost = new URL(meta.site_url).hostname;
 
 const nav = [
   { href: '/posts/', label: 'Feed' },
@@ -88,15 +97,18 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
 
     {/*
       Rybbit. Injected rather than written as a plain tag because the hosted
-      script has no localhost guard of its own — I checked, there is not a
-      single reference to localhost or 127.0.0.1 in it — so a `dist` served
-      locally for a screenshot posts real pageviews into the production site's
-      numbers. Skipping local hostnames keeps development out of the data.
+      script has no host guard of its own — there is not a single localhost or
+      127.0.0.1 reference in it — so any host that serves the built site (a
+      Cloudflare *.pages.dev preview, a branch deploy, a local `dist` served
+      for a screenshot) would otherwise post real pageviews into the production
+      site's numbers. Loading only on the canonical host is the guard the
+      script is missing; the host comes from meta.site_url so it lives in
+      exactly one place.
 
       Custom events are fired from src/scripts/analytics.ts.
     */}
-    <script is:inline data-rybbit-loader>
-      if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && !location.hostname.endsWith('.local')) {
+    <script is:inline define:vars={{ analyticsHost }} data-rybbit-loader>
+      if (location.hostname === analyticsHost) {
         const tag = document.createElement('script');
         tag.src = 'https://app.rybbit.io/api/script.js?siteId=3c1d3040bd5f';
         tag.defer = true;
@@ -119,6 +131,7 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
           />
           <span class="brand__name">{meta.site_name}</span>
         </a>
+        <a class="masthead__search" href="/search/">Search</a>
         <nav class="nav" aria-label="Sections">
           {
             nav.map((item) => (
@@ -139,7 +152,10 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <div class="shell layout">
       <Sidebar path={path} />
       <main id="main" class="layout__main">
-        <div data-pagefind-body={indexable ? '' : undefined}>
+        <div
+          data-pagefind-body={indexable ? '' : undefined}
+          data-pagefind-filter={indexable && searchType ? `type:${searchType}` : undefined}
+        >
           <slot />
         </div>
       </main>
@@ -177,47 +193,145 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
     <script>
       import { track } from '../scripts/analytics';
 
+      const RESET_MS = 1400;
+      const resetTimers = new WeakMap<HTMLButtonElement, number>();
+
+      const statusFor = (button: Element): HTMLElement | null =>
+        button.closest('.command, .card')?.querySelector<HTMLElement>('[data-copy-status]') ?? null;
+
+      function snapshotSelection(): Range[] | null {
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0) return null;
+        const ranges: Range[] = [];
+        for (let i = 0; i < selection.rangeCount; i += 1) ranges.push(selection.getRangeAt(i).cloneRange());
+        return ranges;
+      }
+
+      function restoreSelection(ranges: Range[] | null): void {
+        if (!ranges) return;
+        const selection = window.getSelection();
+        if (!selection) return;
+        selection.removeAllRanges();
+        for (const range of ranges) selection.addRange(range);
+      }
+
+      function selectContents(node: Node): void {
+        const selection = window.getSelection();
+        if (!selection) return;
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+
+      /*
+       * Copy without lying about the result. The async Clipboard API is tried
+       * first and its promise only settles on a real write. execCommand is a
+       * genuine fallback for insecure contexts; it hijacks focus and the
+       * selection, so both are put back when — and only when — it succeeds. A
+       * throw or a `false` from either path is a real failure, reported as one.
+       */
+      async function copyText(value: string): Promise<boolean> {
+        if (navigator.clipboard?.writeText) {
+          try {
+            await navigator.clipboard.writeText(value);
+            return true;
+          } catch {
+            // Denied or insecure context — try the legacy path before failing.
+          }
+        }
+        const active = document.activeElement as HTMLElement | null;
+        const saved = snapshotSelection();
+        const scratch = document.createElement('textarea');
+        scratch.value = value;
+        scratch.setAttribute('readonly', '');
+        scratch.style.position = 'fixed';
+        scratch.style.top = '0';
+        scratch.style.opacity = '0';
+        document.body.append(scratch);
+        scratch.select();
+        let ok = false;
+        try {
+          ok = document.execCommand('copy');
+        } catch {
+          ok = false;
+        }
+        scratch.remove();
+        // Put focus back where the user left it. On failure the caller
+        // re-selects the visible command on purpose, so only the caret is
+        // restored here, and only when the copy actually worked.
+        active?.focus?.();
+        if (ok) restoreSelection(saved);
+        return ok;
+      }
+
+      function resetButton(button: HTMLButtonElement): void {
+        const timer = resetTimers.get(button);
+        if (timer) {
+          window.clearTimeout(timer);
+          resetTimers.delete(button);
+        }
+        delete button.dataset.copied;
+        const status = statusFor(button);
+        if (status) {
+          status.textContent = '';
+          delete status.dataset.copyFailed;
+        }
+      }
+
       // One delegated listener for every copy button on the page.
       document.addEventListener('click', async (event) => {
-        const button = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>(
-          '[data-copy]',
-        );
+        const button = (event.target as HTMLElement | null)?.closest<HTMLButtonElement>('[data-copy]');
         if (!button) return;
-        /*
-         * Copying an install command is the thing this site is for. Every card
-         * and every detail page ends in one of these buttons, so this is the
-         * closest thing the archive has to a conversion.
-         */
-        track('copy_command', {
-          // The command's first two words - `omarchy theme set`, `omarchy
-          // plugin add` - not the whole string, which would make one row per
-          // record instead of one per kind of install.
-          command: (button.dataset.copy ?? '').split(/\s+/).slice(0, 3).join(' '),
-        });
+
+        // A fresh attempt clears any earlier result first, so a denied second
+        // click can never inherit "Copied" from an earlier success.
+        resetButton(button);
+
         const value = button.dataset.copy ?? '';
-        try {
-          await navigator.clipboard.writeText(value);
-        } catch {
-          // Clipboard API needs a secure context; fall back to a selection copy.
-          const scratch = document.createElement('textarea');
-          scratch.value = value;
-          scratch.setAttribute('readonly', '');
-          scratch.style.position = 'fixed';
-          scratch.style.opacity = '0';
-          document.body.append(scratch);
-          scratch.select();
-          document.execCommand('copy');
-          scratch.remove();
+        const status = statusFor(button);
+        const copied = await copyText(value);
+
+        if (copied) {
+          /*
+           * Copying an install command is the thing this site is for, so a
+           * verified copy is the closest thing the archive has to a conversion
+           * — counted only now the write resolved, never on the click alone.
+           */
+          track('copy_command', {
+            // First three words — `omarchy theme set`, `omarchy plugin add` —
+            // not the whole string, which would make one row per record
+            // instead of one per kind of install.
+            command: value.split(/\s+/).slice(0, 3).join(' '),
+          });
+          button.dataset.copied = 'true';
+          if (status) status.textContent = 'Copied';
+          resetTimers.set(
+            button,
+            window.setTimeout(() => resetButton(button), RESET_MS),
+          );
+          return;
         }
-        const label = button.querySelector('[data-copy-label]') ?? button;
-        const original = button.dataset.copyOriginal ?? label.textContent ?? 'Copy';
-        button.dataset.copyOriginal = original;
-        label.textContent = 'Copied';
-        button.dataset.copied = 'true';
-        window.setTimeout(() => {
-          label.textContent = original;
-          delete button.dataset.copied;
-        }, 1400);
+
+        // Honest failure: no event, no "Copied". Surface the command so it can
+        // still be copied by hand — the visible one if the page shows it,
+        // otherwise rendered selectably in the status line.
+        const box = button.closest('.command, .card');
+        const shown = box?.querySelector<HTMLElement>('pre code, [data-copy-command]');
+        if (shown) {
+          selectContents(shown);
+          if (status) {
+            status.dataset.copyFailed = 'true';
+            status.textContent = 'Couldn’t copy — the command is selected; press ⌘/Ctrl+C.';
+          }
+        } else if (status) {
+          status.dataset.copyFailed = 'true';
+          status.textContent = 'Couldn’t copy — select and copy: ';
+          const code = document.createElement('code');
+          code.textContent = value;
+          status.append(code);
+          selectContents(code);
+        }
       });
 
       /*
@@ -234,5 +348,37 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
         track('outbound', { host: url.host });
       });
     </script>
+    <style>
+      /*
+       * The mobile search entry. Below 1100px the sidebar — and the search box
+       * inside it — is gone, so this is the archive's only global search
+       * affordance. It is a sibling of the scrolling section nav, not a child,
+       * so it stays put while the nav scrolls sideways; at 1100px and up the
+       * sidebar search takes over and this is hidden to avoid a duplicate tab
+       * stop for the same destination.
+       */
+      .masthead__search {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 0.35rem 0.7rem;
+        border: 1px solid var(--line-soft);
+        border-radius: var(--radius);
+        color: var(--ink-dim);
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .masthead__search:hover {
+        background: var(--bg-raised);
+        color: var(--ink);
+        border-color: var(--accent);
+      }
+      @media (min-width: 1100px) {
+        .masthead__search {
+          display: none;
+        }
+      }
+    </style>
   </body>
 </html>

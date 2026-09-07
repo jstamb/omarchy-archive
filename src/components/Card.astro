@@ -163,5 +163,21 @@ const facetAttrs = Object.fromEntries(
       }
       <a class="card__sub" href={card.href}>Details →</a>
     </div>
+    <span class="card__copystatus" data-copy-status role="status" aria-live="polite"></span>
   </div>
 </article>
+
+<style>
+  .card__copystatus {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--ink-dim);
+    word-break: break-word;
+  }
+  .card__copystatus[data-copy-failed] {
+    color: var(--ink);
+  }
+  .card__copystatus:empty {
+    display: none;
+  }
+</style>

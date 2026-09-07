@@ -15,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history so the preservation baseline resolves — the PR base
+          # sha and the push event.before sha must both be reachable in the
+          # clone, which a shallow fetch would omit.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -24,6 +29,26 @@ jobs:
       # `npm ci` on linux/amd64 — the same thing Cloudflare Pages does, so a
       # lockfile that only works on the author's machine fails here first.
       - run: npm ci
+
+      # Preservation before the normal gates. This is the one regression the
+      # repo has actually shipped — a data file clobbered so published records
+      # vanish — so it gets the earliest honest signal. The baseline is
+      # event-aware: a pull request measures the checked-out merge result
+      # against the branch it would land on; a push measures against the tip
+      # that was there before it. A brand-new branch reports the all-zero sha,
+      # which preserve.mjs treats as an initial state with nothing to preserve.
+      - name: Preserve published records
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ -n "${PR_BASE:-}" ]; then
+            base="$PR_BASE"
+          else
+            base="$PUSH_BEFORE"
+          fi
+          node bot/preserve.mjs --base "$base"
 
       # Records first. This is the check that matters for a setup submission,
       # and its output names the offending field.
@@ -38,6 +63,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # Built-site behaviour. The search, filter and copy regressions only
+      # reproduce against the real Pagefind index, which exists after a build
+      # and never under astro dev, so these run last on the built dist.
+      - name: Install Chromium for the browser suite
+        run: npx playwright install --with-deps chromium
+
+      - name: Built-site browser checks
+        run: npm run test:browser
 
       - name: Report
         if: always()

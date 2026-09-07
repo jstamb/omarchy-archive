@@ -18,64 +18,53 @@ const {
 ---
 
 <div class:list={['search', compact && 'search--compact']} data-search data-pagefind-ignore="all">
-  <label class="search__label" for={id} hidden>Search the archive</label>
-  <input
-    class="search__input"
-    id={id}
-    type="search"
-    autocomplete="off"
-    placeholder={placeholder}
-    data-search-input
-  />
-  <p class="search__note" data-search-note>{note}</p>
+  {/* A real GET form so Enter (and no-JS) reaches the full results page. */}
+  <form class="search__form" data-search-form action="/search/" method="get" role="search">
+    <label class="search__label" for={id} hidden>Search the archive</label>
+    <input
+      class="search__input"
+      id={id}
+      name="q"
+      type="search"
+      autocomplete="off"
+      placeholder={placeholder}
+      data-search-input
+    />
+  </form>
+  <p class="search__note" data-search-note role="status" aria-live="polite">{note}</p>
   <ol class="search__results" data-search-results></ol>
+  <a class="search__all" data-search-all href="/search/" hidden>View all results</a>
 </div>
 
 <script>
   /*
-   * Pagefind's index only exists after `pagefind --site dist`, so the bundle is
-   * loaded on first use and a missing index degrades to a note, not an error.
-   *
-   * There can be more than one box on a page — the sidebar carries one on every
-   * page, and the homepage has its own in the hero. They share a single engine
-   * promise, so the index is fetched and initialised once no matter how many
-   * boxes are wired up.
+   * A live preview: the top 8 hits appear as you type, and "View all" plus the
+   * form's Enter both hand off to /search/ for the paged, filterable results.
+   * Every box on the page shares one lazily-initialised engine (see
+   * scripts/search.ts) so the index is fetched and parsed once.
    */
   import { cleanQuery, track } from '../scripts/analytics';
-
-  let loading: Promise<any> | null = null;
-
-  const loadEngine = () => {
-    if (loading) return loading;
-    loading = (async () => {
-      const path = '/pagefind/pagefind.js';
-      const module = await import(/* @vite-ignore */ path);
-      // noWorker is required, not an optimisation: pagefind 1.5.2's shared
-      // web worker answers `init` and then never answers `search`, so the
-      // query hangs forever. On the main thread the whole search is <100ms
-      // for an index this size.
-      await module.options({ noWorker: true });
-      await module.init();
-      return module;
-    })();
-    return loading;
-  };
+  import { MIN_QUERY_LENGTH, buildSearchHref, loadEngine } from '../scripts/search';
+  import type { PagefindEngine, PagefindHitData, PagefindSearchResult } from '../scripts/search';
 
   function wire(root: HTMLElement) {
+    const form = root.querySelector<HTMLFormElement>('[data-search-form]');
     const input = root.querySelector<HTMLInputElement>('[data-search-input]');
     const results = root.querySelector<HTMLOListElement>('[data-search-results]');
     const note = root.querySelector<HTMLElement>('[data-search-note]');
-    if (!input || !results || !note) return;
+    const all = root.querySelector<HTMLAnchorElement>('[data-search-all]');
+    if (!form || !input || !results || !note || !all) return;
 
     const idleNote = note.textContent ?? '';
-    let engine: any = null;
+    let engine: PagefindEngine | null = null;
     let token = 0;
 
     const run = async (query: string) => {
       const current = ++token;
-      if (query.trim().length < 2) {
+      if (query.trim().length < MIN_QUERY_LENGTH) {
         results.replaceChildren();
         note.textContent = idleNote;
+        all.hidden = true;
         return;
       }
 
@@ -84,20 +73,40 @@ const {
         try {
           engine = await loadEngine();
         } catch {
-          note.textContent = 'Search index is built by `npm run build` — not available in dev.';
+          note.textContent = import.meta.env.DEV
+            ? 'Search index is built by `npm run build` — not available in dev.'
+            : 'Search is unavailable right now. Check your connection and try again.';
+          all.hidden = true;
           return;
         }
         if (current !== token) return;
       }
 
-      const search = await engine.search(query);
+      let found: PagefindSearchResult;
+      try {
+        found = await engine.search(query);
+      } catch {
+        if (current !== token) return;
+        note.textContent = 'Search failed.';
+        all.hidden = true;
+        return;
+      }
       if (current !== token) return;
 
-      const top = await Promise.all(search.results.slice(0, 8).map((hit: any) => hit.data()));
+      // Only the eight visible fragments are fetched, never the whole result set.
+      let top: PagefindHitData[];
+      try {
+        top = await Promise.all(found.results.slice(0, 8).map((hit) => hit.data()));
+      } catch {
+        if (current !== token) return;
+        note.textContent = 'Search failed.';
+        all.hidden = true;
+        return;
+      }
       if (current !== token) return;
 
       results.replaceChildren(
-        ...top.map((hit: any) => {
+        ...top.map((hit) => {
           const li = document.createElement('li');
           const link = document.createElement('a');
           link.href = hit.url;
@@ -108,9 +117,16 @@ const {
           return li;
         }),
       );
-      note.textContent = search.results.length
-        ? `${search.results.length} match${search.results.length === 1 ? '' : 'es'}`
-        : 'No matches.';
+
+      const total = found.results.length;
+      note.textContent = total ? `${total} match${total === 1 ? '' : 'es'}` : 'No matches.';
+      if (total) {
+        all.hidden = false;
+        all.href = buildSearchHref({ q: input.value, type: '', page: 1 });
+        all.textContent = `View all ${total} result${total === 1 ? '' : 's'}`;
+      } else {
+        all.hidden = true;
+      }
     };
 
     /*
@@ -119,18 +135,11 @@ const {
      * report eight searches for t, th, thi, … and the useful row would be
      * buried under its own prefixes.
      *
-     * There is no form and no submit button here, so a submit has to be
-     * defined. Two signals count, both unambiguous intent:
-     *
-     *   enter         - the explicit one.
-     *   result_click  - the one that actually happens. Results appear as you
-     *                   type, so most people never press Enter; they read the
-     *                   list and click. Tracking Enter alone would have missed
-     *                   most real searches and made the data look like nobody
-     *                   searches.
-     *
-     * A query counts once either way: pressing Enter and then clicking a
-     * result is one search, not two, which is what `tracked` is for.
+     * Two signals count as a search, both unambiguous intent:
+     *   enter        - submitting the form (which also navigates to /search/).
+     *   result_click - clicking a preview hit. Results appear as you type, so
+     *                  most people never submit; they read the list and click.
+     * A query counts once either way — `tracked` dedupes.
      */
     let tracked = '';
     const submitted = (via: string) => {
@@ -153,12 +162,8 @@ const {
     });
     input.addEventListener('focus', () => void loadEngine().catch(() => {}));
 
-    input.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter') return;
-      // Enter can land before the debounce has run; search now, then report.
-      window.clearTimeout(timer);
-      void run(input.value).then(() => submitted('enter'));
-    });
+    // Enter submits the form: report the search, then let it navigate to /search/.
+    form.addEventListener('submit', () => submitted('enter'));
 
     results.addEventListener('click', (event) => {
       const link = (event.target as HTMLElement | null)?.closest('a');
@@ -175,3 +180,21 @@ const {
 
   for (const root of document.querySelectorAll<HTMLElement>('[data-search]')) wire(root);
 </script>
+
+<style>
+  .search__form {
+    margin: 0;
+  }
+  .search__all {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .search__all[hidden] {
+    display: none;
+  }
+  .search--compact .search__all {
+    font-size: 0.78rem;
+  }
+</style>

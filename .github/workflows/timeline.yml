@@ -35,11 +35,26 @@ jobs:
 
       - run: npm ci
 
+      # The pre-ingest tip. ingest-timeline.mjs rewrites data/timeline.json in
+      # place, so HEAD before this run is the baseline the refreshed file must
+      # be measured against — no published release may drop out of the history.
+      - name: Record the pre-ingest baseline
+        id: baseline
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Fetch releases and re-tier
         env:
           # Lifts the GitHub API rate limit from 60/hr to 5000/hr.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node bot/ingest-timeline.mjs
+
+      # Preservation before validation, and before anything is committed. The
+      # refresh is a full rewrite, so a GitHub API shape change that silently
+      # dropped releases could still parse and validate; comparing the rewritten
+      # file to the pre-ingest tip is what catches a shrink or a vanished
+      # version id. A failure here leaves main untouched.
+      - name: Preserve published records
+        run: node bot/preserve.mjs --base "${{ steps.baseline.outputs.sha }}"
 
       # The gate. Nobody reads this diff before it deploys, so if the GitHub API
       # shape changes and the parse degrades — no nodes, wrong order, a bogus
@@ -78,6 +93,10 @@ jobs:
           git commit -m "content: refresh Omarchy release timeline
 
           ${TOTAL} releases, ${NODES} milestones, newest v${LATEST}."
+          # A plain push, never --force: if main moved under us (a content
+          # commit landed first) this is rejected as non-fast-forward and the
+          # run fails here rather than overwriting it. The next scheduled run
+          # picks the change up.
           git push
 
           {

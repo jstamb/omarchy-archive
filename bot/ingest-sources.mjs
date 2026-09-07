@@ -16,30 +16,30 @@
  *   - hosted images are re-encoded to WebP, max edge 1200px, quality 80.
  *   - listing thumbnails we do not host are recorded with image_hosted: false.
  */
-import { join } from 'node:path';
 import {
-  DATA_DIR,
   asList,
   dedupKey,
   fetchJson,
   fetchText,
   nowIso,
   parseArgs,
-  readJson,
+  requireArray,
   slugify,
-  storeImage,
   today,
   uniqueSlug,
-  writeJson,
 } from './lib/util.mjs';
+import { runStagedIngest } from './lib/staging.mjs';
 
 const OMARCHY_REPO = 'omacom/omarchy';
-const PLUGIN_CATALOG = 'https://plugins.omarchy.org/catalog.json';
-const PLUGIN_LISTING = 'https://plugins.omarchy.org/plugin.html?id=';
-const EXTRA_THEMES_PAGE = 'https://omarchy.org/themes/';
-const HUB_SETUPS = 'https://raw.githubusercontent.com/deepakness/omarchy-hub/main/data/setups.json';
-const HUB_RESOURCES = 'https://raw.githubusercontent.com/deepakness/omarchy-hub/main/data/resources.json';
-const HUB_ASSETS = 'https://omarchy.deepakness.com/';
+const PLUGIN_CATALOG = process.env.ARCHIVE_PLUGIN_CATALOG ?? 'https://plugins.omarchy.org/catalog.json';
+const PLUGIN_LISTING = process.env.ARCHIVE_PLUGIN_LISTING ?? 'https://plugins.omarchy.org/plugin.html?id=';
+const EXTRA_THEMES_PAGE = process.env.ARCHIVE_EXTRA_THEMES_PAGE ?? 'https://omarchy.org/themes/';
+const HUB_SETUPS =
+  process.env.ARCHIVE_HUB_SETUPS ?? 'https://raw.githubusercontent.com/deepakness/omarchy-hub/main/data/setups.json';
+const HUB_RESOURCES =
+  process.env.ARCHIVE_HUB_RESOURCES ??
+  'https://raw.githubusercontent.com/deepakness/omarchy-hub/main/data/resources.json';
+const HUB_ASSETS = process.env.ARCHIVE_HUB_ASSETS ?? 'https://omarchy.deepakness.com/';
 
 const flags = parseArgs(process.argv.slice(2));
 const [command] = flags._;
@@ -50,9 +50,9 @@ const onlyNames = new Set(asList(flags.name));
 const commands = {
   'themes-bundled': ingestBundledThemes,
   'themes-extra': ingestExtraThemes,
-  themes: async () => {
-    await ingestBundledThemes();
-    await ingestExtraThemes();
+  themes: async (ctx) => {
+    await ingestBundledThemes(ctx);
+    await ingestExtraThemes(ctx);
   },
   plugins: ingestPlugins,
   setups: ingestSetups,
@@ -64,18 +64,30 @@ if (!command || !commands[command]) {
   process.exit(1);
 }
 
-await commands[command]();
-await touchMeta();
+// Every write lands in an owned staging tree; the whole candidate collection is
+// validated and checked for preservation there, and only a fully clean run is
+// published into the working tree.
+const { published } = await runStagedIngest(async (ctx) => {
+  await commands[command](ctx);
+  await touchMeta(ctx);
+});
+console.log(
+  published.length
+    ? `ingest: published ${published.length} artifact(s) — ${published.join(', ')}`
+    : 'ingest: candidate matched the live tree, nothing to publish',
+);
 
 // ---------------------------------------------------------------- bundled themes
 
-async function ingestBundledThemes() {
+async function ingestBundledThemes(ctx) {
   const branch = await defaultBranch();
-  const entries = await fetchJson(`https://api.github.com/repos/${OMARCHY_REPO}/contents/themes?ref=${branch}`);
+  const entries = requireArray(
+    await fetchJson(`https://api.github.com/repos/${OMARCHY_REPO}/contents/themes?ref=${branch}`),
+    'omarchy themes directory listing',
+  );
   const slugs = entries.filter((e) => e.type === 'dir').map((e) => e.name).sort();
 
-  const file = join(DATA_DIR, 'themes.json');
-  const themes = await readJson(file, []);
+  const themes = await ctx.readData('themes.json', []);
   const byId = new Map(themes.map((t) => [t.id, t]));
   let added = 0;
   let updated = 0;
@@ -87,7 +99,7 @@ async function ingestBundledThemes() {
 
     let image = byId.get(slug)?.image ?? null;
     if (!image || flags.force) {
-      const stored = await storeImage('themes', slug, `${raw}/preview.png`);
+      const stored = await ctx.storeImage('themes', slug, `${raw}/preview.png`);
       image = stored.path;
       console.log(`  image ${stored.path} (${Math.round(stored.bytes / 1024)}KB)`);
     }
@@ -119,7 +131,7 @@ async function ingestBundledThemes() {
     }
   }
 
-  await writeJson(file, sortThemes(themes));
+  await ctx.writeData('themes.json', sortThemes(themes));
   console.log(`themes-bundled: +${added} added, ${updated} updated (${slugs.length} upstream)`);
 }
 
@@ -139,12 +151,16 @@ function parseColorsToml(text) {
 
 // ------------------------------------------------------------------ extra themes
 
-async function ingestExtraThemes() {
+async function ingestExtraThemes(ctx) {
   const html = await fetchText(EXTRA_THEMES_PAGE);
   const upstream = parseExtraThemes(html);
+  if (upstream.length === 0) {
+    throw new Error(
+      `no themes parsed from ${EXTRA_THEMES_PAGE} — markup changed or the fetch failed; refusing to treat as an empty success`,
+    );
+  }
 
-  const file = join(DATA_DIR, 'themes.json');
-  const themes = await readJson(file, []);
+  const themes = await ctx.readData('themes.json', []);
   const seen = new Set(themes.map((t) => dedupKey(t.repo_url)).filter(Boolean));
   const ids = new Set(themes.map((t) => t.id));
   let added = 0;
@@ -185,7 +201,7 @@ async function ingestExtraThemes() {
     added++;
   }
 
-  await writeJson(file, sortThemes(themes));
+  await ctx.writeData('themes.json', sortThemes(themes));
   console.log(`themes-extra: +${added} added, ${skipped} already present (${upstream.length} upstream)`);
 }
 
@@ -209,12 +225,11 @@ function parseExtraThemes(html) {
 
 // ----------------------------------------------------------------------- plugins
 
-async function ingestPlugins() {
+async function ingestPlugins(ctx) {
   const catalog = await fetchJson(PLUGIN_CATALOG);
-  const upstream = catalog.plugins ?? [];
+  const upstream = requireArray(catalog?.plugins, 'plugin catalog "plugins" array');
 
-  const file = join(DATA_DIR, 'plugins.json');
-  const plugins = await readJson(file, []);
+  const plugins = await ctx.readData('plugins.json', []);
   const byId = new Map(plugins.map((p) => [p.id, p]));
   let added = 0;
   let updated = 0;
@@ -248,7 +263,7 @@ async function ingestPlugins() {
     }
   }
 
-  await writeJson(file, plugins.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)));
+  await ctx.writeData('plugins.json', plugins.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)));
   console.log(`plugins: +${added} added, ${updated} updated (${upstream.length} in catalog)`);
 }
 
@@ -295,11 +310,10 @@ function toPluginRecord(plugin) {
 
 // ------------------------------------------------------------------------- setups
 
-async function ingestSetups() {
-  const upstream = await fetchJson(HUB_SETUPS);
+async function ingestSetups(ctx) {
+  const upstream = requireArray(await fetchJson(HUB_SETUPS), 'omarchy-hub setups feed');
 
-  const file = join(DATA_DIR, 'posts.json');
-  const posts = await readJson(file, []);
+  const posts = await ctx.readData('posts.json', []);
   const seen = new Set(posts.map((p) => dedupKey(p.source_url)).filter(Boolean));
   const ids = new Set(posts.map((p) => p.id));
   let added = 0;
@@ -322,7 +336,7 @@ async function ingestSetups() {
     let image = null;
     let hosted = false;
     if (setup.screenshot) {
-      const stored = await storeImage('posts', id, new URL(setup.screenshot, HUB_ASSETS).href);
+      const stored = await ctx.storeImage('posts', id, new URL(setup.screenshot, HUB_ASSETS).href);
       image = stored.path;
       hosted = true;
       console.log(`  image ${stored.path} (${Math.round(stored.bytes / 1024)}KB)`);
@@ -353,7 +367,7 @@ async function ingestSetups() {
     added++;
   }
 
-  await writeJson(file, posts);
+  await ctx.writeData('posts.json', posts);
   console.log(`setups: +${added} added, ${skipped} skipped (${upstream.length} upstream)`);
 }
 
@@ -363,11 +377,10 @@ async function ingestSetups() {
  * Articles, guides, tools, and discussions — the non-desk half of the feed.
  * These have no screenshot of their own, so the card renders text-forward.
  */
-async function ingestIdeas() {
-  const upstream = await fetchJson(HUB_RESOURCES);
+async function ingestIdeas(ctx) {
+  const upstream = requireArray(await fetchJson(HUB_RESOURCES), 'omarchy-hub resources feed');
 
-  const file = join(DATA_DIR, 'posts.json');
-  const posts = await readJson(file, []);
+  const posts = await ctx.readData('posts.json', []);
   const seen = new Set(posts.map((p) => dedupKey(p.source_url)).filter(Boolean));
   const ids = new Set(posts.map((p) => p.id));
   let added = 0;
@@ -411,7 +424,7 @@ async function ingestIdeas() {
     added++;
   }
 
-  await writeJson(file, posts);
+  await ctx.writeData('posts.json', posts);
   console.log(`ideas: +${added} added, ${skipped} skipped (${upstream.length} upstream)`);
 }
 
@@ -469,10 +482,9 @@ function decodeEntities(text) {
     .replace(/&gt;/g, '>');
 }
 
-async function touchMeta() {
-  const file = join(DATA_DIR, 'meta.json');
-  const meta = await readJson(file, null);
+async function touchMeta(ctx) {
+  const meta = await ctx.readData('meta.json', null);
   if (!meta) return;
   meta.updated_at = nowIso();
-  await writeJson(file, meta);
+  await ctx.writeData('meta.json', meta);
 }

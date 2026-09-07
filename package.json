@@ -10,6 +10,7 @@
     "validate": "node bot/validate.mjs",
     "precommit": "node bot/precommit.mjs",
     "test": "node --test \"bot/**/*.test.mjs\"",
+    "test:browser": "playwright test",
     "build": "node bot/validate.mjs && astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.63.0",
     "pagefind": "1.5.2",
     "sharp": "^0.34.5",
     "typescript": "^5.9.3"

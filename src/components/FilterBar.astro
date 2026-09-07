@@ -31,48 +31,124 @@ const {
 } = Astro.props;
 
 const usable = groups.filter((group) => group.options.length > 1);
+
+// Unique per instance so the toggle's aria-controls resolves even if a page
+// ever renders more than one gallery.
+const panelId = `gallery-facets-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <section class="filters" data-gallery-filters data-pagefind-ignore="all">
-  {
-    usable.map((group) => (
-      <div class="filters__row">
-        <span class="filters__label" id={`facet-${group.id}`}>
-          {group.label}
-        </span>
-        {group.options.map((option) => (
-          <button
-            class="chip"
-            type="button"
-            aria-pressed="false"
-            data-facet={group.id}
-            data-value={option.value}
-          >
-            {option.label}
-            <span class="chip__count">{option.count}</span>
-          </button>
-        ))}
-      </div>
-    ))
-  }
-
-  <div class="filters__row">
-    <span class="filters__label">Sort</span>
-    {
-      sorts.map((sort) => (
-        <button
-          class="chip"
-          type="button"
-          aria-pressed={sort.value === defaultSort ? 'true' : 'false'}
-          data-sort={sort.value}
-        >
-          {sort.label}
-        </button>
-      ))
-    }
+  <div class="filters__bar">
+    <button
+      class="filters__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls={panelId}
+      data-gallery-toggle
+    >
+      Filters
+      <span class="filters__active" data-gallery-active hidden
+        >(<span data-gallery-active-count>0</span>)</span
+      >
+    </button>
     <span class="filters__status">
-      <span data-gallery-count>{total} shown</span>
+      <span data-gallery-count role="status" aria-live="polite">{total} shown</span>
       <button class="filters__reset" type="button" data-gallery-reset hidden>Clear filters</button>
     </span>
   </div>
+
+  <div class="filters__panel" id={panelId} data-gallery-panel>
+    {
+      usable.map((group) => (
+        <div class="filters__row">
+          <span class="filters__label" id={`facet-${group.id}`}>
+            {group.label}
+          </span>
+          {group.options.map((option) => (
+            <button
+              class="chip"
+              type="button"
+              aria-pressed="false"
+              data-facet={group.id}
+              data-value={option.value}
+            >
+              {option.label}
+              <span class="chip__count">{option.count}</span>
+            </button>
+          ))}
+        </div>
+      ))
+    }
+
+    <div class="filters__row">
+      <span class="filters__label">Sort</span>
+      {
+        sorts.map((sort) => (
+          <button
+            class="chip"
+            type="button"
+            aria-pressed={sort.value === defaultSort ? 'true' : 'false'}
+            data-sort={sort.value}
+          >
+            {sort.label}
+          </button>
+        ))
+      }
+    </div>
+  </div>
 </section>
+
+<style>
+  /*
+   * Mobile-first: the facets sit behind a disclosure so the grid starts near
+   * the top of a phone screen instead of below a wall of chips. The result
+   * count and the reset stay in the always-visible bar, so filter feedback
+   * survives the collapse.
+   */
+  .filters__bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .filters__toggle {
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+  }
+  .filters__toggle:hover {
+    border-color: var(--accent);
+  }
+  .filters__active {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .filters__active[hidden] {
+    display: none;
+  }
+  .filters__panel {
+    display: none;
+    gap: 0.85rem;
+  }
+  .filters[data-open] .filters__panel {
+    display: grid;
+  }
+
+  /* From tablet up there is room for every facet, so drop the disclosure and
+     show the whole panel — the toggle is removed from the a11y tree with it. */
+  @media (min-width: 700px) {
+    .filters__toggle {
+      display: none;
+    }
+    .filters__panel {
+      display: grid;
+    }
+  }
+</style>

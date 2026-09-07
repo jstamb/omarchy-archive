@@ -27,11 +27,13 @@
  * "@user made their first contribution in <pull request url>" and
  * "Thanks also to [@user](...)" lines.
  */
-import { join } from 'node:path';
-import { DATA_DIR, fetchJson, nowIso, parseArgs, readJson, writeJson } from './lib/util.mjs';
+import { fetchAllPages } from './lib/pagination.mjs';
+import { githubHeaders, nowIso, parseArgs } from './lib/util.mjs';
+import { runStagedIngest } from './lib/staging.mjs';
 
 const REPO = 'basecamp/omarchy';
-const RELEASES = `https://api.github.com/repos/${REPO}/releases?per_page=100`;
+const RELEASES =
+  process.env.ARCHIVE_RELEASES ?? `https://api.github.com/repos/${REPO}/releases?per_page=100`;
 
 const NODE_SCORE = 5;
 const flags = parseArgs(process.argv.slice(2));
@@ -60,26 +62,26 @@ if (flags['dry-run']) {
   process.exit(0);
 }
 
-await writeJson(join(DATA_DIR, 'timeline.json'), entries);
+const { published } = await runStagedIngest(async (ctx) => {
+  await ctx.writeData('timeline.json', entries);
+  await touchMeta(ctx);
+});
 console.log(
-  `timeline: ${entries.length} releases — ${nodes.length} nodes, ${entries.length - nodes.length} ticks`,
+  `timeline: ${entries.length} releases — ${nodes.length} nodes, ${entries.length - nodes.length} ticks` +
+    (published.length ? ` — published ${published.join(', ')}` : ' — nothing to publish'),
 );
-
-await touchMeta();
 
 // ------------------------------------------------------------------- fetching
 
 async function fetchAllReleases() {
-  const all = [];
-  for (let page = 1; page <= 10; page++) {
-    // GITHUB_TOKEN in Actions lifts the rate limit from 60/hr to 5000/hr.
-    const batch = await fetchJson(`${RELEASES}&page=${page}`);
-    if (!Array.isArray(batch) || batch.length === 0) break;
-    all.push(...batch);
-    if (batch.length < 100) break;
+  // Follow GitHub's own Link: rel="next" evidence rather than a page-size guess
+  // with a hard page cap; fetchAllPages fails loudly on a malformed page, a
+  // cursor loop, or an implausible page count instead of silently truncating.
+  const releases = await fetchAllPages(RELEASES, { headers: githubHeaders(RELEASES) });
+  if (releases.length === 0) {
+    throw new Error('GitHub returned no releases — refusing to write an empty timeline');
   }
-  if (all.length === 0) throw new Error('GitHub returned no releases — refusing to write an empty timeline');
-  return all;
+  return releases;
 }
 
 // -------------------------------------------------------------------- mapping
@@ -212,10 +214,9 @@ function cleanPr(url) {
   return match ? match[0] : null;
 }
 
-async function touchMeta() {
-  const file = join(DATA_DIR, 'meta.json');
-  const meta = await readJson(file, null);
+async function touchMeta(ctx) {
+  const meta = await ctx.readData('meta.json', null);
   if (!meta) return;
   meta.updated_at = nowIso();
-  await writeJson(file, meta);
+  await ctx.writeData('meta.json', meta);
 }

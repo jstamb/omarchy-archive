@@ -28,6 +28,7 @@ const siblings = themes
     theme.install.command ?? ''
   }`.trim()}
   image={theme.image_hosted && theme.image ? theme.image : '/og.png'}
+  searchType="theme"
 >
   <p class="pagehead__meta" data-pagefind-ignore="all">
     <a href="/themes/">Themes</a> / {theme.bundled ? 'bundled' : 'community'}

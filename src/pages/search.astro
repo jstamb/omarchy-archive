@@ -1,0 +1,452 @@
+---
+import Base from '../layouts/Base.astro';
+import { TYPE_LABELS, TYPE_ORDER } from '../scripts/search';
+---
+
+<Base
+  path="/search/"
+  title="Search"
+  description="Search every record in the archive — setups, themes, plugins, releases and pages."
+  indexable={false}
+>
+  <div class="pagehead">
+    <h1>Search</h1>
+    <p class="pagehead__lede">Full-text search across every record in the archive.</p>
+  </div>
+
+  <div class="searchpage" data-search-page>
+    <form class="searchpage__form" data-search-form action="/search/" method="get" role="search">
+      <label class="searchpage__field">
+        <span class="searchpage__label">Search query</span>
+        <input
+          class="search__input"
+          id="search-q"
+          name="q"
+          type="search"
+          autocomplete="off"
+          placeholder="Search setups, themes, plugins…"
+          aria-describedby="search-status"
+        />
+      </label>
+      <label class="searchpage__field searchpage__field--type">
+        <span class="searchpage__label">Type</span>
+        <select class="searchpage__select" id="search-type" name="type">
+          <option value="">All types</option>
+          {TYPE_ORDER.map((type) => <option value={type}>{TYPE_LABELS[type]}</option>)}
+        </select>
+      </label>
+      <button class="btn btn--primary" type="submit" data-search-submit>Search</button>
+    </form>
+
+    <p
+      class="searchpage__status"
+      id="search-status"
+      data-search-status
+      role="status"
+      aria-live="polite"
+    >
+    </p>
+
+    <div class="searchpage__error" data-search-error role="alert" hidden>
+      <p data-search-error-message>Couldn’t load the search index.</p>
+      <button class="btn" type="button" data-search-retry>Try again</button>
+    </div>
+
+    <ol class="search__results searchpage__results" data-search-results aria-busy="false"></ol>
+
+    <nav class="searchpage__pager" data-search-pager aria-label="Search result pages" hidden>
+      <a class="btn" data-search-prev rel="prev" href="/search/">Previous</a>
+      <span class="searchpage__pageinfo" data-search-pageinfo aria-live="polite"></span>
+      <a class="btn" data-search-next rel="next" href="/search/">Next</a>
+    </nav>
+
+    <noscript>
+      <p class="searchpage__note">
+        Search runs in your browser against an index built when the site is published, so it
+        needs JavaScript. Every record is also reachable by browsing —
+        <a href="/posts/">the feed</a>, <a href="/themes/">themes</a>,
+        <a href="/plugins/">plugins</a>, <a href="/history/">history</a> and
+        <a href="/sources/">sources</a>.
+      </p>
+    </noscript>
+  </div>
+</Base>
+
+<script>
+  import { cleanQuery, track } from '../scripts/analytics';
+  import {
+    MIN_QUERY_LENGTH,
+    PAGE_SIZE,
+    TYPE_LABELS,
+    TYPE_ORDER,
+    buildSearchHref,
+    clampPage,
+    loadEngine,
+    parseState,
+  } from '../scripts/search';
+  import type { PagefindEngine, PagefindHitData, PagefindSearchResult, SearchState } from '../scripts/search';
+
+  const root = document.querySelector<HTMLElement>('[data-search-page]');
+  const form = root?.querySelector<HTMLFormElement>('[data-search-form]');
+  const input = root?.querySelector<HTMLInputElement>('#search-q');
+  const select = root?.querySelector<HTMLSelectElement>('#search-type');
+  const status = root?.querySelector<HTMLElement>('[data-search-status]');
+  const results = root?.querySelector<HTMLOListElement>('[data-search-results]');
+  const pager = root?.querySelector<HTMLElement>('[data-search-pager]');
+  const prev = root?.querySelector<HTMLAnchorElement>('[data-search-prev]');
+  const next = root?.querySelector<HTMLAnchorElement>('[data-search-next]');
+  const pageInfo = root?.querySelector<HTMLElement>('[data-search-pageinfo]');
+  const errorBox = root?.querySelector<HTMLElement>('[data-search-error]');
+  const errorMessage = root?.querySelector<HTMLElement>('[data-search-error-message]');
+  const retry = root?.querySelector<HTMLButtonElement>('[data-search-retry]');
+
+  if (
+    root &&
+    form &&
+    input &&
+    select &&
+    status &&
+    results &&
+    pager &&
+    prev &&
+    next &&
+    pageInfo &&
+    errorBox &&
+    errorMessage &&
+    retry
+  ) {
+    /*
+     * The URL is the single source of truth. Every control computes a new state
+     * and hands it to `go`, which writes history and renders. A monotonic token
+     * guards every await so a slow completion — a hit that resolves after the
+     * user has typed on, changed the facet, or paged away — can never overwrite
+     * the current view.
+     */
+    let token = 0;
+    let countsApplied = false;
+    let debounce = 0;
+
+    const renderHit = (hit: PagefindHitData): HTMLLIElement => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = hit.url;
+      // textContent, never innerHTML: the title is untrusted record data and the
+      // query must never reach the DOM as markup.
+      link.textContent = hit.meta?.title || hit.url;
+      link.setAttribute('data-search-hit', '');
+      const excerpt = document.createElement('p');
+      // Pagefind's excerpt is its own HTML (the <mark> spans); it is derived from
+      // indexed page content, not from the query.
+      excerpt.innerHTML = hit.excerpt;
+      li.append(link, excerpt);
+      return li;
+    };
+
+    const showFailure = (message: string) => {
+      results.replaceChildren();
+      results.setAttribute('aria-busy', 'false');
+      pager.hidden = true;
+      status.textContent = '';
+      // Reveal the role="alert" region first, then write, so assistive tech
+      // announces the message instead of it landing silently in a hidden node.
+      errorBox.hidden = false;
+      errorMessage.textContent = message;
+    };
+
+    const applyCounts = async (engine: PagefindEngine) => {
+      try {
+        const counts = await engine.filters();
+        const typeCounts = counts.type ?? {};
+        for (const option of Array.from(select.options)) {
+          if (!option.value) continue;
+          const n = typeCounts[option.value] ?? 0;
+          option.textContent = `${TYPE_LABELS[option.value] ?? option.value} (${n})`;
+          // Never disable the currently-selected facet, or the URL and the
+          // control would disagree.
+          option.disabled = n === 0 && option.value !== select.value;
+        }
+      } catch {
+        // Live counts are a nicety; their absence never blocks a search.
+      }
+    };
+
+    const renderPager = (page: number, pages: number, state: SearchState) => {
+      if (pages <= 1) {
+        pager.hidden = true;
+        pageInfo.textContent = '';
+        return;
+      }
+      pager.hidden = false;
+      pageInfo.textContent = `Page ${page} of ${pages}`;
+
+      // Both controls stay in the DOM as links whenever there is more than one
+      // page; the unavailable end is marked disabled rather than removed, so the
+      // Previous/Next affordances are always discoverable and announced.
+      const hasPrev = page > 1;
+      prev.setAttribute('aria-disabled', hasPrev ? 'false' : 'true');
+      prev.href = buildSearchHref({ ...state, page: hasPrev ? page - 1 : 1 });
+      if (hasPrev) prev.removeAttribute('tabindex');
+      else prev.setAttribute('tabindex', '-1');
+
+      const hasNext = page < pages;
+      next.setAttribute('aria-disabled', hasNext ? 'false' : 'true');
+      next.href = buildSearchHref({ ...state, page: hasNext ? page + 1 : pages });
+      if (hasNext) next.removeAttribute('tabindex');
+      else next.setAttribute('tabindex', '-1');
+    };
+
+    const render = async (state: SearchState, syncControls: boolean): Promise<void> => {
+      const current = ++token;
+
+      if (syncControls) {
+        if (document.activeElement !== input) input.value = state.q;
+        select.value = TYPE_ORDER.includes(state.type) ? state.type : '';
+      }
+
+      const query = state.q.trim();
+      if (query.length < MIN_QUERY_LENGTH) {
+        results.replaceChildren();
+        results.setAttribute('aria-busy', 'false');
+        pager.hidden = true;
+        errorBox.hidden = true;
+        status.textContent =
+          query.length === 0
+            ? 'Type at least two characters to search the archive.'
+            : 'Keep typing…';
+        return;
+      }
+
+      results.setAttribute('aria-busy', 'true');
+      status.textContent = 'Searching…';
+
+      let engine: PagefindEngine;
+      try {
+        engine = await loadEngine();
+      } catch {
+        if (current !== token) return;
+        showFailure(
+          'Couldn’t load the search index. It is generated by the production build — if you are offline, reconnect and try again.',
+        );
+        return;
+      }
+      if (current !== token) return;
+      errorBox.hidden = true;
+
+      if (!countsApplied) {
+        countsApplied = true;
+        void applyCounts(engine);
+      }
+
+      let found: PagefindSearchResult;
+      try {
+        found = await engine.search(
+          state.q,
+          state.type ? { filters: { type: [state.type] } } : undefined,
+        );
+      } catch {
+        if (current !== token) return;
+        showFailure('The search failed. Try again.');
+        return;
+      }
+      if (current !== token) return;
+
+      const total = found.results.length;
+      const pages = Math.ceil(total / PAGE_SIZE);
+      const page = clampPage(state.page, total);
+
+      // Out-of-range pages clamp only once the total is known; correct the URL
+      // in place so a reload lands on the same, now-valid page.
+      if (page !== state.page) {
+        history.replaceState(null, '', buildSearchHref({ ...state, page }));
+      }
+
+      const start = (page - 1) * PAGE_SIZE;
+      const visible = found.results.slice(start, start + PAGE_SIZE);
+
+      let data: PagefindHitData[];
+      try {
+        // Only the visible page's fragments are fetched — never every hit.
+        data = await Promise.all(visible.map((hit) => hit.data()));
+      } catch {
+        if (current !== token) return;
+        showFailure('The search failed. Try again.');
+        return;
+      }
+      if (current !== token) return;
+
+      results.replaceChildren(...data.map(renderHit));
+      results.setAttribute('aria-busy', 'false');
+
+      const typeSuffix = state.type ? ` in ${TYPE_LABELS[state.type] ?? state.type}` : '';
+      if (total === 0) {
+        status.textContent = `No results for “${query}”${typeSuffix}.`;
+        pager.hidden = true;
+        return;
+      }
+      status.textContent = `${total} result${total === 1 ? '' : 's'} for “${query}”${typeSuffix} — showing ${
+        start + 1
+      }\u2013${start + data.length}.`;
+      renderPager(page, pages, { ...state, page });
+    };
+
+    const go = (state: SearchState, push: boolean) => {
+      const href = buildSearchHref(state);
+      if (push) history.pushState(null, '', href);
+      else history.replaceState(null, '', href);
+      void render(state, false);
+    };
+
+    let tracked = '';
+    const trackSearch = (via: string) => {
+      const query = cleanQuery(input.value);
+      if (!query || query === tracked) return;
+      tracked = query;
+      track('search', { query, results: results.children.length, box: 'results', via });
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      window.clearTimeout(debounce);
+      trackSearch('submit');
+      go({ q: input.value, type: select.value, page: 1 }, true);
+    });
+
+    select.addEventListener('change', () => {
+      // A new facet is a fresh search intent and a fresh page.
+      tracked = '';
+      go({ q: input.value, type: select.value, page: 1 }, true);
+    });
+
+    input.addEventListener('input', () => {
+      window.clearTimeout(debounce);
+      debounce = window.setTimeout(() => {
+        // Live typing replaces rather than pushes, so a search is one history
+        // entry, not one per keystroke; a query change always resets the page.
+        go({ q: input.value, type: select.value, page: 1 }, false);
+      }, 200);
+    });
+    input.addEventListener('focus', () => void loadEngine().catch(() => {}));
+
+    const paginate = (event: MouseEvent, link: HTMLAnchorElement) => {
+      event.preventDefault();
+      if (link.getAttribute('aria-disabled') === 'true') return;
+      const url = new URL(link.href, location.href);
+      history.pushState(null, '', url.href);
+      void render(parseState(url.search), true);
+    };
+    prev.addEventListener('click', (event) => paginate(event, prev));
+    next.addEventListener('click', (event) => paginate(event, next));
+
+    results.addEventListener('click', (event) => {
+      const link = (event.target as HTMLElement | null)?.closest('a');
+      if (!link) return;
+      const items = [...results.querySelectorAll('li')];
+      trackSearch('result_click');
+      track('search_result_click', {
+        query: cleanQuery(input.value),
+        position: items.findIndex((li) => li.contains(link)) + 1,
+        to: new URL(link.href).pathname,
+      });
+    });
+
+    retry.addEventListener('click', () => {
+      // loadEngine cleared its rejected promise, so this re-attempts with a
+      // cache-busted specifier — recovering without a page reload.
+      errorBox.hidden = true;
+      void render(parseState(location.search), true);
+    });
+
+    window.addEventListener('popstate', () => {
+      window.clearTimeout(debounce);
+      void render(parseState(location.search), true);
+    });
+
+    const initial = parseState(location.search);
+    void render(initial, true);
+    if (!initial.q) input.focus();
+  }
+</script>
+
+<style>
+  .searchpage {
+    display: grid;
+    gap: 1rem;
+    max-width: 60rem;
+  }
+  .searchpage__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: end;
+  }
+  .searchpage__field {
+    display: grid;
+    gap: 0.3rem;
+    flex: 1 1 16rem;
+  }
+  .searchpage__field--type {
+    flex: 0 1 13rem;
+  }
+  .searchpage__label {
+    font-size: 0.78rem;
+    color: var(--ink-meta);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .searchpage__select {
+    width: 100%;
+    background: var(--bg-sunken);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.65rem 0.85rem;
+    transition: border-color var(--transition);
+  }
+  .searchpage__select:focus {
+    border-color: var(--accent);
+  }
+  .searchpage__status {
+    margin: 0;
+    min-height: 1.2em;
+    color: var(--ink-meta);
+    font-size: 0.9rem;
+  }
+  .searchpage__results {
+    margin: 0;
+  }
+  .searchpage__error {
+    display: grid;
+    gap: 0.7rem;
+    justify-items: start;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-raised);
+    padding: 0.9rem 1rem;
+  }
+  .searchpage__error[hidden] {
+    display: none;
+  }
+  .searchpage__pager {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .searchpage__pager[hidden] {
+    display: none;
+  }
+  /* The end of the range stays a link for discoverability but reads as disabled
+     and is taken out of the tab order and pointer flow. */
+  .searchpage__pager .btn[aria-disabled='true'] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .searchpage__pageinfo {
+    color: var(--ink-meta);
+    font-size: 0.85rem;
+  }
+  .searchpage__note {
+    color: var(--ink-meta);
+  }
+</style>

@@ -39,14 +39,54 @@ import { counts, formatDate, hostOf, meta, sources } from '../lib/content';
           community galleries stay canonical. This indexes them and links out.
         </li>
         <li>
-          <strong>Not a mirror.</strong> The plugin marketplace has thousands of entries; this
-          site carries a curated cut on purpose.
+          <strong>Not a mirror.</strong> Every installable plugin in the marketplace is indexed
+          here, each with its own page and its install command copied verbatim from the official
+          catalog — but the marketplace stays canonical, and the plugin code, previews, and any
+          security review stay upstream. It is a directory that points out, not a mirror of what
+          the marketplace hosts.
         </li>
         <li>
           <strong>Not a security review.</strong> Plugins run as unsandboxed code. Read the repo.
         </li>
-        <li><strong>No accounts, comments, ratings, or tracking.</strong> There is no server.</li>
+        <li>
+          <strong>No accounts, comments, or ratings.</strong> There is no back end and nothing to
+          sign into; the pages are static files on a CDN. It does record some usage analytics —
+          see <em>What it measures</em> below.
+        </li>
       </ul>
+    </section>
+
+    <section class="block">
+      <h2>What it measures</h2>
+      <p>
+        The site loads a hosted analytics script (Rybbit, from <code>app.rybbit.io</code>) on the
+        canonical production domain only — never on a local build or a preview deploy. It records
+        page views and a small set of events that show whether the index is doing its job:
+      </p>
+      <ul>
+        <li>
+          <strong>Copies.</strong> Only when a copy actually succeeds, the first few words of the
+          command (<code>omarchy theme set</code>, <code>omarchy plugin add</code>) — not the whole
+          string, and never on a copy that failed.
+        </li>
+        <li>
+          <strong>Outbound clicks.</strong> The host you leave for (<code>github.com</code>), not
+          the full URL — that is already on the record in git.
+        </li>
+        <li>
+          <strong>Searches.</strong> The text you type — lowercased, whitespace-collapsed, cut to
+          80 characters — plus how many results it found and which result you open. The box is
+          free text, so treat it as public and do not type anything you would not put in a URL.
+        </li>
+        <li><strong>Filters.</strong> Which facet you toggle on a listing, and the result count.</li>
+      </ul>
+      <p>
+        Every event also carries the path of the page it happened on. It is all best-effort — an
+        ad blocker or a dropped request just means an event is never sent, and nothing on the page
+        depends on it. The events are defined in
+        <a href={meta.repo_url} rel="noopener">the repo</a> under
+        <code>src/scripts/analytics.ts</code>, not in a dashboard setting.
+      </p>
     </section>
 
     <section class="block">

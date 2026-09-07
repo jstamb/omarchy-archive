@@ -28,6 +28,7 @@ const siblings = plugins
   path={`/plugins/${pluginSlug(plugin.id)}/`}
   title={plugin.name}
   description={plugin.summary ?? `${plugin.name} — an Omarchy plugin.`}
+  searchType="plugin"
 >
   <p class="pagehead__meta" data-pagefind-ignore="all">
     <a href="/plugins/">Plugins</a> / {plugin.first_party ? 'first-party' : 'third-party'}
