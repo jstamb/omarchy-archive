@@ -5562,7 +5562,7 @@
   {
     "id": "shadetheory-jordan-workspaces",
     "kind": "plugin",
-    "title": "Workspaces by Monitor Plugin",
+    "title": "jordan.workspaces — Per-Monitor Workspaces",
     "summary": "Jordan Partridge publishes jordan.workspaces — per-monitor workspace management for Omarchy, listed on the community plugin marketplace.",
     "author": "Jordan Partridge",
     "author_url": "https://x.com/Shadetheory",
@@ -5664,7 +5664,7 @@
   {
     "id": "martin-omarchy-keypad",
     "kind": "plugin",
-    "title": "Programmable USB Keypad Plugin",
+    "title": "Programmable USB Keypad — Omarchy Macropad Plugin",
     "summary": "Martin publishes a mini programmable keypad plugin for Omarchy — map a cheap Amazon macropad to desktop actions, with more keypads planned.",
     "author": "Martin",
     "author_url": "https://x.com/Martin_AIM_77",
@@ -5716,7 +5716,7 @@
   {
     "id": "gladimdim-omarchy-beauty-night",
     "kind": "setup",
-    "title": "Omarchy Beauty at Night",
+    "title": "Night Desk Running Omarchy — Dmytro Gladkyi",
     "summary": "Dmytro Gladkyi’s night desk shot running Omarchy — soft lighting and a clean tiled desktop.",
     "author": "Dmytro Gladkyi",
     "author_url": "https://x.com/gladimdim",
