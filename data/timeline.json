@@ -83,7 +83,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.2",
-    "notes_chars": 2315
+    "notes_chars": 2315,
+    "upstream_id": "379486590",
+    "payload_hash": "899cc75a6aec3d86a4e78f221a12ce1f5a0b14d81f6418ffc6191d0597c17d5d",
+    "parser_version": 1
   },
   {
     "id": "v4.0.1",
@@ -139,7 +142,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.1",
-    "notes_chars": 3394
+    "notes_chars": 3394,
+    "upstream_id": "376349542",
+    "payload_hash": "a129c87850072b50aba64b8bc289d017f0a056d7e9ba7e50490a0851147247a5",
+    "parser_version": 1
   },
   {
     "id": "v4.0.0",
@@ -612,7 +618,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.0",
-    "notes_chars": 37220
+    "notes_chars": 37220,
+    "upstream_id": "370698546",
+    "payload_hash": "fd28b18fbe530d33ad052f7e2441afb4bec51d7f9906885c2730dbd3c6dd2f48",
+    "parser_version": 1
   },
   {
     "id": "v3.8.4",
@@ -633,7 +642,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.4",
-    "notes_chars": 596
+    "notes_chars": 596,
+    "upstream_id": "357052091",
+    "payload_hash": "85096625ce39e4224317d19d7bbbbadf0497adb2e5b84b200c7b0385dbfe34c6",
+    "parser_version": 1
   },
   {
     "id": "v3.8.3",
@@ -669,7 +681,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.3",
-    "notes_chars": 2267
+    "notes_chars": 2267,
+    "upstream_id": "353485740",
+    "payload_hash": "7186f6350123d49b76690f6aa596c04aa91d0daaa705508e79b9ff6ff1b75e6a",
+    "parser_version": 1
   },
   {
     "id": "v3.8.2",
@@ -700,7 +715,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.2",
-    "notes_chars": 754
+    "notes_chars": 754,
+    "upstream_id": "328490694",
+    "payload_hash": "79138dfb438e66e2deb1aac89c9a4768e017472e3fecd1f9f48a8937fe2bb8c1",
+    "parser_version": 1
   },
   {
     "id": "v3.8.1",
@@ -721,7 +739,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.1",
-    "notes_chars": 243
+    "notes_chars": 243,
+    "upstream_id": "322687411",
+    "payload_hash": "3153caf0385942c84e7b55b5da023c26d1da7ccd6ee0ec2f91f2ed8f10c6df65",
+    "parser_version": 1
   },
   {
     "id": "v3.8.0",
@@ -864,7 +885,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.8.0",
-    "notes_chars": 10275
+    "notes_chars": 10275,
+    "upstream_id": "319959801",
+    "payload_hash": "fb6f73e47e53639006ca8160db42dc92880e514014f1fac6f969e85a96cfcef7",
+    "parser_version": 1
   },
   {
     "id": "v3.7.1",
@@ -885,7 +909,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.7.1",
-    "notes_chars": 232
+    "notes_chars": 232,
+    "upstream_id": "317534304",
+    "payload_hash": "1147629a20dae9fc9f109bce68536bb9bc69bb9d5b388f5dc5df4ebbf02651e3",
+    "parser_version": 1
   },
   {
     "id": "v3.7.0",
@@ -1083,7 +1110,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.7.0",
-    "notes_chars": 20007
+    "notes_chars": 20007,
+    "upstream_id": "317221931",
+    "payload_hash": "f4fd53b04e99239a38e2848c12b3601e48292f46a9852c9718271ca3ac2dde1f",
+    "parser_version": 1
   },
   {
     "id": "v3.6.0",
@@ -1191,7 +1221,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.6.0",
-    "notes_chars": 7034
+    "notes_chars": 7034,
+    "upstream_id": "312743642",
+    "payload_hash": "fa05ab850e375d4f1db8c8472b3eea692cbcca6a1d13d32b2d12597ff5a313da",
+    "parser_version": 1
   },
   {
     "id": "v3.5.1",
@@ -1272,7 +1305,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.5.1",
-    "notes_chars": 3208
+    "notes_chars": 3208,
+    "upstream_id": "309887702",
+    "payload_hash": "496b19dd0033546b42f846b001e30fcb28bb3dffa05cc0a94a9b1d4b898bcee5",
+    "parser_version": 1
   },
   {
     "id": "v3.5.0",
@@ -1395,7 +1431,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.5.0",
-    "notes_chars": 6635
+    "notes_chars": 6635,
+    "upstream_id": "305109184",
+    "payload_hash": "21f31e2e0861f89f116de7a7e2f4a02ee6011257eb9ab4ca3d83ed3aa1c45aba",
+    "parser_version": 1
   },
   {
     "id": "v3.4.2",
@@ -1461,7 +1500,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.4.2",
-    "notes_chars": 2812
+    "notes_chars": 2812,
+    "upstream_id": "294425478",
+    "payload_hash": "db34cbf06ea5a28b4b57f0ef534eb9b29384a498680da91006ef7c01919aab54",
+    "parser_version": 1
   },
   {
     "id": "v3.4.1",
@@ -1517,7 +1559,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.4.1",
-    "notes_chars": 2013
+    "notes_chars": 2013,
+    "upstream_id": "291662681",
+    "payload_hash": "2d12fe13787eb0ed4e3fb28484c699dff1e165ba9e84fc01a08f443750601020",
+    "parser_version": 1
   },
   {
     "id": "v3.4.0",
@@ -1865,7 +1910,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.4.0",
-    "notes_chars": 18336
+    "notes_chars": 18336,
+    "upstream_id": "291056958",
+    "payload_hash": "8ea16f93ac7eb6dfd7b0a03fb41a7137b11326c95b4a2329991c05a68a925842",
+    "parser_version": 1
   },
   {
     "id": "v3.3.3",
@@ -1886,7 +1934,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.3",
-    "notes_chars": 286
+    "notes_chars": 286,
+    "upstream_id": "275342872",
+    "payload_hash": "e7f0da4cdebe2616bff106ef495f82940e078e57cd27e133a2c694dcbcc66a6e",
+    "parser_version": 1
   },
   {
     "id": "v3.3.2",
@@ -1912,7 +1963,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.2",
-    "notes_chars": 616
+    "notes_chars": 616,
+    "upstream_id": "275339364",
+    "payload_hash": "dedb9cc613646982e9f90ce2e9753d22caf8830f67e23fb757e56d2e79660eb5",
+    "parser_version": 1
   },
   {
     "id": "v3.3.1",
@@ -1943,7 +1997,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.1",
-    "notes_chars": 1204
+    "notes_chars": 1204,
+    "upstream_id": "275164347",
+    "payload_hash": "24cb4d89ba4b763da205bb10e8084fa19f41277e13b8814780573a05436ccf87",
+    "parser_version": 1
   },
   {
     "id": "v3.3.0",
@@ -2091,7 +2148,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.3.0",
-    "notes_chars": 8249
+    "notes_chars": 8249,
+    "upstream_id": "274950402",
+    "payload_hash": "c4a04a31458dce8a422ff7e01a9b4cdac5093a0bd2201a70c786b5558a9b9c5f",
+    "parser_version": 1
   },
   {
     "id": "v3.2.3",
@@ -2217,7 +2277,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.3",
-    "notes_chars": 3884
+    "notes_chars": 3884,
+    "upstream_id": "270560634",
+    "payload_hash": "a36ae166e7ed8c226a142de12119c27a49db72d221cd9207b4f77106f121d2f4",
+    "parser_version": 1
   },
   {
     "id": "v3.2.2",
@@ -2268,7 +2331,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.2",
-    "notes_chars": 1655
+    "notes_chars": 1655,
+    "upstream_id": "266101124",
+    "payload_hash": "eb4db978d09be41ff85c4487a24f9f582502aedbcb667d1b21a635c0b72cb9b7",
+    "parser_version": 1
   },
   {
     "id": "v3.2.1",
@@ -2314,7 +2380,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.1",
-    "notes_chars": 1933
+    "notes_chars": 1933,
+    "upstream_id": "265359360",
+    "payload_hash": "ffc672c59c8264d5eaf411a841e56d48b0936dd872f1614d87c3f5c940546fac",
+    "parser_version": 1
   },
   {
     "id": "v3.2.0",
@@ -2527,7 +2596,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.2.0",
-    "notes_chars": 9928
+    "notes_chars": 9928,
+    "upstream_id": "264434733",
+    "payload_hash": "55bf8857441088caa89c28e4c4136e475798e5a5fe9230998a595ee24473f36a",
+    "parser_version": 1
   },
   {
     "id": "v3.1.7",
@@ -2558,7 +2630,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.7",
-    "notes_chars": 707
+    "notes_chars": 707,
+    "upstream_id": "260897338",
+    "payload_hash": "44ce421031eef68e4820b99fa4847d6a9c705728f4b906ffc245e34f0a529a78",
+    "parser_version": 1
   },
   {
     "id": "v3.1.6",
@@ -2579,7 +2654,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.6",
-    "notes_chars": 476
+    "notes_chars": 476,
+    "upstream_id": "260762849",
+    "payload_hash": "a60b3f4c469f1769909a7bb066e9e010edef800bac000982e70a9bfcd2f4d46b",
+    "parser_version": 1
   },
   {
     "id": "v3.1.5",
@@ -2635,7 +2713,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.5",
-    "notes_chars": 1448
+    "notes_chars": 1448,
+    "upstream_id": "259323515",
+    "payload_hash": "53b6f1dddc4ee74a8b8a33f46f8d852bac13cf23432587308b06e1036002a190",
+    "parser_version": 1
   },
   {
     "id": "v3.1.4",
@@ -2751,7 +2832,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.4",
-    "notes_chars": 3500
+    "notes_chars": 3500,
+    "upstream_id": "257865963",
+    "payload_hash": "788cc1eed2f2383e6e1aae6263af78c262f6572289ca4932d53180ce2095ffc2",
+    "parser_version": 1
   },
   {
     "id": "v3.1.3",
@@ -2772,7 +2856,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.3",
-    "notes_chars": 402
+    "notes_chars": 402,
+    "upstream_id": "256927189",
+    "payload_hash": "f447e823a1ab64f1bcaec64329694c6ce3365b83b55a288ea451620e849cbd7d",
+    "parser_version": 1
   },
   {
     "id": "v3.1.2",
@@ -2823,7 +2910,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.2",
-    "notes_chars": 1752
+    "notes_chars": 1752,
+    "upstream_id": "256909641",
+    "payload_hash": "98c5b963b969ab91eabb06bccd4a4a4c96e14292027e7556ab7ab41dbd051ebb",
+    "parser_version": 1
   },
   {
     "id": "v3.1.1",
@@ -2869,7 +2959,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.1",
-    "notes_chars": 775
+    "notes_chars": 775,
+    "upstream_id": "255795456",
+    "payload_hash": "57fe182e7c5369f4058f7f784269e90b50c07f417f019a75c3408eb1b3ea6be5",
+    "parser_version": 1
   },
   {
     "id": "v3.1.0",
@@ -3112,7 +3205,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.1.0",
-    "notes_chars": 11618
+    "notes_chars": 11618,
+    "upstream_id": "255586550",
+    "payload_hash": "5e1e4737e3ebfc8d3a9fa48d27427fd9c4d26e24dfa7d98cdcf3c28fcbbf0977",
+    "parser_version": 1
   },
   {
     "id": "v3.0.2",
@@ -3208,7 +3304,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.0.2",
-    "notes_chars": 1783
+    "notes_chars": 1783,
+    "upstream_id": "250616159",
+    "payload_hash": "65c93823acc18cad988e5f9a7466d12cac24b8839f799c14a9a92282e11c8fcb",
+    "parser_version": 1
   },
   {
     "id": "v3.0.0",
@@ -3371,7 +3470,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v3.0.0",
-    "notes_chars": 9039
+    "notes_chars": 9039,
+    "upstream_id": "248077620",
+    "payload_hash": "d28ee33eac010ded69c2255d07ebcbec30b54198a40daeabb2d48e6ec4ec4a5c",
+    "parser_version": 1
   },
   {
     "id": "v2.1.2",
@@ -3397,7 +3499,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.1.2",
-    "notes_chars": 365
+    "notes_chars": 365,
+    "upstream_id": "246219489",
+    "payload_hash": "e787d9ac5e79e03fc9cd430c4b993ba99b36adddd0657533b5ca98669dea5136",
+    "parser_version": 1
   },
   {
     "id": "v2.1.1",
@@ -3513,7 +3618,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.1.1",
-    "notes_chars": 3572
+    "notes_chars": 3572,
+    "upstream_id": "245959285",
+    "payload_hash": "43f33e0ab92e3aabd2e922f75e5637f0861f79b060db24ade6c7472b61f4104d",
+    "parser_version": 1
   },
   {
     "id": "v2.1.0",
@@ -3619,7 +3727,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.1.0",
-    "notes_chars": 3291
+    "notes_chars": 3291,
+    "upstream_id": "243723357",
+    "payload_hash": "b4723f7fbe9b029f3d4835c5310b963fd715d46f5e61c858981be1160895017a",
+    "parser_version": 1
   },
   {
     "id": "v2.0.5",
@@ -3655,7 +3766,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.5",
-    "notes_chars": 904
+    "notes_chars": 904,
+    "upstream_id": "243102591",
+    "payload_hash": "e4c20fb236e2b0fa118f93e38d595517e03696fa80bea8d6e16977628c0c913c",
+    "parser_version": 1
   },
   {
     "id": "v2.0.4",
@@ -3686,7 +3800,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.4",
-    "notes_chars": 682
+    "notes_chars": 682,
+    "upstream_id": "243052550",
+    "payload_hash": "b202034e7099d69be7dffd256ea5af16137204e8ae55b99d11a90780340d610e",
+    "parser_version": 1
   },
   {
     "id": "v2.0.3",
@@ -3707,7 +3824,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.3",
-    "notes_chars": 459
+    "notes_chars": 459,
+    "upstream_id": "242886624",
+    "payload_hash": "3c80ad041e9c60a565626384f953019f66aa37f9d6fead386d4016b782a7c169",
+    "parser_version": 1
   },
   {
     "id": "v2.0.2",
@@ -3733,7 +3853,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.2",
-    "notes_chars": 932
+    "notes_chars": 932,
+    "upstream_id": "242831946",
+    "payload_hash": "e57600a2c35de64c7934a6bf2bf9987e860eb43a4f48c9b91b961c4e6ca2ae23",
+    "parser_version": 1
   },
   {
     "id": "v2.0.1",
@@ -3804,7 +3927,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.1",
-    "notes_chars": 1773
+    "notes_chars": 1773,
+    "upstream_id": "242526256",
+    "payload_hash": "4a0e21f6c1e80a79b296a52ff054094a6dcb8483f813d6ff6e50f4c6a2e851d0",
+    "parser_version": 1
   },
   {
     "id": "v2.0.0",
@@ -4067,7 +4193,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v2.0.0",
-    "notes_chars": 10560
+    "notes_chars": 10560,
+    "upstream_id": "242279043",
+    "payload_hash": "296c93eefc063ad78aac4bd0f87f717d19a752f4b3bbe97e7922f7cc1ec8e085",
+    "parser_version": 1
   },
   {
     "id": "v1.13.0",
@@ -4158,7 +4287,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.13.0",
-    "notes_chars": 3284
+    "notes_chars": 3284,
+    "upstream_id": "239103380",
+    "payload_hash": "7606b5f490ef578423d146d2f7556a4103da002a6de0154d1cceaf7cef49fe21",
+    "parser_version": 1
   },
   {
     "id": "v1.12.1",
@@ -4184,7 +4316,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.12.1",
-    "notes_chars": 1052
+    "notes_chars": 1052,
+    "upstream_id": "238643368",
+    "payload_hash": "216d1ef3564f1b2f6c50c89dfd23e1429513b3adb200fe82d16fd78db5a66d37",
+    "parser_version": 1
   },
   {
     "id": "v1.12.0",
@@ -4235,7 +4370,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.12.0",
-    "notes_chars": 2283
+    "notes_chars": 2283,
+    "upstream_id": "238258843",
+    "payload_hash": "98cdc10c961aea92d4a9d1e7c4cae0f25602f31996c9ab3cc26ff03217bcbb09",
+    "parser_version": 1
   },
   {
     "id": "v1.11.0",
@@ -4276,7 +4414,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.11.0",
-    "notes_chars": 1511
+    "notes_chars": 1511,
+    "upstream_id": "237709411",
+    "payload_hash": "961263d8749f77ed76c358ec6f3c0878d8f30fff5b3a26ec98319620d7bef957",
+    "parser_version": 1
   },
   {
     "id": "v1.10.0",
@@ -4337,7 +4478,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.10.0",
-    "notes_chars": 1568
+    "notes_chars": 1568,
+    "upstream_id": "237136662",
+    "payload_hash": "7cc035bc0d813d24e84ef612e80850c9dc321d1a374d3227f6d657c00079dfda",
+    "parser_version": 1
   },
   {
     "id": "v1.9.0",
@@ -4393,7 +4537,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.9.0",
-    "notes_chars": 2789
+    "notes_chars": 2789,
+    "upstream_id": "237085603",
+    "payload_hash": "e9a51eb2f5863e33ca769ac2eac8663697bc633c90120cdedb60a21372be023a",
+    "parser_version": 1
   },
   {
     "id": "v1.8.0",
@@ -4434,7 +4581,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.8.0",
-    "notes_chars": 1473
+    "notes_chars": 1473,
+    "upstream_id": "236413842",
+    "payload_hash": "86f45c42dcdfd04324e7471635a8867e06b1dc82eb4b9311ba1cd535ba95af2a",
+    "parser_version": 1
   },
   {
     "id": "v1.7.0",
@@ -4480,7 +4630,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.7.0",
-    "notes_chars": 1259
+    "notes_chars": 1259,
+    "upstream_id": "235617086",
+    "payload_hash": "766ea311e30de57a9ea0054bccb966e72ae5478a16794ca1906e1f6c42886712",
+    "parser_version": 1
   },
   {
     "id": "v1.6.2",
@@ -4541,7 +4694,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.6.2",
-    "notes_chars": 1932
+    "notes_chars": 1932,
+    "upstream_id": "235403628",
+    "payload_hash": "758b75da430fc812b343d096b96f7a90e15b9591be8cd24797dd3ca3bc843967",
+    "parser_version": 1
   },
   {
     "id": "v1.6.1",
@@ -4597,7 +4753,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.6.1",
-    "notes_chars": 1160
+    "notes_chars": 1160,
+    "upstream_id": "234668193",
+    "payload_hash": "3a79af9270d639683f21bae385eb2adacbdcbdd90ee3c2af6dcde81387c9284d",
+    "parser_version": 1
   },
   {
     "id": "v1.6.0",
@@ -4688,7 +4847,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.6.0",
-    "notes_chars": 5172
+    "notes_chars": 5172,
+    "upstream_id": "234393193",
+    "payload_hash": "9b6d5eda98fd3e0263771bdb65548b50453d307560a8cd78ea2997984e9ecb4b",
+    "parser_version": 1
   },
   {
     "id": "v1.5.2",
@@ -4714,7 +4876,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.5.2",
-    "notes_chars": 430
+    "notes_chars": 430,
+    "upstream_id": "233644089",
+    "payload_hash": "7e85f40270fda5c085ac33ff3ea4c264684ef381901370d6460b96632f5e131e",
+    "parser_version": 1
   },
   {
     "id": "v1.5.1",
@@ -4735,7 +4900,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.5.1",
-    "notes_chars": 200
+    "notes_chars": 200,
+    "upstream_id": "233627793",
+    "payload_hash": "bfbb973d610b7bbb476178c0e4ff1a282c587963ac45b06793fe1688006c052d",
+    "parser_version": 1
   },
   {
     "id": "v1.5.0",
@@ -4786,7 +4954,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.5.0",
-    "notes_chars": 2092
+    "notes_chars": 2092,
+    "upstream_id": "233350587",
+    "payload_hash": "4eed88be0c5a51a01d88b607dc8093a84ee1e76b14e851c36d6fd2da0960d8e1",
+    "parser_version": 1
   },
   {
     "id": "v1.4.1",
@@ -4812,7 +4983,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.4.1",
-    "notes_chars": 564
+    "notes_chars": 564,
+    "upstream_id": "232896128",
+    "payload_hash": "4e40c77d0803e920ecb1da6087cd10d166c54a08a09d4ac6f63d93e617cd778e",
+    "parser_version": 1
   },
   {
     "id": "v1.4.0",
@@ -4903,7 +5077,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.4.0",
-    "notes_chars": 2719
+    "notes_chars": 2719,
+    "upstream_id": "232720727",
+    "payload_hash": "960cd9513f75df4719e3c7295647bb36d30a5fd0938742d4cbb4e1c4f9c8ee5f",
+    "parser_version": 1
   },
   {
     "id": "v1.3.2",
@@ -4924,7 +5101,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.3.2",
-    "notes_chars": 271
+    "notes_chars": 271,
+    "upstream_id": "231645629",
+    "payload_hash": "a379303138bafad3bff3343c1ea64b3ad13a8c0f8ef77517d04be00e335a44dc",
+    "parser_version": 1
   },
   {
     "id": "v1.3.1",
@@ -4965,7 +5145,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.3.1",
-    "notes_chars": 1402
+    "notes_chars": 1402,
+    "upstream_id": "231634419",
+    "payload_hash": "a74d1722d3d836e02b1a0d015dcfab8da326a32edbf1b3a2eea3009ca16ce89e",
+    "parser_version": 1
   },
   {
     "id": "v1.3.0",
@@ -5016,7 +5199,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.3.0",
-    "notes_chars": 1942
+    "notes_chars": 1942,
+    "upstream_id": "231313367",
+    "payload_hash": "2486a7fee3184a5ec5f9cf9a73726d25105966215d83b08e33b22bb0fef91932",
+    "parser_version": 1
   },
   {
     "id": "v1.2.0",
@@ -5067,7 +5253,10 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.2.0",
-    "notes_chars": 1810
+    "notes_chars": 1810,
+    "upstream_id": "230336174",
+    "payload_hash": "1d9fb743ad1491c4a56f09fe0eede1d56c8f6ec8b9ff04be27edab8bf1c95996",
+    "parser_version": 1
   },
   {
     "id": "v1.1.1",
@@ -5148,6 +5337,9 @@
       }
     ],
     "release_url": "https://github.com/omacom/omarchy/releases/tag/v1.1.1",
-    "notes_chars": 2705
+    "notes_chars": 2705,
+    "upstream_id": "230132410",
+    "payload_hash": "e4fe82e0f722244b583027a54ffef96677ac173e869ddb878c65a19dd7fa7d02",
+    "parser_version": 1
   }
 ]
