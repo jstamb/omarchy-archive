@@ -13,6 +13,7 @@
  *   - grows in over the first ~2.5s of a page view
  */
 
+export {}; // Astro imports this as a module; without an export TS scopes its declarations globally and they collide across scripts.
 const CELL = 14; // px, square size
 const GAP = 2; // px between squares
 const FPS_INTERVAL = 1000 / 30;
@@ -43,7 +44,10 @@ function init(): void {
   let last = 0;
   const born = performance.now();
 
-  function build(): void {
+  // Arrow consts, not hoisted declarations: a `function` here could in
+  // principle run before the null guards above, so TS drops the narrowing on
+  // `canvas`/`ctx` inside one and every use becomes "possibly null".
+  const build = (): void => {
     const dpr = Math.min(devicePixelRatio || 1, 2);
     const w = innerWidth;
     const h = innerHeight;
@@ -80,9 +84,9 @@ function init(): void {
         });
       }
     }
-  }
+  };
 
-  function draw(now: number): void {
+  const draw = (now: number): void => {
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     // Growth ramp: 0 -> 1 over 2.5s, eased.
     const g = reduced ? 1 : Math.min(1, (now - born) / 2500);
@@ -99,14 +103,14 @@ function init(): void {
       ctx.fillRect(c.x, c.y, CELL, CELL);
     }
     ctx.globalAlpha = 1;
-  }
+  };
 
-  function loop(now: number): void {
+  const loop = (now: number): void => {
     raf = requestAnimationFrame(loop);
     if (now - last < FPS_INTERVAL) return;
     last = now;
     draw(now);
-  }
+  };
 
   build();
   if (reduced) {

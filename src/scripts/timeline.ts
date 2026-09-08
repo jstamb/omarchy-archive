@@ -10,6 +10,8 @@
  * missing or the reader prefers reduced motion, every node is simply revealed
  * up front and the page is complete without any of this.
  */
+
+export {}; // Astro imports this as a module; without an export TS scopes its declarations globally and they collide across scripts.
 const nodes = [...document.querySelectorAll<HTMLElement>('[data-tl-node]')];
 const list = document.querySelector<HTMLElement>('[data-timeline]');
 

@@ -8,6 +8,7 @@
  * a row, so the server order and every visible fact stay intact.
  */
 
+export {}; // Astro imports this as a module; without an export TS scopes its declarations globally and they collide across scripts.
 interface Index {
   root: HTMLElement;
   rows: HTMLElement[];

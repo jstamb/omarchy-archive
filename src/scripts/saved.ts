@@ -1,3 +1,5 @@
+export {}; // Astro imports this as a module; without an export TS scopes its declarations globally and they collide across scripts.
+
 const SAVED_KEY = 'omarchy-archive-saved';
 const SEEN_KEY = 'omarchy-archive-posts-seen';
 

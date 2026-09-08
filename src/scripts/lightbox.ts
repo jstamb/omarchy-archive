@@ -1,3 +1,5 @@
+export {}; // Astro imports this as a module; without an export TS scopes its declarations globally and they collide across scripts.
+
 document.querySelectorAll<HTMLElement>('[data-lightbox]').forEach((root) => {
   const open = root.querySelector<HTMLButtonElement>('[data-lightbox-open]');
   const dialog = root.querySelector<HTMLDialogElement>('[data-lightbox-dialog]');

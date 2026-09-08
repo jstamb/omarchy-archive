@@ -1,3 +1,5 @@
+export {}; // Astro imports this as a module; without an export TS scopes its declarations globally and they collide across scripts.
+
 type PageSavedItem = { url: string; title: string; type: string };
 
 function loadPageSaved(): PageSavedItem[] {
