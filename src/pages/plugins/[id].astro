@@ -43,79 +43,27 @@ const siblings = plugins
   </p>
 
   <div class="detail">
-    <div>
-      <div class="pagehead">
-        <h1>{plugin.name}</h1>
-        {plugin.summary && <p class="pagehead__lede">{plugin.summary}</p>}
-        <p class="pagehead__meta">{plugin.id}</p>
-        {state && <p class="notice">{state}{replacement && <> — now <a href={`/plugins/${pluginSlug(replacement.id)}/`}>{replacement.name}</a></>}</p>}
-      </div>
-
-      {
-        plugin.image && (
-          <div class="detail__hero">
-            <img
-              src={plugin.image}
-              alt={`${plugin.name} preview`}
-              width="1200"
-              height="675"
-              loading="eager"
-              referrerpolicy="no-referrer"
-            />
-          </div>
-        )
-      }
-
-      <section class="section">
-        <div class="section__head">
-          <h2>Install</h2>
-        </div>
-        {
-          plugin.status && plugin.status !== 'active' && (
-            <p class="pagehead__meta">This command is kept for history. Review the repo before enabling it.</p>
-          )
-        }
-        <CommandBox
-          install={plugin.install}
-          fallbackUrl={plugin.listing_url}
-          fallbackLabel="Open the marketplace listing"
-        />
-        <p class="notice" style="margin-top:0.75rem">
-          Plugins run as unsandboxed code. This site does not verify security.
-          {plugin.warning}
-        </p>
-      </section>
-
-      {
-        inTheWild.length > 0 && (
-          <section class="section" data-pagefind-ignore="all">
-            <div class="section__head">
-              <h2>Seen in the wild <span class="section__count">{inTheWild.length}</span></h2>
-            </div>
-            <div class="grid">
-              {inTheWild.map((post) => (
-                <Card type="post" item={post} />
-              ))}
-            </div>
-          </section>
-        )
-      }
-
-      {
-        siblings.length > 0 && (
-          <section class="section" data-pagefind-ignore="all">
-            <div class="section__head">
-              <h2>More in {plugin.category ?? 'the catalog'}</h2>
-            </div>
-            <div class="grid">
-              {siblings.map((other) => (
-                <Card type="plugin" item={other} />
-              ))}
-            </div>
-          </section>
-        )
-      }
+    <div class="pagehead">
+      <h1>{plugin.name}</h1>
+      {plugin.summary && <p class="pagehead__lede">{plugin.summary}</p>}
+      <p class="pagehead__meta">{plugin.id}</p>
+      {state && <p class="notice">{state}{replacement && <> — now <a href={`/plugins/${pluginSlug(replacement.id)}/`}>{replacement.name}</a></>}</p>}
     </div>
+
+    {
+      plugin.image && (
+        <div class="detail__hero">
+          <img
+            src={plugin.image}
+            alt={`${plugin.name} preview`}
+            width="1200"
+            height="675"
+            loading="eager"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      )
+    }
 
     <aside class="detail__aside">
       <div class="panel">
@@ -227,5 +175,57 @@ const siblings = plugins
         )
       }
     </aside>
+
+    <div class="detail__body">
+      <section class="section">
+        <div class="section__head">
+          <h2>Install</h2>
+        </div>
+        {
+          plugin.status && plugin.status !== 'active' && (
+            <p class="pagehead__meta">This command is kept for history. Review the repo before enabling it.</p>
+          )
+        }
+        <CommandBox
+          install={plugin.install}
+          fallbackUrl={plugin.listing_url}
+          fallbackLabel="Open the marketplace listing"
+        />
+        <p class="notice" style="margin-top:0.75rem">
+          Plugins run as unsandboxed code. This site does not verify security.
+          {plugin.warning}
+        </p>
+      </section>
+
+      {
+        inTheWild.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>Seen in the wild <span class="section__count">{inTheWild.length}</span></h2>
+            </div>
+            <div class="grid">
+              {inTheWild.map((post) => (
+                <Card type="post" item={post} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        siblings.length > 0 && (
+          <section class="section" data-pagefind-ignore="all">
+            <div class="section__head">
+              <h2>More in {plugin.category ?? 'the catalog'}</h2>
+            </div>
+            <div class="grid">
+              {siblings.map((other) => (
+                <Card type="plugin" item={other} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </div>
   </div>
 </Base>

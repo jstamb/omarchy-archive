@@ -1016,28 +1016,26 @@ a.tag:hover {
 
 .detail {
   display: grid;
-  gap: 2.5rem;
+  column-gap: 2.5rem;
   grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  grid-template-areas:
+    'head aside'
+    'hero aside'
+    'body aside';
   align-items: start;
 }
-/*
- * Two collapse points, because the space available to a detail page depends on
- * whether the sidebar is out. Without it, two columns work down to 900px. With
- * it, the sidebar takes ~280px and the hero was squeezing to 429px at 1120 —
- * so between the sidebar appearing and 1280px, the aside goes underneath.
- */
-@media (max-width: 900px) {
-  .detail {
-    grid-template-columns: minmax(0, 1fr);
-  }
+.detail > .pagehead {
+  grid-area: head;
 }
-@media (min-width: 1100px) and (max-width: 1279px) {
-  .detail {
-    grid-template-columns: minmax(0, 1fr);
-  }
+.detail__body {
+  grid-area: body;
 }
-
+/* The hero-to-first-section rhythm .section:first-child would otherwise zero. */
+.detail__body > .section:first-child {
+  margin-top: 3rem;
+}
 .detail__hero {
+  grid-area: hero;
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   overflow: hidden;
@@ -1051,10 +1049,35 @@ a.tag:hover {
 }
 
 .detail__aside {
+  grid-area: aside;
   display: grid;
   gap: 1.25rem;
   position: sticky;
   top: 76px;
+}
+/*
+ * Two collapse points, because the space available to a detail page depends on
+ * whether the sidebar is out. Without it, two columns work down to 900px. With
+ * it, the sidebar takes ~280px and the hero was squeezing to 429px at 1120 —
+ * so between the sidebar appearing and 1280px, the aside goes underneath.
+ *
+ * Stacked, the aside sits directly under the hero, never after the page: it
+ * holds the link to the actual item, and below "more like this" it was three
+ * screens of scroll away on a phone or a tablet.
+ */
+@media (max-width: 900px), (min-width: 1100px) and (max-width: 1279px) {
+  .detail {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'head'
+      'hero'
+      'aside'
+      'body';
+  }
+  .detail__aside {
+    position: static;
+    margin-top: 1.5rem;
+  }
 }
 
 .panel {
