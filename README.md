@@ -71,7 +71,7 @@ The archive pins to your launcher like any other app. From the menu:
 <kbd>Super</kbd> + <kbd>Space</kbd> → Install → Web App → **Archive** → `https://omarchyarchive.com`
 
 Name it **Archive** — short, quick to type, and it sorts to the top of the launcher. Omarchy
-asks for a name and URL, and fetches the icon from the site's favicon.
+asks for a name and URL only; it picks up the icon automatically.
 
 The archive can wear any of its own themes. The picker in the masthead searches
 every indexed theme and restyles the site with its colours, in your browser
