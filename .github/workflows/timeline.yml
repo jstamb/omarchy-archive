@@ -13,9 +13,12 @@ on:
     - cron: '20 6 * * *'
   workflow_dispatch:
 
-# Only the commit needs write. Nothing here touches issues or PRs.
+# GITHUB_TOKEN only needs the API read; the commit goes out over the deploy key
+# below, because the ruleset on main requires a pull request and GITHUB_TOKEN
+# cannot bypass it (a user-owned repo cannot name the GitHub Actions app as a
+# bypass actor — only a deploy key, a role, or a team).
 permissions:
-  contents: write
+  contents: read
 
 # A manual run during a scheduled one would race on the same file.
 concurrency:
@@ -26,7 +29,13 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      # ssh-key, not the default token: a push authenticated by the
+      # timeline-refresh deploy key is the one actor allowed past the pull
+      # request rule on main. It also means this commit triggers Validate,
+      # which a GITHUB_TOKEN push would not.
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.TIMELINE_DEPLOY_KEY }}
 
       - uses: actions/setup-node@v4
         with:
