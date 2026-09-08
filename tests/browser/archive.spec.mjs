@@ -35,19 +35,23 @@ test('pagination and entity filters restore from shared URLs', async ({ page }) 
   expect(response.status()).toBe(200);
   const hits = page.locator('main [data-search-results] > li');
   await expect(hits).toHaveCount(20);
-  const secondPage = await hits.locator('a').evaluateAll(nodes => nodes.map(node => node.getAttribute('href')));
-  expect(secondPage.every(url => url.startsWith('/plugins/'))).toBe(true);
   const readHrefs = () => hits.locator('a').evaluateAll(nodes => nodes.map(node => node.getAttribute('href')));
+  // A page is identified by which records it holds, not the order they sit in:
+  // Pagefind leaves equally scored hits in whatever order the index chunks
+  // resolve in, so two loads of the same query can shuffle a tie.
+  const readPage = async () => (await readHrefs()).sort();
+  const secondPage = await readPage();
+  expect(secondPage.every(url => url.startsWith('/plugins/'))).toBe(true);
   await page.reload();
   await expect(hits).toHaveCount(20);
-  expect(await readHrefs()).toEqual(secondPage);
+  expect(await readPage()).toEqual(secondPage);
   await page.getByRole('link', { name: /previous/i }).click();
   await expect(page).not.toHaveURL(/page=2/);
-  await expect.poll(readHrefs).not.toEqual(secondPage);
+  await expect.poll(readPage).not.toEqual(secondPage);
   await expect(hits).toHaveCount(20);
   await page.goBack();
   await expect(page).toHaveURL(/page=2/);
-  await expect.poll(readHrefs).toEqual(secondPage);
+  await expect.poll(readPage).toEqual(secondPage);
   await expect(hits).toHaveCount(20);
 });
 
