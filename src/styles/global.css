@@ -236,6 +236,8 @@ hr {
 }
 
 .masthead__inner {
+  /* Containing block for the theme picker's popover once the masthead wraps. */
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -1960,6 +1962,25 @@ a.tag:hover {
 }
 .themepick__hint code {
   color: var(--ink-dim);
+}
+/*
+ * Below the sidebar breakpoint the section nav lives in the masthead, so the
+ * header is a wrapping flex row and the picker button can end up anywhere —
+ * usually hard left on the second row. Anchored to the button (`right: 0`), a
+ * 24rem popover then hangs off the left edge of the screen. Dropping the
+ * button out of the positioned flow hands the popover to .masthead__inner
+ * instead: it opens under the whole header, flush with the shell's right
+ * gutter, at every width the header can wrap at.
+ */
+@media (max-width: 1099px) {
+  .themepick {
+    position: static;
+  }
+  /* .shell's gutter is padding, so right: 0 on the header box would sit flush
+     against the viewport edge. */
+  .themepick__pop {
+    right: var(--gutter);
+  }
 }
 
 /* Light themes: the browser's form controls and scrollbars should follow. */
