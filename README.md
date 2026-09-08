@@ -66,19 +66,18 @@ One click to copy. No hunting, no guessing, no `curl | sh` from a stranger.
 
 ## Install it into Omarchy
 
-The archive pins to your launcher like any other app:
+The archive pins to your launcher like any other app. From the menu:
 
-```bash
-omarchy-webapp-install 'Omarchy Archive' 'https://omarchyarchive.com' 'https://omarchyarchive.com/og.png'
-```
+<kbd>Super</kbd> + <kbd>Space</kbd> → Install → Web App → **Archive** → `https://omarchyarchive.com`
+
+Name it **Archive** — short, quick to type, and it sorts to the top of the launcher. Omarchy
+asks for a name and URL, and fetches the icon from the site's favicon.
 
 The archive can wear any of its own themes. The picker in the masthead searches
 every indexed theme and restyles the site with its colours, in your browser
 only. In Chromium-family browsers, "Follow my Omarchy theme" asks for read
 access to `~/.local/state/omarchy/current` and then tracks `omarchy theme set`
 live, so the web app matches the desktop. Nothing is uploaded.
-
-Or from the menu: <kbd>Super</kbd> + <kbd>Space</kbd> → Install → Web App.
 
 ## Every command is real
 
@@ -93,7 +92,7 @@ the official plugin catalog:
 | Third-party plugin | `omarchy plugin add <repo>.git --enable` |
 | Bundled plugin / bar widget | `omarchy plugin enable <id>` |
 | Whole bar | `omarchy bar use <id>` |
-| Web app | `omarchy-webapp-install 'Name' 'url' 'icon'` |
+| Web app | Super + Space → Install → Web App |
 | Package | `omarchy pkg add <name>` |
 
 When a command isn't known, the record stores `null` and the page shows the

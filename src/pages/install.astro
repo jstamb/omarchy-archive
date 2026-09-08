@@ -1,12 +1,7 @@
 ---
 import CommandBox from '../components/CommandBox.astro';
 import Base from '../layouts/Base.astro';
-import { apps, meta, omarchyOfficial, type Install } from '../lib/content';
-
-const webapp: Install = {
-  type: 'webapp',
-  command: `omarchy-webapp-install '${meta.site_name}' '${meta.site_url}' '${meta.site_url}/og.png'`,
-};
+import { apps, meta, omarchyOfficial } from '../lib/content';
 
 /**
  * Every command Omarchy actually ships, read out of `bin/` in the omarchy repo.
@@ -46,9 +41,9 @@ const commands = [
   },
   {
     thing: 'Web app',
-    command: "omarchy-webapp-install 'Name' 'https://…' 'https://…/icon.png'",
+    command: '—',
     menu: 'Install → Web App',
-    note: 'Three args: name, url, icon. Also reachable as omarchy webapp install.',
+    note: 'No one-line command — the menu asks for a name and URL, and grabs the icon from the favicon.',
   },
   {
     thing: 'Package',
@@ -98,18 +93,16 @@ const commands = [
         <h2>Use this archive as an app</h2>
       </div>
       <p>
-        Omarchy turns any URL into a launcher entry with its own icon and window. From the menu:
+        Omarchy turns any URL into a launcher entry with its own icon and window. Add it from
+        the menu — it asks for a name and URL, and fetches the icon from the site's favicon:
       </p>
       <pre class="command"><code>Super + Space → Install → Web App
-  Name: {meta.site_name}
-  URL:  {meta.site_url}
-  Icon: {meta.site_url}/og.png</code></pre>
-      <p>Or in one line:</p>
-      <CommandBox install={webapp} label={`Install ${meta.site_name} as a web app`} />
+  Name: Archive
+  URL:  {meta.site_url}</code></pre>
       <p>
-        It then shows up in the launcher like any other app. Remove it with
-        <code>omarchy-webapp-remove</code>. A proper Omarchy shell plugin is a v2 idea, not a
-        v1 promise.
+        Name it <strong>Archive</strong>: short, quick to type, and it sorts to the top of the
+        launcher. It then shows up like any other app, and you remove it from
+        <code>Super + Space → Remove → Web App</code>.
       </p>
     </section>
 
