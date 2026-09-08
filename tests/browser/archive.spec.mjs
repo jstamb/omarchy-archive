@@ -66,7 +66,7 @@ test('failed index loading offers retry and recovers without a reload', async ({
   await expect(page.locator('main [data-search-results] > li').first()).toBeVisible();
 });
 
-test('mobile detail pages keep global search visible outside the scrollable navigation', async ({ page }) => {
+test('mobile detail pages keep global search visible outside the navigation drawer', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/themes/aetheria/');
   const search = page.locator('header').getByRole('link', { name: /search/i });
@@ -75,6 +75,43 @@ test('mobile detail pages keep global search visible outside the scrollable navi
   await search.click();
   await expect(page).toHaveURL(/\/search\//);
   await expect(page.locator('main').getByRole('searchbox')).toBeVisible();
+});
+
+test('the mobile drawer opens the full archive navigation and closes again', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/themes/');
+  const drawer = page.locator('[data-nav-drawer]');
+  const toggle = page.getByRole('button', { name: /menu/i });
+  const plugins = drawer.getByRole('link', { name: /^Plugins/ });
+
+  // Closed: off-canvas and out of reach, not merely translated off screen.
+  await expect(drawer).toBeHidden();
+  await expect(toggle).toBeVisible();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(plugins).toBeInViewport();
+  // The header stays on top, so the toggle is still the visible close control.
+  await expect(toggle).toBeInViewport();
+
+  await page.keyboard.press('Escape');
+  await expect(drawer).toBeHidden();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+  // A link both navigates and leaves the drawer closed behind it.
+  await toggle.click();
+  await plugins.click();
+  await expect(page).toHaveURL(/\/plugins\/$/);
+  await expect(drawer).toBeHidden();
+});
+
+test('the wide layout shows the navigation rail with no drawer toggle', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/themes/');
+  await expect(page.locator('[data-nav-drawer]')).toBeVisible();
+  await expect(page.getByRole('button', { name: /menu/i })).toBeHidden();
+  await expect(page.locator('[data-nav-scrim]')).toBeHidden();
 });
 
 test('mobile plugin filters leave the first result accessible without a wall of chips', async ({ page }) => {

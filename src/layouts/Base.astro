@@ -39,20 +39,6 @@ const ogImage = new URL(image, meta.site_url).href;
 // builds out of production's numbers. www is covered only if the canonical URL
 // uses it (it does not today — the canonical is the apex).
 const analyticsHost = new URL(meta.site_url).hostname;
-
-const nav = [
-  { href: '/posts/', label: 'Feed' },
-  { href: '/setups/', label: 'Setups' },
-  { href: '/resources/', label: 'Resources' },
-  { href: '/themes/', label: 'Themes' },
-  { href: '/plugins/', label: 'Plugins' },
-  { href: '/sources/', label: 'Sources' },
-  { href: '/history/', label: 'History' },
-  { href: '/install/', label: 'Install' },
-  { href: '/about/', label: 'About' },
-];
-
-const isCurrent = (href: string) => path === href || (href !== '/' && path.startsWith(href));
 ---
 
 <!doctype html>
@@ -144,6 +130,23 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
 
     <header class="masthead">
       <div class="shell masthead__inner">
+        {/*
+          The narrow-screen navigation. Below 1100px the sidebar is the drawer
+          this opens, so there is still exactly one nav in the document — no
+          duplicated links to keep in sync and no second set of tab stops.
+        */}
+        <button
+          class="navtoggle"
+          type="button"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-nav-toggle
+        >
+          <span class="navtoggle__bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
         <div class="brand-cluster">
           <a class="brand" href="/" aria-label={`${meta.site_name} — home`}>
             <svg
@@ -161,23 +164,12 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
           </p>
         </div>
         <a class="masthead__search" href="/search/">Search</a>
-        <nav class="nav" aria-label="Sections">
-          {
-            nav.map((item) => (
-              <a
-                class="nav__link"
-                href={item.href}
-                aria-current={isCurrent(item.href) ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            ))
-          }
-        </nav>
-        <a class="nav__link" href={meta.repo_url} rel="noopener">GitHub</a>
+        <a class="masthead__link" href={meta.repo_url} rel="noopener">GitHub</a>
         <ThemeSwitcher />
       </div>
     </header>
+
+    <div class="navscrim" data-nav-scrim></div>
 
     <div class="shell layout">
       <Sidebar path={path} />
@@ -222,8 +214,9 @@ const isCurrent = (href: string) => path === href || (href !== '/' && path.start
 
     <script>
       import { track } from '../scripts/analytics';
-      import '../scripts/saved';
+      import '../scripts/nav-drawer';
       import '../scripts/pixelfield';
+      import '../scripts/saved';
       import '../scripts/site-theme';
 
       const RESET_MS = 1400;

@@ -98,24 +98,31 @@ describe('runStagedIngest — publishes only a fully valid, preserving run', () 
   it('leaves the collection unchanged when the run throws mid-flight', async () => {
     const base = makeBase();
     const beforeText = snapshot(base.dataDir, 'plugins');
-    const seen = new Set(ownedTemps());
+    // A private tmp root. Sibling test files stage in parallel and os.tmpdir()
+    // is shared, so counting dirs in the real one calls their live staging a
+    // strand left by this run.
+    const tmpRoot = mkdtempSync(join(tmpdir(), 'inspo-stage-tmp-'));
+    temps.push(tmpRoot);
+    const priorTmpdir = process.env.TMPDIR;
+    process.env.TMPDIR = tmpRoot;
 
-    await assert.rejects(
-      run(async (ctx) => {
-        const plugins = await ctx.readData('plugins.json', []);
-        plugins.push(newCommunityPlugin(plugins[0], { id: 'never-published', repo_url: 'https://x/y' }));
-        await ctx.writeData('plugins.json', plugins);
-        throw new Error('simulated malformed upstream page'); // interrupted run
-      }, base),
-      /malformed upstream/,
-    );
+    try {
+      await assert.rejects(
+        run(async (ctx) => {
+          const plugins = await ctx.readData('plugins.json', []);
+          plugins.push(newCommunityPlugin(plugins[0], { id: 'never-published', repo_url: 'https://x/y' }));
+          await ctx.writeData('plugins.json', plugins);
+          throw new Error('simulated malformed upstream page'); // interrupted run
+        }, base),
+        /malformed upstream/,
+      );
+    } finally {
+      if (priorTmpdir === undefined) delete process.env.TMPDIR;
+      else process.env.TMPDIR = priorTmpdir;
+    }
 
     assert.equal(snapshot(base.dataDir, 'plugins'), beforeText, 'original file must be untouched');
-    assert.deepEqual(
-      ownedTemps().filter((n) => !seen.has(n)),
-      [],
-      'a failed run must strand no staging dir',
-    );
+    assert.deepEqual(readdirSync(tmpRoot), [], 'a failed run must strand no staging dir');
   });
 
   it('refuses to publish when the candidate fails the real validator', async () => {
