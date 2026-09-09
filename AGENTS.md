@@ -98,6 +98,16 @@ node bot/ingest-sources.mjs setups --limit 10
 node bot/ingest-sources.mjs ideas
 ```
 
+> **These ingests now run as scheduled GitHub Actions** and must not be run by
+> hand in a scrape routine: `ingest-themes.yml` (weekly; `themes-bundled` +
+> `themes-extra` + `themes-colors`), plus `ingest-plugins.yml` (`--all`),
+> `ingest-setups.yml`, and `ingest-resources.yml` (daily), alongside
+> `timeline.yml` for releases. Running `bot/ingest-sources.mjs` or
+> `bot/ingest-timeline.mjs` by hand reruns their mark-missing pass and races the
+> Actions on the same files. The commands above stay the reference for what each
+> Action runs and for a one-off `workflow_dispatch`; your hand-work is appending
+> individual records.
+
 Hand-added records are allowed from:
 
 - Public posts about Omarchy setups, themes, plugins, or ricing — X, Reddit,
@@ -269,9 +279,11 @@ Current coverage, all of it ingested by `bot/ingest-sources.mjs`:
 
 Keeping it complete:
 
-- Re-run the ingests. They are idempotent — dedup is on the normalised
-  `source_url` / `repo_url`, so a re-run only adds what is new.
-- `node bot/ingest-sources.mjs plugins --all` takes the whole catalogue.
+- The scheduled Actions keep the ingests complete: `ingest-themes.yml` (weekly)
+  plus `ingest-plugins.yml` (with `--all`), `ingest-setups.yml`, and
+  `ingest-resources.yml` (daily) re-run them idempotently — dedup is on the
+  normalised `source_url` / `repo_url`, so each run only adds what is new. You
+  do not run these by hand, and a scrape routine must not.
 - Where coverage is *not* complete, it is because nothing machine-readable
   exists upstream: omarchytheme.com, omarchythemes.com, OldJobobo and Bjarneo
   are link-only on `/sources/`. Records from those need adding by hand.
