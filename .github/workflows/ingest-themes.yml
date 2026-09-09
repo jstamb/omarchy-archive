@@ -1,0 +1,114 @@
+name: Ingest themes
+
+# Refreshes data/themes.json from the official theme sources and commits the
+# result straight to main, which triggers the Cloudflare Pages build. Same
+# reasoning as timeline.yml: the ingest is deterministic and its output is
+# static content, so this is an ordinary reviewable commit in git — no runtime
+# service, no external state, and no credentials beyond the deploy key.
+#
+# `themes` runs three passes in one: bundled themes from omacom/omarchy themes/,
+# the omarchy.org/themes extras grid, and the colors.toml palette backfill the
+# site's theme switcher runs on. They are not split — a theme without its
+# palette is a half-record.
+on:
+  schedule:
+    # Mon 06:40 UTC, weekly. Themes barely churn; the ingest is idempotent, so
+    # a heavier cadence is safe but pointless. Off the hour, and staggered clear
+    # of the other ingests so the pushes to main don't race.
+    - cron: '40 6 * * 1'
+  workflow_dispatch:
+
+# GITHUB_TOKEN only reads the API; the commit goes out over the deploy key
+# below, because the ruleset on main requires a pull request and GITHUB_TOKEN
+# cannot bypass it.
+permissions:
+  contents: read
+
+# A manual run during a scheduled one would race on the same file.
+concurrency:
+  group: ingest-themes
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      # ssh-key, not the default token: a push authenticated by the deploy key
+      # is the one actor allowed past the pull request rule on main, and it
+      # triggers Validate, which a GITHUB_TOKEN push would not.
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.TIMELINE_DEPLOY_KEY }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The pre-ingest tip: the baseline the refreshed files are measured
+      # against, so no published theme may drop out.
+      - name: Record the pre-ingest baseline
+        id: baseline
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Ingest themes
+        env:
+          # Lifts the GitHub API rate limit from 60/hr to 5000/hr; the bundled
+          # pass lists omacom/omarchy themes/ and resolves its default branch.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node bot/ingest-sources.mjs themes
+
+      # Preservation before validation and before anything is committed. A
+      # markup change on omarchy.org that silently parsed to fewer themes could
+      # still validate; comparing the rewritten file to the pre-ingest tip is
+      # what catches a shrink or a vanished id. A failure here leaves main alone.
+      - name: Preserve published records
+        run: node bot/preserve.mjs --base "${{ steps.baseline.outputs.sha }}"
+
+      - name: Validate
+        run: node bot/validate.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit if content moved
+        run: |
+          set -euo pipefail
+          git config user.name  "omarchy-archive-bot"
+          git config user.email "bot@omarchyarchive.com"
+
+          # The documented content commit is the whole data + images tree, which
+          # also picks up meta.json (stamped only when a content file moved) and
+          # the source-status.json ledger the ingest writes.
+          git add data public/images
+          if git diff --cached --quiet; then
+            echo "No theme changes." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # precommit is the gate and the source of the counted message: it
+          # re-runs validate and refuses a dropped count or a vanished id. When
+          # records grew it prints "content: add N themes"; a pure refresh
+          # (palettes, availability) has no count and must not claim one.
+          OUT="$(node bot/precommit.mjs)"
+          echo "$OUT"
+          MSG="$(printf '%s\n' "$OUT" | sed -n 's/^  \(content: .*\)$/\1/p' | head -1)"
+          if [ -z "$MSG" ]; then
+            MSG="content: refresh themes from omarchy.org and omacom/omarchy"
+          fi
+
+          git commit -m "$MSG"
+          # A plain push, never --force: if main moved under us this is rejected
+          # as non-fast-forward and the run fails here rather than overwriting
+          # it. The next scheduled run picks the change up.
+          git push
+
+          {
+            echo "### Themes updated"
+            echo ""
+            echo "$MSG"
+            echo ""
+            echo "Pushed to main; Cloudflare Pages is rebuilding."
+          } >> "$GITHUB_STEP_SUMMARY"

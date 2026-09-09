@@ -74,3 +74,36 @@ image path, and `seen_on` / `related_*_ids` that point at nothing.
 
 It warns — but does not fail — when nothing is featured, or a featured post has
 no image.
+
+## Automations
+
+Two kinds of routine keep this index current without a human:
+
+- **Deterministic ingests → GitHub Actions.** Each clones `timeline.yml`: check
+  out over the `TIMELINE_DEPLOY_KEY` deploy key (the one actor allowed past the
+  pull-request rule on `main`), run the ingest, then `preserve` → `validate` →
+  `build`, then commit `data public/images` with the message `precommit` counts
+  and push. A non-fast-forward push fails and the next run picks it up. None of
+  these need an LLM.
+- **Judgment → the Grok content bot.** The X scrape and the hand-adds from
+  link-only sources (the `ingest: "manual"` rows in `data/sources.json`) stay an
+  agent routine, because deciding what is worth a record — and its `kind`,
+  `related_theme_ids`, and dedup — is not mechanical.
+
+| Workflow | `ingest-sources.mjs` command | Writes | Schedule (UTC) |
+| --- | --- | --- | --- |
+| `ingest-plugins.yml` | `plugins --all` | `plugins.json` | daily 05:20 |
+| `ingest-setups.yml` | `setups` | `posts.json` + `images/posts/` | daily 05:40 |
+| `ingest-resources.yml` | `ideas` | `posts.json` | daily 06:00 |
+| `timeline.yml` | `ingest-timeline.mjs` | `timeline.json` | daily 06:20 |
+| `ingest-themes.yml` | `themes` | `themes.json` | Mon 06:40 |
+| _(Grok routine)_ | X scrape + manual sources | `posts.json` | every ~4h |
+
+The crons are staggered ~20 min apart so the scheduled pushes to `main` don't
+race. All accept `workflow_dispatch` to run one now, and all are idempotent — a
+run that changes nothing commits nothing.
+
+Prerequisite: the four `ingest-*.yml` reuse `secrets.TIMELINE_DEPLOY_KEY`, which
+is already a bypass actor on the `main` ruleset for `timeline.yml`, so no new
+secret is required. To attribute each separately instead, add a dedicated deploy
+key per workflow and register each as its own bypass actor.

@@ -1,0 +1,97 @@
+name: Ingest setups
+
+# Refreshes the setups in data/posts.json (kind: "setup") from the Omarchy Hub
+# feed and commits the result straight to main, which triggers the Cloudflare
+# Pages build. Same reasoning as timeline.yml: deterministic ingest, static
+# output, an ordinary reviewable commit.
+#
+# The ingest hosts each desk screenshot into public/images/posts/ itself
+# (re-encoded to the house WebP rules), so this run can add image files as well
+# as records — hence the commit stages public/images too.
+on:
+  schedule:
+    # 05:40 UTC daily. Off the hour, staggered clear of the other ingests.
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ingest-setups
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      # ssh-key, not the default token: the deploy key is the one actor allowed
+      # past the pull request rule on main, and its push triggers Validate.
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.TIMELINE_DEPLOY_KEY }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Record the pre-ingest baseline
+        id: baseline
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Ingest setups
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node bot/ingest-sources.mjs setups
+
+      # Preservation before validation and before anything is committed: no
+      # published setup may drop out because the hub feed hiccuped. A failure
+      # here leaves main untouched.
+      - name: Preserve published records
+        run: node bot/preserve.mjs --base "${{ steps.baseline.outputs.sha }}"
+
+      - name: Validate
+        run: node bot/validate.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit if content moved
+        run: |
+          set -euo pipefail
+          git config user.name  "omarchy-archive-bot"
+          git config user.email "bot@omarchyarchive.com"
+
+          # data + images: new desks add hosted WebP files under
+          # public/images/posts/, so both trees matter here.
+          git add data public/images
+          if git diff --cached --quiet; then
+            echo "No setup changes." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # precommit is the gate and the source of the counted message. New
+          # desks print "content: add N posts"; an image-only or metadata
+          # refresh has no count and must not claim one.
+          OUT="$(node bot/precommit.mjs)"
+          echo "$OUT"
+          MSG="$(printf '%s\n' "$OUT" | sed -n 's/^  \(content: .*\)$/\1/p' | head -1)"
+          if [ -z "$MSG" ]; then
+            MSG="content: refresh setups from Omarchy Hub"
+          fi
+
+          git commit -m "$MSG"
+          # Plain push, never --force: a non-fast-forward fails here and the
+          # next scheduled run picks the change up.
+          git push
+
+          {
+            echo "### Setups updated"
+            echo ""
+            echo "$MSG"
+            echo ""
+            echo "Pushed to main; Cloudflare Pages is rebuilding."
+          } >> "$GITHUB_STEP_SUMMARY"

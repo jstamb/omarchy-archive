@@ -1,0 +1,100 @@
+name: Ingest plugins
+
+# Refreshes data/plugins.json from the official marketplace catalog and commits
+# the result straight to main, which triggers the Cloudflare Pages build. Same
+# reasoning as timeline.yml: deterministic ingest, static output, an ordinary
+# reviewable commit — no runtime service, no credentials beyond the deploy key.
+#
+# `--all` takes every plugin the marketplace says is installable plus every one
+# that ships with Omarchy — the archive position that the catalogue is complete
+# and the gallery decides how much to show. The default (no flag) is only the
+# top-20 community plugins by stars, which would not keep a complete index.
+on:
+  schedule:
+    # 05:20 UTC daily — the marketplace changes often (new plugins, star
+    # counts). Off the hour, staggered clear of the other ingests.
+    - cron: '20 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ingest-plugins
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      # ssh-key, not the default token: the deploy key is the one actor allowed
+      # past the pull request rule on main, and its push triggers Validate.
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.TIMELINE_DEPLOY_KEY }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Record the pre-ingest baseline
+        id: baseline
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Ingest plugins
+        env:
+          # Harmless here (the catalog is not on api.github.com); kept for
+          # parity so a future ingest that does hit the API is already covered.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node bot/ingest-sources.mjs plugins --all
+
+      # Preservation before validation and before anything is committed. A
+      # catalog shape change that silently dropped plugins could still validate;
+      # comparing to the pre-ingest tip catches a shrink or a vanished id. A
+      # failure here leaves main untouched.
+      - name: Preserve published records
+        run: node bot/preserve.mjs --base "${{ steps.baseline.outputs.sha }}"
+
+      - name: Validate
+        run: node bot/validate.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit if content moved
+        run: |
+          set -euo pipefail
+          git config user.name  "omarchy-archive-bot"
+          git config user.email "bot@omarchyarchive.com"
+
+          git add data public/images
+          if git diff --cached --quiet; then
+            echo "No plugin changes." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # precommit is the gate and the source of the counted message. New
+          # plugins print "content: add N plugins"; a refresh of stars alone has
+          # no count and must not claim one.
+          OUT="$(node bot/precommit.mjs)"
+          echo "$OUT"
+          MSG="$(printf '%s\n' "$OUT" | sed -n 's/^  \(content: .*\)$/\1/p' | head -1)"
+          if [ -z "$MSG" ]; then
+            MSG="content: refresh plugin catalog from plugins.omarchy.org"
+          fi
+
+          git commit -m "$MSG"
+          # Plain push, never --force: a non-fast-forward fails here and the
+          # next scheduled run picks the change up.
+          git push
+
+          {
+            echo "### Plugins updated"
+            echo ""
+            echo "$MSG"
+            echo ""
+            echo "Pushed to main; Cloudflare Pages is rebuilding."
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,97 @@
+name: Ingest resources
+
+# Refreshes the non-desk feed in data/posts.json (kind: "idea"/"other" —
+# articles, guides, tools) from the Omarchy Hub resources feed and commits the
+# result straight to main, which triggers the Cloudflare Pages build. Same
+# reasoning as timeline.yml: deterministic ingest, static output, an ordinary
+# reviewable commit.
+#
+# The official manual and cheat sheet on omarchy.org, and the awesome-omarchy
+# list, have no machine-readable feed (they are ingest: "manual" in
+# data/sources.json) — those are added by the X/hand-add agent routine, not
+# here.
+on:
+  schedule:
+    # 06:00 UTC daily. Off the hour, staggered clear of the other ingests.
+    - cron: '00 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ingest-resources
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      # ssh-key, not the default token: the deploy key is the one actor allowed
+      # past the pull request rule on main, and its push triggers Validate.
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.TIMELINE_DEPLOY_KEY }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Record the pre-ingest baseline
+        id: baseline
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Ingest resources
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node bot/ingest-sources.mjs ideas
+
+      # Preservation before validation and before anything is committed: no
+      # published resource may drop out because the hub feed hiccuped. A failure
+      # here leaves main untouched.
+      - name: Preserve published records
+        run: node bot/preserve.mjs --base "${{ steps.baseline.outputs.sha }}"
+
+      - name: Validate
+        run: node bot/validate.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Commit if content moved
+        run: |
+          set -euo pipefail
+          git config user.name  "omarchy-archive-bot"
+          git config user.email "bot@omarchyarchive.com"
+
+          git add data public/images
+          if git diff --cached --quiet; then
+            echo "No resource changes." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # precommit is the gate and the source of the counted message. New
+          # resources print "content: add N posts"; a metadata refresh has no
+          # count and must not claim one.
+          OUT="$(node bot/precommit.mjs)"
+          echo "$OUT"
+          MSG="$(printf '%s\n' "$OUT" | sed -n 's/^  \(content: .*\)$/\1/p' | head -1)"
+          if [ -z "$MSG" ]; then
+            MSG="content: refresh resources from Omarchy Hub"
+          fi
+
+          git commit -m "$MSG"
+          # Plain push, never --force: a non-fast-forward fails here and the
+          # next scheduled run picks the change up.
+          git push
+
+          {
+            echo "### Resources updated"
+            echo ""
+            echo "$MSG"
+            echo ""
+            echo "Pushed to main; Cloudflare Pages is rebuilding."
+          } >> "$GITHUB_STEP_SUMMARY"
