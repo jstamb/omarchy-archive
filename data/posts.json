@@ -6794,7 +6794,7 @@
   {
     "id": "itsmattguenther-omarchy-raiders-theme",
     "kind": "theme",
-    "title": "Omarchy Raiders Theme Complete",
+    "title": "Omarchy Raiders Theme",
     "summary": "Matt Guenther finishes the Omarchy Raiders theme with screenshots and a public GitHub install repo.",
     "author": "Matt Guenther",
     "author_url": "https://x.com/itsMattGuenther",
@@ -6924,8 +6924,8 @@
   {
     "id": "thesamecat-mqtt-plugin",
     "kind": "plugin",
-    "title": "MQTT Plugin for Omarchy — Widget Close Fix",
-    "summary": "TheSameCat fixes a bug in their Omarchy MQTT plugin that stopped the widget from closing on 4.0.3, with the public GitHub repo linked.",
+    "title": "Omarchy MQTT Plugin — Widget Close Fix",
+    "summary": "TheSameCat’s Omarchy MQTT plugin gets a widget-close fix for 4.0.3, with the public GitHub repo linked.",
     "author": "TheSameCat",
     "author_url": "https://x.com/TheSameCat",
     "source_platform": "x",
