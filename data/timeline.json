@@ -1,5 +1,89 @@
 [
   {
+    "id": "v4.0.3",
+    "version": "4.0.3",
+    "major": 4,
+    "date": "2026-09-08",
+    "published_at": "2026-09-08T19:50:46Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": "Additional agentware is here",
+    "summary": "This release brings amazing out-of-the-box integration for both Hermes and Openclaw as well as additional set of security fixes that were validated and examined by the Omarchy Security team. If you ever find security issues with Omarchy, please follow the r…",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "acrogenesis",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Adolanium",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "barmstrong",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "cavanaug",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ErikMelton",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "jp30566347",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "mdisec",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "omarchybot",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "powderluv",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ryanrhughes",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "smfworks",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.3",
+    "notes_chars": 2460,
+    "upstream_id": "384500996",
+    "payload_hash": "18f45d4478f8b7f1b0196c6b7ca8c93699b753b629de182bf13ff7b5f4599d51",
+    "parser_version": 1
+  },
+  {
     "id": "v4.0.2",
     "version": "4.0.2",
     "major": 4,
