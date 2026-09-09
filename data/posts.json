@@ -6298,7 +6298,7 @@
   {
     "id": "polidog-abematv",
     "kind": "plugin",
-    "title": "AbemaTV Bar Widget Plugin for Omarchy",
+    "title": "omarchy-abematv — AbemaTV Bar Widget",
     "summary": "polidog ships omarchy-abematv, a bar widget that shows what every AbemaTV channel is airing right now in one panel.",
     "author": "polidog",
     "author_url": "https://x.com/polidog",
@@ -6375,8 +6375,8 @@
   {
     "id": "oldjobobo-undersound-phonk",
     "kind": "theme",
-    "title": "Undersound Phonk — Dank Omarchy Theme from Old Jobobo",
-    "summary": "Old Jobobo shares a dank Undersound Phonk Omarchy theme with a desktop video walkthrough.",
+    "title": "Undersound Phonk — Omarchy Theme from Old Jobobo",
+    "summary": "Old Jobobo shares an Undersound Phonk Omarchy theme with a desktop video walkthrough.",
     "author": "Old Jobobo",
     "author_url": "https://x.com/OldJobobo",
     "source_platform": "x",
@@ -6425,8 +6425,8 @@
   {
     "id": "justinhhorner-cliamp-setup",
     "kind": "setup",
-    "title": "cliamp Soundtrack Desktop While Building a Plugin",
-    "summary": "Justin Horner listens to the Twisted Tower soundtrack via cliamp on Omarchy while working on a new plugin — desktop in view.",
+    "title": "cliamp on Omarchy — Twisted Tower Soundtrack",
+    "summary": "Justin Horner plays the Twisted Tower soundtrack via cliamp on Omarchy — desktop in view.",
     "author": "Justin Horner",
     "author_url": "https://x.com/justinhhorner",
     "source_platform": "x",
