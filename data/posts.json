@@ -5741,7 +5741,7 @@
   {
     "id": "tcballard-omarchy-403-changelog",
     "kind": "idea",
-    "title": "Omarchy 4.0.3 Deserves a Proper Changelog",
+    "title": "Omarchy 4.0.3 Changelog Reconstruction — Tom Ballard",
     "summary": "Tom Ballard reconstructs Omarchy 4.0.3 from the tag history — security fixes, new AI tools, and hardware repairs the release page barely explains.",
     "author": "Tom Ballard",
     "author_url": "https://x.com/tcballard",
@@ -5792,7 +5792,7 @@
   {
     "id": "typecraft-omarchy-streaming-rig",
     "kind": "setup",
-    "title": "Streaming Rig Looking Good on Omarchy — typecraft",
+    "title": "typecraft’s Streaming Rig on Omarchy",
     "summary": "typecraft’s streaming desk running Omarchy — a clean multi-monitor rig shot after the update.",
     "author": "typecraft",
     "author_url": "https://x.com/typecraft_dev",
@@ -5843,7 +5843,7 @@
   {
     "id": "iamdothash-omarchy-theme-web",
     "kind": "other",
-    "title": "Wear the Theme the Machine Is Wearing",
+    "title": "Bridging Omarchy Themes into Web Apps",
     "summary": "Bjarne Øverli demos bridging Omarchy themes into web apps so sites wear the same theme as the desktop.",
     "author": "Bjarne Øverli",
     "author_url": "https://x.com/iamdothash",
@@ -5893,7 +5893,7 @@
   {
     "id": "jessesa-omarchy-tts-plugin",
     "kind": "plugin",
-    "title": "Desktop TTS Plugin for Omarchy",
+    "title": "Text to Speech — Omarchy Marketplace Plugin",
     "summary": "The_Peaceful_Lizard ships a marketplace TTS plugin — highlight text or capture the screen for high-quality voices on the desktop.",
     "author": "The_Peaceful_Lizard",
     "author_url": "https://x.com/JesseSa44562248",
