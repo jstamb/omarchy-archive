@@ -676,7 +676,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-on-a-macbook",
@@ -701,7 +704,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "building-custom-pcs-with-omarchy",
@@ -727,7 +733,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "macos-to-omarchy-migration",
@@ -753,7 +762,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-2-0-review",
@@ -777,7 +789,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "discussion-on-hacker-news",
@@ -802,7 +817,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-on-macbooks-via-asahi",
@@ -829,7 +847,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "printable-omarchy-hotkeys",
@@ -854,7 +875,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "flutter-ui-kit-for-omarchy",
@@ -879,7 +903,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchist",
@@ -906,7 +933,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "how-to-install-omarchy-on-a-partition-dual-boot-windows",
@@ -932,7 +962,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-on-distrowatch",
@@ -958,7 +991,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-user-reviews-and-ratings",
@@ -984,7 +1020,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "a-la-carchy",
@@ -1010,7 +1049,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "willems-2017-imac-revival",
