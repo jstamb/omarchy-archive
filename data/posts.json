@@ -227,7 +227,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dmitriis-blue-led-battlestation",
@@ -252,7 +255,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-on-mac-pro-trash-can",
@@ -277,7 +283,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": true,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "developers-cozy-desk-with-pikachu",
@@ -302,7 +311,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "vlads-cozy-standing-desk-setup",
@@ -327,7 +339,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "mat-silvas-framework-rgb-vibes",
@@ -352,7 +367,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": true,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "htet-waiyans-omarchy-workspace-from-oakhouse",
@@ -377,7 +395,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "strayys-2015-macbook-pro-revival",
@@ -403,7 +424,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "bill-heymans-2012-imac-resurrection",
@@ -429,7 +453,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": true,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "raigekis-thinkpad-daily-driver",
@@ -454,7 +481,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "jisnatdinos-clean-desk-rgb-pc",
@@ -479,7 +509,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "jhon-codes-dual-stacked-setup",
@@ -503,7 +536,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "joyboys-ultrawide-split-setup",
@@ -528,7 +564,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "sambit-biswass-diy-framework-setup",
@@ -553,7 +592,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "pierre-henrys-mac-replacement-setup",
@@ -578,7 +620,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "theo-vararus-9-95l-workstation",
@@ -603,7 +648,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": true,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "the-omarchy-manual",
@@ -990,7 +1038,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": true,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "wey-gus-macbook-12-omarchy-setup",
@@ -1015,7 +1066,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "raghads-xp-pen-creative-setup",
@@ -1040,7 +1094,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "prateek-jains-hyprland-setup",
@@ -1065,7 +1122,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "hp-laptop-omarchy-installation",
@@ -1089,7 +1149,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "mac-studio-audio-workspace",
@@ -1113,7 +1176,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "m2-macbook-pro-omarchy-mac",
@@ -1137,7 +1203,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "lenovo-thinkpad-t480-revival",
@@ -1161,7 +1230,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "lenovo-yoga-installation",
@@ -1185,7 +1257,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dual-os-ultrawide-setup",
@@ -1209,7 +1284,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-ultrawide-dev-setup",
@@ -1233,7 +1311,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "typecraft-amd-ryzen-desktop",
@@ -1257,7 +1338,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "hp-stream-low-end-performance",
@@ -1281,7 +1365,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "clean-mini-pc-development-setup",
@@ -1306,7 +1393,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "multi-monitor-development-workspace",
@@ -1331,7 +1421,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "gpd-win-max-2-portable-gaming-setup",
@@ -1356,7 +1449,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "legion-gaming-laptop-setup",
@@ -1381,7 +1477,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "beelink-mini-pc-with-seawink-ultrawide",
@@ -1405,7 +1504,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "high-performance-archlinux-setup",
@@ -1428,7 +1530,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "supersonikos-attic-workstation",
@@ -1453,7 +1558,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-laptop-omarchy-installation",
@@ -1477,7 +1585,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "2012-macbook-pro-omarchy-revival",
@@ -1501,7 +1612,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dhhs-omarchy-retro-gaming-rig",
@@ -1526,7 +1640,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dell-alienware-x17-r1-setup",
@@ -1552,7 +1669,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "cool-desktop-setup",
@@ -1576,7 +1696,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dhhs-framework-laptop-12",
@@ -1600,7 +1723,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "stefanos-purple-led-setup",
@@ -1625,7 +1751,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "robs-asus-proart-6k-setup",
@@ -1650,7 +1779,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "ivan-stoevs-neovim-setup",
@@ -1675,7 +1807,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "blinkus-green-terminal-setup",
@@ -1700,7 +1835,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "josh-medeskis-asus-setup",
@@ -1725,7 +1863,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dell-laptop-omarchy-revival",
@@ -1749,7 +1890,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "purple-ambient-framework-desktop",
@@ -1773,7 +1917,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "theprimeagens-studio-desktop",
@@ -1798,7 +1945,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "alienware-gaming-laptop-omarchy-test",
@@ -1822,7 +1972,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "orange-framework-laptop",
@@ -1846,7 +1999,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "office-nuc-gaming-setup",
@@ -1870,7 +2026,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "fayis-dual-omarchy-workstation",
@@ -1894,7 +2053,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-omarchy-setup",
@@ -1917,7 +2079,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "clean-home-office-omarchy-setup",
@@ -1940,7 +2105,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dual-laptop-omarchy-installation",
@@ -1963,7 +2131,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "late-2007-macbook-white-revival",
@@ -1988,7 +2159,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "ipad-mini-via-utm-jit",
@@ -2013,7 +2187,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-omarchy-installation",
@@ -2037,7 +2214,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "macbook-pro-2015-in-a-music-studio",
@@ -2061,7 +2241,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "2015-macbook-pro-lab-workspace",
@@ -2085,7 +2268,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "intel-macbook-pro-benq-monitor",
@@ -2109,7 +2295,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "macbook-pro-2017-installation",
@@ -2132,7 +2321,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "mid-2009-macbook-pro-revival",
@@ -2156,7 +2348,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dell-xps-13-beelink-ser9-pro-desk",
@@ -2180,7 +2375,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "intel-macbook-pro-dual-monitors",
@@ -2204,7 +2402,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "daniels-framework-home-office",
@@ -2228,7 +2429,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-laptop-13-amd-ryzen-ai-9",
@@ -2252,7 +2456,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "asus-zenbook-s16-omarchy-installation",
@@ -2277,7 +2484,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "bezy-on-omarchy-arch-linux",
@@ -2301,7 +2511,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omarchy-laptop-dual-desk",
@@ -2325,7 +2538,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "one-cable-creator-desk",
@@ -2349,7 +2565,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "linux-mini-pc-desk",
@@ -2372,7 +2591,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dark-omarchy-night-desk",
@@ -2396,7 +2618,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-beelink-dual-setup",
@@ -2420,7 +2645,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-13-diy-setup",
@@ -2444,7 +2672,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-laptop-running-omarchy",
@@ -2467,7 +2698,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "macbook-pro-omarchy-installation",
@@ -2491,7 +2725,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-12-beelink-ser9-desk",
@@ -2516,7 +2753,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-assembly",
@@ -2540,7 +2780,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-12-laptop",
@@ -2563,7 +2806,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "rails-world-ultrawide-desk",
@@ -2587,7 +2833,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "mattbook-umpc",
@@ -2611,7 +2860,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "custom-pc-with-nvidia-setup",
@@ -2636,7 +2888,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "resurrected-dell-inspiron",
@@ -2660,7 +2915,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-omarchy-setup-2",
@@ -2684,7 +2942,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "ergonomic-omarchy-workstation",
@@ -2709,7 +2970,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-desktop-office-setup",
@@ -2733,7 +2997,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "vintage-dell-latitude-revival",
@@ -2757,7 +3024,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "beelink-ser8-imac-5k-display-setup",
@@ -2781,7 +3051,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-laptop-omarchy-setup",
@@ -2804,7 +3077,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "minisforum-um760-omarchy-setup",
@@ -2828,7 +3104,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "custom-pc-for-content-creation",
@@ -2852,7 +3131,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dual-monitor-omarchy-setup",
@@ -2876,7 +3158,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "asus-flow-z13-omarchablet",
@@ -2900,7 +3185,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "zenbook-duo-omarchy-setup",
@@ -2924,7 +3212,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "dual-monitor-setup",
@@ -2948,7 +3239,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "firmware-dev-desk-with-omarchy",
@@ -2972,7 +3266,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "janky-found-hardware-omarchy",
@@ -2996,7 +3293,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "beelink-pc-studio-display-omarchy",
@@ -3020,7 +3320,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-desktop-omarchy",
@@ -3044,7 +3347,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-13-big-data-workstation",
@@ -3068,7 +3374,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework13-samsung-g9-ultrawide",
@@ -3092,7 +3401,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "sams-beelink-omarchy-setup",
@@ -3116,7 +3428,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "thinkpad-yoga-370-omarchy",
@@ -3139,7 +3454,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "coens-full-linux-transition",
@@ -3163,7 +3481,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "thinkpad-x1-carbon-gen8-omarchy",
@@ -3187,7 +3508,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "beelink-ser8-omarchy-workstation",
@@ -3212,7 +3536,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "2012-apple-imac-resurrection",
@@ -3237,7 +3564,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "framework-13-running-omarchy",
@@ -3262,7 +3592,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "apple-studio-display-setup",
@@ -3287,7 +3620,10 @@
     "created_at": null,
     "added_at": "2026-09-06",
     "featured": false,
-    "seen_on": "omarchy-hub"
+    "seen_on": "omarchy-hub",
+    "last_seen_at": "2026-09-10",
+    "first_seen_at": "2026-09-10",
+    "status": "active"
   },
   {
     "id": "omnishot-screen-capture",
@@ -7698,5 +8034,34 @@
     "added_at": "2026-09-10",
     "featured": false,
     "seen_on": null
+  },
+  {
+    "id": "prithvirajs-minimal-student-setup",
+    "kind": "setup",
+    "title": "Prithviraj's Minimal Student Setup",
+    "summary": "Warm orange LED glow over a student desk with a TUF laptop, external monitor, and anime posters.",
+    "author": null,
+    "author_url": null,
+    "source_platform": "reddit",
+    "source_url": "https://www.reddit.com/r/omarchy/comments/1w6zv4i/my_setup_as_a_student_in_a_college_hostel/",
+    "image": "/images/posts/prithvirajs-minimal-student-setup.webp",
+    "image_hosted": true,
+    "device": "ASUS TUF F15 + Lenovo Legion R24e Monitor",
+    "form_factor": "laptop",
+    "tags": [
+      "minimal",
+      "asus-tuf",
+      "student"
+    ],
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "created_at": null,
+    "added_at": "2026-09-10",
+    "featured": false,
+    "seen_on": "omarchy-hub",
+    "original_asset_url": "https://omarchy.deepakness.com/setups/setup-113.webp",
+    "first_seen_at": "2026-09-10",
+    "last_seen_at": "2026-09-10",
+    "status": "active"
   }
 ]
