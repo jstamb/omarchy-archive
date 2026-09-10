@@ -7592,7 +7592,7 @@
     "id": "joshuaswarren-apple-dev",
     "kind": "other",
     "title": "Apple-Dev on OmarchyMac — Build iOS Apps Without macOS",
-    "summary": "Joshua Warren’s agent on @OmarchyMac (M1 MacBook Pro) built an iPhone app, compiled it, pushed it to his iPhone, and attached a live debugger — no macOS device needed. He’s packaging apple-dev so Omarchy installs cover iOS & macOS development.",
+    "summary": "Joshua Warren’s agent on @OmarchyMac (M1 MacBook Pro) built an iPhone app, compiled it, pushed it to his iPhone, and attached a live debugger — no macOS needed. He’s packaging apple-dev so Omarchy installs cover iOS & macOS development.",
     "author": "Joshua Warren",
     "author_url": "https://x.com/JoshuaSWarren",
     "source_platform": "x",
