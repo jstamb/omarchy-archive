@@ -19,6 +19,7 @@ import {
   type Post,
 } from '../../lib/content';
 import { creatorHref } from '../../lib/creators';
+import { isXStatusUrl } from '../../lib/x-url';
 
 export const getStaticPaths = (() =>
   posts.map((post) => ({ params: { id: post.id }, props: { post } }))) satisfies GetStaticPaths;
@@ -84,9 +85,23 @@ const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'gui
     <aside class="detail__aside">
       <div class="panel">
         <span class="panel__title">Source</span>
-        <a class="btn btn--primary" href={post.source_url} rel="noopener nofollow" target="_blank">
-          View on {hostOf(post.source_url)} ↗
-        </a>
+        <div class="source-preview__actions">
+          <a
+            class="btn btn--primary"
+            href={post.source_url}
+            rel="noopener nofollow"
+            target="_blank"
+            data-preview-image={post.image_hosted && post.image ? post.image : undefined}
+            data-preview-alt={post.title}
+          >
+            View on {hostOf(post.source_url)} ↗
+          </a>
+          {isXStatusUrl(post.source_url) && (
+            <button class="btn" type="button" data-source-embed={post.source_url}>
+              Embed original
+            </button>
+          )}
+        </div>
         <dl class="facts">
           {
             post.author && (

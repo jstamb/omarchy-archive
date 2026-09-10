@@ -11,6 +11,7 @@ import {
   type Theme,
 } from '../lib/content';
 import { creatorHref } from '../lib/creators';
+import { isXStatusUrl } from '../lib/x-url';
 
 type Props = FeedItem & {
   /** Where the tag chips deep-link to. Defaults to the item's own gallery. */
@@ -50,6 +51,9 @@ function describe() {
         platform: post.source_platform,
       },
       action: { label: `View on ${hostOf(post.source_url)}`, href: post.source_url, external: true },
+      previewImage: post.image_hosted && post.image ? post.image : null,
+      previewAlt: post.title,
+      embedUrl: isXStatusUrl(post.source_url) ? post.source_url : null,
       command: null as string | null,
     };
   }
@@ -77,6 +81,9 @@ function describe() {
         ownership: theme.bundled ? 'bundled' : 'community',
       },
       action: null,
+      previewImage: null as string | null,
+      previewAlt: null as string | null,
+      embedUrl: null as string | null,
       command: theme.install.command,
     };
   }
@@ -103,6 +110,9 @@ function describe() {
       kind: plugin.kinds[0] ?? '',
     },
     action: null,
+    previewImage: null as string | null,
+    previewAlt: null as string | null,
+    embedUrl: null as string | null,
     command: plugin.install.command,
   };
 }
@@ -191,9 +201,23 @@ const facetAttrs = Object.fromEntries(
             <span data-copy-label>Copy command</span>
           </button>
         ) : card.action ? (
-          <a class="btn" href={card.action.href} rel="noopener nofollow">
-            {card.action.label}
-          </a>
+          <span class="source-preview__actions">
+            <a
+              class="btn"
+              href={card.action.href}
+              rel="noopener nofollow"
+              target="_blank"
+              data-preview-image={card.previewImage ?? undefined}
+              data-preview-alt={card.previewAlt ?? undefined}
+            >
+              {card.action.label}
+            </a>
+            {card.embedUrl && (
+              <button class="btn" type="button" data-source-embed={card.embedUrl}>
+                Embed
+              </button>
+            )}
+          </span>
         ) : null
       }
       <a class="card__sub" href={card.href}>Details →</a>
