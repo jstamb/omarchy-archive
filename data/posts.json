@@ -9718,7 +9718,7 @@
   {
     "id": "marvreichmann-omapluginstats",
     "kind": "plugin",
-    "title": "Omapluginstats — Marketplace Views Copies and Likes Watchlist",
+    "title": "Omapluginstats — Marketplace Views, Copies, and Likes Watchlist",
     "summary": "Marvin Reichmann’s third Omarchy plugin, Omapluginstats, watches views, copies, and likes across a marketplace plugin watchlist, with an optional split-flap ticker in the bar.",
     "author": "Marvin Reichmann",
     "author_url": "https://x.com/marvreichmann",
@@ -9828,7 +9828,7 @@
     "id": "quan2m-t3code-theme-sync",
     "kind": "setup",
     "title": "T3 Code Theme Sync on an Omarchy Desktop",
-    "summary": "Allison M. catches T3 Code picking up the Omarchy theme on a fleet workspace desktop — dark glass UI with the Omarchy top bar visible at Fri 07:55.",
+    "summary": "Allison M. catches T3 Code picking up the Omarchy theme on a fleet workspace desktop — dark glass UI with the Omarchy top bar visible.",
     "author": "Allison M.",
     "author_url": "https://x.com/Quan2m",
     "source_platform": "x",
