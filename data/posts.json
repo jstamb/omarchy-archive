@@ -8911,7 +8911,7 @@
   {
     "id": "ryuhzk-customer-reviews",
     "kind": "plugin",
-    "title": "Customer Reviews Plugin for App Store and Play Store",
+    "title": "Customer Reviews — App Store & Play Store in Omarchy",
     "summary": "ryu ships an Omarchy plugin (ryuhzk.customer-reviews) that lets you view and respond to App Store and Play Store reviews from inside Omarchy.",
     "author": "ryu",
     "author_url": "https://x.com/ryuhzk",
@@ -9017,7 +9017,7 @@
     "id": "ioxvice-vinyl-player",
     "kind": "plugin",
     "title": "Spotify Vinyl Player Plugin for Omarchy",
-    "summary": "Infinity ships a Spotify vinyl player Omarchy plugin (maiosx/vinyl-player) with a large spinning record on wallpaper.blur and Spotmarchy transport along the bottom — aimed at 1440p+ displays.",
+    "summary": "Infinity’s Spotify vinyl player (maiosx/vinyl-player) puts a large spinning record on wallpaper.blur with Spotmarchy transport along the bottom — seek, shuffle, previous, play/pause, next, repeat, and volume, plus click-the-disc play/pause — aimed at 1440p+ displays.",
     "author": "Infinity",
     "author_url": "https://x.com/ioxvice",
     "source_platform": "x",
