@@ -9205,7 +9205,7 @@
     "id": "rajgolepu-omarchy-setup",
     "kind": "setup",
     "title": "Hobbyist Omarchy Setup on an Old Laptop",
-    "summary": "Raj installs Omarchy on an old laptop “just to see,” ends up hooked as a tech hobbyist, and shares a video walkthrough of the resulting desktop.",
+    "summary": "Raj’s Omarchy laptop setup: he installs Omarchy on an old laptop “just to see,” gets hooked as a tech hobbyist, and shares a video walkthrough of the resulting desktop.",
     "author": "Raj",
     "author_url": "https://x.com/rajgolepu_",
     "source_platform": "x",
@@ -9285,7 +9285,7 @@
   {
     "id": "neerajt-universal-font-sizer",
     "kind": "plugin",
-    "title": "Universal Font Sizer Plugin",
+    "title": "Universal Font Sizer — Desktop Text Slider",
     "summary": "Neeraj Tikku publishes a first Omarchy marketplace plugin that resizes desktop text with a simple slider, now live at io.github.ukkit.universal-font-sizer.",
     "author": "Neeraj Tikku",
     "author_url": "https://x.com/neerajt",
