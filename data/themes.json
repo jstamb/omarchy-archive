@@ -9641,5 +9641,30 @@
     "seen_on": null,
     "added_at": "2026-09-11",
     "status": "active"
+  },
+  {
+    "id": "tolkien",
+    "name": "Tolkien",
+    "author": "Chris Hallas",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/csfh/omarchy-tolkien-theme",
+    "listing_url": null,
+    "image": "https://pbs.twimg.com/media/HR8w3O-bcAIQB02.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "fantasy",
+      "dark"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/csfh/omarchy-tolkien-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-11",
+    "status": "active"
   }
 ]
