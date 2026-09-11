@@ -9616,5 +9616,30 @@
     "first_seen_at": "2026-09-07",
     "status": "active",
     "last_changed_at": "2026-09-07"
+  },
+  {
+    "id": "giants",
+    "name": "Giants",
+    "author": "dhh",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/dhh/omarchy-giants-theme",
+    "listing_url": null,
+    "image": "https://opengraph.githubassets.com/1/dhh/omarchy-giants-theme",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "sepia",
+      "heritage"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/dhh/omarchy-giants-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-11",
+    "status": "active"
   }
 ]
