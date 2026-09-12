@@ -9691,5 +9691,56 @@
     "seen_on": null,
     "added_at": "2026-09-12",
     "status": "active"
+  },
+  {
+    "id": "zomarchy",
+    "name": "Zomarchy",
+    "author": "Nico M",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/nico-m-dev/omarchy-zomarchy-theme",
+    "listing_url": null,
+    "image": "https://pbs.twimg.com/amplify_video_thumb/2098726697696976896/img/mrHYzULGGNwhzt0w.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "dark",
+      "horror",
+      "comic"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/nico-m-dev/omarchy-zomarchy-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-12",
+    "status": "active"
+  },
+  {
+    "id": "faded-relay",
+    "name": "Faded Relay",
+    "author": "Nico M",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/nico-m-dev/omarchy-faded-relay-theme",
+    "listing_url": null,
+    "image": "https://pbs.twimg.com/amplify_video_thumb/2098721811319926788/img/2KWL1oGbrUSfw4E7.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "dark",
+      "industrial"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/nico-m-dev/omarchy-faded-relay-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-12",
+    "status": "active"
   }
 ]
