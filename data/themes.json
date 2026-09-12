@@ -9768,5 +9768,31 @@
     "seen_on": null,
     "added_at": "2026-09-12",
     "status": "active"
+  },
+  {
+    "id": "starcraft",
+    "name": "StarCraft",
+    "author": "Bjarne Øverli",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/bjarneo/omarchy-starcraft-theme",
+    "listing_url": null,
+    "image": "https://pbs.twimg.com/media/HSCXtlcacAAkvfe.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "dark",
+      "starcraft",
+      "blue"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/bjarneo/omarchy-starcraft-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-12",
+    "status": "active"
   }
 ]
