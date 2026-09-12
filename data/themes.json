@@ -9666,5 +9666,30 @@
     "seen_on": null,
     "added_at": "2026-09-11",
     "status": "active"
+  },
+  {
+    "id": "alchemy",
+    "name": "Alchemy",
+    "author": "Nico M",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/nico-m-dev/omarchy-alchemy-theme",
+    "listing_url": null,
+    "image": "https://pbs.twimg.com/media/HR_-7XlawAADX9a.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "dark",
+      "medieval"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/nico-m-dev/omarchy-alchemy-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-12",
+    "status": "active"
   }
 ]
