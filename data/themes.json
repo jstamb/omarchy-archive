@@ -9742,5 +9742,31 @@
     "seen_on": null,
     "added_at": "2026-09-12",
     "status": "active"
+  },
+  {
+    "id": "berserk",
+    "name": "Berserk",
+    "author": "hfa",
+    "official": false,
+    "bundled": false,
+    "repo_url": "https://github.com/Hfanes/omarchy-berserk-theme",
+    "listing_url": null,
+    "image": "https://pbs.twimg.com/media/HSBq8D8aUAAC9rI.jpg",
+    "image_hosted": false,
+    "tone": "dark",
+    "palette": [],
+    "tags": [
+      "community",
+      "dark",
+      "berserk",
+      "anime"
+    ],
+    "install": {
+      "type": "theme-install",
+      "command": "omarchy theme install https://github.com/Hfanes/omarchy-berserk-theme.git"
+    },
+    "seen_on": null,
+    "added_at": "2026-09-12",
+    "status": "active"
   }
 ]
