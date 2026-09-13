@@ -88,7 +88,9 @@ Two kinds of routine keep this index current without a human:
 - **Judgment → the Grok content bot.** The X scrape and the hand-adds from
   link-only sources (the `ingest: "manual"` rows in `data/sources.json`) stay an
   agent routine, because deciding what is worth a record — and its `kind`,
-  `related_theme_ids`, and dedup — is not mechanical.
+  `related_theme_ids`, and dedup — is not mechanical. The preferred wake path is
+  Action → site API → webhook (below); a cron routine remains as fallback until
+  a webhook dry-run succeeds.
 
 | Workflow | `ingest-sources.mjs` command | Writes | Schedule (UTC) |
 | --- | --- | --- | --- |
@@ -97,13 +99,47 @@ Two kinds of routine keep this index current without a human:
 | `ingest-resources.yml` | `ideas` | `posts.json` | daily 06:00 |
 | `timeline.yml` | `ingest-timeline.mjs` | `timeline.json` | daily 06:20 |
 | `ingest-themes.yml` | `themes` | `themes.json` | Mon 06:40 |
-| _(Grok routine)_ | X scrape + manual sources | `posts.json` | every ~4h |
+| `ingest-x-trigger.yml` | _(trigger only)_ → Bot webhook | `posts.json` (via Bot) | every 8h (`45 */8 * * *`) |
 
-The crons are staggered ~20 min apart so the scheduled pushes to `main` don't
-race. All accept `workflow_dispatch` to run one now, and all are idempotent — a
-run that changes nothing commits nothing.
+### X scrape path (Action → API → webhook)
 
-Prerequisite: the four `ingest-*.yml` reuse `secrets.TIMELINE_DEPLOY_KEY`, which
-is already a bypass actor on the `main` ruleset for `timeline.yml`, so no new
-secret is required. To attribute each separately instead, add a dedicated deploy
-key per workflow and register each as its own bypass actor.
+```
+GitHub Action (ingest-x-trigger.yml)
+  → POST https://omarchyarchive.com/api/ingest-x-trigger
+  → Cloudflare Pages Function (functions/api/ingest-x-trigger.js)
+  → Grok Bot webhook routine scrape-x-via-webhook-trigger
+  → Bot OAuth MCP scrape + commit/push
+```
+
+No X bearer in Actions or Pages. The Action does not commit; the Bot still
+owns scrape judgment, image mirror, `precommit`, and push. Cadence: **8h**
+trigger, **12h** lookback, **cap 25** new records (see `AGENTS.md`).
+
+**Secrets checklist**
+
+| Where | Name | Purpose |
+| --- | --- | --- |
+| GitHub Actions | `INGEST_X_TRIGGER_SECRET` | Bearer shared with the site Function |
+| GitHub Actions | `INGEST_X_TRIGGER_URL` (optional) | Override API URL; empty → production |
+| Cloudflare Pages (encrypted) | `INGEST_X_TRIGGER_SECRET` | Same value as the Actions secret |
+| Cloudflare Pages (encrypted) | `OMARCHY_BOT_WEBHOOK_URL` | POST URL from Omarchy Bot routine panel |
+| Cloudflare Pages (encrypted) | `OMARCHY_BOT_WEBHOOK_SECRET` | Sender key (`crsr_…`) from the same panel |
+
+Jordan copies **URL + sender key** from the Omarchy Bot routine panel for
+**Scrape X via webhook trigger** (`scrape-x-via-webhook-trigger`) into the Pages
+secrets. Official webhook auth is `Authorization: Bearer <key>`; the Function
+also sends `X-Webhook-Secret` with the same value.
+
+**Do not pause** cron routine `scrape-x-for-new-omarchy-content` until a webhook
+dry-run succeeds — keeps a fallback and avoids a silent gap. After dry-run OK,
+pause that cron to avoid double scrape.
+
+The other ingest crons are staggered ~20 min apart so scheduled pushes to
+`main` don't race. All accept `workflow_dispatch` to run one now, and the
+commit-and-push ingests are idempotent — a run that changes nothing commits
+nothing.
+
+Prerequisite: the four `ingest-*.yml` that commit reuse
+`secrets.TIMELINE_DEPLOY_KEY`, which is already a bypass actor on the `main`
+ruleset for `timeline.yml`, so no new deploy key is required for those.
+`ingest-x-trigger.yml` needs only `INGEST_X_TRIGGER_SECRET` (no deploy key).
