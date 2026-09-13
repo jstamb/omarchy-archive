@@ -116,8 +116,16 @@ describe('ingest-sources.mjs (fail-closed, real subprocess + local catalog)', ()
       assert.equal(after.length, before.length + 1);
       assert.ok(after.some((p) => p.id === 'com.example.task5-e2e'));
       for (const id of beforeIds) assert.ok(after.some((p) => p.id === id), `lost ${id}`);
+      // Seed data may already carry unavailable records from a prior complete
+      // catalog refresh; a partial fetch must not newly mark any more.
+      const beforeUnavailable = new Set(
+        before.filter((p) => p.status === 'unavailable').map((p) => p.id),
+      );
+      const newlyUnavailable = after.filter(
+        (p) => p.status === 'unavailable' && !beforeUnavailable.has(p.id),
+      );
       assert.equal(
-        after.filter((p) => p.status === 'unavailable').length,
+        newlyUnavailable.length,
         0,
         'a partial catalog fetch must not mark records unavailable',
       );
