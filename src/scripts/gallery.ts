@@ -234,6 +234,64 @@ function restore(gallery: Gallery) {
   applyFilter(gallery);
 }
 
+/**
+ * Long facet rows — the tag cloud — collapse to two rows with a "View all"
+ * toggle, so a gallery that holds 170 tags does not open on a wall of chips.
+ * Two rows is exact, not guessed: every chip is the same height, so the clamp
+ * is two chip rows plus one wrap gap, measured off a real chip. The chips do
+ * not filter without this script anyway, so collapsing behind it removes no
+ * no-JS behaviour — the popular tags still render server-side.
+ */
+function setupTagClouds() {
+  for (const cloud of document.querySelectorAll<HTMLElement>('[data-tag-cloud]')) {
+    const chips = cloud.querySelector<HTMLElement>('[data-tag-cloud-chips]');
+    const toggle = cloud.querySelector<HTMLButtonElement>('[data-tag-cloud-toggle]');
+    if (!chips || !toggle) continue;
+    const label = toggle.querySelector<HTMLElement>('[data-tag-cloud-label]');
+    const count = toggle.querySelector<HTMLElement>('.filters__more-count');
+
+    const setOpen = (open: boolean) => {
+      cloud.toggleAttribute('data-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (label) label.textContent = open ? 'Show fewer' : 'View all';
+      if (count) count.hidden = open;
+    };
+
+    const measure = () => {
+      const first = chips.firstElementChild as HTMLElement | null;
+      // A hidden panel (the mobile disclosure) has no layout to measure yet.
+      if (!first || chips.offsetParent === null) return;
+      const gap = parseFloat(getComputedStyle(chips).rowGap) || 0;
+      const twoRows = Math.round(first.offsetHeight * 2 + gap);
+      chips.style.setProperty('--tag-rows', `${twoRows}px`);
+      // scrollHeight is the full content height even while clamped.
+      if (chips.scrollHeight <= twoRows + 1) {
+        toggle.hidden = true;
+        setOpen(true); // fits in two rows already — drop the clamp
+        return;
+      }
+      toggle.hidden = false;
+      // Keep an active-but-hidden tag visible; otherwise start collapsed.
+      setOpen(!!chips.querySelector('[aria-pressed="true"]'));
+    };
+
+    toggle.addEventListener('click', () => setOpen(!cloud.hasAttribute('data-open')));
+
+    measure();
+    let raf = 0;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(measure);
+    });
+    // Mobile hides the facets behind a disclosure — re-measure once shown.
+    cloud
+      .closest('[data-gallery-filters]')
+      ?.querySelector('[data-gallery-toggle]')
+      ?.addEventListener('click', () => requestAnimationFrame(measure));
+    document.fonts?.ready.then(() => measure());
+  }
+}
+
 export function initGalleries() {
   galleries.length = 0;
   galleries.push(...collect());
@@ -280,6 +338,8 @@ export function initGalleries() {
 
     restore(gallery); // establish initial order + selection from the URL
   }
+
+  setupTagClouds();
 
   window.addEventListener('popstate', () => {
     for (const gallery of galleries) restore(gallery);

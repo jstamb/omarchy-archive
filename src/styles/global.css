@@ -1038,6 +1038,52 @@ a.tag:hover {
   opacity: 0.7;
   margin-left: 0.35rem;
 }
+.filters__cloud {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  width: 100%;
+}
+/* Collapsed: two chip rows. Chips are a uniform height, so gallery.ts sets
+   --tag-rows to exactly two rows plus one wrap gap; 3.6rem is the pre-script
+   fallback. overflow clips cleanly at the row boundary. */
+.filters__cloud:not([data-open]) .filters__chips {
+  max-height: var(--tag-rows, 3.6rem);
+  overflow: hidden;
+}
+.filters__more {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  padding: 0.1rem 0.2rem;
+  cursor: pointer;
+}
+.filters__more:hover {
+  text-decoration: underline;
+}
+.filters__more[hidden] {
+  display: none;
+}
+.filters__more-count {
+  opacity: 0.7;
+}
+.filters__more-count[hidden] {
+  display: none;
+}
 .filters__status {
   font-size: 0.85rem;
   color: var(--ink-meta);

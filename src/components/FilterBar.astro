@@ -32,6 +32,10 @@ const {
 
 const usable = groups.filter((group) => group.options.length > 1);
 
+// A facet with more options than this collapses to two rows behind a "View all"
+// toggle — the tag cloud. The short kind/source/sort rows stay inline.
+const COLLAPSE_AT = 16;
+
 // Unique per instance so the toggle's aria-controls resolves even if a page
 // ever renders more than one gallery.
 const panelId = `gallery-facets-${Math.random().toString(36).slice(2, 8)}`;
@@ -59,25 +63,47 @@ const panelId = `gallery-facets-${Math.random().toString(36).slice(2, 8)}`;
 
   <div class="filters__panel" id={panelId} data-gallery-panel>
     {
-      usable.map((group) => (
-        <div class="filters__row">
-          <span class="filters__label" id={`facet-${group.id}`}>
-            {group.label}
-          </span>
-          {group.options.map((option) => (
-            <button
-              class="chip"
-              type="button"
-              aria-pressed="false"
-              data-facet={group.id}
-              data-value={option.value}
-            >
-              {option.label}
-              <span class="chip__count">{option.count}</span>
-            </button>
-          ))}
-        </div>
-      ))
+      usable.map((group) => {
+        const chips = group.options.map((option) => (
+          <button
+            class="chip"
+            type="button"
+            aria-pressed="false"
+            data-facet={group.id}
+            data-value={option.value}
+          >
+            {option.label}
+            <span class="chip__count">{option.count}</span>
+          </button>
+        ));
+        const collapsible = group.options.length > COLLAPSE_AT;
+        return (
+          <div class="filters__row">
+            <span class="filters__label" id={`facet-${group.id}`}>
+              {group.label}
+            </span>
+            {collapsible ? (
+              <div class="filters__cloud" data-tag-cloud>
+                <div class="filters__chips" data-tag-cloud-chips>
+                  {chips}
+                </div>
+                <button
+                  class="filters__more"
+                  type="button"
+                  data-tag-cloud-toggle
+                  aria-expanded="false"
+                  hidden
+                >
+                  <span data-tag-cloud-label>View all</span>
+                  <span class="chip__count filters__more-count">{group.options.length}</span>
+                </button>
+              </div>
+            ) : (
+              chips
+            )}
+          </div>
+        );
+      })
     }
 
     <div class="filters__row">
