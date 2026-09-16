@@ -1,5 +1,34 @@
 [
   {
+    "id": "v4.0.4",
+    "version": "4.0.4",
+    "major": 4,
+    "date": "2026-09-15",
+    "published_at": "2026-09-15T21:39:29Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": "Improvements",
+    "summary": "This release brings our bespoke kernel to everyone. The Omarchy kernel is tuned to keep the desktop responsive and multitasking smooth, even under heavy load or memory pressure. It improves gaming compatibility, enables smoother gaming on supported AMD HDMI…",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "kwilczynski",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.4",
+    "notes_chars": 1013,
+    "upstream_id": "389480612",
+    "payload_hash": "859cf36950ee69a698ef9dbe2433872bed191d11fab4629ce469c3b8c34ea3e9",
+    "parser_version": 1
+  },
+  {
     "id": "v4.0.3",
     "version": "4.0.3",
     "major": 4,
