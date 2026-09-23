@@ -677,7 +677,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -705,7 +705,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -734,7 +734,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -763,7 +763,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -790,7 +790,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -818,7 +818,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -848,7 +848,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -876,7 +876,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -904,7 +904,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -934,7 +934,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -963,7 +963,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -992,7 +992,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -1021,7 +1021,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -1050,7 +1050,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -18794,7 +18794,7 @@
     "featured": false,
     "seen_on": "omarchy-hub",
     "first_seen_at": "2026-09-17",
-    "last_seen_at": "2026-09-22",
+    "last_seen_at": "2026-09-23",
     "status": "active"
   },
   {
@@ -29878,5 +29878,35 @@
     ],
     "created_at": "2026-09-22",
     "added_at": "2026-09-22"
+  },
+  {
+    "id": "mluva",
+    "kind": "other",
+    "title": "Mluva",
+    "summary": "A GTK4 dictation app for Omarchy with F9 recording, editable rewrites, searchable history and a Quickshell bar widget, using local models or your own provider credentials.",
+    "author": "Daniel Vecera",
+    "author_url": "https://github.com/1vecera",
+    "source_platform": "github",
+    "source_url": "https://github.com/1vecera/Mluva",
+    "image": null,
+    "image_hosted": false,
+    "device": null,
+    "form_factor": null,
+    "tags": [
+      "dictation",
+      "speech-to-text",
+      "quickshell",
+      "gtk4",
+      "application"
+    ],
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "created_at": null,
+    "added_at": "2026-09-23",
+    "featured": false,
+    "seen_on": "omarchy-hub",
+    "first_seen_at": "2026-09-23",
+    "last_seen_at": "2026-09-23",
+    "status": "active"
   }
 ]
