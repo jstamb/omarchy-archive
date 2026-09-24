@@ -30579,5 +30579,88 @@
     ],
     "created_at": "2026-09-23",
     "added_at": "2026-09-23"
+  },
+  {
+    "device": null,
+    "form_factor": null,
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "featured": false,
+    "seen_on": null,
+    "source_platform": "x",
+    "image_hosted": true,
+    "id": "thepandaily-qwen-book-omarchy-collab",
+    "kind": "idea",
+    "title": "thePandaily: Alibaba Qwen Book PC collabs with Omarchy",
+    "summary": "Pandaily covers Alibaba Cloud’s Qwen Book AI agent PC at Apsara 2026 — Skill keyboard, AI Island status display, and a collaboration with the Omarchy open-source desktop community to explore agent-native Linux desktops, with DHH backing deeper integration.",
+    "author": "thePandaily",
+    "author_url": "https://x.com/thePandaily",
+    "source_url": "https://x.com/thePandaily/status/2102971957121605960",
+    "image": "/images/posts/thepandaily-qwen-book-omarchy-collab.webp",
+    "tags": [
+      "alibaba",
+      "qwen",
+      "qwen-book",
+      "news",
+      "apsara",
+      "hardware"
+    ],
+    "created_at": "2026-09-24",
+    "added_at": "2026-09-24"
+  },
+  {
+    "device": null,
+    "form_factor": null,
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "featured": false,
+    "seen_on": null,
+    "source_platform": "x",
+    "image_hosted": false,
+    "id": "bastidotnet-omarchy-stories-004-bjarne",
+    "kind": "idea",
+    "title": "bastidotnet: Omarchy Stories 004 with Bjarne Øverli",
+    "summary": "bastidotnet publishes Omarchy Stories episode 004 featuring Bjarne Øverli of the Omarchy core team, with the YouTube episode linked for the community podcast series.",
+    "author": "bastidotnet",
+    "author_url": "https://x.com/bastidotnet",
+    "source_url": "https://x.com/bastidotnet/status/2102969426291122193",
+    "image": null,
+    "tags": [
+      "podcast",
+      "omarchy-stories",
+      "interview",
+      "news"
+    ],
+    "created_at": "2026-09-24",
+    "added_at": "2026-09-24"
+  },
+  {
+    "device": null,
+    "form_factor": null,
+    "related_theme_ids": [],
+    "related_plugin_ids": [
+      "io.github.jondkinney.barscreens"
+    ],
+    "featured": false,
+    "seen_on": null,
+    "source_platform": "x",
+    "image_hosted": false,
+    "id": "jondkinney-omarchy-desktop-apps-roundup",
+    "kind": "other",
+    "title": "jondkinney: Desktop Linux apps built for Omarchy",
+    "summary": "Longtime Rails developer jondkinney welcomes others to the party and links recent desktop Linux apps he built for Omarchy — Vernier, Tensaku, Hyprcorrect, and Mousehop.",
+    "author": "jondkinney",
+    "author_url": "https://x.com/jondkinney",
+    "source_url": "https://x.com/jondkinney/status/2102970274505249091",
+    "image": null,
+    "tags": [
+      "apps",
+      "vernier",
+      "tensaku",
+      "hyprcorrect",
+      "mousehop"
+    ],
+    "created_at": "2026-09-24",
+    "added_at": "2026-09-24"
   }
 ]
