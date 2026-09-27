@@ -187,9 +187,13 @@ they link to each other; adding neither because you could not decide is not.
 
 ## Scraping X
 
-The scheduled X run happens every four hours, so **most runs should add
-nothing**. That is the expected outcome, not a failed run. Six posts a day of
-real signal is a good week.
+Preferred wake path: GitHub Action `ingest-x-trigger.yml` (every **8h** UTC,
+`45 */8 * * *`) → site `POST /api/ingest-x-trigger` → Grok Bot webhook routine
+`scrape-x-via-webhook-trigger` → this Bot (OAuth MCP scrape + commit/push). A
+cron routine `scrape-x-for-new-omarchy-content` stays as fallback until a
+webhook dry-run succeeds; pause it only after that. Lookback **12 hours**,
+**cap 25** new records. **Most runs should add nothing**. That is the expected
+outcome, not a failed run. Six posts a day of real signal is a good week.
 
 **Deduplicate first, always.** Load `data/posts.json` and build the set of
 existing `source_url` values before you add anything. The same post will keep
@@ -213,9 +217,9 @@ same host.
   original, credit the original author.
 - Anything you cannot attribute to a named account.
 
-**Cap each run at 10 new records.** If a run finds more, take the best ten and
-leave the rest; they will still be there in four hours. A run that adds forty
-records is a run that added noise.
+**Cap each run at 25 new records.** If a run finds more, take the best
+twenty-five and leave the rest; they will still be there on the next 8h wake.
+A run that adds forty records is a run that added noise.
 
 **Images.** You will only ever have a CDN URL. Set `image` to it and
 `image_hosted: false`, then run:

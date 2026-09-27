@@ -1,11 +1,18 @@
-# Cloudflare Pages, static output. There are no Functions and no secrets, so
-# this file only pins the project name and the build output directory.
+# Cloudflare Pages. Static Astro output plus Pages Functions under functions/.
 #
-# Note: because this file exists, Cloudflare manages plaintext variables from a
-# [vars] block here rather than the dashboard. Do not put credentials in it —
-# it is committed. If the site ever needs a runtime secret, add it as an
-# encrypted Secret in Pages → Settings → Variables and Secrets, and read it from
-# `locals.runtime.env` in a Function.
+# Function: functions/api/ingest-x-trigger.js → POST /api/ingest-x-trigger
+#   GitHub Action auth → forwards to Omarchy Bot webhook (no X secrets).
+#
+# Encrypted Secrets to set in Pages → Settings → Variables and Secrets
+# (never put values in this file or a [vars] block — wrangler.toml is committed;
+# plaintext vars are managed from here when present, secrets must stay encrypted):
+#   INGEST_X_TRIGGER_SECRET   — shared with GitHub Actions secret of the same name
+#   OMARCHY_BOT_WEBHOOK_URL   — POST URL from Omarchy Bot routine panel
+#                               (scrape-x-via-webhook-trigger)
+#   OMARCHY_BOT_WEBHOOK_SECRET — sender key (crsr_…) from the same panel;
+#                               sent as Authorization: Bearer (official) and
+#                               also as X-Webhook-Secret
+#
 name = "omarchy-archive"
 compatibility_date = "2026-09-01"
 pages_build_output_dir = "./dist"
