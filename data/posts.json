@@ -39873,7 +39873,7 @@
     "id": "omarchymac-installer-demo-copenhagen",
     "kind": "other",
     "title": "OmarchyMac: New Installer Demoed at the Copenhagen Omarchy Meetup for Omarchy M",
-    "summary": "OmarchyMac shares the first demo of its new installer \"in the wild\" at the Copenhagen Omarchy meetup, by a community member, crediting maralcbr for getting it ready just in time; the attached screenshot is a tester's post about trying a beta of Omarchy M for Apple M chips, with the installer window on an Apple M1 showing Omarchy already installed and an option to remove it and return the space to macOS.",
+    "summary": "OmarchyMac shares the first demo of its new installer \"in the wild\" at the Copenhagen Omarchy meetup, crediting maralcbr for getting it ready just in time; the attached screenshot is a tester's post about trying a beta of Omarchy M for Apple M chips, with the installer window on an Apple M1 showing Omarchy already installed and an option to remove it and return the space to macOS.",
     "image": "/images/posts/omarchymac-installer-demo-copenhagen.webp",
     "image_hosted": true,
     "device": "Apple M1",
@@ -40406,7 +40406,7 @@
     "id": "simonschubert-app-finder-176-apps",
     "kind": "other",
     "title": "simonschubert: App Finder for Omarchy Lists 176 Apps with Small-Screen Support",
-    "summary": "simonschubert shares App Finder for Omarchy with 176 apps so far, 27 of them their own, focused on small-screen and tile support and theming, and asks the community to drop AUR apps for agents to test and add; the photo shows a laptop and phone both open to App Finder with Vitals 0.2.1-1 selected and a Search 176 apps field.",
+    "summary": "simonschubert shares App Finder for Omarchy with 176 apps so far, 27 of them their own, focused on small-screen and tile support and theming, and asks the community to drop AUR apps for agents to test and add; the photo shows a laptop and phone both open to App Finder with Vitals 0.2.1-1 selected and a \"Search 176 apps\" field.",
     "image": "/images/posts/simonschubert-app-finder-176-apps.webp",
     "image_hosted": true,
     "device": null,
@@ -40434,7 +40434,7 @@
     "id": "oliveroxenham-typarchy-marketplace",
     "kind": "plugin",
     "title": "oliveroxenham: Typarchy Survival Typing Game Live on the Omarchy Plugin Marketplace",
-    "summary": "oliveroxenham says Typarchy is live on the Omarchy plugin marketplace: survival speed-typing with a worldwide leaderboard where each word tightens a shrinking clock, pitched as a game while an AI agent finishes a task; the screenshot shows the TYPARCHY Survival screen with the word expelled partly typed, SCORE 400, and OLIVEROX ranked #1.",
+    "summary": "oliveroxenham says Typarchy is live on the Omarchy plugin marketplace: survival speed-typing with a worldwide leaderboard where each word tightens a shrinking clock, pitched as a game while an AI agent finishes a task; the screenshot shows the \"TYPARCHY Survival\" screen with the word expelled partly typed, \"SCORE 400\", and \"OLIVEROX\" ranked #1.",
     "image": "/images/posts/oliveroxenham-typarchy-marketplace.webp",
     "tags": [
       "plugin",
@@ -40540,8 +40540,8 @@
     "added_at": "2026-09-29",
     "id": "rowellkeith-omacodesnap",
     "kind": "plugin",
-    "title": "rowellkeith: OmaCodeSnap First Omarchy Plugin Captures Themed Code PNGs",
-    "summary": "rowellkeith says OmaCodeSnap, their first Omarchy plugin, is in the official directory: select code, press a key, and get a PNG in the Omarchy theme and wallpaper colored as Zed, VS Code, or Neovim shows it, still in beta; the screenshot is a Zed JavaScript window over a classical landscape wallpaper with sharedPrefix and commonIndent helpers.",
+    "title": "rowellkeith: OmaCodeSnap, rowellkeith's First Omarchy Plugin, Captures Themed Code PNGs",
+    "summary": "rowellkeith says OmaCodeSnap, their first Omarchy plugin, is in the official directory: users select code, press a key, and get a PNG in the Omarchy theme and wallpaper, colored as Zed, VS Code, or Neovim shows it, still in beta; the screenshot is a Zed JavaScript window over a classical landscape wallpaper with sharedPrefix and commonIndent helpers.",
     "image": "/images/posts/rowellkeith-omacodesnap.webp",
     "tags": [
       "plugin",
@@ -40567,7 +40567,7 @@
     "id": "lsongdev-omarchy-switcher",
     "kind": "plugin",
     "title": "lsongdev: Omarchy Switcher Focused Visual Window Switcher",
-    "summary": "lsongdev shares Omarchy Switcher, a focused visual window switcher for Omarchy; the screenshot shows a three-preview overlay over a purple sunset wallpaper with cliamp, an omarchy-switcher terminal, and Chrome selected among them, and a top bar labeled Phantasia at Thursday 1:56 PM.",
+    "summary": "lsongdev shares Omarchy Switcher, a focused visual window switcher for Omarchy; the screenshot shows a three-preview overlay over a purple sunset wallpaper with \"cliamp\", an omarchy-switcher terminal, and Chrome selected among them, and a top bar labeled \"Phantasia\".",
     "image": "/images/posts/lsongdev-omarchy-switcher.webp",
     "tags": [
       "plugin",
@@ -40592,7 +40592,7 @@
     "id": "btsouth-omaframe-0-3",
     "kind": "plugin",
     "title": "btsouth: Omaframe 0.3 Adds Markup, Blur, and Secret Spotting on Omarchy",
-    "summary": "btsouth says Omaframe 0.3 is out for Omarchy with markup on recordings—arrows, boxes, labels, steps, and blur or redact for a whole clip—plus screenshots that spot possible secrets before sharing, with H to hide them and T to copy the text; the video frame shows Omaframe editing omarchy-logo.mp4 with an OMARCHY pixel logo and a Made with Omarchy label.",
+    "summary": "btsouth says Omaframe 0.3 is out for Omarchy with markup on recordings: arrows, boxes, labels, steps, and blur or redact for a whole clip, plus screenshots that spot possible secrets before sharing, with H to hide them and T to copy the text; the video frame shows Omaframe editing omarchy-logo.mp4 with an OMARCHY pixel logo and a \"Made with Omarchy\" label.",
     "image": "/images/posts/btsouth-omaframe-0-3.webp",
     "tags": [
       "plugin",
@@ -40618,7 +40618,7 @@
     "id": "tcballard-build-omarchy-plugins-0-6-1",
     "kind": "idea",
     "title": "tcballard: build-omarchy-plugins v0.6.1 Skills Cover Quattro Widget Traps",
-    "summary": "tcballard says Quattro changed the rules for coding agents—widgets can render without data and services can survive a reload with yesterday's code—and shipped build-omarchy-plugins v0.6.1 so the skills explain those traps before an agent starts \"fixing\" them; the video frame is a dark title card with a thin chartreuse bar and a zeroed timecode.",
+    "summary": "tcballard says Quattro changed the rules for coding agents. Widgets can render without data, and services can survive a reload with yesterday's code. tcballard shipped build-omarchy-plugins v0.6.1 so the skills explain those traps before an agent starts \"fixing\" them; the video frame is a dark title card with a thin chartreuse bar and a zeroed timecode.",
     "image": "/images/posts/tcballard-build-omarchy-plugins-0-6-1.webp",
     "tags": [
       "plugins",
@@ -40669,7 +40669,7 @@
     "added_at": "2026-09-29",
     "id": "geekbb-omarchy-spaces-workspace-switcher",
     "kind": "plugin",
-    "title": "geekbb: Shares tornikegomareli Omarchy Spaces Top-Bar Workspace Switcher",
+    "title": "geekbb: Shares tornikegomareli's Omarchy Spaces Top-Bar Workspace Switcher",
     "summary": "geekbb highlights Omarchy Spaces by tornikegomareli, a top-bar workspace switcher that shows open app icons per workspace with hover previews; the linked repo is tornikegomareli's omarchy-spaces.",
     "image": null,
     "tags": [
@@ -40721,7 +40721,7 @@
     "id": "supergruper-omarchy-super-keycap",
     "kind": "hardware",
     "title": "supergruper: 3D-Printed Omarchy Super Keycap for Logitech MX Mechanical",
-    "summary": "supergruper created an Omarchy Super keycap for a Logitech MX Mechanical and says until official ones exist people will have to 3D print their own, with a 3D file in the comments; the photo is a close-up of the left cluster with a black Omarchy-logo keycap between Ctrl and Alt on a two-tone grey board with Hebrew sub-legends.",
+    "summary": "supergruper created an Omarchy Super keycap for a Logitech MX Mechanical and says until official ones exist, \"we'll have to 3D print it ourselves\", with a 3D file in the comments; the photo is a close-up of the left cluster with a black Omarchy-logo keycap between Ctrl and Alt on a two-tone grey board with Hebrew sub-legends.",
     "image": "/images/posts/supergruper-omarchy-super-keycap.webp",
     "tags": [
       "keycap",
@@ -40747,7 +40747,7 @@
     "id": "yelbaiev-2015-mba-omamail",
     "kind": "setup",
     "title": "yelbaiev: 2015 MacBook Air on Omarchy with Omamail for Three Workspaces",
-    "summary": "yelbaiev runs Omarchy on a 2015 MacBook Air for work-from-home days, calls it smooth on a \"potato laptop,\" set up Omamail 0.10.7 as a terminal mail client linked to three Google Workspace accounts, and put Telegram and LocalSend on workspace 3; the screenshot is the Omamail All mail empty state with keyboard shortcut hints.",
+    "summary": "yelbaiev runs Omarchy on a 2015 MacBook Air for work-from-home days, calls it smooth on a \"potato laptop,\" set up Omamail as a terminal mail client linked to three Google Workspace accounts, and put Telegram and LocalSend on workspace 3; the screenshot is the Omamail 0.10.7 \"All mail\" empty state with keyboard shortcut hints.",
     "image": "/images/posts/yelbaiev-2015-mba-omamail.webp",
     "tags": [
       "setup",
@@ -40772,8 +40772,8 @@
     "added_at": "2026-09-29",
     "id": "gladimdim-asus-b9-omarchy",
     "kind": "setup",
-    "title": "gladimdim: Old Asus ExpertBook B9 Becomes Main Driver on Omarchy",
-    "summary": "gladimdim says a 2021 Asus B9 is now their main driver and that with Omarchy every laptop shines; the photo shows an Asus ExpertBook on a lap with a sci-fi armored-soldier wallpaper labeled LOCA DESERTA SCIFI and a bottom status bar on Tuesday around noon.",
+    "title": "gladimdim: Old Asus B9 from 2021 Becomes Main Driver on Omarchy",
+    "summary": "gladimdim says their old Asus B9 from 2021 is now their main driver and that with Omarchy every laptop shines; the photo shows an Asus ExpertBook on a lap with a sci-fi armored-soldier wallpaper labeled \"LOCA DESERTA SCIFI\".",
     "image": "/images/posts/gladimdim-asus-b9-omarchy.webp",
     "tags": [
       "setup",
@@ -40798,7 +40798,7 @@
     "id": "kendalls-old-laptop-omarchy-install",
     "kind": "setup",
     "title": "kendalls: Product Designer Installs Omarchy on an Old Laptop",
-    "summary": "kendalls frames an old laptop and a first Linux foray in 20 years as a product designer trying Omarchy; the photo is the Installing Omarchy screen with the green pixel wordmark, a short progress bar, and the tip Super+K shows all the key bindings.",
+    "summary": "kendalls frames an old laptop and a first Linux foray in 20 years as a product designer trying Omarchy; the photo is the \"Installing Omarchy\" screen with the green pixel wordmark, a short progress bar, and the tip \"Super + K shows all the key bindings\".",
     "image": "/images/posts/kendalls-old-laptop-omarchy-install.webp",
     "tags": [
       "setup",
@@ -40823,7 +40823,7 @@
     "id": "ashwinhegde19-back-on-omarchy-agents",
     "kind": "setup",
     "title": "ashwinhegde19: Back on Omarchy and Asks How dhh Builds It with Agents",
-    "summary": "ashwinhegde19 is back on Omarchy after using 2.0 a few months ago and asks dhh how Omarchy is built with agents now—high-level outcome versus detailed plans—and which model has written the biggest share so far; the photo is a silver Asus laptop on a dark desk with a floral still-life wallpaper and a Logitech mouse beside it.",
+    "summary": "ashwinhegde19 is back on Omarchy after using 2.0 a few months ago and asks dhh how Omarchy is built with agents now, high-level outcome versus detailed plans, and which model has written the biggest share so far; the photo is a silver Asus laptop on a dark desk with a floral still-life wallpaper and a Logitech mouse beside it.",
     "image": "/images/posts/ashwinhegde19-back-on-omarchy-agents.webp",
     "tags": [
       "setup",
@@ -40847,8 +40847,8 @@
     "added_at": "2026-09-29",
     "id": "lecpokrandt-omarchy-in-qubesos",
     "kind": "setup",
-    "title": "lecPokrandt: Omarchy Installs in 1m 29s Inside Qubes OS",
-    "summary": "lecPokrandt shows Omarchy running inside Qubes OS and jokes that is where it should be, while saying they are pumped to have an agentic OS; the screenshot is a Qubes desktop with an omarchy-main qube reporting Installed Omarchy in 1m 29s after booting omarchy-4.0.4.iso via qvm-start.",
+    "title": "lecPokrandt: Omarchy Running Inside Qubes OS",
+    "summary": "lecPokrandt shows Omarchy running inside Qubes OS and jokes that this is where it should be, while saying they are pumped to have an agentic OS; the screenshot is a Qubes desktop with an omarchy-main qube reporting \"Installed Omarchy in 1m 29s\" after booting omarchy-4.0.4.iso via qvm-start.",
     "image": "/images/posts/lecpokrandt-omarchy-in-qubesos.webp",
     "tags": [
       "setup",
@@ -40874,7 +40874,7 @@
     "id": "kazuhidet-m1-max-mainstream-omarchy-quattro",
     "kind": "setup",
     "title": "kazuhidet: M1 Max MacBook Pro on Mainstream Omarchy Quattro, Not Omarchy-Mac",
-    "summary": "kazuhidet upgraded an M1 Max MacBook Pro to Omarchy Quattro using mainstream Omarchy rather than Omarchy-Mac, and says they prefer not when Omarchy-Mac puts in mechanisms that differ from the original; the fastfetch screenshot shows Omarchy 4.0.2-2 on Hyprland with Tokyo Night on a 14-inch M1 Max.",
+    "summary": "kazuhidet upgraded an M1 Max MacBook Pro to Omarchy Quattro using mainstream Omarchy rather than Omarchy-Mac, and says it is not to kazuhidet's taste that Omarchy-Mac tends to put in mechanisms that differ from the original; the fastfetch screenshot shows Omarchy 4.0.2-2 on Hyprland with Tokyo Night on a 14-inch M1 Max.",
     "image": "/images/posts/kazuhidet-m1-max-mainstream-omarchy-quattro.webp",
     "tags": [
       "setup",
@@ -40926,7 +40926,7 @@
     "id": "michaelzsguo-mup-mise-update-shortcut",
     "kind": "idea",
     "title": "Michaelzsguo: Omarchy mup Shortcut Refreshes Mise-Managed Codex and Tools",
-    "summary": "Michaelzsguo notes Omarchy ships Codex and Claude Code managed through Mise, and says the fastest way to update Codex is the terminal shortcut mup, Omarchy's short form for mise update that refreshes Mise-managed tools and stubs; the screenshot shows mup upgrading claude, codex, and pi via mise 2026.9.1.",
+    "summary": "Michaelzsguo notes Omarchy comes factory-bundled with Codex and Claude Code, version-managed through Mise, and says the fastest way to update Codex is the terminal shortcut mup, Omarchy's short form for mise update that refreshes Mise-managed tools and stubs; the screenshot shows mup upgrading claude, codex, and pi via mise 2026.9.1.",
     "image": "/images/posts/michaelzsguo-mup-mise-update-shortcut.webp",
     "tags": [
       "mise",
@@ -40951,8 +40951,8 @@
     "added_at": "2026-09-29",
     "id": "xadacka-audi-quattro-wallpaper",
     "kind": "setup",
-    "title": "xadacka: Swaps Default Omarchy Quattro Wallpaper for a Custom Audi Quattro Shot",
-    "summary": "xadacka swapped the default Omarchy Quattro wallpaper for their own Audi Quattro photo and says they could not be happier; the image is a dark red Audi SUV jumping a dirt crest under a pink and orange sunset sky.",
+    "title": "xadacka: Swaps Default Omarchy Quattro Wallpaper for Their Own \"audi quattro\" Photo",
+    "summary": "xadacka swapped the default Omarchy Quattro wallpaper for their own photo, which they call an \"audi quattro\", and says they could not be happier; the image is a dark red Audi SUV jumping a dirt crest under a pink and orange sunset sky.",
     "image": "/images/posts/xadacka-audi-quattro-wallpaper.webp",
     "tags": [
       "wallpaper",
@@ -41003,7 +41003,7 @@
     "added_at": "2026-09-29",
     "id": "laravellinks-nunomaduro-omarchy-theme-from-scratch",
     "kind": "theme",
-    "title": "LaravelLinks: Shares nunomaduro Video on Making an Omarchy Theme from Scratch",
+    "title": "LaravelLinks: Shares nunomaduro's Video on Making an Omarchy Theme from Scratch",
     "summary": "LaravelLinks shares nunomaduro's YouTube video \"made my own omarchy theme from scratch\"; the thumbnail shows nunomaduro pointing at a laptop wallpaper with an orange Lamborghini over a desert sunset and a small Laravel sign.",
     "image": "/images/posts/laravellinks-nunomaduro-omarchy-theme-from-scratch.webp",
     "tags": [
