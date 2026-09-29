@@ -40643,7 +40643,7 @@
     "added_at": "2026-09-29",
     "id": "patricklenz-shepherd-2-0-omarchy-plugin",
     "kind": "plugin",
-    "title": "patricklenz: Shepherd 2.0 Ships Native Mac App and Omarchy NeedsYou Plugin",
+    "title": "patricklenz: Shepherd 2.0 Is Out with a Native Mac App and an Omarchy NeedsYou Plugin",
     "summary": "patricklenz says Shepherd 2.0 is out with a native Mac app (TestFlight soon), a Rust-based CLI, core plugins for Sentry AutoFix and CI failure fix, a Jev-based classifier for UpNext, and an Omarchy plugin for a NeedsYou indicator on the Quickshell.",
     "image": null,
     "tags": [
