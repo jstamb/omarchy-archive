@@ -3,6 +3,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test, expect } from '@playwright/test';
 
+/** First-party plugins in data/plugins.json — upstream adds bundled ones, so never hardcode. */
+function firstPartyPluginCount() {
+  const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../data/plugins.json');
+  return JSON.parse(readFileSync(file, 'utf8')).filter((plugin) => plugin.first_party).length;
+}
+
 /** Last record in posts.json that carries the newest added_at — ingest appends. */
 function mostRecentlyIndexedPost() {
   const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../data/posts.json');
@@ -126,7 +132,7 @@ test('mobile plugin filters leave the first result accessible without a wall of 
   await toggle.click();
   await page.locator('button[data-facet="ownership"][data-value="first-party"]').click();
   await expect(page).toHaveURL(/ownership=first-party/);
-  await expect(page.locator('main article:visible')).toHaveCount(36);
+  await expect(page.locator('main article:visible')).toHaveCount(firstPartyPluginCount());
 });
 
 test('filter changes do not detach and reinsert gallery cards', async ({ page }) => {
@@ -139,7 +145,7 @@ test('filter changes do not detach and reinsert gallery cards', async ({ page })
     }).observe(parent, { childList: true });
   });
   await page.locator('button[data-facet="ownership"][data-value="first-party"]').click();
-  await expect(page.locator('main article:visible')).toHaveCount(36);
+  await expect(page.locator('main article:visible')).toHaveCount(firstPartyPluginCount());
   expect(await page.evaluate(() => window.__cardMutations)).toBe(0);
 });
 
