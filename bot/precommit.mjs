@@ -37,7 +37,14 @@ import { checkFile, countedLabel } from './lib/preservation.mjs';
 
 const FILES = ['posts', 'themes', 'plugins', 'sources', 'apps', 'timeline'];
 
-const git = (...args) => spawnSync('git', args, { cwd: ROOT, encoding: 'utf8' });
+// data/posts.json and data/plugins.json are past spawnSync's 1 MiB default
+// maxBuffer. Without this, `git show` dies with ENOBUFS, the baseline reads
+// as "absent", and the gate silently waves through any loss.
+const git = (...args) => {
+  const result = spawnSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024 });
+  if (result.error) throw new Error(`git ${args.join(' ')} failed: ${result.error.message}`);
+  return result;
+};
 
 const problems = [];
 const lines = [];

@@ -375,9 +375,22 @@ async function ingestPlugins(ctx) {
           .sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
           .slice(0, limit ?? 20);
 
+  // Two upstream ids can share a URL slug ("workspace-icons" and
+  // "workspace.icons" are different plugins by different authors). The archive
+  // id becomes the URL, so a newcomer whose slug is already owned by a published
+  // record gets a deterministic author-scoped id instead. Deterministic matters:
+  // the next run derives the same id and updates the record rather than adding
+  // it again.
+  const slugOwner = new Map(plugins.map((p) => [slugify(p.id), p.id]));
+
   for (const plugin of selected) {
     const record = toPluginRecord(plugin);
     if (!record) continue;
+    const owner = slugOwner.get(slugify(record.id));
+    if (!byId.has(record.id) && owner && owner !== record.id) {
+      record.id = `${slugify(record.author ?? 'community')}.${slugify(plugin.id)}`;
+    }
+    slugOwner.set(slugify(record.id), record.id);
     if (byId.has(record.id)) {
       const existing = byId.get(record.id);
       Object.assign(existing, applySeen(existing, record, day));

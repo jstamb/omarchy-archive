@@ -42,7 +42,14 @@ import { PRESERVED_FILES, preserveAll } from './lib/preservation.mjs';
 const REPO = process.env.ARCHIVE_REPO_DIR ? resolve(process.env.ARCHIVE_REPO_DIR) : ROOT;
 const DATA = join(REPO, 'data');
 
-const git = (...args) => spawnSync('git', args, { cwd: REPO, encoding: 'utf8' });
+// data/posts.json and data/plugins.json are past spawnSync's 1 MiB default
+// maxBuffer. Without this, `git show` dies with ENOBUFS, the baseline reads
+// as "absent", and the gate silently waves through any loss.
+const git = (...args) => {
+  const result = spawnSync('git', args, { cwd: REPO, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024 });
+  if (result.error) throw new Error(`git ${args.join(' ')} failed: ${result.error.message}`);
+  return result;
+};
 
 function die(code, message) {
   console.error(message);
