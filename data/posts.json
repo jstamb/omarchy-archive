@@ -56486,7 +56486,7 @@
     "id": "tcballard-today-in-omarchy-oct-9",
     "kind": "idea",
     "title": "tcballard: Today in Omarchy (9-Oct-2026)",
-    "summary": "tcballard posts \"Today in Omarchy (9-Oct-2026)\", saying \"Compute sponsorships are easy to reduce to a big number.\" and that this one \"has a job I can picture: boot the ARM installer again and again, fast enough that people keep testing it.\" The roundup covers Namespace joining the Omacom Foundation as a Distinguished Corporate Patron, \"committing $100,000 a year in compute for three years\" for ARM builds and QA, with an ARM ISO that \"took more than three minutes to boot\" under emulation and \"boots in four seconds on Namespace’s Apple Silicon runners\"; an edge package DHH published for a patched power-profiles-daemon with CPPC support for ARM laptops, measured on one NVIDIA N1X, with the companion Omarchy integration PR still open (\"available for testing, not the new default\"); a USBGuard and Bolt security change from acrogenesis that requires approval for new USB, Thunderbolt and USB4 PCIe accessories (\"It has merged into Quattro, not a stable release.\"); Try Omarchy for Windows 0.11.0, whose future updates will fetch the runtime and boot files without the \"1.9 GB factory image\"; Gliff 0.3.0 adding a tab for each remote machine, and a separate Quattro merge making Gliff a default package with a bar indicator \"while someone is connected over SSH\"; and Omarchy getting its own X handle. The still is a black square with lime pixel text \"TODAY IN\" over \"OMARCHY\".",
+    "summary": "tcballard posts \"Today in Omarchy (9-Oct-2026)\", saying \"Compute sponsorships are easy to reduce to a big number.\" and that this one \"has a job I can picture: boot the ARM installer again and again, fast enough that people keep testing it.\" The roundup covers Namespace joining the Omacom Foundation as a Distinguished Corporate Patron, \"committing $100,000 a year in compute for three years\" for ARM builds and QA, with an ARM ISO that \"took more than three minutes to boot\" under emulation and \"boots in four seconds on Namespace’s Apple Silicon runners\"; an edge package DHH published for a patched power-profiles-daemon with CPPC support for ARM laptops, whose reported keystroke-to-frame delay fell on an NVIDIA N1X (\"That is one laptop, and power-saver has not been benchmarked.\"), with the companion Omarchy integration PR still open (\"available for testing, not the new default\"); a USBGuard and Bolt security change from acrogenesis that will require approval for new USB, Thunderbolt and USB4 PCIe accessories (\"It has merged into Quattro, not a stable release.\"); Try Omarchy for Windows 0.11.0, whose future updates will fetch the runtime and boot files \"without downloading the 1.9 GB factory image again\" (\"This release still pays that cost once.\"); Gliff 0.3.0 adding a tab for each remote machine, and a separate Quattro merge making Gliff a default package with a bar indicator \"while someone is connected over SSH\"; and Omarchy getting its own X handle. The still is a black square with lime pixel text \"TODAY IN\" over \"OMARCHY\".",
     "author": "tcballard",
     "author_url": "https://x.com/tcballard",
     "source_url": "https://x.com/tcballard/status/2108654363824517347",
@@ -56563,7 +56563,7 @@
     "source_platform": "x",
     "id": "jjdizz1l-photocraft-gpu",
     "kind": "other",
-    "title": "JJDizz1L: PhotoCraft, a Free and Open-Sourced PhotoShop-Like Application Running on Omarchy Linux, GPU Accelerated",
+    "title": "JJDizz1L: PhotoCraft, a Free and Open-Sourced Photoshop-Like Application Running on Omarchy Linux, GPU Accelerated",
     "summary": "JJDizz1L says \"Having a free and open-sourced PhotoShop-like application running on @omarchy Linux while being GPU accelerated feels fantastic!\" and \"#PhotoCraft does just that.\" They add \"Thanks @echelon\"; the still is an image editor window titled \"win1126h2.png\" with \"File\", \"Edit\", \"Image\", \"Layer\", \"Type\", \"Select\", \"Filter\", \"View\", \"Window\", and \"Help\" menus, a tool column, a canvas holding a screenshot of terminal panes, and \"Color\", \"Properties\", and \"Layers\" panels listing \"Layer 1\" and \"Background\".",
     "author": "JJDizz1L",
     "author_url": "https://x.com/JJDizz1L",
@@ -56636,7 +56636,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "ridgetopai.omarcade"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "ridgetopai-warden-omarcade",
