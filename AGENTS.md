@@ -319,3 +319,12 @@ Use `&&`, not newlines. A run that ignores a non-zero exit and commits anyway
 is how both of the breaks above shipped.
 
 If it says `tree is clean`, commit nothing. An empty run is a normal run.
+
+<!-- clarity:start -->
+## Clarity: read first, write back, land on `main`
+This repo is tracked in Clarity as `omarchy-archive` (hub: `jstamb/clarity-hub`; contract: its `CLARITY.md`).
+
+- **Before work:** run `clarity brief` if the CLI exists. Otherwise read `projects/omarchy-archive/status.md`, `projects/omarchy-archive/questions.md` and the hub's `lessons/` scoped `global`, `project:omarchy-archive` or stack:astro, stack:cloudflare-pages, e.g. `gh api repos/jstamb/clarity-hub/contents/projects/omarchy-archive/status.md -H "Accept: application/vnd.github.raw"`. Treat `checked` lessons as rules; `draft` ones are unconfirmed — verify before acting.
+- **Branches:** name them `<agent>/<topic>` (`grokbot/`, `studio/`, `hermes/`, `omarchy/`), add a `Clarity-Agent: <agent>` commit trailer, and finish with a PR to `main`. Work not on `main` is not live. Never force-push.
+- **Write back:** `clarity log`, `clarity status set --file -`, `clarity lesson add` (after any correction, root-caused bug or failed deploy) (pass `--agent <you> --model <id>`). Without the CLI, open a PR to `jstamb/clarity-hub` on `<agent>/omarchy-archive-<yyyy-mm-dd>` changing only `projects/omarchy-archive/**` or `lessons/**`.
+<!-- clarity:end -->
