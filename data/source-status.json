@@ -1,10 +1,10 @@
 {
   "omarchy-plugins": {
-    "last_attempt_at": "2026-10-11",
-    "last_success_at": "2026-10-11",
-    "upstream_count": 4408,
-    "indexed_count": 4408,
-    "excluded_count": 50,
+    "last_attempt_at": "2026-10-12",
+    "last_success_at": "2026-10-12",
+    "upstream_count": 4424,
+    "indexed_count": 4424,
+    "excluded_count": 49,
     "note": null
   },
   "omarchy-hub": {
