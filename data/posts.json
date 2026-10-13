@@ -62904,7 +62904,7 @@
     "id": "omarchy-boot-theme-intros",
     "kind": "other",
     "title": "omarchy: Beautiful Boot/Theme Intros Coming to Omarchy, by AIR Member yamzeight",
-    "summary": "omarchy says \"Beautiful boot/theme intros coming to Omarchy.\" and \"Great work by AIR member @yamzeight.\"; the still is a lilac circle on a dark screen holding a black silhouette of a big-eared, whiskered creature with small dark sprites floating around it. Other frames of the video pass through nebula, close-up-eyes, and dot-matrix reaching-hands intros and a theme switch labeled \"Tokyo Night\".",
+    "summary": "omarchy says \"Beautiful boot/theme intros coming to Omarchy.\" and \"Great work by AIR member @yamzeight.\"; the still is a lilac circle on a dark screen holding a black silhouette with tall pointed ears, round eyes, and whiskers, with small dark round figures with eyes floating around it. Other frames of the video show nebula skies, a close-up of a face looking up, a black-and-white drawing of a figure at a window facing a spiral, deer by a lake under night and dusk skies, and theme switches including one labeled \"Tokyo Night\".",
     "author": "omarchy",
     "author_url": "https://x.com/omarchy",
     "source_url": "https://x.com/omarchy/status/2109950289805771077",
@@ -63173,7 +63173,7 @@
     "id": "yuskesuzki-aeon-cinema-widget",
     "kind": "plugin",
     "title": "yuskesuzki: AEON Cinema Showtimes Widget for an Omarchy Plugin Is Almost Done, Plugin Submitted",
-    "summary": "yuskesuzki writes, in Japanese, \"イオンシネマで今から見れる、明日見れる映画情報を見れる Omarchy プラグインの Widget ほぼ完成。\" (\"The Widget for an Omarchy plugin that shows info on films that can be seen at AEON Cinema from now on and tomorrow is almost complete.\") and \"プラグイン申請もしたので、公開されたら使ってみてちょうだい。\" (\"Also submitted the plugin application, so once it's published, give it a try.\"); the still is a bar popup titled \"イオンシネマ\" (\"AEON Cinema\") for \"江別\" (Ebetsu), with \"今日\" (\"Today\") and \"明日\" (\"Tomorrow\") tabs, \"明日\" selected, a \"明日の上映作品一覧:\" (\"Tomorrow's screenings:\") list of films with showtimes, screens, remaining-seat counts such as \"残 108/111\", and \"予約購入\" (\"Book tickets\") buttons, under a bar item reading \"13本\" (\"13 films\"). The other image shows the \"今日\" tab with \"直近３時間の上映作品:\" (\"Screenings in the next 3 hours:\") and a bar item reading \"1本\".",
+    "summary": "yuskesuzki writes, in Japanese, \"イオンシネマで今から見れる、明日見れる映画情報を見れる Omarchy プラグインの Widget ほぼ完成。\" (\"The Widget for an Omarchy plugin that shows info on films you can see at AEON Cinema starting now and tomorrow is almost complete.\") and \"プラグイン申請もしたので、公開されたら使ってみてちょうだい。\" (\"Also submitted the plugin application, so once it's published, give it a try.\"); the still is a bar popup titled \"イオンシネマ\" (\"AEON Cinema\") for \"江別\" (Ebetsu), with \"今日\" (\"Today\") and \"明日\" (\"Tomorrow\") tabs, \"明日\" selected, a \"明日の上映作品一覧:\" (\"Tomorrow's screenings:\") list of films with showtimes, screens, remaining-seat counts such as \"残 108/111\", and \"予約購入\" (\"Book tickets\") buttons, under a bar item reading \"13本\" (\"13 films\"). The other image shows the \"今日\" tab with \"直近３時間の上映作品:\" (\"Screenings in the next 3 hours:\") and a bar item reading \"1本\".",
     "author": "yuskesuzki",
     "author_url": "https://x.com/yuskesuzki",
     "source_url": "https://x.com/yuskesuzki/status/2109969155755753887",
@@ -63296,7 +63296,9 @@
     "image_hosted": true,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "yakumy.station"
+    ],
     "seen_on": null,
     "device": null,
     "form_factor": null,
