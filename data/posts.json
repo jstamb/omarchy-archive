@@ -62484,7 +62484,9 @@
       "scratchview",
       "scratchpad"
     ],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "shaggyrs6.scratchview"
+    ],
     "created_at": "2026-10-12",
     "added_at": "2026-10-12",
     "image": "/images/posts/notjustshaking-scratchview.webp",
@@ -62701,7 +62703,9 @@
       "agents",
       "bar"
     ],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "ambitiousrealism.t3-loupe"
+    ],
     "created_at": "2026-10-13",
     "added_at": "2026-10-13",
     "image": "/images/posts/ambrealismx-t3-loupe.webp",
@@ -63546,7 +63550,7 @@
     "id": "typecraft-dev-live-wallpapers-dev-branch",
     "kind": "other",
     "title": "typecraft_dev: Live Wallpapers on the Omarchy Dev Branch",
-    "summary": "typecraft_dev says \"OMG live wallpapers in @omarchy  are delightful. Currently seeing this on the dev branch\"; the still is a painterly wallpaper of a woman in a long pale dress standing among wildflowers beside a stream, with a figure in a hat standing in a red boat on the water, under a top bar. Other frames show a carousel of window previews labeled \"Everforest\" over a misty forest wallpaper.",
+    "summary": "typecraft_dev says \"OMG live wallpapers in @omarchy  are delightful. Currently seeing this on the dev branch\"; the still is a painterly wallpaper of a figure in a long pale dress standing among wildflowers beside a stream, with a figure in a hat standing in a boat with a red seat on the water, under a top bar. Other frames show a carousel of window previews labeled \"Everforest\" over a misty forest wallpaper.",
     "tags": [
       "other",
       "live-wallpapers",
@@ -63572,7 +63576,7 @@
   {
     "id": "derekmross-omandroid-fingerprint-unlock",
     "kind": "hardware",
-    "title": "derekmross: Fingerprint Unlock on the Pixel 7 Pro, With All Hardware Working for Omarchy Mobile / Omandroid",
+    "title": "derekmross: Fingerprint Unlock on the Pixel 7 Pro, and \"All Hardware Working\" for Omarchy Mobile / Omandroid",
     "summary": "derekmross says \"The last barrier just came down for Omarchy Mobile / Omandroid. We now have fingerprint unlock on the Pixel 7 Pro. All hardware working.\"; the photo is a hand holding a phone whose lock screen reads \"Touch the fingerprint sensor or enter your PIN\", with an \"Enter PIN\" field marked by a fingerprint icon, a teal-outlined keypad of 1–9 and 0 with backspace and enter keys, and a round fingerprint button below.",
     "device": "Google Pixel 7 Pro",
     "form_factor": "handheld",
@@ -63626,7 +63630,7 @@
   {
     "id": "redp314-picture-frame-repo",
     "kind": "hardware",
-    "title": "redp314: Published the Repo for Omarchy on the PF1007L / Allwinner A33 Photo Frame",
+    "title": "redp314: Publishes the Repo for Omarchy on the PF1007L / Allwinner A33 Photo Frame",
     "summary": "redp314 says \"I’ve published the repo for anyone who wants to reproduce this:\", linking the pangoleen/ormarch-picture-frame repo, and \"It’s for the PF1007L / Allwinner A33 frame specifically. It builds an SD-card-only Arch Linux ARM + Omarchy setup and leaves the original eMMC untouched.\" They add \"Wi‑Fi, touch, on-screen keyboard, and Bluetooth mouse/keyboard work. Full notes and reinstall steps are in the repo.\" The post quotes their earlier post about running Omarchy natively on a $50 digital photo frame and is text-only.",
     "device": "PF1007L digital photo frame (Allwinner A33)",
     "form_factor": "tablet",
@@ -63815,7 +63819,7 @@
   {
     "id": "jisnatdino1203-charge-limit-toggle",
     "kind": "other",
-    "title": "JIsnatdino1203: A Charge Limit Toggle for an 80% Daily Cap or 100% for Trips, Offered as a PR",
+    "title": "JIsnatdino1203: Builds a Charge Limit Toggle for an 80% Daily Cap or 100% for Trips and Offers to Open a PR",
     "summary": "JIsnatdino1203 says \"Keeping a laptop plugged in at 100% all day ruins battery health. So I built a Charge Limit toggle to switch between an 80% daily cap and 100% for trips.\" and \"If you're interested in adding this to Omarchy, I'd love to open a PR!\"; the screenshot is a \"Battery\" panel below the top bar, reading \"SIPPING JUICE\" and \"43%\", with \"Battery size\" \"62Wh\", \"Charge cycles\" \"0\", \"Time left\" \"56m\", and \"Discharging\" \"26.3W\", a \"POWER PROFILE\" row of \"Power-saver\", \"Balanced\", and \"Performance\", and a \"CHARGE LIMIT\" row of \"80% · daily\" and \"100% · trip\", with \"Power-saver\" and \"80% · daily\" highlighted.",
     "tags": [
       "other",
