@@ -64478,7 +64478,7 @@
   {
     "id": "badenpiland-omareader-v0-2-2",
     "kind": "other",
-    "title": "badenpiland: Omareader v0.2.2 Adds Security Fixes for Theming Browser Pages to Match Omarchy",
+    "title": "badenpiland: Omareader v0.2.2 Themes Browser Pages to Match Omarchy, Now With Security Fixes",
     "summary": "badenpiland says \"omareader v0.2.2 is out 🎉\" and \"Theme every page in your browser to match your Omarchy theme, now with security fixes:\", listing \"blocks stylesheet fetches to your home network\", \"pinned site fixes\" and \"safer installer with required checksums\". They add \"Works on Chromium, Chrome, Brave, Brave Origin & Edge.\", linking the badenpiland/omareader repo. The post is text-only.",
     "tags": [
       "browser",
@@ -64879,7 +64879,7 @@
   {
     "id": "mvrcerolli-snippets-app",
     "kind": "other",
-    "title": "mvrcerolli: A Snippets App, Only for Omarchy 4",
+    "title": "mvrcerolli: A Snippets App, for Now Only for Omarchy 4",
     "summary": "mvrcerolli says \"i build an app to help you store your snippets through your navigation.\" and \"nowadays, only for omarchy 4\", linking the mvrceloz/snippets repo. The post is text-only.",
     "tags": [
       "snippets",
