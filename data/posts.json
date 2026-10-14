@@ -65570,7 +65570,7 @@
   {
     "id": "huacnlee-gpui-file-manager",
     "kind": "plugin",
-    "title": "huacnlee: Builds a File Manager for Omarchy With GPUI Shell and JavaScript",
+    "title": "huacnlee: Is Trying to Build a File Manager for Omarchy With GPUI Shell and JavaScript",
     "summary": "huacnlee says they are \"Trying to build a file manager for Omarchy with GPUI Shell + JavaScript,\" with \"No Rust code. No Node.js, Bun, or npm dependencies.\" and \"GPUI Shell runs the JavaScript and renders the UI directly with GPUI.\" They add \"It already browses real files, with tabs, split panes, a virtualized list, Space previews, file operations, trash/restore, and automatic Omarchy theme switching,\" linking a GitHub tree under gpui-shell-benchs apps/finder. The still is a dark file-manager window with tabs \"benchmarks\", \"omasend\", and \"gpui-kit\" (omasend active), path \"~/work/omasend\", a places sidebar, a file list selecting README.md beside Cargo.toml and install scripts, a split pane into omamail benchmarks, and shortcut hints \"Enter open • Space preview • F2 rename • Delete trash\".",
     "tags": [
       "file-manager",
@@ -65596,7 +65596,7 @@
   {
     "id": "tahasdx-catch-download-manager",
     "kind": "plugin",
-    "title": "tahasdx: Introduces Catch, a Native Download Manager for Omarchy With Browser Integration",
+    "title": "tahasdx: Previews Catch, a Native Download Manager for Omarchy With Browser Integration, Aiming to Launch Within 2–3 Days",
     "summary": "tahasdx says \"Meet Catch — a native download manager for Omarchy with browser integration.\" and \"Download links, images, and videos..everything!\" with \"the ability to select exactly what you want.\" They add \"I'm polishing a few things before the first release, aiming to launch in the next 2–3 days!\" and list coming items \"Custom download directories\", \"Download timers\", and \"Sharing\". The still shows a browser on a portfolio page beside a dark Catch window reading \"CATCH — 3 FINISHED\" with three done WebP downloads and shortcut hints, under a top bar with workspace characters and \"Wednesday 16:32\".",
     "tags": [
       "download-manager",
@@ -65622,8 +65622,8 @@
   {
     "id": "supergruper-update-screen",
     "kind": "plugin",
-    "title": "supergruper: A Beautiful Update Screen for Omarchy",
-    "summary": "supergruper says \"I made a beautiful update screen for @omarchy, the floating terminal scrolling pacman output isn't very appealing or welcoming for new users, so in the malleable OS I made my own,\" and asks how to get it upstream. The still shows a dark update card titled \"Updating your system\" with subtitle \"Restarting the desktop shell,\" \"95%\", stages Prepare through Clean up, an \"APPS 13\" grid of package icons with versions (Chrome, Obsidian, Telegram, Omarchy 4.1.0-1, and others), and footer text \"You can close this window. The update keeps going.\" plus \"Run in background,\" over a purple-pink road wallpaper.",
+    "title": "supergruper: Makes an Update Screen for Omarchy and Opens a PR to Upstream It",
+    "summary": "supergruper says \"I made a beautiful update screen for @omarchy, the floating terminal scrolling pacman output isn't very appealing or welcoming for new users, so in the malleable OS I made my own,\" and asks how to get it upstream, then links omacom/omarchy PR #15455 in a reply. The still shows a dark update card titled \"Updating your system\" with subtitle \"Restarting the desktop shell,\" \"95%\", stages Prepare through Clean up, an \"APPS 13\" grid of package icons with versions (Chrome, Obsidian, Telegram, Omarchy 4.1.0-1, and others), and footer text \"You can close this window. The update keeps going.\" plus \"Run in background,\" over a purple-pink road wallpaper.",
     "tags": [
       "update",
       "ui",
@@ -65649,7 +65649,7 @@
     "id": "hicsfh-dazzle-dusk-8k-wallpapers",
     "kind": "theme",
     "title": "hicsfh: Dazzle Dusk Theme Adds New 8K UHD Wallpapers",
-    "summary": "hicsfh says \"My first theme, Dazzle Dusk, started as a VS Code theme years ago. Today I am pleased to announce it has ALSO been updated with new beautiful 8K UHD wallpapers. Please enjoy,\" linking the omarchy-dazzle-dusk-theme GitHub repo. The hosted still is a night Tokyo Bay view with Rainbow Bridge in cyan light, magenta-lit boats, and a cyan-magenta skyline; the other three images are a pier at sunset over still water, a deer silhouette made of multicolored code on a dark field, and four vertical teal-to-rose stripes bending onto a dark floor plane.",
+    "summary": "hicsfh says \"My first theme, Dazzle Dusk, started as a VS Code theme years ago. Today I am pleased to announce it has ALSO been updated with new beautiful 8K UHD wallpapers. Please enjoy,\" linking the omarchy-dazzle-dusk-theme GitHub repo. The hosted still is a night bay view with a suspension bridge in cyan light, magenta-lit boats, and a cyan-magenta skyline; the other three images are a pier at sunset over still water, a deer silhouette made of multicolored code on a dark field, and four vertical teal-to-rose stripes bending onto a dark floor plane.",
     "tags": [
       "theme",
       "wallpaper",
@@ -65755,7 +65755,7 @@
   {
     "id": "ai-dico-classic-desktop",
     "kind": "plugin",
-    "title": "AI_Dico: Builds Classic Desktop on Omarchy Traditional Desktop Mode on Dev",
+    "title": "AI_Dico: Is Building Classic Desktop on Top of Omarchy's Traditional Desktop Mode on Dev",
     "summary": "AI_Dico says 'Omarchy just landed a \"traditional desktop\" mode on Dev: floating workspaces + a dock.' and \"I'm building Classic Desktop on top of it. Pick Windows or Mac and your hands feel at home: taskbar & Start menu, Win/⌘+arrow snapping, Alt+Tab with previews.\" The still shows a light Alt+Tab overlay over Notes and Files windows with Notes/Files/Terminal/Browser previews, floating Alt and Tab keys, a pill \"+ Classic Desktop · Windows preset\", and a centered taskbar.",
     "tags": [
       "classic-desktop",
@@ -65780,7 +65780,7 @@
   },
   {
     "id": "erikrjohansson-mouse-hotkey-wheel",
-    "kind": "hardware",
+    "kind": "plugin",
     "title": "erikrjohansson: A Mouse Hotkey Wheel for Omarchy",
     "summary": "erikrjohansson says \"Of course my Omarchy machine should have a Mouse Hotkey Wheel where I can run any app, action or whatever I want with a flick of the wrist.\" A follow-up adds \"Now your Omarchy machine can have a Mouse Hotkey Wheel too!!! Link to repo below.\" The still shows a rainy-window desktop with a circular \"Hotkey Wheel\" radial menu (Screenshot, Browser, Terminal, music slot), a \"Slot 2 - Terminal\" Omarchy actions picker, a calculator, a media player for \"We Can Fix Everything\", and a code editor open on hotkey-wheel BarWidget.qml.",
     "tags": [
@@ -65833,7 +65833,7 @@
   {
     "id": "redp314-local-dictation-photo-frame",
     "kind": "hardware",
-    "title": "redp314: Runs Wispr Flow-Style Dictation Locally on a £50 Photo Frame Under Native Omarchy",
+    "title": "redp314: Runs Wispr Flow-Style Dictation Locally on a £50 Photo Frame Running Native Omarchy",
     "summary": "redp314 says they \"Just managed to get Wispr Flow-style dictation running fully LOCALLY on a £50 photo frame running native @Omarchy!\" and \"I talk, and a speech model on the frame's own 1GHz 32-bit chip with 1GB of RAM transcribes it and types it out, no cloud at all,\" with the Mac sending audio because the frame has no mic, \"just around 1s of latency!\" The still is a light-bezel photo frame showing a terminal with \"Local speech model on the frame. Speak:\" and \"This is a test.\" plus a block cursor, with a Rubik's Cube and cables beside it.",
     "tags": [
       "dictation",
@@ -65911,8 +65911,8 @@
   {
     "id": "martiano-superwhisper-partnership",
     "kind": "idea",
-    "title": "martiano: Omarchy Is Teaming Up With Superwhisper",
-    "summary": "martiano says \"Guys the original post is accidental misinformation, my bad.\" then \"Omarchy is teaming up with @superwhisper!\" and \"This is actually very cool because I used superwhisper for a long time, I love the idea of having all my dictations running locally,\" adding they know it is \"@karpathy's favorite tool for the job.\" The image is a 3D lime-green pixel \"OMARCHY\" wordmark threaded through a silver rounded triangle on a dark field.",
+    "title": "martiano: Says Omarchy Is Teaming Up With Superwhisper, Correcting an Earlier Wispr Flow Post",
+    "summary": "martiano says \"Guys the original post is accidental misinformation, my bad.\" about their quoted post saying Wispr Flow and Omarchy were working together, then \"Omarchy is teaming up with @superwhisper!\" and \"This is actually very cool because I used superwhisper for a long time, I love the idea of having all my dictations running locally,\" adding they know it is \"@karpathy's favorite tool for the job.\" The image is a 3D lime-green pixel \"OMARCHY\" wordmark threaded through a silver rounded triangle on a dark field.",
     "tags": [
       "superwhisper",
       "dictation",
@@ -66041,7 +66041,7 @@
     "id": "monoooki-omarchy-tokyo-night-lt",
     "kind": "idea",
     "title": "monoooki: Lightning-Talk Slides From Omarchy Tokyo Night",
-    "summary": "monoooki says (in Japanese and English) they gave a lightning talk at Omarchy Tokyo Night and shares slides plus a blog post. The hosted still is the \"Palette Forge (Early / 初期)\" slide: a color palette JSON with purple #BCB3EA feeding AI app templates into builds for VS Code, Obsidian, and Omarchy; the other images are a \"Theme TBD\" title card, a \"YDD: Yoroshiku-Driven Development\" bad-vs-good panda comic, and a \"Trust. Believe. Delegate.\" slide with Japanese lines and an English gloss \"Know what you want. Know what you want to build.\" / \"You don't have to know everything to go a long way.\"",
+    "summary": "monoooki writes in Japanese and in their own English \"I gave a lightning talk at Omarchy Tokyo Night. The slides are here — see the blog for details.\", linking their blog post. The hosted still is the \"Palette Forge (Early / 初期)\" slide: a color palette JSON with purple #BCB3EA feeding AI app templates into builds for VS Code, Obsidian, and Omarchy; the other images are a \"Theme TBD\" title card, a \"YDD: Yoroshiku-Driven Development\" bad-vs-good panda comic, and a \"Trust. Believe. Delegate.\" slide with Japanese lines and an English gloss \"Know what you want. Know what you want to build.\" / \"You don't have to know everything to go a long way.\"",
     "tags": [
       "tokyo-night",
       "lightning-talk",
@@ -66145,7 +66145,7 @@
     "id": "martiano-tokyo-night-meetup-dhh",
     "kind": "other",
     "title": "martiano: Meets dhh at the Omarchy Tokyo Night Meetup",
-    "summary": "martiano says \"Finally met the legendary @dhh!\" and \"So cool to go to the Omarchy meetup in Tokyo, I could also meet the local community and actual Try Omarchy users!!!\" They add \"I gave a talk about Omarchy on Mac, where we stand and where we see it going.\" The photo is martiano in a light sweatshirt beside dhh in a black pixel \"OMARCHY\" tee, arm around the shoulder, in an office hallway by wood paneling and an OPTiM sign with Japanese text.",
+    "summary": "martiano says \"Finally met the legendary @dhh!\" and \"So cool to go to the Omarchy meetup in Tokyo, I could also meet the local community and actual Try Omarchy users!!!\" They add \"I gave a talk about Omarchy on Mac, where we stand and where we see it going.\" The photo is two smiling people posing together, one in a light sweatshirt and one in a black pixel \"OMARCHY\" tee, in an office hallway by wood paneling and an OPTiM sign with Japanese text.",
     "tags": [
       "meetup",
       "tokyo-night",
