@@ -65115,7 +65115,7 @@
   {
     "id": "huacnlee-omdrop-airdrop-iphone",
     "kind": "plugin",
-    "title": "huacnlee: Found a Tool That Can Use AirDrop on Omarchy, but Would Rather Keep LocalSend and Omasend",
+    "title": "huacnlee: Finds a Tool That Can Use AirDrop on Omarchy, but Would Rather Keep LocalSend and Omasend",
     "summary": "huacnlee writes (in Chinese) \"找到 Omarchy 上可以用 AirDrop 的工具了。\" (\"Found a tool that can use AirDrop on Omarchy.\") and \"能与 iPhone、iPad、Mac 通过 AirDrop 互传文件，就是安装有点麻烦，而且第一次上去我还没接通，让 AI 改了防火墙。\" (\"It can send files back and forth with iPhone, iPad and Mac via AirDrop, it's just that installing is a bit of a hassle, and the first time I tried I couldn't connect yet, so I had AI change the firewall.\"). They end \"都这么麻烦，不如继续让 iOS 用 LocalSend，macOS 和 Omarchy 用 Omasend，更简单一些。\" (\"If it's all this much hassle, might as well keep iOS on LocalSend and macOS and Omarchy on Omasend, which is a bit simpler.\"), linking the brentkearney/omdrop-plugin and huacnlee/omasend repos. The post is text-only.",
     "tags": [
       "airdrop",
