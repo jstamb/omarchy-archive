@@ -66276,8 +66276,8 @@
   {
     "id": "dhh-aur-reminder-own-repo",
     "kind": "idea",
-    "title": "dhh: Omarchy Does Not Use AUR for Install, and May Drop It as an Option",
-    "summary": "dhh says \"Reminder: Omarchy doesn't use AUR for install or any of its recommended options. We moved off all that a long time ago.\" and asks \"But maybe it's even time to drop offering AUR as an option out of the box? Our own package repository can just expand to capture whatever most people need.\" The post is text-only.",
+    "title": "dhh: Omarchy Does Not Use AUR for Install, and Asks Whether to Drop It as an Option",
+    "summary": "dhh says \"Reminder: Omarchy doesn't use AUR for install or any of its recommended options. We moved off all that a long time ago.\" and asks \"But maybe it's even time to drop offering AUR as an option out of the box? Our own package repository can just expand to capture whatever most people need.\" The post quotes a report of fake yay packages with malware in their install scripts and is text-only.",
     "tags": [
       "aur",
       "packages",
@@ -66438,8 +66438,8 @@
   {
     "id": "omarchyupdates-agent-cursors",
     "kind": "plugin",
-    "title": "OmarchyUpdates: trycua Gives Agents Their Own Cursors Alongside the User on Omarchy",
-    "summary": "OmarchyUpdates says \"Your AI takes over the desktop. So you stop using it.\" and \"That's the frustration @trycua is tackling on Omarchy: giving agents their own cursors so they can work alongside you.\" They add \"You keep your window. The agent interacts with another.\" and that \"The current Hyprland integration is experimental, with limited app support,\" quoting a trycua video. The still is a dark trycua-style graphic of a koala mascot with a headset and green square logo, with the line \"...have to let go of your mouse.\"",
+    "title": "OmarchyUpdates: trycua Is Working on Giving Agents Their Own Cursors Alongside the User on Omarchy",
+    "summary": "OmarchyUpdates says \"Your AI takes over the desktop. So you stop using it.\" and \"That's the frustration @trycua is tackling on Omarchy: giving agents their own cursors so they can work alongside you.\" They add \"You keep your window. The agent interacts with another.\", \"The video illustrates that idea.\" and that \"The current Hyprland integration is experimental, with limited app support,\" quoting a trycua video. The still is a dark trycua-style graphic of a cartoon koala raising its hands, in a dark top with a green square logo, with the line \"...have to let go of your mouse.\"",
     "tags": [
       "trycua",
       "agents",
@@ -66575,7 +66575,7 @@
   {
     "id": "gomegomee3-magnify-dock-fork",
     "kind": "plugin",
-    "title": "gomegomee3: Magnify Dock Fork Drops Colored Tiles and Uniforms Icon Sizing",
+    "title": "gomegomee3: A Magnify Dock Fork With an Option to Drop Colored Tiles and Uniform Icon Sizing",
     "summary": "gomegomee3 says they built on @devsec_ai's Magnify Dock for Omarchy, with a fork that adds an option to drop the colored tiles behind icons and \"macOS-style uniform icon sizing: padded, edge-to-edge and round icons now line up,\" linking ioiohori/omarchy-magnify-dock. The still is a before/after of the app grid and dock: left \"Before (upstream)\" with colored tiles, right \"After: no tiles + uniform icon size\" with floating icons on a dark city wallpaper.",
     "tags": [
       "magnify-dock",
@@ -66685,7 +66685,7 @@
   {
     "id": "badenpiland-omareader-0-2-2",
     "kind": "plugin",
-    "title": "badenpiland: omareader v0.2.2 Syncs Chromium-Family Pages to the Active Omarchy Theme",
+    "title": "badenpiland: omareader v0.2.2 Syncs Chromium-Family Pages to the Active Omarchy Theme, With a PR to Add It to the Official Omarchy Packages",
     "summary": "badenpiland says \"omareader v0.2.2 is out, and I just opened a PR to get it into the official Omarchy packages\" and that it \"syncs Chromium, Chrome, Brave, and Edge pages to your active Omarchy theme, and they update live when you switch themes,\" linking the omarchy-pkgs PR and badenpiland/omareader, with Firefox \"in the works.\" The post is text-only.",
     "tags": [
       "omareader",
@@ -66872,7 +66872,7 @@
     "id": "manateelazycat-grim-null-patch",
     "kind": "idea",
     "title": "manateelazycat: Patches Omarchy's grim Locally for an Upstream Null-Pointer Fix",
-    "summary": "manateelazycat says (translated) they could not stand crashing many times a day, so they manually compiled a patched grim for Omarchy, and tells @dhh that Omarchy's grim has a serious null-pointer bug already fixed upstream on September 10 and hopes the Arch Linux package updates soon. The still is a dark completion note that grim is installed as local patch 1.5.0-2.1 with the upstream null-pointer fix, gallery changes were reverted, the plugin calls fixed /usr/bin/grim, crash and 51 plugin tests plus window screenshots passed, and PKGBUILD grim-backport-kq8v76ap was kept for rollback.",
+    "summary": "manateelazycat says (translated) they could not stand crashing more than 20 times a day, so they manually compiled a patched grim for Omarchy, and tells @dhh that Omarchy's grim has a serious null-pointer bug already fixed upstream on September 10 and hopes the Arch Linux package updates soon. The still is a dark completion note that grim is installed as local patch 1.5.0-2.1 with the upstream null-pointer fix, gallery changes were reverted, the plugin calls fixed /usr/bin/grim, crash and 51 plugin tests plus window screenshots passed, and PKGBUILD grim-backport-kq8v76ap was kept for rollback.",
     "tags": [
       "grim",
       "wayland",
