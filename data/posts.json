@@ -66981,7 +66981,7 @@
     "id": "omarchyupdates-m4-air-running",
     "kind": "hardware",
     "title": "OmarchyUpdates: StudioXRadio Has Omarchy Running on an M4 MacBook Air",
-    "summary": "OmarchyUpdates says \"You love your MacBook's hardware. You just wish it ran Omarchy.\" and that @StudioXRadio \"got Omarchy fully installed and running on an M4 MacBook Air,\" with a video of it up on the Air, and that they are \"fixing the last few kinks before opening up the repo,\" ending \"Would you put Omarchy on your MacBook?\" The still is an open silver MacBook on a black box showing a black splash with a glitched cyan \"OMARCHY\" wordmark.",
+    "summary": "OmarchyUpdates says \"You love your MacBook's hardware. You just wish it ran Omarchy.\" and that @StudioXRadio \"got Omarchy fully installed and running on an M4 MacBook Air,\" with a video of it up on the Air, and that they are \"fixing the last few kinks before opening up the repo,\" ending \"Would you put Omarchy on your MacBook?\" The still is an open silver MacBook on a black box showing a black splash with a glitched multicolored pixel \"OMARCHY\" wordmark.",
     "tags": [
       "m4",
       "macbook-air",
@@ -67138,7 +67138,7 @@
   {
     "id": "smgdkngt-werkbank",
     "kind": "plugin",
-    "title": "smgdkngt: Builds Werkbank, a Claude Desktop App That Matches Omarchy",
+    "title": "smgdkngt: Builds Werkbank, a Desktop App for Claude Code Sessions That Matches Omarchy",
     "summary": "smgdkngt says they liked the Claude desktop app but \"it just didn't match my Omarchy desktop,\" so they built Werkbank: \"One master session runs all my other Claude Code sessions, and Werkbank shows what each of them is up to. The colours match now.\" The still is a three-column Werkbank UI with Masters/Server session lists, a center chat about Bash starter sessions, and a right activity feed marked \"1 asking · 2 busy · 2 waiting.\"",
     "tags": [
       "werkbank",
@@ -67216,8 +67216,8 @@
   {
     "id": "ai-dico-classic-desktop-vm",
     "kind": "idea",
-    "title": "AI_Dico: Is Building Classic Desktop on a Test VM After Tokyo Night at the Meetup",
-    "summary": "AI_Dico says \"Omarchy Tokyo Night looked amazing,\" describes watching from Seoul, and that they are \"turning that into code\" for Classic Desktop on a test VM: \"Windows taskbar & Start menu, inside Omarchy's own bar,\" \"Alt+Tab across workspaces,\" and \"a settings panel that shows exactly what changes before you switch,\" ending in Japanese. The still is a \"Switch to Mac?\" panel listing bar and dock changes and Super shortcuts over a bottom taskbar. The other images show Classic Desktop settings presets (Windows/Mac/General), a Search apps Start menu with Pinned apps, and related UI.",
+    "title": "AI_Dico: Is Building Classic Desktop on a Test VM, Inspired by the Omarchy Tokyo Night Meetup",
+    "summary": "AI_Dico says \"Omarchy Tokyo Night looked amazing,\" describes watching from Seoul, and that they are \"turning that into code\" for Classic Desktop on a test VM: \"Windows taskbar & Start menu, inside Omarchy's own bar,\" \"Alt+Tab across workspaces,\" and \"a settings panel that shows exactly what changes before you switch,\" ending in Japanese \"東京のみなさん、うらやましいです！\" (\"Everyone in Tokyo, I'm jealous!\"). The still is a \"Switch to Mac?\" panel listing bar and dock changes and Super shortcuts over a bottom taskbar. The other images show Classic Desktop settings presets (Windows/Mac/General), a Search apps Start menu with Pinned apps, and related UI.",
     "tags": [
       "classic-desktop",
       "tokyo-night",
@@ -67232,9 +67232,7 @@
     "image": "/images/posts/ai-dico-classic-desktop-vm.webp",
     "image_hosted": true,
     "featured": false,
-    "related_theme_ids": [
-      "tokyo-night"
-    ],
+    "related_theme_ids": [],
     "related_plugin_ids": [],
     "seen_on": null,
     "device": null,
@@ -67244,7 +67242,7 @@
   {
     "id": "luth-v-m4-air-audio",
     "kind": "hardware",
-    "title": "luth_v_: Headphone Jack and Mic Work on Omarchy M4 Air",
+    "title": "luth_v_: Gets the Headphone Jack and Mic Working on Omarchy M4 Air and Is Shipping It",
     "summary": "luth_v_ says \"Headphone jack + mic is now working on Omarchy M4 Air.. shipping.\" The still is a laptop screen in a Google Meet call with a dinosaur avatar, a Headset Microphone input selected, and a green tile labeled \"omarchy.\"",
     "tags": [
       "m4",
@@ -67270,8 +67268,8 @@
   {
     "id": "tahayvr-local-semantic-search",
     "kind": "plugin",
-    "title": "tahayvr: Has Local Semantic Search in Omarchy",
-    "summary": "tahayvr says \"I now have local semantic search in @omarchy.\" The still is a dark search window querying \"omarchist logo\" with Photos highlighted, results for Omarchist and Postcard screenshots, \"16 results · 43 ms,\" and shortcuts including reveal and copy.",
+    "title": "tahayvr: Sets Up Local Semantic Search in Omarchy",
+    "summary": "tahayvr says \"I now have local semantic search in @omarchy,\" quoting their own earlier post \"I need this on Omarchy!\" The still is a dark search window querying \"omarchist logo\" with Photos highlighted, results for Omarchist and Postcard screenshots, \"16 results · 43 ms,\" and shortcuts including reveal and copy.",
     "tags": [
       "semantic-search",
       "local",
@@ -67296,7 +67294,7 @@
   {
     "id": "dpskftw-layout-memory",
     "kind": "plugin",
-    "title": "dpskftw: Ships Keyboard Layout Memory, an Omarchy Plugin",
+    "title": "dpskftw: Makes Keyboard Layout Memory, a Small Omarchy Plugin",
     "summary": "dpskftw says they \"Made a small Omarchy plugin: Keyboard Layout Memory\" that \"remembers the keyboard layout per app and switches back automatically when you change windows\" and \"Survives restarts,\" linking dpsk/omarchy-layout-memory. The post is text-only.",
     "tags": [
       "keyboard",
@@ -67427,7 +67425,7 @@
   {
     "id": "studioxradio-m4-air-4464mhz",
     "kind": "hardware",
-    "title": "StudioXRadio: Hits a Median 4464 MHz Clock on the M4 Air CPU via Omarchy, With a Predictive Guard Aiming to Release",
+    "title": "StudioXRadio: Reports a Median 4464 MHz Clock on the M4 Air CPU via Omarchy, With a Predictive Guard Due for Release",
     "summary": "StudioXRadio says they \"just achieved a median clock speed of 4464mhz in the m4 air cpu via Omarchy,\" explaining M1/M2 firmware thermal limits, partial M3 support, and that \"M4 is different because the firmware never throttles for heat, which is why I built a predictive guard,\" adding \"This will release later today.\" The post is text-only.",
     "tags": [
       "m4",
