@@ -67590,7 +67590,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "anavarre.lightning"
+    ],
     "id": "anavarre-lightning",
     "kind": "plugin",
     "title": "anavarre: Previews Lightning, an Upcoming Keyword URL Launcher Plugin for Omarchy",
@@ -68974,7 +68976,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.jeremydixon22.screensafe"
+    ],
     "id": "ocdjeremy-screensafe",
     "kind": "plugin",
     "title": "ocdjeremy: ScreenSafe, Screensavers for Omarchy Made of Data, Not Code",
@@ -69630,7 +69634,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.jeocrypto.glass-dock"
+    ],
     "id": "jeocryp-glass-dock",
     "kind": "plugin",
     "title": "JeoCryp: Glass Dock, a Pixel-Sharp Auto-Hiding Dock That Runs Inside the Omarchy Shell",
@@ -69967,7 +69973,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "anavarre.lightning"
+    ],
     "id": "anavarre-lightning-marketplace",
     "kind": "plugin",
     "title": "anavarre: Lightning Is Out on the Omarchy Marketplace",
@@ -70359,7 +70367,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.jeremydixon22.screensafe"
+    ],
     "id": "ocdjeremy-screensafe-laser-code",
     "kind": "plugin",
     "title": "ocdjeremy: ScreenSafe Gets Its First Omarchy Community Pack, Laser Code",
@@ -70385,7 +70395,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.simonschubert.omalauncher"
+    ],
     "id": "simonschubert-omalauncher-widgets-plugin",
     "kind": "plugin",
     "title": "simonschubert: Omalauncher Omarchy Plugin Is Approved, for Creating and Sharing Widgets Directly From Omarchy",
@@ -70491,7 +70503,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.ahmadrun.prayer-times"
+    ],
     "id": "itsahmadz-prayer-times",
     "kind": "plugin",
     "title": "itsAhmadz: Prayer Times Plugin for the Omarchy Bar Is Accepted to the Marketplace",
