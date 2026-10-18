@@ -1,0 +1,100 @@
+name: Deploy (D1 + Workers)
+
+# validate -> D1 diff sync -> R2 changed images -> build + deploy -> purge changed cache tags.
+# Writes scale with what changed in the push, never with archive size.
+#
+# Off until the repo variable D1_DEPLOY_ENABLED is "true", so merging this
+# before the Cloudflare resources exist does nothing.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'sync mode: diff (normal), seed (initial load, one budgeted chunk per run), full (drift repair), verify (read-only)'
+        type: choice
+        options: [diff, seed, full, verify]
+        default: diff
+      images_all:
+        description: 'upload every image to R2 (first run only; safe to repeat)'
+        type: boolean
+        default: false
+  schedule:
+    # Weekly read-only drift check (git vs D1 hashes; reads only).
+    - cron: '17 9 * * 1'
+
+# One sync at a time: scrapes, SEO polishes and manual runs queue, never race.
+concurrency:
+  group: d1-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: vars.D1_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+      CF_ZONE_ID: ${{ vars.CF_ZONE_ID }}
+      PER_SYNC_BUDGET: ${{ vars.PER_SYNC_BUDGET || '20000' }}
+      DAILY_BUDGET: ${{ vars.DAILY_BUDGET || '60000' }}
+      MODE: ${{ github.event_name == 'schedule' && 'verify' || inputs.mode || 'diff' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # sync diffs sync_state.commit..HEAD
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The gate. Invalid records never reach D1.
+      - name: Validate records
+        run: node bot/validate.mjs
+
+      - name: Sync D1 (changed rows only, budget-guarded)
+        id: d1
+        run: |
+          set +e
+          flag=""
+          case "$MODE" in seed) flag="--seed";; full) flag="--full";; verify) flag="--verify";; esac
+          node bot/sync-d1.mjs $flag --changed-out d1-changed.json
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ $code -eq 3 ]; then
+            echo "::warning::D1 seed not complete; skipping deploy. Run this workflow with mode=seed."
+            exit 0
+          fi
+          if [ $code -eq 2 ]; then echo "::error::D1 budget guard aborted the sync; nothing was written."; fi
+          if [ $code -eq 4 ]; then echo "::warning::D1 drift found; run mode=full to repair."; exit 0; fi
+          exit $code
+
+      - name: Sync R2 (changed images only)
+        if: steps.d1.outputs.code == '0' && env.MODE != 'verify'
+        run: |
+          if [ "${{ inputs.images_all }}" = "true" ]; then
+            node bot/sync-r2.mjs --all --changed-out d1-changed.json
+          else
+            node bot/sync-r2.mjs --changed-out d1-changed.json
+          fi
+
+      - name: Build
+        if: steps.d1.outputs.code == '0' && env.MODE != 'verify'
+        run: npx astro build && node bot/count-dist.mjs
+
+      # Unchanged assets are skipped by hash; the footprint is ~230 files regardless of archive size.
+      - name: Deploy Worker
+        if: steps.d1.outputs.code == '0' && env.MODE != 'verify'
+        run: npx wrangler deploy
+
+      - name: Purge changed pages
+        if: steps.d1.outputs.code == '0' && env.MODE != 'verify'
+        run: node bot/purge-cache.mjs d1-changed.json

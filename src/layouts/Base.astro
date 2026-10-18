@@ -3,7 +3,8 @@ import markSvg from '../../public/brand/omarchy-mark.svg?raw';
 import Sidebar from '../components/Sidebar.astro';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 import '../styles/global.css';
-import { counts, formatDate, formatIndexStamp, meta } from '../lib/content';
+import { formatDate, formatIndexStamp } from '../lib/format';
+import { counts, meta } from '../lib/summary';
 
 interface Props {
   title?: string;
@@ -49,6 +50,7 @@ const analyticsHost = new URL(meta.site_url).hostname;
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Omarchy Archive" href="/feed.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {/* Both faces paint above the fold — the UI face everywhere, the wordmark

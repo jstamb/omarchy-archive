@@ -1,5 +1,4 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import ArchiveActions from '../../components/ArchiveActions.astro';
 import Card from '../../components/Card.astro';
 import Lightbox from '../../components/Lightbox.astro';
@@ -7,52 +6,31 @@ import CommandBox from '../../components/CommandBox.astro';
 import SourceBadge from '../../components/SourceBadge.astro';
 import TagList from '../../components/TagList.astro';
 import Base from '../../layouts/Base.astro';
-import {
-  authorLabel,
-  byNewest,
-  formatDate,
-  hostOf,
-  pluginById,
-  posts,
-  statusLabel,
-  themeById,
-  type Post,
-} from '../../lib/content';
-import { creatorHref } from '../../lib/creators';
+import { cacheHeaders, env, getPost, postPageData } from '../../lib/db';
+import { authorLabel, formatDate, hostOf, pluginSlug, statusLabel } from '../../lib/format';
+import { creatorHref, creatorSlug } from '../../lib/summary';
 import { isXStatusUrl } from '../../lib/x-url';
 
-export const getStaticPaths = (() =>
-  posts.map((post) => ({ params: { id: post.id }, props: { post } }))) satisfies GetStaticPaths;
+// On demand from D1, cached at the edge; purged by tag after each sync.
+export const prerender = false;
 
-interface Props {
-  post: Post;
-}
+const { DB } = env(Astro.locals);
+const post = await getPost(DB, Astro.params.id ?? '');
+if (!post) return new Response('Not found', { status: 404, headers: { 'content-type': 'text/plain' } });
 
-const { post } = Astro.props;
+const { relatedThemes, relatedPlugins, replacement, nearby } = await postPageData(DB, post);
 const authorLink = creatorHref(post.author);
 const state = statusLabel(post.status);
-const replacement = post.replaced_by ? posts.find((other) => other.id === post.replaced_by) : null;
-
-const relatedThemes = post.related_theme_ids
-  .map((id) => themeById.get(id))
-  .filter((theme) => theme !== undefined);
-const relatedPlugins = post.related_plugin_ids
-  .map((id) => pluginById.get(id))
-  .filter((plugin) => plugin !== undefined);
-
-// Same kind, sharing at least one tag — the "more like this" row.
-const nearby = byNewest(
-  posts.filter(
-    (other) =>
-      other.id !== post.id &&
-      other.kind === post.kind &&
-      other.tags.some((tag) => post.tags.includes(tag)),
-  ),
-).slice(0, 3);
+cacheHeaders(Astro.response.headers, [
+  `post:${post.id}`,
+  ...(creatorSlug(post.author) ? [`creator:${creatorSlug(post.author)}`] : []),
+  ...post.related_plugin_ids.map((id) => `plugin:${pluginSlug(id)}`),
+]);
 
 // Search facet: setups stay setups, ideas read as guides, every other post kind
 // is a plain post — community posts about a theme/plugin are not the catalog entry.
 const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'guide' : 'post';
+
 ---
 
 <Base

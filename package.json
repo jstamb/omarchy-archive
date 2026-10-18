@@ -11,15 +11,20 @@
     "precommit": "node bot/precommit.mjs",
     "test": "node --test \"bot/**/*.test.mjs\"",
     "test:browser": "playwright test",
-    "build": "node bot/validate.mjs && astro build && pagefind --site dist",
-    "preview": "astro preview",
+    "build": "node bot/validate.mjs && astro build && node bot/count-dist.mjs",
+    "preview": "wrangler dev",
     "check": "astro check",
     "og": "node bot/make-og.mjs",
     "ingest:themes": "node bot/ingest-sources.mjs themes",
     "ingest:colors": "node bot/ingest-sources.mjs themes-colors",
     "ingest:plugins": "node bot/ingest-sources.mjs plugins",
     "ingest:setups": "node bot/ingest-sources.mjs setups",
-    "ingest:ideas": "node bot/ingest-sources.mjs ideas"
+    "ingest:ideas": "node bot/ingest-sources.mjs ideas",
+    "db:migrate:local": "wrangler d1 migrations apply omarchy-archive --local",
+    "db:local": "npm run db:migrate:local && node bot/sync-d1.mjs --local --seed --budget 1000000 --daily-budget 1000000",
+    "sync:d1": "node bot/sync-d1.mjs",
+    "sync:r2": "node bot/sync-r2.mjs",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.13",
@@ -27,6 +32,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@cloudflare/workers-types": "^4.20260702.1",
     "@playwright/test": "^1.63.0",
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",

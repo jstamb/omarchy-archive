@@ -33,3 +33,4 @@ pnpm-debug.log*
 # bot scratch space
 bot/.cache/
 bot/tmp/
+src/generated/

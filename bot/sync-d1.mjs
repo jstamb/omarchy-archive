@@ -349,7 +349,16 @@ export async function runSync(options) {
   }
 
   const last = selected.at(-1);
-  const tailStatements = [stateSql('cost_model', JSON.stringify(costModel))];
+  const tailStatements = [];
+  if (!selected.length) {
+    // Nothing differed from D1 (re-run, or already applied): at most advance the cursor.
+    if (complete && state.commit !== toSha) tailStatements.push(stateSql('commit', toSha));
+    const tailOnly = tailStatements.length ? await exec.run(tailStatements) : [];
+    const w = tailOnly.reduce((n, r) => n + r.rows_written, 0);
+    log(`nothing to write: ${w} rows written (cursor ${tailStatements.length ? 'advanced' : 'unchanged'})`);
+    return { status: mode === 'seed' ? 'seed-complete' : 'applied', exitCode: 0, written: w, estimate: 0, selected: 0, total: 0, tags: [], to: toSha };
+  }
+  tailStatements.push(stateSql('cost_model', JSON.stringify(costModel)));
   if (mode === 'seed') {
     tailStatements.push(
       stateSql('seed', JSON.stringify({ to: toSha, done: complete, last: last ? `${last.table}:${last.id}` : null, remaining: ops.length - selected.length, at: now.toISOString() })),

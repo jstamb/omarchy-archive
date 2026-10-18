@@ -1,16 +1,9 @@
 ---
 import Pixels from './Pixels.astro';
 import TagList from './TagList.astro';
-import {
-  authorLabel,
-  hostOf,
-  pluginSlug,
-  type FeedItem,
-  type Plugin,
-  type Post,
-  type Theme,
-} from '../lib/content';
-import { creatorHref } from '../lib/creators';
+import type { FeedItem, Plugin, Post, Theme } from '../lib/content';
+import { authorLabel, hostOf, pluginSlug } from '../lib/format';
+import { creatorHref } from '../lib/summary';
 import { isXStatusUrl } from '../lib/x-url';
 
 type Props = FeedItem & {

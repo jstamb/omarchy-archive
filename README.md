@@ -181,6 +181,28 @@ Full field reference: [`bot/schema.json`](bot/schema.json).
 
 Changed your mind later? Open an issue and your setup comes down. No argument.
 
+## How the site is served (D1 + Workers)
+
+`data/*.json` in git is the source of truth, and `node bot/validate.mjs` is the gate. The site runs on Cloudflare Workers with a D1 database as a derived read model:
+
+- **Prebuilt** (about 230 files, flat as the archive grows): home, listing and index pages, the 176 theme pages, `/sitemap-static.xml`, JS/CSS/fonts.
+- **On demand from D1**, edge-cached and purged by `Cache-Tag`: `/posts/<id>/`, `/plugins/<slug>/`, `/creators/<slug>/`, `/api/search.json` (FTS5 search, replacing Pagefind), `/sitemap.xml` (an index with chunked children) and `/feed.xml` (RSS).
+- **Images** live in R2 and the Worker serves `/images/*` from it. `public/images` stays in git, and `public/.assetsignore` keeps it out of the asset upload. Records keep their relative `/images/...` values.
+
+On every push to `main`, `.github/workflows/deploy.yml` runs validate, then `bot/sync-d1.mjs`, `bot/sync-r2.mjs`, `astro build`, `wrangler deploy` and `bot/purge-cache.mjs`.
+
+**Writes follow changes, not archive size.** `bot/sync-d1.mjs` diffs `sync_state.commit..HEAD` and hashes every record in each changed file. It re-checks only the differing ids against the hashes stored in D1, so a re-run writes nothing. Before writing anything it checks a budget (`PER_SYNC_BUDGET`, default 20,000 rows, and `DAILY_BUDGET`, default 60,000 rows, read from D1 analytics or a ledger) and exits 2 with no writes if the sync would exceed it. Plugin `stars` and `last_seen_at` are left out of the hash, so catalog churn costs nothing. Measured locally: a 25-post scrape writes about 105–110 rows, and an SEO polish writes 8–55.
+
+```sh
+npm run db:local                         # local D1: migrate + full seed from this checkout
+npm run preview                          # wrangler dev: the real Worker on the local D1
+node bot/sync-d1.mjs --local --dry-run   # what a sync would write
+node bot/sync-d1.mjs --seed              # remote first load: one budgeted chunk per run, resumable
+node bot/sync-d1.mjs --verify            # read-only drift check (exit 4 on drift); --full repairs it
+```
+
+Schema changes go in `migrations/` and are applied with `wrangler d1 migrations apply`, never by the sync. If a migration changes how records map to columns, run `--full` afterwards.
+
 ## Credit
 
 This site is a card catalog. The collection belongs to other people.

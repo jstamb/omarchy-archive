@@ -74,7 +74,7 @@ const {
           engine = await loadEngine();
         } catch {
           note.textContent = import.meta.env.DEV
-            ? 'Search index is built by `npm run build` — not available in dev.'
+            ? 'Search needs the local D1 database — run `npm run db:local` first.'
             : 'Search is unavailable right now. Check your connection and try again.';
           all.hidden = true;
           return;

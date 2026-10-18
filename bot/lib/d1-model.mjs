@@ -60,7 +60,7 @@ export const TABLES = [
     file: 'themes.json',
     kind: 'theme',
     volatile: ['last_seen_at'],
-    columns: (r, ord) => ({ id: r.id, author: r.author ?? null, added_at: r.added_at ?? null, ord }),
+    columns: (r, ord) => ({ id: r.id, author: r.author?.trim() || null, added_at: r.added_at ?? null, ord }),
     search: (r) => ({
       type: 'theme',
       url: `/themes/${r.id}/`,
@@ -75,7 +75,7 @@ export const TABLES = [
     volatile: [],
     columns: (r, ord) => ({
       id: r.id,
-      author: r.author ?? null,
+      author: r.author?.trim() || null,
       kind: r.kind ?? null,
       source_platform: r.source_platform ?? null,
       created_at: r.created_at ?? null,
@@ -102,7 +102,7 @@ export const TABLES = [
     columns: (r, ord) => ({
       id: r.id,
       slug: pluginSlug(r.id),
-      author: r.author ?? null,
+      author: r.author?.trim() || null,
       category: r.category ?? null,
       added_at: r.added_at ?? null,
       ord,
