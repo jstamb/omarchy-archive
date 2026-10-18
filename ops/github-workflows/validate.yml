@@ -1,0 +1,90 @@
+name: Validate
+
+# Every pull request runs the same gate the deploy runs, so a submission can be
+# merged on the strength of a green check rather than a local checkout.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history so the preservation baseline resolves — the PR base
+          # sha and the push event.before sha must both be reachable in the
+          # clone, which a shallow fetch would omit.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` on linux/amd64 — the same thing Cloudflare Pages does, so a
+      # lockfile that only works on the author's machine fails here first.
+      - run: npm ci
+
+      # Preservation before the normal gates. This is the one regression the
+      # repo has actually shipped — a data file clobbered so published records
+      # vanish — so it gets the earliest honest signal. The baseline is
+      # event-aware: a pull request measures the checked-out merge result
+      # against the branch it would land on; a push measures against the tip
+      # that was there before it. A brand-new branch reports the all-zero sha,
+      # which preserve.mjs treats as an initial state with nothing to preserve.
+      - name: Preserve published records
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ -n "${PR_BASE:-}" ]; then
+            base="$PR_BASE"
+          else
+            base="$PUSH_BEFORE"
+          fi
+          node bot/preserve.mjs --base "$base"
+
+      # Records first. This is the check that matters for a setup submission,
+      # and its output names the offending field.
+      - name: Validate records
+        run: node bot/validate.mjs
+
+      - name: Validator gates still hold
+        run: npm test
+
+      - name: Typecheck
+        run: npx astro check
+
+      - name: Build
+        run: npm run build
+
+      # Built-site behaviour, against the real Worker (wrangler dev) and a
+      # local D1 seeded from this checkout, so search and the on-demand
+      # detail pages are exercised exactly as deployed.
+      - name: Seed local D1
+        run: npm run db:local
+      - name: Install Chromium for the browser suite
+        run: npx playwright install --with-deps chromium
+
+      - name: Built-site browser checks
+        run: npm run test:browser
+
+      - name: Report
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "### Validation passed" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Records are valid and the site builds. Safe to merge." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Validation failed" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Open the failing step above — the message names the field and the reason." >> "$GITHUB_STEP_SUMMARY"
+            echo "Nothing is wrong with your account or your setup; it is a data fix." >> "$GITHUB_STEP_SUMMARY"
+          fi

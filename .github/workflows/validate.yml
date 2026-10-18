@@ -64,11 +64,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Built-site behaviour, against the real Worker (wrangler dev) and a
-      # local D1 seeded from this checkout, so search and the on-demand
-      # detail pages are exercised exactly as deployed.
-      - name: Seed local D1
-        run: npm run db:local
+      # Built-site behaviour. The search, filter and copy regressions only
+      # reproduce against the real Pagefind index, which exists after a build
+      # and never under astro dev, so these run last on the built dist.
       - name: Install Chromium for the browser suite
         run: npx playwright install --with-deps chromium
 
