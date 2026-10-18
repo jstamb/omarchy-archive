@@ -1,5 +1,139 @@
 [
   {
+    "id": "v4.0.5",
+    "version": "4.0.5",
+    "major": 4,
+    "date": "2026-10-18",
+    "published_at": "2026-10-18T02:50:41Z",
+    "tier": "tick",
+    "score": 4,
+    "headline": "Improvements",
+    "summary": "This release brings a bunch of fixes and refinements to tighten things up as we prep for the next feature release coming soon. Under the hood, it also moves Omarchy onto Qt 6.12, bumps the packages on the stable ring, and brings an updated Omarchy kernel wi…",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "AFOliveira",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "AksharP5",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "atoslins",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Bartok9",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "chemineer1",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "emirb",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "ErikMelton",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "houz42",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "joewinke",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "kwilczynski",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "lalvarezt",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "MicahelE",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "michaeldeby",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "omarchybot",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "outfoxxed",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "paulogeyer",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "selfcrypto",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "silversword411",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "SorenHJohansen",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "stefanoverna",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "Yarlord",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.5",
+    "notes_chars": 3595,
+    "upstream_id": "416169298",
+    "payload_hash": "81e41743ddbfcaeee06e0aaf99125276e845907474326ef9fe096325f29d76e4",
+    "parser_version": 1
+  },
+  {
     "id": "v4.0.4",
     "version": "4.0.4",
     "major": 4,
