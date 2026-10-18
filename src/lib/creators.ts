@@ -1,4 +1,5 @@
 import { plugins, posts, themes, type Plugin, type Post, type Theme } from './content';
+import { slugifyAuthor, uniqueSlug } from '../../bot/lib/creators.mjs';
 
 export interface Creator {
   slug: string;
@@ -8,28 +9,7 @@ export interface Creator {
   posts: Post[];
 }
 
-/** Frozen signature for author URLs. Empty / punctuation-only names become `author`. */
-export function slugifyAuthor(name: string): string {
-  const slug = name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  return slug || 'author';
-}
-
-function uniqueSlug(base: string, taken: Set<string>) {
-  if (!taken.has(base)) {
-    taken.add(base);
-    return base;
-  }
-  let n = 2;
-  while (taken.has(`${base}-${n}`)) n++;
-  const slug = `${base}-${n}`;
-  taken.add(slug);
-  return slug;
-}
+export { slugifyAuthor };
 
 function groupByAuthor<T extends { author: string | null }>(items: T[]) {
   const groups = new Map<string, T[]>();

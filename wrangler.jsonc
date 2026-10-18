@@ -1,0 +1,52 @@
+// Cloudflare Workers (Static Assets) + D1 + R2 for omarchyarchive.com.
+// No secrets live here: the Worker only has bindings. The deploy token is a
+// GitHub Actions secret (CLOUDFLARE_API_TOKEN), never committed.
+//
+// PLACEHOLDER IDS: every value marked REPLACE_ME must be filled in from the
+// output of `wrangler d1 create …` before the first deploy. They are not
+// secrets (an id alone grants nothing), but they are account-specific.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "omarchy-archive",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
+  "observability": { "enabled": true },
+  "vars": {
+    "SITE_URL": "https://omarchyarchive.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "omarchy-archive",
+      "database_id": "REPLACE_ME_PROD_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    { "binding": "IMAGES", "bucket_name": "omarchy-archive-images" }
+  ],
+  "env": {
+    // Preview / parity testing: `wrangler deploy --env staging` -> *.workers.dev
+    "staging": {
+      "name": "omarchy-archive-staging",
+      "vars": { "SITE_URL": "https://omarchy-archive-staging.jstamb.workers.dev" },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "omarchy-archive-staging",
+          "database_id": "REPLACE_ME_STAGING_D1_DATABASE_ID",
+          "migrations_dir": "migrations"
+        }
+      ],
+      "r2_buckets": [
+        { "binding": "IMAGES", "bucket_name": "omarchy-archive-images-staging" }
+      ]
+    }
+  }
+}
