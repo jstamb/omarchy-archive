@@ -70157,7 +70157,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "jobo.field-notes"
+    ],
     "id": "oldjobobo-field-notes",
     "kind": "plugin",
     "title": "OldJobobo: Field Notes, a Floating Sheet of Paper Above the Omarchy Desktop for Sketching and Handing Notes to an Agent",
@@ -71687,7 +71689,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.ivozzz.devnull"
+    ],
     "id": "ivozanotti-devnull-plugin",
     "kind": "plugin",
     "title": "IvoZanotti: Shows a /dev/null Plugin for Omarchy, a Feed Panel for the Social Network for Devs",
@@ -71740,7 +71744,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "neil.clone-keeper"
+    ],
     "id": "neil404-clone-keeper",
     "kind": "other",
     "title": "neil404: Builds Clone Keeper to Keep Edits to a Customized Omarchy Widget While Merging In Upstream Fixes",
