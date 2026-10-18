@@ -71770,7 +71770,7 @@
     "related_plugin_ids": [],
     "id": "joshuaswarren-m6-mac-mini-bring-up",
     "kind": "hardware",
-    "title": "JoshuaSWarren: Has Their Agents Diving In to Bring Up a Mac mini M6 Under Omarchy, Pulling Local AI Benchmarks First",
+    "title": "JoshuaSWarren: Has Their Agents Diving In to Bring Up Omarchy on a Mac mini M6, Pulling Local AI Benchmarks First",
     "summary": "JoshuaSWarren says \"It begins - my agents are diving in to this M6 Mac Mini to bring it up under Omarchy Linux as quickly as possible.\", \"Let's see how long it takes us to get from macOS About screen to Omarchy About screen.\" and \"They're pulling some benchmarks first to see how it performs for local AI.\" In same-thread replies they add \"This isn't going to be the clean, simple installation that the M1, M2 and now M3 have with the Omarchy Mac installer, but still want to document it.\" and that they want \"to get the Linux kernel ready for it so that people can run Omarchy on it\". The image is a macOS About window for a \"Mac mini\" \"M6\" with \"Chip\" \"Apple M6\", \"Memory\" \"32 GB\", \"Startup disk\" \"Macintosh HD\", a blurred row and \"macOS\" \"Golden Gate 27.0\", above a \"More Info...\" button.",
     "author": "JoshuaSWarren",
     "author_url": "https://x.com/JoshuaSWarren",
