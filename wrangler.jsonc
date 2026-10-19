@@ -17,6 +17,12 @@
     "not_found_handling": "none"
   },
   "observability": { "enabled": true },
+  // Zone routes in front of the proxied DNS records (which still CNAME to the
+  // old Pages project, so removing a route falls back to Pages).
+  "routes": [
+    { "pattern": "omarchyarchive.com/*", "zone_name": "omarchyarchive.com" },
+    { "pattern": "www.omarchyarchive.com/*", "zone_name": "omarchyarchive.com" }
+  ],
   "vars": {
     "SITE_URL": "https://omarchyarchive.com"
   },
