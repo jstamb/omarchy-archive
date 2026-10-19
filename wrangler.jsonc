@@ -17,11 +17,10 @@
     "not_found_handling": "none"
   },
   "observability": { "enabled": true },
-  // Zone routes in front of the proxied DNS records (which still CNAME to the
-  // old Pages project, so removing a route falls back to Pages).
+  // Custom domains: the Worker owns the apex and www DNS records.
   "routes": [
-    { "pattern": "omarchyarchive.com/*", "zone_name": "omarchyarchive.com" },
-    { "pattern": "www.omarchyarchive.com/*", "zone_name": "omarchyarchive.com" }
+    { "pattern": "omarchyarchive.com", "custom_domain": true },
+    { "pattern": "www.omarchyarchive.com", "custom_domain": true }
   ],
   "vars": {
     "SITE_URL": "https://omarchyarchive.com"
