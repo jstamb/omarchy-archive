@@ -35,7 +35,7 @@
     // Preview / parity testing: `wrangler deploy --env staging` -> *.workers.dev
     "staging": {
       "name": "omarchy-archive-staging",
-      "vars": { "SITE_URL": "https://omarchy-archive-staging.jstamb.workers.dev" },
+      "vars": { "SITE_URL": "https://omarchy-archive-staging.jordan-05f.workers.dev" },
       "d1_databases": [
         {
           "binding": "DB",
