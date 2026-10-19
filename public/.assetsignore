@@ -1,0 +1,5 @@
+_worker.js
+_routes.json
+# Images are served from R2 by the Worker (src/pages/images/[...path].ts),
+# so they never count against the static-asset file limit.
+images

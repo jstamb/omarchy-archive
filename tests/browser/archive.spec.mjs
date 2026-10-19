@@ -62,12 +62,12 @@ test('pagination and entity filters restore from shared URLs', async ({ page }) 
 });
 
 test('failed index loading offers retry and recovers without a reload', async ({ page }) => {
-  await page.route('**/pagefind/pagefind.js', route => route.abort());
+  await page.route('**/api/search.json*', route => route.abort());
   const response = await page.goto('/search/?q=tailscale');
   expect(response.status()).toBe(200);
   const retry = page.getByRole('button', { name: /retry|try again/i });
   await expect(retry).toBeVisible();
-  await page.unroute('**/pagefind/pagefind.js');
+  await page.unroute('**/api/search.json*');
   await retry.click();
   await expect(page.locator('main [data-search-results] > li').first()).toBeVisible();
 });

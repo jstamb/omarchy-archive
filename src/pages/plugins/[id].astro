@@ -1,34 +1,29 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import ArchiveActions from '../../components/ArchiveActions.astro';
 import Card from '../../components/Card.astro';
 import CommandBox from '../../components/CommandBox.astro';
 import SourceBadge from '../../components/SourceBadge.astro';
 import TagList from '../../components/TagList.astro';
 import Base from '../../layouts/Base.astro';
-import { formatDate, pluginSlug, plugins, postsForPlugin, statusLabel, type Plugin } from '../../lib/content';
-import { creatorHref } from '../../lib/creators';
+import { cacheHeaders, env, getPluginBySlug, pluginPageData } from '../../lib/db';
+import { formatDate, pluginSlug, statusLabel } from '../../lib/format';
+import { creatorHref, creatorSlug } from '../../lib/summary';
 
-export const getStaticPaths = (() =>
-  plugins.map((plugin) => ({
-    params: { id: pluginSlug(plugin.id) },
-    props: { plugin },
-  }))) satisfies GetStaticPaths;
+// On demand from D1, cached at the edge; purged by tag after each sync.
+export const prerender = false;
 
-interface Props {
-  plugin: Plugin;
-}
+const { DB } = env(Astro.locals);
+const plugin = await getPluginBySlug(DB, Astro.params.id ?? '');
+if (!plugin) return new Response('Not found', { status: 404, headers: { 'content-type': 'text/plain' } });
 
-const { plugin } = Astro.props;
-const inTheWild = postsForPlugin(plugin.id);
+const { inTheWild, siblings, replacement } = await pluginPageData(DB, plugin);
 const authorLink = creatorHref(plugin.author);
 const state = statusLabel(plugin.status);
-const replacement = plugin.replaced_by
-  ? plugins.find((other) => other.id === plugin.replaced_by)
-  : null;
-const siblings = plugins
-  .filter((other) => other.id !== plugin.id && other.category === plugin.category)
-  .slice(0, 3);
+cacheHeaders(Astro.response.headers, [
+  `plugin:${pluginSlug(plugin.id)}`,
+  ...(creatorSlug(plugin.author) ? [`creator:${creatorSlug(plugin.author)}`] : []),
+]);
+
 ---
 
 <Base

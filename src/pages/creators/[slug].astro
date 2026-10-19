@@ -1,17 +1,21 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import Card from '../../components/Card.astro';
 import Base from '../../layouts/Base.astro';
-import { allCreators, creatorCount, type Creator } from '../../lib/creators';
+import { cacheHeaders, creatorRecords, env } from '../../lib/db';
+import { creatorNameBySlug } from '../../lib/summary';
 
-export const getStaticPaths = (() =>
-  allCreators().map((creator) => ({
-    params: { slug: creator.slug },
-    props: { creator },
-  }))) satisfies GetStaticPaths;
+// On demand from D1, cached at the edge; purged by tag after each sync.
+export const prerender = false;
 
-const { creator } = Astro.props as { creator: Creator };
-const total = creatorCount(creator);
+const slug = Astro.params.slug ?? '';
+const name = creatorNameBySlug(slug);
+if (!name) return new Response('Not found', { status: 404, headers: { 'content-type': 'text/plain' } });
+
+const records = await creatorRecords(env(Astro.locals).DB, name);
+const creator = { slug, name, ...records };
+const total = creator.themes.length + creator.plugins.length + creator.posts.length;
+cacheHeaders(Astro.response.headers, [`creator:${slug}`]);
+
 ---
 
 <Base

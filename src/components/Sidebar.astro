@@ -1,6 +1,6 @@
 ---
 import Search from './Search.astro';
-import { counts, plugins, themes, timeline } from '../lib/content';
+import { counts, latestRelease } from '../lib/summary';
 
 interface Props {
   /** Current path, trailing slash — for marking the active entry. */
@@ -9,10 +9,10 @@ interface Props {
 
 const { path } = Astro.props;
 
-const bundledThemes = themes.filter((theme) => theme.bundled).length;
-const bundledPlugins = plugins.filter((plugin) => plugin.first_party).length;
+const bundledThemes = counts.bundledThemes;
+const bundledPlugins = counts.firstPartyPlugins;
 const resources = counts.posts - counts.setups;
-const latest = timeline[0];
+const latest = latestRelease;
 
 /*
  * Counts are the point. On an archive, "Plugins 2,153" tells you something
