@@ -6978,7 +6978,9 @@
       "github"
     ],
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "klaudworks.omadoro"
+    ],
     "created_at": "2026-09-09",
     "added_at": "2026-09-09",
     "featured": false,
@@ -9978,7 +9980,9 @@
       "desktop"
     ],
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "marcho78.magnify-dock"
+    ],
     "created_at": "2026-09-11",
     "added_at": "2026-09-11",
     "featured": false,
@@ -22226,7 +22230,9 @@
       "github"
     ],
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.bramvera.haptic-touchpad"
+    ],
     "created_at": "2026-09-19",
     "added_at": "2026-09-19",
     "featured": false,
@@ -22280,7 +22286,9 @@
       "screensaver"
     ],
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.jcarcinogen.blackdrop"
+    ],
     "created_at": "2026-09-19",
     "added_at": "2026-09-19",
     "featured": false,
@@ -25867,7 +25875,9 @@
       "github"
     ],
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "mebazin.pandora"
+    ],
     "created_at": "2026-09-20",
     "added_at": "2026-09-20",
     "featured": false,
@@ -30377,7 +30387,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "igor-alexandrov.pullover"
+    ],
     "featured": false,
     "seen_on": null,
     "source_platform": "x",
@@ -41489,7 +41501,9 @@
   {
     "device": null,
     "form_factor": null,
-    "related_theme_ids": [],
+    "related_theme_ids": [
+      "quattrocento-light"
+    ],
     "related_plugin_ids": [],
     "featured": false,
     "seen_on": null,
@@ -43305,7 +43319,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "darkosxl.agents-cursor"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "varro-cursor-usage-plugin",
@@ -43383,7 +43399,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "thepixelgardener.omarchyform"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "sven-oliver-omarchyform-plugin",
@@ -43616,7 +43634,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "telep.dots"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "telep-odotsy-waybar",
@@ -43777,7 +43797,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "nicknow.workspaces"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "nicknow-workspaces-plugin",
@@ -43988,7 +44010,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "marcho78.o-spotlight"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "devsec-o-spotlight",
@@ -44122,7 +44146,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "ninepointlabs.pocketcasts"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "ninepointlabs-pocketcasts-plugin",
@@ -45945,7 +45971,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "tonibergholm.ruuvi"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "tonibergholm-ruuviomarchy",
@@ -46383,7 +46411,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "petrzpav.trello"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "petrzela123-omarchy-trello",
@@ -46409,7 +46439,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "petrzpav.slack"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "petrzela123-omarchy-slack",
@@ -46553,10 +46585,10 @@
     ],
     "device": null,
     "form_factor": "desktop",
-    "related_theme_ids": [
-      "tokyo-night"
+    "related_theme_ids": [],
+    "related_plugin_ids": [
+      "settings-sync"
     ],
-    "related_plugin_ids": [],
     "seen_on": null,
     "source_platform": "x",
     "id": "isaactopo-settings-sync-backup",
@@ -47062,7 +47094,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.nchudleigh.omac"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "neilsuperduper-omac-mac-nav",
@@ -48012,7 +48046,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.manateelazycat.wave"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "manateelazycat-omarchy-wave",
@@ -49697,7 +49733,9 @@
     "device": null,
     "form_factor": "laptop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "linuxbox.lock"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "linuxbox-quattro-lock-screen-battery",
@@ -49723,7 +49761,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "linuxbox.workspaces"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "linuxbox-named-hyprland-workspaces",
@@ -50063,7 +50103,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.stash-11.dock"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "jayadeep-11-omarchy-dock",
@@ -50737,7 +50779,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.dsecuma.virustotal"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "bquintero-virustotal-for-omarchy",
@@ -51025,7 +51069,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "eastbluewizard.stickies"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "eastbluewizard-omarchy-stickies",
@@ -51553,7 +51599,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "neil.yautja"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "neil404-yautja-mode-predator",
@@ -51685,7 +51733,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "neil.weather"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "neil404-omarchy-neil-weather-plugin",
@@ -52052,7 +52102,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.hancore-linux.traffic-board"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "hancore-linux-github-traffic-plugin",
@@ -53107,7 +53159,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "davidgudovic.omajuke"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "dgudovicdev-omajuke-v0-3-0",
@@ -53159,7 +53213,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "anavarre.miniflux"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "aureliennavarre-omarchy-miniflux-shipped",
@@ -56100,7 +56156,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.davidgudovic.omawrapped"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "dgudovicdev-omawrapped",
@@ -56126,7 +56184,9 @@
     "device": null,
     "form_factor": "desktop",
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.davidgudovic.omalint"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "dgudovicdev-omalint",
@@ -58652,7 +58712,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "nicknow.omatxtvw"
+    ],
     "seen_on": null,
     "source_platform": "x",
     "id": "nicknow-omatxtvw-text-file-viewer",
@@ -62687,7 +62749,9 @@
     "image_hosted": false,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "keasbeexd.vigil"
+    ],
     "seen_on": null,
     "device": null,
     "form_factor": null,
@@ -65272,7 +65336,9 @@
     "image_hosted": false,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "shpaq.omateamcal"
+    ],
     "seen_on": null,
     "device": null,
     "form_factor": null,
