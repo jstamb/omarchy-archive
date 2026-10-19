@@ -11,7 +11,12 @@ export function createExports(manifest: SSRManifest) {
   return {
     default: {
       async fetch(request: unknown, env: Env, ctx: ExecutionContext) {
-        if (new URL((request as Request).url).pathname.startsWith('/images/')) return serveImage(request as never, env.IMAGES, ctx) as never;
+        const url = new URL((request as Request).url);
+        if (url.pathname.startsWith('/images/')) return serveImage(request as never, env.IMAGES, ctx) as never;
+        // The feed lives at /feed.xml; send the common guess there in one hop.
+        if (url.pathname === '/feed' || url.pathname === '/feed/') {
+          return new Response(null, { status: 301, headers: { Location: `/feed.xml${url.search}` } }) as never;
+        }
         return handle(manifest, app, request as never, env as never, ctx as never);
       },
     },
