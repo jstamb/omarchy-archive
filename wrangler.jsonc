@@ -24,7 +24,7 @@
     {
       "binding": "DB",
       "database_name": "omarchy-archive",
-      "database_id": "REPLACE_ME_PROD_D1_DATABASE_ID",
+      "database_id": "b8da8442-a220-4ca4-be47-270234d3532d",
       "migrations_dir": "migrations"
     }
   ],
@@ -40,7 +40,7 @@
         {
           "binding": "DB",
           "database_name": "omarchy-archive-staging",
-          "database_id": "REPLACE_ME_STAGING_D1_DATABASE_ID",
+          "database_id": "3766866d-d80b-4dd3-8316-b187d3ba4deb",
           "migrations_dir": "migrations"
         }
       ],
