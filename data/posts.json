@@ -25206,7 +25206,9 @@
       "desktop"
     ],
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "madmasx.hermes-pets"
+    ],
     "created_at": "2026-09-20",
     "added_at": "2026-09-20",
     "featured": false,
@@ -36115,7 +36117,9 @@
     "device": null,
     "form_factor": null,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "madmasx.wallpaper-picker"
+    ],
     "featured": false,
     "seen_on": null,
     "source_platform": "x",
@@ -73876,7 +73880,7 @@
     "related_plugin_ids": [],
     "id": "intheorytv-youtube-tile-1-2-4-crt",
     "kind": "other",
-    "title": "InTheoryTV: YouTube Tile v1.2.4, the First Release, Fills the Tile in Theater Mode, Now With a CRT Button",
+    "title": "InTheoryTV: YouTube Tile v1.2.4, the First Release, Fills the Tile in Theater Mode, With a CRT Button",
     "summary": "InTheoryTV says \"First release of the YouTube tile for Omarchy. v 1.2.4. Link to Github in reply.\" and \"Theater mode on the YouTube webapp fills the tile with the video. The picture follows the window when you resize it. Captions stay on the player, and the CC button still works. Home, search, and a normal browser tab keep the header and scrolling.\" They add \"The CRT button sits just before YouTube's theater control. It is a white classic set with rabbit ears. One click turns the look on, and the same click turns it off. There are no sliders. The choice is remembered in the browser and starts off.\", listing \"Scan lines\", \"A faint glare and darkened corners\", \"A slow tracking bar\" and \"A 1-pixel twitch\", and end \"Earlier posts I had about this project didn't have release.\" A same-thread reply links the v1.2.4 release of InTheoryTV/omarchy-youtube-tile, and in a reply to parkerbrowndev and NixFred they say \"I got 4 out 5 options added. The curved glass part would be more than this extension can do with how it redraws on top of the video.\" The image is two tiles: at left, a video with horizontal scan lines and a blue cast showing a figure in a reflective helmet, and at right, an X profile page for \"In Theory\" (\"@InTheoryTV\").",
     "author": "InTheoryTV",
     "author_url": "https://x.com/InTheoryTV",
