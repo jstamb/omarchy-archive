@@ -230,7 +230,7 @@ const searchType = post.kind === 'setup' ? 'setup' : post.kind === 'idea' ? 'gui
             {relatedPlugins.map((plugin) => (
               <div class="panel">
                 <span class="panel__title">
-                  <a href={`/plugins/${plugin.id}/`}>{plugin.name}</a>
+                  <a href={`/plugins/${pluginSlug(plugin.id)}/`}>{plugin.name}</a>
                 </span>
                 <CommandBox install={plugin.install} fallbackUrl={plugin.listing_url} />
                 {plugin.warning && <p class="notice">{plugin.warning}</p>}

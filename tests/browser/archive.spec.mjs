@@ -298,3 +298,27 @@ test('an out of range search page recovers to a reachable results page', async (
   await expect(page).not.toHaveURL(/page=99999/);
   expect(await page.locator('main [data-search-results] a').evaluateAll(links => links.every(link => link.getAttribute('href').startsWith('/plugins/')))).toBe(true);
 });
+
+test('post pages link related plugins by dashed slug, and the link resolves', async ({ page }) => {
+  const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../data/posts.json');
+  const post = JSON.parse(readFileSync(file, 'utf8')).find((record) => (record.related_plugin_ids ?? []).some((id) => id.includes('.')));
+  const dotted = post.related_plugin_ids.find((id) => id.includes('.'));
+  const slug = dotted.replace(/\./g, '-');
+  await page.goto(`/posts/${post.id}/`);
+  const section = page.locator('main section', { has: page.locator('h2', { hasText: 'Plugins in this post' }) });
+  const hrefs = await section.locator('.panel__title a').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+  expect(hrefs).toContain(`/plugins/${slug}/`);
+  expect(hrefs.some((href) => href.includes('.'))).toBe(false);
+  const response = await page.request.get(`/plugins/${slug}/`);
+  expect(response.status()).toBe(200);
+});
+
+test('/feed and /feed/ permanently redirect to /feed.xml', async ({ request }) => {
+  for (const guess of ['/feed', '/feed/']) {
+    const response = await request.get(guess, { maxRedirects: 0 });
+    expect(response.status()).toBe(301);
+    expect(response.headers().location).toBe('/feed.xml');
+  }
+  const feed = await request.get('/feed.xml');
+  expect(feed.status()).toBe(200);
+});
