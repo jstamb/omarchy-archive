@@ -75329,7 +75329,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "omarchy.elsewhen"
+    ],
     "id": "ryanrhughes-elsewhen-people-and-locations",
     "kind": "other",
     "title": "ryanrhughes: Makes a Few Small Tweaks to Elsewhen, the World Clock jasonfried Created for Omarchy, Adding People to Locations and Syncing Location With the System Clock",
@@ -75411,7 +75413,7 @@
     "related_plugin_ids": [],
     "id": "komagata-omarchy-upstream-2026-10-19",
     "kind": "idea",
-    "title": "komagata: \"Omarchy Upstream\" (October 19, 2026), Covering Kernel Selection, Graphical Updates and Stronger ARM Boot Coverage",
+    "title": "komagata: \"Omarchy Upstream\" (October 20, 2026), Covering Kernel Selection, Graphical Updates and Stronger ARM Boot Coverage",
     "summary": "komagata posts \"Today’s Omarchy Upstream — October 20, 2026\" and \"Open proposals add kernel switching, graphical updates, richer notifications and game discovery.\" with \"#omarchy\", linking the briefing, which is headed \"Kernel selection, graphical updates and stronger ARM boot coverage\", \"Coverage · UTC October 19, 2026\" and \"Published October 20, 2026\". It says \"Committed changes improve edge publishing, hardware support and ISO verification, while boot regression reports and plugin security reviews highlight remaining concerns.\" Its twelve items cover dhh opening omacom/omarchy#15966 \"to let users choose an installed kernel from Update > Kernel, with one authentication prompt and a notification offering to reboot\"; a dhh proposal in omacom/omarchy#15972 matching terminal apps with custom app IDs to their terminal's touchpad settings, which \"remains open\"; the GruperTal graphical update and one-click installation proposal in omacom/omarchy#15455, which \"remains open\"; ryanrhughes opening omacom/omarchy#15932 \"to replace the notification engine with Omapager\"; a michtesar proposal for \"a Games category using local Steam and Heroic records\" in omacom/omarchy#15944; a qrfeng issue, omacom/omarchy#15921, reporting that \"an update skipped a failed new-kernel image build, then booted an older image whose NVIDIA modules mismatched the updated userspace driver\"; a pkolbas report of \"a stable-channel 4.0.5 disk-unlock loop after an October 19 update\"; edge publishing commits, plus a commit recording \"Release omarchy 4.0.6\" \"without supplying release contents or channel-delivery confirmation\"; hardware changes for N1x docks, Snapdragon cameras and fingerprint discovery that \"do not establish stable-release availability\"; ISO checks for N1x firmware and VM kernel-update bootability, described as \"development-branch work\"; a yamz8 proposal, omacom/omarchy#15965, \"to install rwsm, a Rust rewrite of uwsm's executable\"; and the OmaDroid marketplace listing, where \"Verification applies to the listed snapshot and is not a security audit.\" The post is text-only.",
     "author": "komagata",
     "author_url": "https://x.com/komagata",
