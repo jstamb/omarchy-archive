@@ -8,10 +8,10 @@
     "note": null
   },
   "omarchy-hub": {
-    "last_attempt_at": "2026-10-19",
-    "last_success_at": "2026-10-19",
-    "upstream_count": 17,
-    "indexed_count": 17,
+    "last_attempt_at": "2026-10-20",
+    "last_success_at": "2026-10-20",
+    "upstream_count": 114,
+    "indexed_count": 114,
     "excluded_count": 0,
     "note": null
   }
