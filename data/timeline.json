@@ -1,5 +1,54 @@
 [
   {
+    "id": "v4.0.6",
+    "version": "4.0.6",
+    "major": 4,
+    "date": "2026-10-19",
+    "published_at": "2026-10-19T22:49:53Z",
+    "tier": "tick",
+    "score": 3,
+    "headline": "Fixes",
+    "summary": "This patch release resolves a few small hiccups specific users encountered with v4.0.5.",
+    "highlights": [],
+    "contributors": [
+      {
+        "handle": "bastidotnet",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "dhh",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "emirb",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "kevincardwell",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "omarchybot",
+        "first_time": false,
+        "pull_request": null
+      },
+      {
+        "handle": "spencerbull",
+        "first_time": false,
+        "pull_request": null
+      }
+    ],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.0.6",
+    "notes_chars": 1510,
+    "upstream_id": "417808603",
+    "payload_hash": "e4b249beb9905324bcaf1cfe8a655528eceef6a3c23dd9f2dd972fce8ba35a1e",
+    "parser_version": 1
+  },
+  {
     "id": "v4.0.5",
     "version": "4.0.5",
     "major": 4,
