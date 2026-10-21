@@ -76065,7 +76065,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "questflow.omatrade"
+    ],
     "id": "bobbxu-omatrade-bar-plugin",
     "kind": "plugin",
     "title": "Bobbxu: Builds Omatrade, an Omarchy Bar Plugin for Traders With a TradingView Watchlist and Trading News",
@@ -78085,7 +78087,7 @@
     "related_plugin_ids": [],
     "id": "davidtab-omarchy-ads-copenhagen",
     "kind": "other",
-    "title": "davidtab: Spots Apparent Omarchy Ads in Copenhagen and Asks \"Why?\"",
+    "title": "davidtab: Says There Are Apparently Omarchy Ads in Copenhagen and Asks \"Why?\"",
     "summary": "davidtab says \"Apparently there are @omarchy ads in Copenhagen. Why?\" The image is a photo of a screen showing a city square with a large green rooftop sign reading \"OMARCHY\" on a brick building and a second green sign on the curved building beside it, other signs such as \"THAI\" and \"Hotel The Square\", people on benches and bicycles below, and the subtitle \"shooting on Leica cameras all the time,\".",
     "author": "davidtab",
     "author_url": "https://x.com/davidtab",
