@@ -80542,7 +80542,13 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "crmne.hyprmoncfg",
+      "omaplug",
+      "io.github.sirjul1337.lock-explorer",
+      "akshar.radio-atlas",
+      "io.github.twiking.omasettings"
+    ],
     "id": "omarchyupdates-top-5-plugins-by-installs",
     "kind": "other",
     "title": "OmarchyUpdates: Lists \"The 5 most-installed Omarchy plugins right now,\" Led by hyprmoncfg With 11,014 Installs",
@@ -80839,7 +80845,7 @@
     "id": "tcballard-omabot-template-omarchy-vm",
     "kind": "idea",
     "title": "tcballard: Updates Their OmaBot Template to Support Running Omarchy as a VM on a Grok Bot Debian Computer",
-    "summary": "tcballard says \"I’ve had to write custom scripts and skills just to keep Omarchy running as a VM on my Grok Bot’s Debian computer.\", \"@poteto @SpaceXSI I gave the bot QA responsibility. Somehow I became its IT department.\" and \"Let me choose its OS. I’ve got enough computers to look after 😂\", adding \"And for everyone else, I updated my OmaBot template to support this\" with a link to the template on x.ai. The post is text-only.",
+    "summary": "tcballard says \"I’ve had to write custom scripts and skills just to keep Omarchy running as a VM on my Grok Bot’s Debian computer.\", \"@poteto @spacexai I gave the bot QA responsibility. Somehow I became its IT department.\" and \"Let me choose its OS. I’ve got enough computers to look after 😂\", adding \"And for everyone else, I updated my OmaBot template to support this\" with a link to the template on x.ai. The post is text-only.",
     "author": "tcballard",
     "author_url": "https://x.com/tcballard",
     "source_url": "https://x.com/tcballard/status/2113328635960770870",
