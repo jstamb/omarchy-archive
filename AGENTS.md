@@ -5,6 +5,14 @@ Omarchy setups, themes, plugins, and the other Omarchy sites.
 
 Humans ship the site. You ship the content.
 
+## Review rules
+
+Every record you write or edit must pass **[docs/review-rules.md](docs/review-rules.md)**.
+Read it in full before writing records and self-review each field against it before
+committing. It wins over anything older in this file about titles, summaries,
+quotes, translations, images and related ids. Scheduled batches run headless via
+`scripts/claude-batch.sh`, which writes a one-screen summary to `work/last-batch.md`.
+
 ## Scope
 
 You may add or update, and nothing else:
