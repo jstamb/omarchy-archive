@@ -84412,7 +84412,7 @@
     "id": "henrikklee-ipad-single-command-install-preview",
     "kind": "hardware",
     "title": "henrikklee: Previews a Single Command to Install Omarchy on an iPad, \"Coming soon\"",
-    "summary": "henrikklee says \"A single command to install @omarchy on your iPad\", \"Coming soon\" and \"Video is sped up, total install took 3.8 minutes\", tagging OmarchyMac, OmarchyUpdates, dhh, OmarchyLinux and tcballard. In same-thread replies henrikklee says \"Initial release is iPad 6th generation\", \"A series, initially A10\", that it needs \"a Mac or Linux (Linux isn't tested yet) and a USB A cable\", and that a \"jailbreak is needed to create a partition on the internal storage first but there will be a tool\", listing \"WiFi - yes\", \"Bluetooth - yes\", \"Charging - yes*\", \"Touch - yes\" and \"GPU - not yet\", with charging \"at a safe low current\". The hosted image, a still from the post's video, shows a terminal titled \"Install Omarchy on iPad\" listing device steps such as \"boot-readiness\", \"wifi\", \"TOUCH_INPUT_READY\" and \"bluetooth\" and an installation plan with \"Destination: /omarchy\", ending at \"Starting installed system\", beside a photo of a white iPad on a wooden table showing a desktop with a wallpaper of a rocket launching through pink and purple clouds. Other frames show \"./oma install\" being typed and the iPad showing a cyan bracket logo on a dark blue screen.",
+    "summary": "henrikklee says \"A single command to install @omarchy on your iPad\", \"Coming soon\" and \"Video is sped up, total install took 3.8 minutes\", tagging OmarchyMac, OmarchyUpdates, dhh, OmarchyLinux and tcballard. In same-thread replies henrikklee says \"Initial release is iPad 6th generation\", \"A series, initially A10\", that it needs \"a Mac or Linux (Linux isn't tested yet) and a USB A cable\", and that a \"jailbreak is needed to create a partition on the internal storage first but there will be a tool\", listing \"WiFi - yes\", \"Bluetooth - yes\", \"Charging - yes*\", \"Touch - yes\" and \"GPU - not yet\", with charging \"at a safe low current\". The hosted image, a still from the post's video, shows a terminal titled \"Install Omarchy on iPad\" listing device steps such as \"boot-readiness\", \"wifi\", \"TOUCH_INPUT_READY\" and \"bluetooth\" and an installation plan with \"Destination: /omarchy\", running on through \"Starting installed system\" to \"Waiting for desktop readiness\", beside a photo of a white iPad on a wooden table showing a desktop with a wallpaper of a rocket launching through pink and purple clouds. Other frames show \"./oma install\" being typed and the iPad showing a cyan bracket logo on a dark blue screen.",
     "author": "henrikklee",
     "author_url": "https://x.com/henrikklee",
     "source_url": "https://x.com/henrikklee/status/2114025172911198677",
@@ -84491,7 +84491,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "omarchy.agents"
+    ],
     "id": "huacnlee-agents-widget-4-5-rc-styling",
     "kind": "other",
     "title": "huacnlee: Finds the Simplified Agents Widget in Omarchy 4.5 RC \"quite nice,\" Suggesting Its Buttons Be Styled Like the World Clock Widget",
@@ -84523,7 +84525,7 @@
     "id": "hicsfh-odk-omarchy-development-kit",
     "kind": "other",
     "title": "hicsfh: Introduces the ODK (\"Omarchy Development Kit\"), a Rust and GPUI Base for Omarchy Apps With Sandboxed \".oma\" App Archives",
-    "summary": "hicsfh says \"I wanted to introduce you all to the ODK (\"Omarchy Development Kit\")\", \"a project that provides the foundational work for building high quality, consistent and beautiful applications for Omarchy\", \"based on Rust and GPUI, moving away from Quickshell\", which \"introduces a runtime service that can understand app archives similar to the MacOS `.app` - but in our case of course, `.oma`\", so that \"a directory becomes \"executable\" and automatically sandboxed under a least privilege permissions model\", adding \"I recorded this super quick, so the production value is low.\" In a same-thread reply hicsfh says \"All machines with integrated graphics should work.\" The hosted image, a still from the post's video, shows an \"ODK / Overlays / Overlays\" gallery window with \"System (Tokyo Night)\" selected and demo sections for \"Tooltip\", \"Popover\", \"Hover Card\", \"Command\" and \"Diagnostics\", beside terminals running \"target/debug/oma run ./Todo.oma\" and \"cargo run -p gallery --release\" and a webcam inset of a person, over a purple and pink road wallpaper. Other frames show a Todo.oma manifest with \"identifier = \"com.example.todo\"\", \"[permissions]\" and \"gpu = true\" beside a todo window with an \"Add\" button, and gallery pages for \"Navigation\" and \"Diagnostics\".",
+    "summary": "hicsfh says \"I wanted to introduce you all to the ODK (\"Omarchy Development Kit\")\", \"a project that provides the foundational work for building high quality, consistent and beautiful applications for Omarchy\", \"based on Rust and GPUI, moving away from Quickshell\", which \"introduces a runtime service that can understand app archives similar to the MacOS `.app` - but in our case of course, `.oma`\", so that \"a directory becomes \"executable\" and automatically sandboxed under a least privilege permissions model\", adding \"I recorded this super quick, so the production value is low.\" In a same-thread reply hicsfh says \"All machines with integrated graphics should work. If you got Vulkan, Metal or DirectX drivers.\" The hosted image, a still from the post's video, shows an \"ODK / Overlays / Overlays\" gallery window with \"System (Tokyo Night)\" selected and demo sections for \"Tooltip\", \"Popover\", \"Hover Card\", \"Command\" and \"Diagnostics\", beside terminals running \"target/debug/oma run ./Todo.oma\" and \"cargo run -p gallery --release\" and a webcam inset of a person, over a purple and pink road wallpaper. Other frames show a Todo.oma manifest with \"identifier = \"com.example.todo\"\", \"[permissions]\" and \"gpu = true\" beside a todo window with an \"Add\" button, and gallery pages for \"Navigation\" and \"Diagnostics\".",
     "author": "hicsfh",
     "author_url": "https://x.com/hicsfh",
     "source_url": "https://x.com/hicsfh/status/2114054475426193444",
@@ -84851,7 +84853,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.tcballard.omarchy-markets"
+    ],
     "id": "tcballard-claude-recommended-omarchy-markets",
     "kind": "other",
     "title": "tcballard: Gets a Message From alexisbchz Because Claude Recommended the Omarchy Markets Plugin, \"Have I made it?!\"",
@@ -84939,7 +84943,7 @@
     "id": "pauliuspodz-dell-latitude-agent-wifi-speed",
     "kind": "setup",
     "title": "pauliuspodz: Gets an Older Dell Latitude on Omarchy, Saying an Agent \"doubled my wifi speed to 600-700mbps\"",
-    "summary": "pauliuspodz says \"Got my older Dell Latitude on @omarchy\", \"@dhh definitely pilled me with it.\", \"Setup was extremely easy!\" and \"Added an agent and instantly optimized performance on it and doubled my wifi speed to 600-700mbps.\", adding \"Now, I'm working on getting my Google Pixel pro optimized and some of the apps removed.\" The hosted image is a photo, from a couch, of a \"DELL\" laptop showing an agent session with notes headed \"Leave these alone on stock Android\" and \"Extra speed tweaks\" beside a code editor open on \"audit_phone_lengths.rb\", in a living room with a dog lying on a pet bed and stools at a counter.",
+    "summary": "pauliuspodz says \"Got my older Dell Latitude on @omarchy\", \"@dhh definitely pilled me with it.\", \"Setup was extremely easy!\" and \"Added an agent and instantly optimized performance on it and doubled my wifi speed to 600-700mbps.\", adding \"Now, I'm working on getting my Google Pixel pro optimized and some of the apps removed.\" The hosted image is a photo of a \"DELL\" laptop resting on a lap, showing an agent session with notes headed \"Leave these alone on stock Android\" and \"Extra speed tweaks\" beside a code editor open on \"audit_phone_lengths.rb\", in a living room with a dog lying on a pet bed and stools at a counter.",
     "author": "pauliuspodz",
     "author_url": "https://x.com/pauliuspodz",
     "source_url": "https://x.com/pauliuspodz/status/2114025258051412035",
