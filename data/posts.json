@@ -83187,7 +83187,7 @@
     ],
     "id": "avillagran-x-panel-1-1",
     "kind": "plugin",
-    "title": "avillagran: Releases X Panel 1.1, a Real X Session in a Pinned Omarchy Side Panel That Moves and Resizes Live and Reloads Itself If X Breaks",
+    "title": "avillagran: Releases X Panel 1.1, a Real X Session in a Pinned Omarchy Side Panel, Now With Live Move and Resize Saved Per Monitor, and a Self-Reload if X Breaks",
     "summary": "avillagran says \"X Panel 1.1 for @omarchy : your real X session in a pinned side panel, one SUPER+SHIFT+X away.\" and \"Move and resize it live from buttons or by dragging a corner, sizes saved per monitor, and it reloads itself if X breaks.\" The post links the avillagran/omarchy-x-panel repo on GitHub with the plugin add command. The hosted image, a still from the post's video, shows an \"X Panel — Preferences\" window with side, vertical position, width, height and auto-refresh buttons and toggles for \"Reload if X breaks\", \"Hide on focus loss\" and \"Keyboard shortcut: SUPER+SHIFT+X\", beside an X panel searching \"omarchy\" over a purple mountain road wallpaper, above the caption \"Move it. Resize it. Live.\" Other cards read \"X Panel 1.1\" with \"A persistent X side panel for Omarchy\", \"New: drag a corner. Saved per monitor.\" and \"Auto-refresh when idle\", \"Reloads itself if X breaks\" and \"19 languages\".",
     "author": "avillagran",
     "author_url": "https://x.com/avillagran",
