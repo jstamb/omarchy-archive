@@ -97181,9 +97181,7 @@
     "source_platform": "x",
     "seen_on": null,
     "featured": false,
-    "related_theme_ids": [
-      "gruvbox"
-    ],
+    "related_theme_ids": [],
     "related_plugin_ids": [],
     "id": "haussair-365-days-omarchy-rx-580",
     "kind": "setup",
