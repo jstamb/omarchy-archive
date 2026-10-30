@@ -96156,7 +96156,7 @@
     "related_plugin_ids": [],
     "id": "x-nosignal-x-herdr-app",
     "kind": "other",
-    "title": "X_Nosignal_X: The New Herdr App Running on Omarchy \"Is Great\"",
+    "title": "X_Nosignal_X: Herdr Running on Omarchy \"Is Great\"",
     "summary": "X_Nosignal_X says \"New herdr app running on omarchy is great... thanks @herdrdev ...just getting it setup across all the machines\". The hosted image is a \"Herdr\" window with a \"Spaces\" sidebar listing \"This computer\" and \"100.71.245.13\" above \"New space there\", a \"Claude Code\" pane at \"~/Projects/omashow\" showing a diff, and a \"Changes\" pane marked \"7 files\" listing \"src/CropOverlay.qml\", \"src/EditCanvas.qml\", \"src/Main.qml\", \"src/backend.h\", \"src/backendimage.cpp\", \"src/core/imagecrop.cpp\" and \"src/core/imagecrop.h\".",
     "author": "X_Nosignal_X",
     "author_url": "https://x.com/X_Nosignal_X",
