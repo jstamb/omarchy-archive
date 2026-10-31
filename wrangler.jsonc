@@ -17,6 +17,11 @@
     "not_found_handling": "none"
   },
   "observability": { "enabled": true },
+  // Custom domains: the Worker owns the apex and www DNS records.
+  "routes": [
+    { "pattern": "omarchyarchive.com", "custom_domain": true },
+    { "pattern": "www.omarchyarchive.com", "custom_domain": true }
+  ],
   "vars": {
     "SITE_URL": "https://omarchyarchive.com"
   },
