@@ -102964,7 +102964,7 @@
     "id": "omarchymac-omarchy-supports-apple-silicon-installer-v2-3-13",
     "kind": "other",
     "title": "OmarchyMac: Says \"Omarchy supports Apple Silicon!\" and Links the macOS Native Installer v2.3.13",
-    "summary": "OmarchyMac says \"Omarchy supports Apple Silicon!\" and \"Download the latest macOS native installer 👇\", linking the v2.3.13 release of omacom/omarchy-mac-installer on GitHub, quoting ryanrhughes announcing \"Omarchy v4.5.0 RC3 has been released! 🎉\" as \"the first release including the new Apple Silicon installer for M1, M2, M3, and Neo.\" The post is text-only.",
+    "summary": "OmarchyMac says \"Omarchy supports Apple Silicon!\" and \"Download the latest macOS native installer 👇\", linking the v2.3.13 release of omacom/omarchy-mac-installer on GitHub, quoting ryanrhughes announcing \"Omarchy v4.5.0 RC3 has been released! 🎉\" and \"Just a few more fixes before final release and the first release including the new Apple Silicon installer for M1, M2, M3, and Neo.\" The post is text-only.",
     "author": "OmarchyMac",
     "author_url": "https://x.com/OmarchyMac",
     "source_url": "https://x.com/OmarchyMac/status/2117230901642084692",
