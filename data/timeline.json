@@ -1,5 +1,23 @@
 [
   {
+    "id": "v4.5.0",
+    "version": "4.5.0",
+    "major": 4,
+    "date": "2026-11-05",
+    "published_at": "2026-11-05T05:36:53Z",
+    "tier": "tick",
+    "score": 2,
+    "headline": null,
+    "summary": "Omarchy 4.5 (aka Quattro RS!) is the first big feature release since Quattro, and it’s a whopper: over 740 pull requests merged from more than 180 contributors in just twelve weeks. It now offers a traditional desktop mode next to the tiling default. You ca…",
+    "highlights": [],
+    "contributors": [],
+    "release_url": "https://github.com/omacom/omarchy/releases/tag/v4.5.0",
+    "notes_chars": 512,
+    "upstream_id": "434555681",
+    "payload_hash": "ad33794761a9b3f4417bd73ab72ce841fa881e297a2a4077dba62564703e9208",
+    "parser_version": 1
+  },
+  {
     "id": "v4.0.6",
     "version": "4.0.6",
     "major": 4,
