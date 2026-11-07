@@ -111602,7 +111602,7 @@
     "image_hosted": true,
     "id": "crueber-ai-service-usage-plugins",
     "kind": "plugin",
-    "title": "crueber: Ships Three AI Service Usage Plugins for the Omarchy Marketplace",
+    "title": "crueber: Makes Three AI Service Usage Plugins Headed to the Omarchy Marketplace",
     "author": "crueber",
     "author_url": "https://x.com/crueber",
     "source_url": "https://x.com/crueber/status/2118802829246681463",
@@ -111628,13 +111628,13 @@
     "image_hosted": true,
     "id": "ygasgp-remote-desktop-rdp-marketplace",
     "kind": "plugin",
-    "title": "ygasgp: Remote Desktop RDP Plugin Verified on the Omarchy Marketplace",
+    "title": "ygasgp: Says Their Remote Desktop RDP Plugin Is Snapshot-Verified on the Omarchy Marketplace",
     "author": "ygasgp",
     "author_url": "https://x.com/ygasgp",
     "source_url": "https://x.com/ygasgp/status/2118812985783099655",
     "created_at": "2026-11-06",
     "added_at": "2026-11-06",
-    "summary": "ygasgp says \"A belated update: contributing a Remote Desktop plugin, snapshot-verified on the Omarchy Plugin Marketplace on 27 September 2026.\" and \"RDP controls for Hyprland, localhost-only by default, with a separate password held in RAM.\", linking the marketplace listing for io.github.ylaung-uod.omarchy-rdp (not yet in the archive catalog). The hosted image is a promo card titled \"Remote Desktop\" / \"Secure Hyprland RDP controls at a glance.\" with bullets for localhost-only by default, a password held in RAM, and status/start/stop/logs, plus a mock bar menu showing Ready, endpoint 127.0.0.1:3389 and \"The separate RDP password is forgotten after every reboot.\", with the listing id in the corner."
+    "summary": "ygasgp says \"A belated update: contributing a Remote Desktop plugin, snapshot-verified on the Omarchy Plugin Marketplace on 27 September 2026.\" and \"RDP controls for Hyprland, localhost-only by default, with a separate password held in RAM.\", linking the marketplace listing for io.github.ylaung-uod.omarchy-rdp. The hosted image is a promo card titled \"Remote Desktop\" / \"Secure Hyprland RDP controls at a glance.\" with bullets for localhost-only by default, a password held in RAM, and status/start/stop/logs, plus a mock bar menu showing Ready, endpoint 127.0.0.1:3389 and \"The separate RDP password is forgotten after every reboot.\", with the listing id in the corner."
   },
   {
     "device": null,
@@ -111680,7 +111680,7 @@
     "image_hosted": true,
     "id": "marcoporro-omarchy-pulse-1-2-preview",
     "kind": "theme",
-    "title": "MarcoPorro: Previews Omarchy Pulse 1.2 With Real Cities, ISS, Live Launches and \"Hey Sphere\"",
+    "title": "MarcoPorro: Previews Omarchy Pulse 1.2 With Real Cities, ISS, Live Launches and \"hey sphere\"",
     "author": "MarcoPorro",
     "author_url": "https://x.com/MarcoPorro",
     "source_url": "https://x.com/MarcoPorro/status/2118864749865619495",
@@ -111766,7 +111766,7 @@
     "source_url": "https://x.com/joedub67/status/2118834758088036395",
     "created_at": "2026-11-06",
     "added_at": "2026-11-06",
-    "summary": "joedub67 says \"DUBSKIES Flight Tracker\" built with a Whale 10.1 model 102KZ digital picture frame ($13) and a cheap old security camera ($10), \"All designed on a 16 year-old iMac running Omarchy and Hermes Agent.\" and \"(Omarchy has a built in AI agent, but it seems Hermes is more lightweight on my old hardware)\". The hosted image, the first of two, is a hand holding the frame showing \"DUBSKIES Philly Flight Tracker\" with live neighborhood video and flight telemetry in front of the iMac on an \"ASSESS SYSTEM STATUS\" Hermes session. The second shows the window-sill camera and a \"Philly Flight Tracker\" pane for American Airlines AAL3079."
+    "summary": "joedub67 says \"DUBSKIES Flight Tracker\" with \"Digital picture frame, a Whale 10.1 model 102KZ   $13\" and \"Cheap old security camera $10\", \"All designed on a 16 year-old iMac running Omarchy and Hermes Agent.\" and \"(Omarchy has a built in AI agent, but it seems Hermes is more lightweight on my old hardware)\". The hosted image, the first of two, is a hand holding the frame showing \"DUBSKIES Philly Flight Tracker\" with live neighborhood video and flight telemetry in front of the iMac on an \"ASSESS SYSTEM STATUS\" Hermes session. The second shows the window-sill camera and a \"Philly Flight Tracker\" pane for American Airlines AAL3079."
   },
   {
     "device": null,
@@ -111792,7 +111792,7 @@
     "source_url": "https://x.com/JoshuaSWarren/status/2118836826819502570",
     "created_at": "2026-11-06",
     "added_at": "2026-11-06",
-    "summary": "JoshuaSWarren says \"I can't believe I am going to be out of town for the first DFW Omarchy meetup!\" and \"If you are around the Dallas area and are interested in Omarchy, Linux or local AI (which Omarchy makes so much easier to run on Apple Silicon) you don't want to miss this.\" and \"And I will make sure to be in town for the next one!\" The post quotes itsMattGuenther saying they are headed to Dallas for the first Omarchy meetup in DFW, with 40 people signed up, Monday Nov 9, 6 to 8pm at 25N Coworking in Frisco, and that curiosity is enough. The post is text-only."
+    "summary": "JoshuaSWarren says \"I can’t believe I am going to be out of town for the first DFW Omarchy meetup!\" and \"If you are around the Dallas area and are interested in Omarchy, Linux or local AI (which Omarchy makes so much easier to run on Apple Silicon) you don’t want to miss this.\" and \"And I will make sure to be in town for the next one!\" The post quotes itsMattGuenther saying they are headed to Dallas for the first Omarchy meetup in DFW, with 40 people signed up, Monday Nov 9, 6 to 8pm at 25N Coworking in Frisco, and that curiosity is enough. The post is text-only."
   },
   {
     "device": null,
@@ -112030,7 +112030,7 @@
     "source_url": "https://x.com/_7blo_/status/2118875330224308268",
     "created_at": "2026-11-07",
     "added_at": "2026-11-07",
-    "summary": "_7blo_ says \"Just finished my new X plugin for #omarchy\" and \"It's simply a X session that can be activated via an Icon in the toolbar.\" and \"There are others that exist but I wanted to have a lightweight version.\", linking the marketplace listing for io.github.sette7blo.omaxbar (not yet in the archive catalog). The post is text-only."
+    "summary": "_7blo_ says \"Just finished my new X plugin for #omarchy\" and \"It’s simply a X session that can be activated via an Icon in the toolbar.\" and \"There are others that exist but I wanted to have a lightweight version.\", linking the marketplace listing for io.github.sette7blo.omaxbar. The post is text-only."
   },
   {
     "device": null,
@@ -112056,7 +112056,7 @@
     "source_url": "https://x.com/3jc27/status/2118892612329554366",
     "created_at": "2026-11-07",
     "added_at": "2026-11-07",
-    "summary": "3jc27 says \"Apple Neural Engine on #Omarchy #Linux: started bringing up support for the MacBook Neo (H17 J700 / T8140):\", linking joshuaswarren/omarchy-ane pull 364. The post is text-only."
+    "summary": "3jc27 says \"Apple Neural Engine on #Omarchy #Linux: started bringing up support for the MacBook Neo (H17 J700 / T8140):\", linking joshuaswarren/omarchy-ane pull 364 titled \"H17 bringup for T8140 J700 MacBook Neo\". The post is text-only."
   },
   {
     "device": null,
@@ -112153,7 +112153,7 @@
     "image_hosted": true,
     "id": "hg64rymkfs-iphone-6s-bluetooth",
     "kind": "hardware",
-    "title": "hg64rymkfs: iPhone 6S Omarchy Status Update Says Bluetooth Is Functional",
+    "title": "hg64rymkfs: Says Bluetooth Is Now Functional on iPhone 6S Omarchy",
     "author": "hg64rymkfs",
     "author_url": "https://x.com/hg64rymkfs",
     "source_url": "https://x.com/hg64rymkfs/status/2118876122247315671",
