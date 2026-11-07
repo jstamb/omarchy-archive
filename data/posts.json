@@ -112578,7 +112578,7 @@
     "image_hosted": true,
     "id": "luc-gibson-button-mashing-toddler-game",
     "kind": "other",
-    "title": "Luc_Gibson: Asks Claude on Omarchy to Handle Their 2-Year-Old Mashing the Keyboard, and It Opens a Game",
+    "title": "Luc_Gibson: Asks Claude on Omarchy to Handle Their 2-Year-Old Mashing the Keyboard, Saying It Opens a Game for Her",
     "author": "Luc_Gibson",
     "author_url": "https://x.com/Luc_Gibson",
     "source_url": "https://x.com/Luc_Gibson/status/2119023318036562197",
@@ -112707,14 +112707,14 @@
     "image": "/images/posts/shafiqimtiaz-herdr-omarchy-layout.webp",
     "image_hosted": true,
     "id": "shafiqimtiaz-herdr-omarchy-layout",
-    "kind": "other",
+    "kind": "setup",
     "title": "shafiqimtiaz: Creates an Omarchy Layout in Herdr",
     "author": "shafiqimtiaz",
     "author_url": "https://x.com/shafiqimtiaz",
     "source_url": "https://x.com/shafiqimtiaz/status/2118950437822906869",
     "created_at": "2026-11-07",
     "added_at": "2026-11-07",
-    "summary": "In a reply mentioning herdrdev and typecraft_dev, shafiqimtiaz says they \"created an absolutely fine layout of Omarchy in herdr, and simply lovin it\", linking their Omarchy layout page on herdr.dev. The hosted image, the second of two, is that layout card titled \"Omarchy\" by shafiqimtiaz, describing \"The Omarchy desktop, rebuilt inside Herdr: flat, square, bordered tiles floating over a wallpaper.\", with a \"Tell your agent\" box pointing to the shafiqimtiaz/herdr-omarchy GitHub repo and a \"View on GitHub\" button, below a screenshot of the layout with a sidebar, a system monitor and a Git panel. The first image shows the full layout screenshot."
+    "summary": "In a reply to a herdrdev post, shafiqimtiaz tags herdrdev and typecraft_dev and says they \"created an absolutely fine layout of Omarchy in herdr, and simply lovin it\", linking their Omarchy layout page on Herdr. The hosted image, the second of two, is that layout card titled \"Omarchy\" by shafiqimtiaz, describing \"The Omarchy desktop, rebuilt inside Herdr: flat, square, bordered tiles floating over a wallpaper.\", with a \"Tell your agent\" box pointing to the shafiqimtiaz/herdr-omarchy GitHub repo and a \"View on GitHub\" button, below a screenshot of the layout with a sidebar, a system monitor and a Git panel. The first image shows the full layout screenshot."
   },
   {
     "device": null,
