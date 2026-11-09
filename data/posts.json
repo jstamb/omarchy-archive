@@ -115589,7 +115589,7 @@
     "source_url": "https://x.com/tableproapp/status/2119531082148434295",
     "created_at": "2026-11-08",
     "added_at": "2026-11-08",
-    "summary": "tableproapp says \"Omarchy on a Mac, in OSMates.\", linking the OSMates site. The image is a macOS screenshot of an \"OSMates\" window listing machines \"macbase-93b51fe\" (\"Stopped\"), \"omarchy\" (\"Running\") and \"winbase-d692b89\" (\"Stopped\"), with an overview for \"omarchy\" showing \"System\" as \"Linux from a Disk Image\", \"CPUs\" 4, \"Memory\" \"8 GB\", \"Disk\" \"64 GB, 4,85 GB on this Mac\" and \"Display\" \"1216 × 780\", plus an SSH command and an \"Open in Terminal\" button. Behind it a second window shows a purple-and-orange rocket-launch wallpaper with dark cards reading \"your default agent\", \"Git\" and \"Keybindings\"."
+    "summary": "tableproapp says \"Omarchy on a Mac, in OSMates.\", linking the OSMates site. The image is a macOS screenshot of an \"OSMates\" window listing machines \"macbase-93b51fe\" (\"Stopped\"), \"omarchy\" (\"Running\") and \"winbase-d692b89\" (\"Stopped\"), with an overview for \"omarchy\" showing \"System\" as \"Linux from a Disk Image\", \"CPUs\" 4, \"Memory\" \"8 GB\", \"Disk\" \"64 GB, 4,85 GB on this Mac\" and \"Display\" \"1216 × 780\", plus an SSH command and an \"Open in Terminal\" button. Behind it a second window shows a purple-and-orange rocket-launch wallpaper with dark cards reading \"Set your default agent\", \"Setup Git\" and \"Learn Keybindings\"."
   },
   {
     "device": null,
@@ -115671,7 +115671,7 @@
     "source_url": "https://x.com/timsonner/status/2119598247874629708",
     "created_at": "2026-11-09",
     "added_at": "2026-11-09",
-    "summary": "timsonner says \"Demo of my Omarchy plugin (NittyGriddy) - A grid overlay similar to what Gnome offers. Pending approval.\", linking the timsonner/nitty-griddy GitHub repo and tagging @BlackOpsREPL, @kevclarkco and @omarchy. The still, from the post's video, is an overlay titled \"NittyGriddy\" with \"7 windows · all workspaces\", workspace tabs \"All\" and 1 to 9, and a grid of window cards including \"Studio\", \"Nautilus\", \"grok\", \"google-chrome\", \"omawrite\" and \"foot\", with a webcam inset of a bearded person in a headset at the bottom right."
+    "summary": "timsonner says \"Demo of my Omarchy plugin (NittyGriddy) - A grid overlay similar to what Gnome offers. Pending approval.\", linking the timsonner/nitty-griddy GitHub repo and tagging @BlackOpsREPL, @kevclarkco and @omarchy. The still, from the post's video, is an overlay titled \"NittyGriddy\" with \"7 windows · all workspaces\", workspace tabs \"All\" and 1 to 9, and a grid of window cards including \"Studio\", \"Nautilus\", \"grek\", \"google-chrome\", \"omawrite\" and \"foot\", with a webcam inset of a bearded person in a headset at the bottom right."
   },
   {
     "device": null,
@@ -115723,8 +115723,8 @@
     "author": "markprobst",
     "author_url": "https://x.com/markprobst",
     "source_url": "https://x.com/markprobst/status/2119579585616785883",
-    "created_at": "2026-11-09",
-    "added_at": "2026-11-09",
+    "created_at": "2026-11-08",
+    "added_at": "2026-11-08",
     "summary": "markprobst says \"minimacs now supports @omarchy themes\". The still, from the post's video, is a Rust source file beside a README headed \"minimacs\" reading \"A terminal text editor with emacs keybindings, written in Rust.\", with a theme-switch preview labeled \"Last Horizon\" laid over it showing a terminal, a system monitor and a file manager, and a \"Reloaded the configuration\" toast at the bottom."
   },
   {
@@ -115910,7 +115910,7 @@
     "source_url": "https://x.com/emmagine79/status/2119522406465515998",
     "created_at": "2026-11-08",
     "added_at": "2026-11-08",
-    "summary": "emmagine79 says \"omarchy installed on a snapdragon x elite laptop!\" and \"it was quite a hassle because of my no USB install. glad to have my Hermes agent with me all steps of the way during the install\", quoting their earlier post \"I'm having my hermes agent setup Omarchy for me on my hp omnibook with @Snapdragon x elite\". The hosted image, the first of four, is an open HP laptop with a Snapdragon X Elite badge on a plaid blanket, its blue screen showing a pixel \"OMARCHY\" wordmark, with a MacBook lid behind it. The second image is a tilted dark installer screen with a yellow \"OMARCHY\" wordmark above \"Installed Omarchy in 0m 36s\", \"You can now remove the install medium\" and a \"Reboot Now\" button."
+    "summary": "emmagine79 says \"omarchy installed on a snapdragon x elite laptop!\" and \"it was quite a hassle because of my no USB install. glad to have my Hermes agent with me all steps of the way during the install\", quoting their earlier post \"I'm having my hermes agent setup Omarchy for me on my hp omnibook with @Snapdragon x elite\". The hosted image, the first of four, is an open HP laptop with a Snapdragon X Elite badge on a plaid blanket, its blue screen showing a pixel \"OMARCHY\" wordmark, with a MacBook lid behind it. The second image is a tilted dark installer screen with a yellow \"OMARCHY\" wordmark above \"Installed Omarchy in 0m 36s\", \"You can now remove the install medium\" and a \"Reboot Now\" button. The third image is a chat thread headed \"Awesome AI · GeekceptionHQ\" diagnosing that only the audio firmware was copied from Windows and the GPU firmware was not. The fourth image is a hand holding the same HP OmniBook, its screen showing a green-and-blue interlocking logo on dark gray above \"Tip: Super + K shows all the key bindings.\", with a Snapdragon X Elite sticker on the palm rest."
   },
   {
     "device": null,
@@ -115936,7 +115936,7 @@
     "source_url": "https://x.com/neilsuperduper/status/2119565482902638794",
     "created_at": "2026-11-08",
     "added_at": "2026-11-08",
-    "summary": "neilsuperduper says \"well, WoW Forever runs great on omarchy\", \"pretty surprised, this machine is pretty basic (dell xps 14)\", \"worked out of the box got 60 fps with the new graphics on medium\" and \"got to level 5 in ~30min, just going to leave it there\", then asks \"also what is the deal with faction balancing, how do you get a horde character? just got to keep checking back?\" The hosted image, the first of two, is a character creation screen with \"Full Name\" fields \"neil\" and \"superduper\", a bearded gnome and a \"Facial Hair\" selector set to \"Bearded\". The second image shows a dialog reading \"This faction is currently unavailable on this ruleset due to population imbalance.\" with an \"Okay\" button."
+    "summary": "neilsuperduper says \"well, WoW Forever runs great on omarchy\", \"pretty surprised, this machine is pretty basic (dell xps 14)\", \"worked out of the box got 60 fps with the new graphics on medium\" and \"got to level 5 in ~30min, just going to leave it there\", then asks \"also what is the deal with faction balancing, how do you get a horde character? just got to keep checking back?\" The hosted image, the first of two, is a character creation screen with \"Full Name\" fields \"neil\" and \"superduper\", a bearded dwarf and a \"Facial Hair\" selector set to \"Bearded\". The second image shows a dialog reading \"This faction is currently unavailable on this ruleset due to population imbalance.\" with an \"Okay\" button."
   },
   {
     "device": null,
@@ -116149,6 +116149,6 @@
     "source_url": "https://x.com/n3t0cfg/status/2119561100043669622",
     "created_at": "2026-11-08",
     "added_at": "2026-11-08",
-    "summary": "n3t0cfg says \"So I dusted off my old pal #ThinkPad T470 and installed @omarchy on it. I started playing with it and I noticed that only one battery was showing on the battery widget, I spawned a cc session and after a brief prompt and 6 min of work I had a brand new and improved battery indicator, check it out (the whole reason of this post is to brag how cool it looks 😎).\", \"I was particularly interested on knowing the health of each battery after years stored in a closet.\" and \"Man, I got really happy and nostalgic using this laptop again.\", with \"cc: @dhh\". The hosted image, the first of three, is a battery panel reading \"Battery\", \"FULLY CHARGED\" and \"100%\" with \"Battery size\" \"86Wh\" and \"Health\" \"90%\", then \"BATTERIES\" rows for \"BAT0 · 01AV421\" (\"Health\" \"85%\", \"Cycles\" 59, \"Capacity\" \"20.5 / 24.0Wh\") and \"BAT1 · 01AV427\" (\"Health\" \"92%\", \"Cycles\" 277, \"Capacity\" \"65.6 / 71.3Wh\"), and \"POWER PROFILE\" buttons \"Power-saver\", \"Balanced\" and \"Performance\", under a bar of icons and over a partly hidden README."
+    "summary": "n3t0cfg says \"So I dusted off my old pal #ThinkPad T470 and installed @omarchy on it. I started playing with it and I noticed that only one battery was showing on the battery widget, I spawned a cc session and after a brief prompt and 6 min of work I had a brand new and improved battery indicator, check it out (the whole reason of this post is to brag how cool it looks 😎).\", \"I was particularly interested on knowing the health of each battery after years stored in a closet.\" and \"Man, I got really happy and nostalgic using this laptop again.\", with \"cc: @dhh\". The hosted image, the first of three, is a battery panel reading \"Battery\", \"FULLY CHARGED\" and \"100%\" with \"Battery size\" \"86Wh\" and \"Health\" \"90%\", then \"BATTERIES\" rows for \"BAT0 · 01AV421\" (\"Health\" \"85%\", \"Cycles\" 59, \"Capacity\" \"20.5 / 24.0Wh\") and \"BAT1 · 01AV427\" (\"Health\" \"92%\", \"Cycles\" 277, \"Capacity\" \"65.6 / 71.3Wh\"), and \"POWER PROFILE\" buttons \"Power-saver\", \"Balanced\" and \"Performance\", under a bar of icons and over a partly hidden README. The second image is the same battery panel while discharging, reading \"MUNCHING RESERVES\", \"Time left\" \"8h 13m\" and \"Discharging\" \"10.5W\", with BAT1 \"Draining 10.5W\". The third image is a system-info screen for \"20HEA013US (ThinkPad T470)\" listing \"Omarchy 4.5.0-3\", \"Hyprland 0.56.2 (Wayland)\" and \"Tron 001\"."
   }
 ]
