@@ -34,3 +34,6 @@ pnpm-debug.log*
 bot/.cache/
 bot/tmp/
 src/generated/
+
+# batch runner scratch + summaries
+work/
