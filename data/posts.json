@@ -118481,13 +118481,13 @@
     "image_hosted": true,
     "id": "zacharyzhang-omaicon-1-1-0-omapixicon-update",
     "kind": "plugin",
-    "title": "ZacharyZhang: Ships OmaIcon 1.1.0 and an OmaPixIcon Update With Unreal Engine and Pure Data Pixel Icons",
+    "title": "ZacharyZhang: Updates OmaIcon to 1.1.0 and OmaPixIcon, Adding Unreal Engine and Pure Data Pixel Icons",
     "author": "ZacharyZhang",
     "author_url": "https://x.com/ZacharyZhang",
     "source_url": "https://x.com/ZacharyZhang/status/2122045055041192059",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "ZacharyZhang says \"OmaIcon 1.1.0 + OmaPixIcon update\", listing \"New pixel icons: Unreal Engine, Pure Data (1,912 total)\", \"Fixed: the update button now applies new icons on the first click\" and \"Fixed: apps with hard-coded icon paths stay themed after they update\", linking the Raiden-MeixElysia/OmaIcon GitHub repo, and giving an update command for people who already have it and a plugin-add command for new installs. The hosted image, the first of four, is a pair of pixel icons on a dark background, labeled \"unreal-engine\" (a dark circle with a cream \"U\") and \"puredata\" (a cream \"Pd\" tag with a small green square). The other three are a pixel face with pale hair and a green sprout, a pixel face with red-and-black hair beside a small black cat, and two more pixel marks labeled \"io.github.jose_strasia\" and \"com.zacharyzhang.elysterminal\"."
+    "summary": "ZacharyZhang says \"OmaIcon 1.1.0 + OmaPixIcon update\", listing \"New pixel icons: Unreal Engine, Pure Data (1,912 total)\", \"Fixed: the update button now applies new icons on the first click\" and \"Fixed: apps with hard-coded icon paths stay themed after they update\", linking the Raiden-MeixElysia/OmaIcon GitHub repo, and giving an update command for people who already have it and a plugin-add command for new installs. The hosted image, the first of four, is a pair of pixel icons on a dark background, labeled \"unreal-engine\" (a dark circle with a cream \"U\") and \"puredata\" (a cream \"Pd\" tag with a small green square). The other three are a pixel face with pale hair and a green sprout, a pixel face with red-and-black hair beside a small black cat, and two more pixel marks labeled \"io.github.lgse.Strata\" and \"com.zacharyzhang.elysterminal\"."
   },
   {
     "device": null,
@@ -118508,13 +118508,13 @@
     "image_hosted": true,
     "id": "timsonner-omarchy-evangelist-nov-15-2026",
     "kind": "idea",
-    "title": "timsonner: \"Omarchy Evangelist · Nov 15, 2026\", With Five Happenings Including Reboot to BIOS, Icon Sets and a 4.5.1 Terminal-Lock Fix",
+    "title": "timsonner: \"Omarchy Evangelist\" (15-Nov-2026), Five Happenings Including Reboot to BIOS, Icon Sets and a 4.5.1 Terminal-Lock Fix",
     "author": "timsonner",
     "author_url": "https://x.com/timsonner",
     "source_url": "https://x.com/timsonner/status/2122098308386886055",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "timsonner says \"Omarchy Evangelist · Nov 15, 2026\" (2026-11-15) and \"Five Omarchy happenings:\", listing \"Holding Alt in the system menu turns Reboot into Reboot to BIOS\", linking omacom/omarchy pull request 19003, \"App icons become icon sets picked apart from the theme: Papercraft by default, 8-bit Arcade, or Original\", linking pull request 18879, \"HP OmniBook 3 gets working speakers and microphones\", linking pull request 18921, \"Switching to a Chromium-based browser now repairs the bundled extensions\", linking pull request 18735, and \"Backported to 4.5.1: a closed terminal no longer leaves omarchy update holding the update lock\", linking pull request 18933. The hosted image is a wide pixel-art landscape of a stone church with lit windows on a hill of purple heather, under an orange and violet sunset with a dirt path and scattered trees."
+    "summary": "timsonner says \"Omarchy Evangelist · Nov 15, 2026\" (2026-11-15) and \"Five Omarchy happenings:\", listing \"Holding Alt in the system menu turns Reboot into Reboot to BIOS\", linking omacom/omarchy pull request 19003, \"App icons become icon sets picked apart from the theme: Papercraft by default, 8-bit Arcade, or Original\", linking pull request 18879, \"HP OmniBook 3 gets working speakers and microphones\", linking pull request 18921, \"Switching to a Chromium-based browser now repairs the bundled extensions\", linking pull request 18735, and \"Backported to 4.5.1: a closed terminal no longer leaves omarchy update holding the update lock\", linking pull request 18933. The hosted image is a wide pixel-art landscape of a stone church with lit windows on a hill of purple heather, under an orange and violet sky, with a dirt path, low stone walls and scattered trees."
   },
   {
     "device": null,
@@ -118563,7 +118563,7 @@
     "source_url": "https://x.com/iamdothash/status/2122021434935353608",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "iamdothash says \"a fun @omarchy theme for the kids\" and \"GH:\", linking the bjarneo/omarchy-speedline-theme GitHub repo. The still, from the post's video, is a mostly dark frame with a pink and yellow diagonal stripe along the left edge, and a tiny pale shape near the stripe."
+    "summary": "iamdothash says \"a fun @omarchy theme for the kids\" and \"GH:\", linking the bjarneo/omarchy-speedline-theme GitHub repo. The still, from the post's video, is a title card reading \"SPEEDLINE\" in yellow and \"a theme for Omarchy\" with a small down-right arrow, over a purple-to-pink sky with falling pink petals, white clouds, a rainbow streak, a large striped yellow sun, a utility pole with wires and a dark rooftop silhouette. Other frames show the theme on a desktop with captioned features, including \"45° borders sweep on every focus\", and an end card with \"github.com/bjarneo/omarchy-speedline-theme\"."
   },
   {
     "device": null,
@@ -118615,7 +118615,7 @@
     "source_url": "https://x.com/betizzel/status/2122080435136274913",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "betizzel says \"installer working on my M5 Pro Mac\", \"Crazy to see this work\" and that it \"was put together with the help of the @AuroraSilicon community and the Omarchy community in this thread:\", linking a comment on omacom/linux-aurora issue 293 and the betizzel/omarchy-m5 GitHub repo. The hosted image, the first of three, is a black laptop on a desk, its dark screen showing a small light-blue square mark in the center, with a cable at the left edge. The other two show the same laptop with a blue \"OMARCHY\" pixel wordmark and a thin bar over the line \"Encrypting your drive…\", and then a first-boot desktop with a rocket-launch wallpaper and a stack of cards for \"Setup Wi-Fi\", \"Setup Git\" and \"Learn Keybindings\"."
+    "summary": "betizzel says \"installer working on my M5 Pro Mac\", \"Crazy to see this work\" and that it \"was put together with the help of the @AuroraSilicon community and the Omarchy community in this thread:\", linking a comment on omacom/linux-aurora issue 293 and the betizzel/omarchy-m5 GitHub repo. The hosted image, the first of three, is a black laptop on a desk, its dark screen showing a small light-blue square mark in the center, with a cable at the left edge. The other two show the same laptop with a pale pixel \"OMARCHY\" wordmark on a blue screen and a thin progress bar over the line \"Encrypting your drive…\", and then a first-boot desktop with a rocket-launch wallpaper and a stack of cards for \"Setup Wi-Fi\", \"Setup Git\" and \"Learn Keybindings\"."
   },
   {
     "device": null,
@@ -118661,7 +118661,7 @@
     "image_hosted": true,
     "id": "yosoymario91-m2-macbook-air-dual-boot",
     "kind": "setup",
-    "title": "yosoymario91: Dual-Boots Omarchy on an M2 MacBook Air in About 5 Minutes, With Touch ID, AirPods and Bluetooth Working Out of the Box",
+    "title": "yosoymario91: Dual-Boots Omarchy on Their M2 MacBook Air, Saying the Install Took About 5 Minutes and Touch ID, AirPods and Bluetooth Worked Out of the Box",
     "author": "yosoymario91",
     "author_url": "https://x.com/yosoymario91",
     "source_url": "https://x.com/yosoymario91/status/2122067039653073352",
@@ -118740,7 +118740,7 @@
     "image_hosted": true,
     "id": "henrikklee-new-omarchy-ipad-installer",
     "kind": "hardware",
-    "title": "henrikklee: Shows Orchard Installer Steps for an Omarchy iPad Install, Covering DFU, Disk Space and a User Account",
+    "title": "henrikklee: Previews a New Omarchy iPad Installer, Coming Soon, Showing Orchard Installer Steps for DFU, Disk Space and a User Account",
     "author": "henrikklee",
     "author_url": "https://x.com/henrikklee",
     "source_url": "https://x.com/henrikklee/status/2122061805719851207",
@@ -118771,7 +118771,7 @@
     "source_url": "https://x.com/typecraft_dev/status/2122015148244185522",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "typecraft_dev says \"theme switching in omacast without having to open the themes slider in omarchy\". The still, from the post's video, is a desktop with a pastel wavy wallpaper in pink, peach, lilac and pale blue, numbered workspaces along the top left, a thin top bar of status icons, and a small notification in the upper right reading \"Screen recording saved\" and \"0:08 · 464.4 KB\"."
+    "summary": "typecraft_dev says \"theme switching in omacast without having to open the themes slider in omarchy\". The still, from the post's video, is an Omacast \"Search themes…\" panel over a pastel wavy wallpaper, listing \"Catppuccin\", \"Catppuccin Latte\" (marked \"Current\"), \"Ethereal\", \"Everforest\", \"Flexoki Light\", \"Gruvbox\", \"Hackerman\" and \"Jade Horse\", with a preview of terminal, monitor and file-manager windows, an \"Information\" block reading \"Catppuccin Latte\" and \"Current theme\", and a \"Reapply Theme\" button. Other frames show the Omacast search with a \"Switch Theme\" command, then Flexoki Light and Catppuccin applied, and a black-and-purple wallpaper."
   },
   {
     "device": null,
@@ -118902,7 +118902,7 @@
     "source_url": "https://x.com/allandehn/status/2122085260997558291",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "allandehn says \"Just released my first plugin for the Omarchy Shell - a no spoiler F1-time schedule for an upcoming or ongoing race-weekend.\" and \"Try it out before your neighbor!\", adding \"Repo with installation instructions below\". The hosted image is a dark blue timetable headed \"Las Vegas Grand Prix\" and \"LAS VEGAS · UNITED STATES\", with \"Next: FP1 · in 4 days, 3 hours\" and a \"Timetable\" of \"Session\", \"Local\" and \"Circuit\" columns for FP1, FP2, FP3, Qualifying and Race, the FP1 row highlighted at \"Fri 20 Nov 01:30\" local and \"Thu 19 Nov 16:30\" circuit time."
+    "summary": "allandehn says \"Just released my first plugin for the Omarchy Shell - a no spoiler F1-time schedule for an upcoming or ongoing race-weekend.\" and \"Try it out before your neighbor!\", adding \"Repo with installation instructions below\", and links the allandehn/f1sgui GitHub repo in a same-thread reply. The hosted image is a dark blue timetable headed \"Las Vegas Grand Prix\" and \"LAS VEGAS · UNITED STATES\", with \"Next: FP1 · in 4 days, 3 hours\" and a \"Timetable\" of \"Session\", \"Local\" and \"Circuit\" columns for FP1, FP2, FP3, Qualifying and Race, the FP1 row highlighted at \"Fri 20 Nov 01:30\" local and \"Thu 19 Nov 16:30\" circuit time."
   },
   {
     "device": null,
@@ -118928,7 +118928,7 @@
     "source_url": "https://x.com/kaimi_local/status/2121993956938404065",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "kaimi_local says \"Omarchy Stream by @DavidHoenisch goes live to YouTube, X, Twitch or any RTMP server from the Omarchy bar, no OBS.\" and \"The GPU encodes; mic and desktop audio can be cut mid-stream.\", and gives a plugin-add command for the DavidHoenisch/omarchy-livestream GitHub repo. The post is text-only."
+    "summary": "kaimi_local says \"Omarchy Stream by @DavidHoenisch goes live to YouTube, X, Twitch or any RTMP server from the Omarchy bar, no OBS.\" and \"The GPU encodes; mic and desktop audio can be cut mid-stream.\", and gives a plugin-add command for the DavidHoenisch/omarchy-livestream GitHub repo. The post quotes the DavidHoenisch post saying \"boomchakalaka\" and \"livestream from omarchy without the need for OBS\", which links the same repo. The post is text-only."
   },
   {
     "device": null,
@@ -118954,7 +118954,7 @@
     "source_url": "https://x.com/kaimi_local/status/2122063628711182833",
     "created_at": "2026-11-15",
     "added_at": "2026-11-15",
-    "summary": "kaimi_local says \"Diapo, Premanand's photo viewer for Omarchy, opens HEIC and camera RAW files and comes with 30 film looks.\" and \"You build it from source\", linking the Profit94/Diapo GitHub repo and giving clone, build and install steps. The post is text-only."
+    "summary": "kaimi_local says \"Diapo, Premanand's photo viewer for Omarchy, opens HEIC and camera RAW files and comes with 30 film looks.\" and \"You build it from source\", linking the Profit94/Diapo GitHub repo and giving clone, build and install steps. The post quotes the apd_prem post saying \"Introducing Diapo 📸 a photo viewer made for Omarchy.\" and \"Opens JPEG, HEIC, AVIF, RAW & more, plus an editor, 30 film looks and a compressor. Follows your Omarchy theme live.\", which links the same repo. The post is text-only."
   },
   {
     "device": null,
@@ -119025,7 +119025,7 @@
     "image_hosted": true,
     "id": "markwinbuilds-installer-from-internal-ssd",
     "kind": "setup",
-    "title": "markwinbuilds: Boots the Omarchy Installer From the Internal SSD of an Intel MacBook Pro, With No USB Drive, After Loading It Into RAM",
+    "title": "markwinbuilds: Says They and Codex Installed Omarchy on an Intel MacBook Pro With No USB Drive, Booting the Installer From the Internal SSD and Loading It Into RAM Before Wiping the SSD",
     "author": "markwinbuilds",
     "author_url": "https://x.com/markwinbuilds",
     "source_url": "https://x.com/markwinbuilds/status/2122121561545347212",
@@ -119058,6 +119058,6 @@
     "source_url": "https://x.com/volatilemarkts/status/2122188303998808126",
     "created_at": "2026-11-16",
     "added_at": "2026-11-16",
-    "summary": "volatilemarkts says \"RESURRECTED!\" and \"A 14-year-old laptop you can buy used for about $100 now just ran a 752-million-parameter Qwen, entirely on its own.\", listing \"No GPU.\", \"No cloud.\" and \"No internet.\", and \"8 GB of RAM from 2012.\" They add that \"Omarchy 4.5 made the old machine new again!!\", quote dhh from 2 Nov saying “We can fix everything!\", and identify the machine as a \"2012 Apple MacBook.\" The still, from the post's video, is a desktop wallpaper of Hokusai's Great Wave, with numbered workspaces along the top left and a thin top bar of status icons."
+    "summary": "volatilemarkts says \"RESURRECTED!\" and \"A 14-year-old laptop you can buy used for about $100 now just ran a 752-million-parameter Qwen, entirely on its own.\", listing \"No GPU.\", \"No cloud.\" and \"No internet.\", and \"8 GB of RAM from 2012.\" They add that \"Omarchy 4.5 made the old machine new again!!\", quote dhh from 2 Nov saying “We can fix everything!\", and identify the machine as a \"2012 Apple MacBook.\" The still, from the post's video, is a terminal under a green pixel \"OMARCHY\" wordmark, where \"omarchy-version\" prints \"4.5.0-3\", a cpuinfo check shows \"Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz\", \"ask --status\" reports \"MODEL=Qwen3.5-0.8B-Q4_0.gguf\" and \"memory: 3 facts, 6 conversations\", and \"ask\" answers prompts including \"My laptop is running hot. What should I check first?\" with \"Take it out of its book-style case.\" Other frames show a wave-print desktop wallpaper before the terminal opens and a closing card headed \"WHAT YOU JUST WATCHED\"."
   }
 ]
