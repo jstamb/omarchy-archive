@@ -119432,7 +119432,7 @@
     "image_hosted": true,
     "id": "ridgetopai-backstory-agent-memory-handoff-check",
     "kind": "other",
-    "title": "RidgetopAI: Introduces Backstory, a Background Memory Tool for Omarchy Agents, Checking Whether a Handoff Is Still Current",
+    "title": "RidgetopAI: Shows Backstory, a Background Memory Tool for Omarchy Agents, Checking Whether a Handoff Is Still Current",
     "author": "RidgetopAI",
     "author_url": "https://x.com/RidgetopAI",
     "source_url": "https://x.com/RidgetopAI/status/2122539026859401651",
@@ -119459,13 +119459,13 @@
     "image_hosted": false,
     "id": "komagata-omarchy-upstream-digest-17-nov-2026",
     "kind": "idea",
-    "title": "komagata: Shares an Omarchy Upstream Digest for 17-Nov-2026 Covering T2 Mac Packages, Snapdragon Boot Images and Wi-Fi and Recording Fixes",
+    "title": "komagata: \"Omarchy Upstream\" (November 17, 2026), Covering T2 Mac Packages, Snapdragon Boot Images and Wi-Fi and Recording Fixes",
     "author": "komagata",
     "author_url": "https://x.com/komagata",
     "source_url": "https://x.com/komagata/status/2122533034327228914",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "komagata posts \"Today’s Omarchy Upstream — November 17, 2026\" and describes it as \"T2 Mac packages enter Omarchy's signed repository, Snapdragon boot images gain room for more device trees, and Wi-Fi and recording fixes reach quattro.\" The post links a dated page for the issue and ends with the hashtag \"#omarchy\". It has no image."
+    "summary": "komagata posts \"Today’s Omarchy Upstream — November 17, 2026\" and describes it as \"T2 Mac packages enter Omarchy's signed repository, Snapdragon boot images gain room for more device trees, and Wi-Fi and recording fixes reach quattro.\" The post links the edition at omarchyupstream.com/2026-11-16/ and ends with the hashtag \"#omarchy\". The post is text-only."
   },
   {
     "device": null,
@@ -119519,7 +119519,7 @@
     "source_url": "https://x.com/AiwithYasir/status/2122553344560668956",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "AiwithYasir says \"One developer just proved them wrong entirely from Linux.\" and \"He built the app, deployed it over USB, hit a breakpoint in the debugger, and submitted it to the App Store. No Mac anywhere in the process.\" Listed claims are \"SwiftUI, Flutter and Kotlin Multiplatform support\", \"Runs on Omarchy Linux (x86_64 + Apple Silicon)\", \"Full USB deployment + LLDB debugging on a real iPhone\", \"App Store and TestFlight uploads\" and \"Works with a free Apple ID (no Xcode install required)\". The post ends \"(Repo in the Comments)\". The hosted image is a mobile GitHub page for \"joshuaswarren / omarchy-apple-dev\" marked \"Public\", with \"Fork 122\", the description \"Build and deploy iOS SwiftUI apps from Omarchy Linux on any PC (x86_64 or Apple Silicon), no Xcode required\", \"MIT license\", \"1.9k stars\", \"19 watching\" and \"122 forks\"."
+    "summary": "AiwithYasir says \"One developer just proved them wrong entirely from Linux.\" and \"He built the app, deployed it over USB, hit a breakpoint in the debugger, and submitted it to the App Store. No Mac anywhere in the process.\" Listed claims are \"SwiftUI, Flutter and Kotlin Multiplatform support\", \"Runs on Omarchy Linux (x86_64 + Apple Silicon)\", \"Full USB deployment + LLDB debugging on a real iPhone\", \"App Store and TestFlight uploads\" and \"Works with a free Apple ID (no Xcode install required)\". The post ends \"(Repo in the Comments)\", and a same-thread reply from AiwithYasir reads \"All open source:\" and links the joshuaswarren/omarchy-apple-dev GitHub repo. The hosted image is a mobile GitHub page for \"joshuaswarren / omarchy-apple-dev\" marked \"Public\", with \"Fork 122\", the description \"Build and deploy iOS SwiftUI apps from Omarchy Linux on any PC (x86_64 or Apple Silicon), no Xcode required\", \"MIT license\", \"1.9k stars\", \"19 watching\" and \"122 forks\"."
   },
   {
     "device": null,
@@ -119546,7 +119546,7 @@
     "source_url": "https://x.com/omarchy/status/2122648577134727601",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "omarchy says \"All work and no play makes omi a dull agent. So Omarchy will ship with two classic games: Solitaire and Chess. Thanks Fable 5.2!\" The post has two videos and the hosted still is from the second: a 3D chess board on a blurred green backdrop with carved green, brown and cream pieces, including acorn-capped pawns, and a bottom bar reading \"Checkmate\", \"Computer · Casual\" and \"White to move\". The first video is not hosted here."
+    "summary": "omarchy says \"All work and no play makes omi a dull agent. So Omarchy will ship with two classic games: Solitaire and Chess. Thanks Fable 5.2!\" The post has two videos. The hosted still, from the second, is a 3D chess board on a blurred green backdrop with carved green, brown and cream pieces, including acorn-capped pawns, and a bottom bar reading \"Checkmate\", \"Computer · Casual\" and \"White to move\". Other frames show the first video opening an app launcher with \"Cards\" and \"Chess\" icons and playing a solitaire game in the \"Cards\" app across dark, green-felt, pale blue and cream themes, and the chess board in navy, brown wood and pink themes."
   },
   {
     "device": null,
@@ -119847,7 +119847,7 @@
     "source_url": "https://x.com/kaimi_local/status/2122588653251678562",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "kaimi_local says \"Omarchy will run on up to four displays connected to your Mac in Try Omarchy's next release, built by Xavier Yen.\" The post quotes a martiano post from 16 Nov reading \"Try Omarchy can now run on all the displays you have connected to your MacBook\" followed by two emoji and \"New release coming soon.\" The quoted post has a photo that is not hosted here, and this post has no image of its own."
+    "summary": "kaimi_local says \"Omarchy will run on up to four displays connected to your Mac in Try Omarchy's next release, built by Xavier Yen.\" The post quotes a martiano post from 16 Nov reading \"Try Omarchy can now run on all the displays you have connected to your MacBook\" followed by two emoji and \"New release coming soon.\" The quoted post has a photo, and this post has no image of its own."
   },
   {
     "device": null,
@@ -119895,13 +119895,13 @@
     "image_hosted": false,
     "id": "omarchy-tokyo-nvidia-gtk4-opengl-rendering-fix",
     "kind": "other",
-    "title": "omarchy_tokyo: Says Omarchy Works Around Blank GTK4 Apps on NVIDIA Machines by Fixing Rendering to OpenGL",
+    "title": "omarchy_tokyo: Says, in Japanese, Omarchy Works Around Blank GTK4 Apps on NVIDIA Machines by Pinning Rendering to OpenGL",
     "author": "omarchy_tokyo",
     "author_url": "https://x.com/omarchy_tokyo",
     "source_url": "https://x.com/omarchy_tokyo/status/2122638377203708061",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "omarchy_tokyo posts in Japanese, \"Omarchyが、NVIDIA機でGTK4アプリが真っ白・真っ黒になる問題を回避します。\" (Omarchy works around the problem of GTK4 apps turning all white or all black on NVIDIA machines.) They continue \"GTK4はVulkanで描画しますが、Hyprlandと別のGPUを選ぶと、NautilusやLoupeが空のウィンドウになったり落ちたりしました。\" (GTK4 renders with Vulkan, but when it picks a different GPU from Hyprland, Nautilus and Loupe became empty windows or crashed.) and \"NVIDIA検出時は描画をOpenGLに固定します。\" (When NVIDIA is detected, rendering is fixed to OpenGL.) The post carries the hashtags \"#Omarchy #Linux\" and links pull request 9814 in the omacom/omarchy GitHub repo. It has no image."
+    "summary": "omarchy_tokyo says, in Japanese, \"Omarchyが、NVIDIA機でGTK4アプリが真っ白・真っ黒になる問題を回避します。\" (Omarchy works around the problem of GTK4 apps turning all white or all black on NVIDIA machines.), \"GTK4はVulkanで描画しますが、Hyprlandと別のGPUを選ぶと、NautilusやLoupeが空のウィンドウになったり落ちたりしました。\" (GTK4 renders with Vulkan, but when a different GPU from Hyprland's was picked, apps such as Nautilus and Loupe came up as empty windows or crashed.) and \"NVIDIA検出時は描画をOpenGLに固定します。\" (When NVIDIA is detected, rendering is pinned to OpenGL.), linking omacom/omarchy pull request #9814, \"Force the GL renderer for GTK4 on NVIDIA\", with the hashtags #Omarchy #Linux. The post is text-only."
   },
   {
     "device": null,
@@ -120084,12 +120084,12 @@
     "image_hosted": true,
     "id": "timsonner-five-omarchy-happenings-16-nov-2026",
     "kind": "idea",
-    "title": "timsonner: Lists Five Omarchy Happenings Including the Omaview Media Viewer, Files for Open and Save Dialogs and the Checkmate Chess Game",
+    "title": "timsonner: \"Omarchy Evangelist\" (16-Nov-2026), Five Happenings Including the Omaview Media Viewer, Files for Open and Save Dialogs and the Checkmate Chess Game",
     "author": "timsonner",
     "author_url": "https://x.com/timsonner",
     "source_url": "https://x.com/timsonner/status/2122421607293743602",
     "created_at": "2026-11-16",
     "added_at": "2026-11-16",
-    "summary": "timsonner posts \"Omarchy Evangelist · Nov 16, 2026\" and \"Five Omarchy happenings:\" listing \"Omaview replaces imv and mpv as one Media Viewer for pictures, video and music (dev)\", \"Other apps' Open and Save dialogs become a Files window (dev)\", \"Checkmate, Omarchy's own 3D chess game, joins the preinstalled apps (dev)\", \"Wi-Fi passphrase prompt gets a show-password toggle and spaced dots (dev)\" and \"4.5.1 backport: native Wayland screensaver now closes on any key, click, scroll or mouse move\". Each item links a pull request in the omacom/omarchy GitHub repo (19034, 19035, 19113, 19103 and 19068), and the post ends with \"@omarchy\". The hosted image is a pixel-art illustration of a stone tower with lit windows on a rocky islet in a blue sea under a dusk sky with an orange glow."
+    "summary": "timsonner posts \"Omarchy Evangelist · Nov 16, 2026\" and \"Five Omarchy happenings:\" listing \"Omaview replaces imv and mpv as one Media Viewer for pictures, video and music (dev)\", \"Other apps' Open and Save dialogs become a Files window (dev)\", \"Checkmate, Omarchy's own 3D chess game, joins the preinstalled apps (dev)\", \"Wi-Fi passphrase prompt gets a show-password toggle and spaced dots (dev)\" and \"4.5.1 backport: native Wayland screensaver now closes on any key, click, scroll or mouse move\". Each item links a pull request in the omacom/omarchy GitHub repo (19034, 19035, 19113, 19103 and 19068), and the post ends with \"@omarchy\". The hosted image is a pixel-art illustration of a stone tower with lit windows on a rocky islet in a blue sea under a deep blue sky with an orange glow along the horizon."
   }
 ]
