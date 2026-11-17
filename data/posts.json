@@ -120111,7 +120111,7 @@
     "image_hosted": true,
     "id": "jankeesvw-private-home-assistant-lights-plugin",
     "kind": "plugin",
-    "title": "jankeesvw: Shares a \"Private\" Omarchy Plugin That Controls Home Assistant Lights in Their Office",
+    "title": "jankeesvw: Shares a \"private\" Omarchy Plugin That Controls Home Assistant Lights in Their Office",
     "author": "jankeesvw",
     "author_url": "https://x.com/jankeesvw",
     "source_url": "https://x.com/jankeesvw/status/2122632194770583911",
@@ -120170,7 +120170,7 @@
     "source_url": "https://x.com/Andrath1975/status/2122607397403525228",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "Andrath1975 says \"OmaRGB for @omarchy  has a webpage. Share it please.\" The post links a GitHub Pages site for OmaRGB and has no image."
+    "summary": "Andrath1975 says \"OmaRGB for @omarchy  has a webpage. Share it please.\" The post links the OmaRGB project page at ekollof.github.io/OmaRGB/ and has no image."
   },
   {
     "device": null,
@@ -120251,7 +120251,7 @@
     "source_url": "https://x.com/thecampeterson/status/2122674161055338669",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "thecampeterson says \"I love @t3dotcodes. But it didn't fit my @omarchy  setup.\" and \"So I made it fit.\" describing \"Super+Enter opens a new task window. Every chat tiles like a terminal. The sidebar slides over instead of squeezing, the composer is one line, and the model hides behind its logo until you hover.\" The hosted image is a still from the video of two dark T3 Code windows side by side, each with a thread list reading \"Control Computer While ...\", \"Add Vidscribe to Setup\" and \"Update AI Tools and Models\"; the left window shows a reply headed \"Gdb SIGABRT crash on Omarchy\" and the right one the \"Add Vidscribe to Setup\" thread with a reply beginning \"Done. Vidscribe now runs natively on\". Other frames show a blurred title card reading \"I love T3 Code.\" and a card reading \"So I made it fit.\""
+    "summary": "thecampeterson says \"I love @t3dotcodes. But it didn't fit my @omarchy  setup.\" and \"So I made it fit.\" describing \"Super+Enter opens a new task window. Every chat tiles like a terminal. The sidebar slides over instead of squeezing, the composer is one line, and the model hides behind its logo until you hover.\" The hosted image is a still from the video of two dark T3 Code windows side by side, each with a thread list reading \"Control Computer While ...\", \"Add Vidscribe to Setup\" and \"Update AI Tools and Models\"; the left window shows a reply headed \"Gdb SIGABRT crash on Omarchy\" and the right one the \"Add Vidscribe to Setup\" thread with a reply beginning \"Done. Vidscribe now runs natively on\". Other frames show a title card over a blurred backdrop reading \"I love T3 Code.\" and a card reading \"So I made it fit.\""
   },
   {
     "device": null,
@@ -120332,7 +120332,7 @@
     "source_url": "https://x.com/pocket_js/status/2122685903848226900",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "pocket_js says \"The ClockworkPi uConsole ships with a regular Linux desktop scaled down to a 5-inch screen. Even closing a window is a chore.\" and \"Omarchy Pocket rebuilds the controls for it. Hold START with your left thumb; your right thumb tiles, carries, fullscreens and closes windows.\" adding \"Built with PocketJS 👇\". The hosted image is a still from the video of a black handheld device with a small keyboard on a green cutting mat, its screen showing a tiled desktop with a light-blue window headed \"Hacker News\" and the word \"Loading\", beside an overlay card reading \"HOLD START + A\" and \"New terminal, tiled for you.\" Other frames show a \"Raspberry Pi OS · stock desktop\" comparison with a stopwatch and the caption \"Closing one window: nudge the pointer, bit by bit...\""
+    "summary": "pocket_js says \"The ClockworkPi uConsole ships with a regular Linux desktop scaled down to a 5-inch screen. Even closing a window is a chore.\" and \"Omarchy Pocket rebuilds the controls for it. Hold START with your left thumb; your right thumb tiles, carries, fullscreens and closes windows.\" adding \"Built with PocketJS 👇\". A same-thread reply (2122685905735655624) says \"You can try Omarchy Pocket on your uConsole today.\" and links an install guide at omapocket.org/docs/uconsole/ and the pocket-nexus/omarchy-pocket v0.2.2 release on GitHub. The hosted image is a still from the video of a black handheld device with a small keyboard on a green cutting mat, its screen showing a tiled desktop with a light-blue window headed \"Hacker News\" and the word \"Loading\", beside an overlay card reading \"HOLD START + A\" and \"New terminal, tiled for you.\" Other frames show a \"Raspberry Pi OS · stock desktop\" comparison with a stopwatch and the caption \"Closing one window: nudge the pointer, bit by bit...\""
   },
   {
     "device": null,
@@ -120358,7 +120358,7 @@
     "source_url": "https://x.com/notHotChaddi/status/2122689653367243089",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "notHotChaddi asks \"Did I break the record or something?\" and follows with a second question about how the install is so fast, tagging @dhh and @omarchy. The hosted image is a photo of a screen with a large green pixel-style \"OMARCHY\" wordmark, the line \"Installed Omarchy in 0m 9s\" circled in red, a second line beneath it partly covered by the circle, and a \"Reboot Now\" button."
+    "summary": "notHotChaddi asks \"Did I break the record or something?\" and follows with a second question about how the install is so fast, tagging @dhh and @omarchy. The hosted image is a photo of a screen with a large green pixel-style Omarchy wordmark with its first letter cut off at the left edge, the line \"Installed Omarchy in 0m 9s\" circled in red, a second line beneath it partly covered by the circle, and a \"Reboot Now\" button."
   },
   {
     "device": null,
@@ -120385,7 +120385,7 @@
     "source_url": "https://x.com/OnTheLiftAI/status/2122694871144427623",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "OnTheLiftAI says \"Feeling like we’re doing something great!\" and lists \"Currently working on “The Swarm”\", \"Terminal bug fixes\", \"UI improvements\" and \"Speed loading in the shop.\", adding \"Omarchy plugin store is browsable in the App Store!\" and \"136 ⭐️ and counting!\" The post links the project's website. The hosted image is a phone screenshot of an \"App Store\" screen reading \"588 apps for your server\" with an \"Omarchy plugins\" chip selected, a panel reading \"Widgets, panels and tools for your Omarchy desktop, from the Omarchy plugin registry. Only plugins it has verified are shown, and each is installed at the verified version.\", a \"Developer Tools\" chip selected, and a \"GitHub Traffic\" card \"by HANCORE-linux · Bar widget · ★ 13\" marked \"Verified\"."
+    "summary": "OnTheLiftAI says \"Feeling like we’re doing something great!\" and lists \"Currently working on “The Swarm”\", \"Terminal bug fixes\", \"UI improvements\" and \"Speed loading in the shop.\", adding \"Omarchy plugin store is browsable in the App Store!\" and \"136 ⭐️ and counting!\" The post links touchworkstation.com. The hosted image is a phone screenshot of an \"App Store\" screen reading \"588 apps for your server\" with an \"Omarchy plugins\" chip selected, a panel reading \"Widgets, panels and tools for your Omarchy desktop, from the Omarchy plugin registry. Only plugins it has verified are shown, and each is installed at the verified version.\", a \"Developer Tools\" chip selected, and a \"GitHub Traffic\" card \"by HANCORE-linux · Bar widget · ★ 13\" marked \"Verified\"."
   },
   {
     "device": null,
@@ -120460,13 +120460,13 @@
     "image_hosted": true,
     "id": "joshuaswarren-macbook-pro-m5-max-proled-omarchy-daily-driver",
     "kind": "hardware",
-    "title": "JoshuaSWarren: Calls Their MacBook Pro M5 Max PROLED Model \"Working Great\" as a Daily Driver in Omarchy, With Agents Sending PRs to AuroraSilicon",
+    "title": "JoshuaSWarren: Calls Their MacBook Pro M5 Max PROLED Model \"working great\" as a Daily Driver in Omarchy, With Agents Sending PRs to AuroraSilicon",
     "author": "JoshuaSWarren",
     "author_url": "https://x.com/JoshuaSWarren",
     "source_url": "https://x.com/JoshuaSWarren/status/2122706196138172542",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "JoshuaSWarren says \"It’s done! MacBook Pro M5 Max PROLED model is now working great as my daily driver in Omarchy.\" and \"Panel even uses the same adaptive refresh that macOS uses to maximize battery life.\" adding \"Agents are PR’ing everything into @AuroraSilicon to be tested and merged there before it’s packaged into @omarchy for a future release.\" They plan to post an updated article, then go back to electrical work on a home \"ai lab\" that is meant to combine \"Omarchy, local AI, ambient computing and a few other surprises\" and be open sourced after a week of personal use. The hosted image is a photo of a dark purple laptop on a desk whose screen shows a tall rocket lifting off amid large pink, orange and purple clouds over water."
+    "summary": "JoshuaSWarren says \"It’s done! MacBook Pro M5 Max PROLED model is now working great as my daily driver in Omarchy.\" and \"Panel even uses the same adaptive refresh that macOS uses to maximize battery life.\" adding \"Agents are PR’ing everything into @AuroraSilicon to be tested and merged there before it’s packaged into @omarchy for a future release.\" They plan to post an updated article \"so the brave can have their agents set this up on their own PROLED today\", then go back to electrical work on a new \"ai lab\" at home, which they call the testing ground for a new system that combines \"Omarchy, local AI, ambient computing and a few other surprises\" and that they say will be open sourced after a week of their own use. The hosted image is a photo of a dark purple laptop on a desk whose screen shows a tall rocket lifting off amid large pink, orange and purple clouds over water."
   },
   {
     "device": null,
@@ -120628,7 +120628,7 @@
     "source_url": "https://x.com/radimsem/status/2122726724781641742",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "radimsem says \"Introducing keek.\" and \"Your coding agent says it's done. keek has a fresh agent check the change on a real desktop.\" with the bullets \"Runs inside your own Omarchy session\", \"Hands you control when it gets stuck\" and \"Leaves a video and a report for the pull request\", adding \"Open source. Link below.\" The hosted image is a still from the video of a framed desktop with a bar reading \"1 2 3 keek\" and a white \"Invoices\" sign-in form (Email, Password and a \"Sign in\" button) over a pink and orange explosion-cloud wallpaper, with a status strip reading \"invoices feat/mark-as-paid\", \"Mark an invoice as paid.\", \"Last action Waiting for the Verifier.\", \"Checked 0 of 4\", \"Elapsed 0:04\" and a \"Take control\" button, above the caption \"keek opens a nested desktop on your Omarchy workspace.\""
+    "summary": "radimsem says \"Introducing keek.\" and \"Your coding agent says it's done. keek has a fresh agent check the change on a real desktop.\" with the bullets \"Runs inside your own Omarchy session\", \"Hands you control when it gets stuck\" and \"Leaves a video and a report for the pull request\", adding \"Open source. Link below.\" A same-thread reply (2122726782038351990) links the radimsem/keek GitHub repo. The hosted image is a still from the video of a framed desktop with a bar reading \"1 2 3 keek\" and a white \"Invoices\" sign-in form (Email, Password and a \"Sign in\" button) over a pink and orange explosion-cloud wallpaper, with a status strip reading \"invoices feat/mark-as-paid\", \"Mark an invoice as paid.\", \"Last action Waiting for the Verifier.\", \"Checked 0 of 4\", \"Elapsed 0:04\" and a \"Take control\" button, above the caption \"keek opens a nested desktop on your Omarchy workspace.\""
   },
   {
     "device": null,
