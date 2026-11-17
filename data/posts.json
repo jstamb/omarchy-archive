@@ -119085,7 +119085,7 @@
     "source_url": "https://x.com/OmarchyUpdates/status/2122419484728369351",
     "created_at": "2026-11-16",
     "added_at": "2026-11-16",
-    "summary": "OmarchyUpdates says \"Your Omarchy games are split across Steam, Heroic and Lutris? One free app puts them on one shelf.\" and \"It's called Omakade: one library that follows your Omarchy theme, playable with a controller from the couch. Open source, built by Tyler (@btsouth).\" Under \"What you get:\" they list one library for Steam, Heroic, Lutris, Battle.net, GOG and Game Pass \"(through Xodus Nexus)\", emulators \"RetroArch, PCSX2, Dolphin, Ryujinx and more\", \"Playtime, achievements and critic scores on game pages\" and \"30-second highlight clips in 1.18, off until you turn them on\". They say it installs from Omarchy's own package repo and add \"It's a community app, not part of Omarchy. Your stores still handle accounts, downloads and DRM.\", thanking @jeffreydsauer and crediting the demo to @btsouth. The post ends \"How many game launchers do you have installed right now?\" The still, from the post's video, is a dark launcher window with a teal frame and the label \"ONE GRID · ALL SOURCES\" over two rows of game covers including \"HOLLOW KNIGHT\" and \"Red Dead Redemption\", under the headline \"EVERY STORE, ONE GRID\" and the line \"Steam, Heroic, Lutris, Battle.net, GOG, Game Pass and emulators.\""
+    "summary": "OmarchyUpdates says \"Your Omarchy games are split across Steam, Heroic and Lutris? One free app puts them on one shelf.\" and \"It's called Omakade: one library that follows your Omarchy theme, playable with a controller from the couch. Open source, built by Tyler (@btsouth).\" Under \"What you get:\" they list one library for Steam, Heroic, Lutris, Battle.net, GOG and Game Pass \"(through Xodus Nexus)\", emulators \"RetroArch, PCSX2, Dolphin, Ryujinx and more\", \"Playtime, achievements and critic scores on game pages\" and \"30-second highlight clips in 1.18, off until you turn them on\". They say it installs from Omarchy's own package repo and add \"It's a community app, not part of Omarchy. Your stores still handle accounts, downloads and DRM.\", thanking @jeffreydsauer and crediting the demo to @btsouth. The post ends \"How many game launchers do you have installed right now?\" A follow-up in the same thread reads \"Omakade by Tyler, install and docs:\" and links the btsouth/omakade GitHub repo. The still, from the post's video, is a dark launcher window with a teal frame and the label \"ONE GRID · ALL SOURCES\" over two rows of game covers including \"HOLLOW KNIGHT\" and \"Red Dead Redemption\", above the headline \"EVERY STORE, ONE GRID\" and the line \"Steam, Heroic, Lutris, Battle.net, GOG, Game Pass and emulators.\""
   },
   {
     "device": null,
@@ -119139,7 +119139,7 @@
     "source_url": "https://x.com/ryanrhughes/status/2122448311580017055",
     "created_at": "2026-11-16",
     "added_at": "2026-11-16",
-    "summary": "ryanrhughes says \"T3 Code now perfectly theme matched in Omarchy, and still with live reloading themes. 😍\" The post quotes a theo post reading \"This has been out for a bit now. Show me what you’ve built with it? 👀👀\". The hosted image, the first of three, is a dark T3 Code window with a thread titled \"Theme T3 Code Like Omarchy\", a chat exchange beginning \"Is the font we're using in T3 theme setup to mirror the system's font? Default is Jetbrains Mono Nerdfont\", and a right-hand pull request panel headed \"Follow Omarchy’s chrome and corners in T3 Code\" with \"#19029\", a \"Merge\" label and \"What changes\" text,. The other two images are further screenshots, not hosted here."
+    "summary": "ryanrhughes says \"T3 Code now perfectly theme matched in Omarchy, and still with live reloading themes. 😍\" The post quotes a theo post reading \"This has been out for a bit now. Show me what you’ve built with it? 👀👀\". The hosted image, the first of three, is a dark T3 Code window with a thread titled \"Theme T3 Code Like Omarchy\", a chat exchange beginning \"Is the font we're using in T3 theme setup to mirror the system's font? Default is Jetbrains Mono Nerdfont\", and a right-hand pull request panel headed \"Follow Omarchy's chrome and corners in T3 Code\" with \"#19029\", a \"Merge\" label and a \"What changes\" section. The other two images show the same window and pull request panel in a near-black theme and in a light cream theme."
   },
   {
     "device": null,
@@ -119164,9 +119164,9 @@
     "author": "OmarchyUpdates",
     "author_url": "https://x.com/OmarchyUpdates",
     "source_url": "https://x.com/OmarchyUpdates/status/2122494989058101733",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
-    "summary": "OmarchyUpdates says \"Open and Save dialogs on Omarchy are switching to your Files window. 📂\" and \"Just merged. Not in a release yet (latest is v4.5.0). It comes with the next Omarchy update.\" They describe the problem as \"when a browser or editor asked you to pick a file, you got the plain GTK picker\", say \"Files 0.5.0 can act as the system file picker (an xdg-desktop-portal backend)\" with \"Same views, same sidebar, same keys\", and add \"Then press Ctrl + O in your browser to see it\", \"It floats, centered, at 875×600\" and \"The catch: it needs Files 0.5.0, the version that ships the picker. Without it you still get GTK.\" The post ends \"Do you pick files from the dialog, or just drag and drop?\" A follow-up in the same thread names the source as 'Omarchy PR #19035, \"Use Files for other apps' Open and Save dialogs\"'. The still, from the post's video, is a split title card: \"GTK picker\" with \"Different look. Different keys.\" on the left against a Files window on the right, showing a \"Pictures\" folder with \"Beach.jpg\", \"Forest.jpg\", \"Harbor.jpg\" and \"Sunset.jpg\" and \"Cancel\" and \"Open\" buttons, under the headline \"Open & Save dialogs are moving to Files\"."
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
+    "summary": "OmarchyUpdates says \"Open and Save dialogs on Omarchy are switching to your Files window. 📂\" and \"Just merged. Not in a release yet (latest is v4.5.0). It comes with the next Omarchy update.\" They describe the problem as \"when a browser or editor asked you to pick a file, you got the plain GTK picker\", say \"Files 0.5.0 can act as the system file picker (an xdg-desktop-portal backend)\" with \"Same views, same sidebar, same keys\", and add \"Then press Ctrl + O in your browser to see it\", \"It floats, centered, at 875×600\" and \"The catch: it needs Files 0.5.0, the version that ships the picker. Without it you still get GTK.\" The post ends \"Do you pick files from the dialog, or just drag and drop?\" A follow-up in the same thread (2122495001439683032) names the source as Omarchy PR #19035, \"Use Files for other apps' Open and Save dialogs\". The still, from the post's video, is a split title card: \"GTK picker\" with \"Different look. Different keys.\" on the left against a Files window on the right, showing a \"Pictures\" folder with \"Beach.jpg\", \"Forest.jpg\", \"Harbor.jpg\" and \"Sunset.jpg\" and \"Cancel\" and \"Open\" buttons, above the headline \"Open & Save dialogs are moving to Files\"."
   },
   {
     "device": null,
@@ -119245,8 +119245,8 @@
     "author": "MikeLeiterDev",
     "author_url": "https://x.com/MikeLeiterDev",
     "source_url": "https://x.com/MikeLeiterDev/status/2122480200063811919",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
     "summary": "MikeLeiterDev says \"Making my first Omarchy plugin. It's a tray app that will manage the debug connection to an Android phone over USB or wireless. You have to turn the debug mode on, and it can only auto-connect over USB - but after that it can auto setup wireless.\", linking the LightCC/phonelink-android GitHub repo."
   },
   {
@@ -119274,9 +119274,9 @@
     "author": "Passkultur",
     "author_url": "https://x.com/Passkultur",
     "source_url": "https://x.com/Passkultur/status/2122496092986048967",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
-    "summary": "Passkultur says \"my laptop kept sleeping every time I closed the lid mid agent run, so I made Fast Lid, a tiny Omarchy toggle\", \"click it, close the lid, the agent keeps running (15 min to 8 h, or ON)\" and \"shutdown and low battery still work. on the Omarchy plugin marketplace\", linking the CloudDown/fast-lid GitHub repo. The hosted image, the first of three, is a strip of top-bar icons over a teal-framed box reading \"2h 59 min 53 sec\" above a slider set about a third of the way along. The other two images, not hosted here, show the same box reading \"ON\" with the slider at its far right and \"OFF\" with the slider at its far left."
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
+    "summary": "Passkultur says \"my laptop kept sleeping every time I closed the lid mid agent run, so I made Fast Lid, a tiny Omarchy toggle\", \"click it, close the lid, the agent keeps running (15 min to 8 h, or ON)\" and \"shutdown and low battery still work. on the Omarchy plugin marketplace\", linking the CloudDown/fast-lid GitHub repo. The hosted image, the first of three, is a strip of top-bar icons over a teal-framed box reading \"2h 59 min 53 sec\" above a slider set about a third of the way along. The other two images show the same box reading \"ON\" with the slider at its far right and \"OFF\" with the slider at its far left."
   },
   {
     "device": null,
@@ -119301,8 +119301,8 @@
     "author": "V1b3_F0rg3",
     "author_url": "https://x.com/V1b3_F0rg3",
     "source_url": "https://x.com/V1b3_F0rg3/status/2122506382020936069",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
     "summary": "V1b3_F0rg3 says \"For all my Naruto enjoyers, I've just updated the Kyuubi theme on the Omarchy Themes page :\", linking the omarchy.org themes page and the L0nE-F0x/omarchy-kyuubi-theme GitHub repo, and tagging @omarchy. The hosted image is a wide desktop with a wallpaper of a snarling orange fox-like figure with several tails against red flames, a fetch-style panel with an orange spiral logo at the upper left and a system monitor panel with an orange frame below it."
   },
   {
@@ -119328,8 +119328,8 @@
     "author": "johnjanuszczak",
     "author_url": "https://x.com/johnjanuszczak",
     "source_url": "https://x.com/johnjanuszczak/status/2122523264165777825",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
     "summary": "johnjanuszczak says \"Omawise 0.1.5 is out for Omarchy 📚\" and, since 0.1.4, lists \"Pick up where you left off.\" (\"Reading progress now saves to Reader between sessions. Choose Last position or Furthest position in Omawise settings. PDF progress is still unsupported.\"), \"Send articles where you work.\" (\"Copy clean Markdown or open an article in Reader, Neovim, VS Code, Obsidian, or another configured editor.\"), \"More article actions.\", \"Quick library actions.\" (\"Save a URL to Reader from the command palette and mark documents seen or unseen.\") and \"Settings close at hand.\", linking the jjanuszczak/omawise v0.1.5 GitHub release."
   },
   {
@@ -119355,9 +119355,9 @@
     "author": "urielcuriel",
     "author_url": "https://x.com/urielcuriel",
     "source_url": "https://x.com/urielcuriel/status/2122524953161470085",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
-    "summary": "urielcuriel says \"When I started this little weekend experiment, I had no idea how long it would take to get something functional.\", \"Turns out, things moved much faster than I expected. Two days later, @omarchy is running on my OnePlus 10 Pro! 🚀🐧\" and \"Still a lot to do, but here we are.\" The post quotes their own earlier post reading \"Started a little weekend experiment to bring @omarchy to my OnePlus 10 Pro\" and \"So far: Linux mainline 7.3 boots with a custom DT, framebuffer console works, and I have root access over USB SSH!🚀\". The hosted image, the first of three, is a phone screenshot of a home screen with a large clock widget over a wallpaper of a rocket launching into an orange and purple sky, above a dock of \"Chromium\", \"Files\", \"Foot\" and \"Omawrite\" and a \"Search apps…\" field. A second image, not hosted here, is a pulled-down panel with \"Wi-Fi\", \"Bluetooth\" (\"No adapter\"), \"Do not disturb\" and \"Torch\" (\"No flash LED\") tiles and a brightness slider at \"52%\", over \"Notifications\" reading \"No notifications\"."
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
+    "summary": "urielcuriel says \"When I started this little weekend experiment, I had no idea how long it would take to get something functional.\", \"Turns out, things moved much faster than I expected. Two days later, @omarchy is running on my OnePlus 10 Pro! 🚀🐧\" and \"Still a lot to do, but here we are.\" The post quotes their own earlier post reading \"Started a little weekend experiment to bring @omarchy to my OnePlus 10 Pro\" and \"So far: Linux mainline 7.3 boots with a custom DT, framebuffer console works, and I have root access over USB SSH!🚀\". The hosted image, the first of three, is a phone screenshot of a home screen with a large clock widget over a wallpaper of a rocket launching into an orange and purple sky, above a dock of \"Chromium\", \"Files\", \"Foot\" and \"Omawrite\" and a \"Search apps…\" field. A second image is a pulled-down panel with \"Wi-Fi\", \"Bluetooth\" (\"No adapter\"), \"Do not disturb\" and \"Torch\" (\"No flash LED\") tiles and a brightness slider at \"52%\", over \"Notifications\" reading \"No notifications\", and a third is a lock screen with an \"Enter PIN\" field above a number pad and \"Emergency call\"."
   },
   {
     "device": null,
@@ -119378,13 +119378,13 @@
     "image_hosted": false,
     "id": "omarchy-tokyo-cards-klondike-solitaire-added",
     "kind": "other",
-    "title": "omarchy_tokyo: Reports Omarchy Adds Cards, a Standard Klondike Solitaire Game",
+    "title": "omarchy_tokyo: Says, in Japanese, Cards, a Default Klondike Solitaire Game, Has Been Added to Omarchy",
     "author": "omarchy_tokyo",
     "author_url": "https://x.com/omarchy_tokyo",
     "source_url": "https://x.com/omarchy_tokyo/status/2122532679992185191",
-    "created_at": "2026-11-16",
-    "added_at": "2026-11-16",
-    "summary": "omarchy_tokyo says, in Japanese, that Omarchy gains a standard solitaire game called \"Cards\": Klondike with three-card draw and unlimited passes, with card art in four kinds, the theme colors plus three original designs. They say new installs get it from the start and existing setups get it through an update if the preinstalled set has not been removed, and link the Omarchy pull request \"Install Cards by default\". Hashtags are #Omarchy #Linux."
+    "created_at": "2026-11-17",
+    "added_at": "2026-11-17",
+    "summary": "omarchy_tokyo says, in Japanese, \"🍄 Omarchyに、標準のソリティア「Cards」が加わりました。\" (🍄 Cards, a default solitaire game, has been added to Omarchy.), \"クロンダイクで3枚めくり・パス無制限。\" (Klondike, three-card draw, unlimited passes.), \"絵柄はテーマ色と独自3種の計4種類です。\" (There are four card designs in all: the theme colors plus three originals.) and \"新規インストールは最初から、既存環境も更新で追加されます（プリインストールを外していない場合）。\" (New installs have it from the start, and existing setups get it through an update, if the preinstalled apps have not been removed.), linking omacom/omarchy pull request #19151, \"Install Cards by default\", with the hashtags #Omarchy #Linux. The post is text-only."
   },
   {
     "device": null,
