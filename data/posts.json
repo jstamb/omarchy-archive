@@ -120712,7 +120712,7 @@
     "source_url": "https://x.com/kenners22/status/2122781161747259439",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "kenners22 says \"I built a game for @omarchy. It's called Mines, a mine-clearing puzzle.\" and \"It's made the way Omarchy's own apps are: C++ and Qt Quick, installed as an Arch package, and it shows up in the app launcher.\" They add \"It follows your Omarchy theme and language live, and you can play it fully by keyboard (vim keys too) or by mouse.\" and \"It's free and open source.\" The post links a GitHub repo. The hosted image is a dark game window with tabs \"Beginner\", \"Intermediate\" (highlighted orange), \"Expert\" and \"Custom\", a counter reading \"26\", an orange banner \"Mine hit. Try again\" with an \"N\" key box, and a timer reading \"0:21.1\", above a 16 x 16 grid of numbered squares, orange flags and white mine icons with one red-highlighted mine, and a footer reading \"16 × 16 · 40 mines · Best 0:48.3 · Won 11 of 27\" with a \"? Shortcuts\" button."
+    "summary": "kenners22 says \"I built a game for @omarchy. It's called Mines, a mine-clearing puzzle.\" and \"It's made the way Omarchy's own apps are: C++ and Qt Quick, installed as an Arch package, and it shows up in the app launcher.\" They add \"It follows your Omarchy theme and language live, and you can play it fully by keyboard (vim keys too) or by mouse.\" and \"It's free and open source.\" The post links the kenners22/omarchy-mines repo on GitHub. The hosted image is a dark game window with tabs \"Beginner\", \"Intermediate\" (highlighted orange), \"Expert\" and \"Custom\", a counter reading \"26\", an orange banner \"Mine hit. Try again\" with an \"N\" key box, and a timer reading \"0:21.1\", above a 16 x 16 grid of numbered squares, orange flags and white mine icons with one red-highlighted mine, and a footer reading \"16 × 16 · 40 mines · Best 0:48.3 · Won 11 of 27\" with a \"? Shortcuts\" button."
   },
   {
     "device": null,
@@ -120795,7 +120795,7 @@
     "source_url": "https://x.com/OmarchyUpdates/status/2122781861525201242",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "OmarchyUpdates opens with \"Old iPad or phone in a drawer? Make it a second monitor for Omarchy.\" and says \"Virtual Screens, a new community plugin by Jebin Einstein, does it all from one bar icon. It creates a virtual Hyprland monitor and streams it over USB or home Wi-Fi. Windows move onto it like any other screen.\" They list four steps (install with the command below, click the bar icon and press Set up, click Second screen and add the address in the Moonlight app, then type the PIN and press Pair) and say \"Up to 3 extra screens, each sized to its device.\" Their caveats are \"Know first: it's under a week old and not part of Omarchy. Set up adds firewall and network rules as root. You need a GPU with a hardware video encoder. iPhones and iPads connect over Wi-Fi only.\" The post includes an install command and a link to the open-source repo, and asks \"Which old device would you turn into a second screen?\" The hosted image is a still from the video of a dark slide with step pills \"1 Set up\", \"2 Second screen\" (highlighted) and \"3 Pair\", the heading \"02\" and \"Second screen\" with \"Turn on Second screen. Add the address it shows in Moonlight on your device.\", and a \"Virtual screens\" panel reading \"1 SCREEN ON\" with a \"Home Wi-Fi\" row and \"Stop allowing\" button, rows \"Second screen · Second scr…\" marked \"on\", \"Third screen\" and \"Fourth screen\" marked \"off\", and an \"Uninstall…\" button, captioned \"REAL PANEL SCREENSHOT · FROM THE PLUGIN'S REPO\"."
+    "summary": "OmarchyUpdates opens with \"Old iPad or phone in a drawer? Make it a second monitor for Omarchy.\" and says \"Virtual Screens, a new community plugin by Jebin Einstein, does it all from one bar icon. It creates a virtual Hyprland monitor and streams it over USB or home Wi-Fi. Windows move onto it like any other screen.\" They list four steps (install with the command below, click the bar icon and press Set up, click Second screen and add the address in the Moonlight app, then type the PIN and press Pair) and say \"Up to 3 extra screens, each sized to its device.\" Their caveats are \"Know first: it's under a week old and not part of Omarchy. Set up adds firewall and network rules as root. You need a GPU with a hardware video encoder. iPhones and iPads connect over Wi-Fi only.\" The post includes an install command and a link to the open-source jebin2/omarchy-virtual-screens repo on GitHub, and asks \"Which old device would you turn into a second screen?\" The hosted image is a still from the video of a dark slide with step pills \"1 Set up\", \"2 Second screen\" (highlighted) and \"3 Pair\", the heading \"02\" and \"Second screen\" with \"Turn on Second screen. Add the address it shows in Moonlight on your device.\", and a \"Virtual screens\" panel reading \"1 SCREEN ON\" with a \"Home Wi-Fi\" row and \"Stop allowing\" button, rows \"Second screen · Second scr…\" marked \"on\", \"Third screen\" and \"Fourth screen\" marked \"off\", and an \"Uninstall…\" button, captioned \"REAL PANEL SCREENSHOT · FROM THE PLUGIN'S REPO\"."
   },
   {
     "device": null,
@@ -120822,7 +120822,7 @@
     "source_url": "https://x.com/nivekcode/status/2122783648306896917",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "nivekcode shares \"My @omarchy workspaces:\" as \"1 → comms: Teams, Slack, WhatsApp\", \"2, 3, 4 → one project each, with everything that belongs to it: IDE, terminal, browser\" and \"5, 6 → YouTube, podcasts, Spotify\". They say \"And the AI harnesses? They live in the scratchpad.\" and explain \"You can't really run multiple instances of Codex or T3 Code, so one per workspace is out. In a terminal that would be easy, but I don't use the terminal for AI. So they sit in the scratchpad and wander with me: Super+S and they're on top of whatever workspace I'm on.\" The hosted image is a dark infographic headed \"My OMARCHY workspaces\" with \"Every job gets its own workspace. The AI lives in the scratchpad, so it follows me to all of them.\", six numbered cards (\"Comms\", \"Project A\", \"Project B\", \"Project C\", \"Watch + listen\" and \"Music\"), and a \"SCRATCHPAD\" band reading \"My AI harnesses\" with \"Super + S\" and cards \"Codex\", \"T3 Code\" and \"Claude\", above key hints \"Super + 1 … 6 jump to a workspace\", \"Super + S summon the AI, wherever I am\" and \"Super + Alt + S send a window to the scratchpad\"."
+    "summary": "nivekcode shares \"My @omarchy  workspaces:\" as \"1 → comms: Teams, Slack, WhatsApp\", \"2, 3, 4 → one project each, with everything that belongs to it: IDE, terminal, browser\" and \"5, 6 → YouTube, podcasts, Spotify\". They say \"And the AI harnesses? They live in the scratchpad.\" and explain \"You can't really run multiple instances of Codex or T3 Code, so one per workspace is out. In a terminal that would be easy, but I don't use the terminal for AI. So they sit in the scratchpad and wander with me: Super+S and they're on top of whatever workspace I'm on.\" The hosted image is a dark infographic headed \"My OMARCHY workspaces\" with \"Every job gets its own workspace. The AI lives in the scratchpad, so it follows me to all of them.\", six numbered cards (\"Comms\", \"Project A\", \"Project B\", \"Project C\", \"Watch + listen\" and \"Music\"), and a \"SCRATCHPAD\" band reading \"My AI harnesses\" with \"Super + S\" and cards \"Codex\", \"T3 Code\" and \"Claude\", above key hints \"Super + 1 … 6 jump to a workspace\", \"Super + S summon the AI, wherever I am\" and \"Super + Alt + S send a window to the scratchpad\"."
   },
   {
     "device": null,
@@ -120877,7 +120877,7 @@
     "source_url": "https://x.com/crueber/status/2122791963221020974",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "crueber says \"Was running three Omarchy bar widgets to track OpenRouter, OpenCode and Grok limits. Rolled them into one: Agent Meters. Added Codex and Claude; anything you don't use stays out of the bar. Now on the Omarchy marketplace.\" and asks \"What's eating your limits?\" The post links a GitHub repo. The hosted image is a dark panel titled \"Agent Meters\" reading \"5 AGENTS · JUST NOW\" with a \"62%\" badge, under a row of five icons, listing \"OpenRouter\" (62%), \"OpenCode\" (41%), \"Grok\" (42.7%), \"Codex\" (34%) and \"Claude\" (62%), each with a toggle and progress bars such as \"Weekly (7-day)\" and \"Resets in 5d 0h\", and a footer reading \"Updated just now · local agent records\"."
+    "summary": "crueber says \"Was running three Omarchy bar widgets to track OpenRouter, OpenCode and Grok limits. Rolled them into one: Agent Meters. Added Codex and Claude; anything you don't use stays out of the bar. Now on the Omarchy marketplace.\" and asks \"What's eating your limits?\" The post links the crueber/omarchy-plugin-agent-meters repo on GitHub. The hosted image is a dark panel titled \"Agent Meters\" reading \"5 AGENTS · JUST NOW\" with a \"62%\" badge, under a row of five icons, listing \"OpenRouter\" (62%), \"OpenCode\" (41%), \"Grok\" (42.7%), \"Codex\" (34%) and \"Claude\" (62%), each with a toggle and progress bars such as \"Weekly (7-day)\" and \"Resets in 5d 0h\", and a footer reading \"Updated just now · local agent records\"."
   },
   {
     "device": null,
@@ -120904,7 +120904,7 @@
     "source_url": "https://x.com/juanggiraldo/status/2122792007584317469",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "juanggiraldo says \"Rescued an old Apple Magic Trackpad that macOS no longer supports.\" and \"Hooked it up to my Omarchy setup and got it fully working: multi-finger swipes, pinch, smooth scrolling, all the gestures.\" adding \"Old hardware isn't dead. It just needed the right OS. 🐧\". The hosted image is a photo of a silver Apple Magic Trackpad on a dark desk mat, with a white USB hub and a black \"iDsonix\" device at the top left."
+    "summary": "juanggiraldo says \"Rescued an old Apple Magic Trackpad that macOS no longer supports.\" and \"Hooked it up to my Omarchy setup and got it fully working: multi-finger swipes, pinch, smooth scrolling, all the gestures.\" adding \"Old hardware isn't dead. It just needed the right OS. 🐧\". The hosted image is a photo of a silver Apple Magic Trackpad on a dark desk mat, with a silver USB hub and a black \"iDsonix\" device at the top left."
   },
   {
     "device": null,
@@ -120931,7 +120931,7 @@
     "source_url": "https://x.com/DekakaNate/status/2122796091863355717",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "DekakaNate says \"Starship theme with matching icons.\" and \"This is currently my favorite setup.\" and tags @dhh, @omarchy and @OmarchyUpdates. The hosted image is an app launcher with a \"Search apps…\" field and a grid of orange and yellow icons labeled \"Aether\", \"Basecamp\", \"Chromium\", \"cliamp\", \"Discord\", \"Disks\", \"disktree\", \"Document Viewer\", \"Files\", \"Foot\", \"Google Chrome\", \"Google Maps\", \"HEY\", \"Hype\", \"Image Viewer\", \"LocalSend\", \"Media Player\", \"Monologue\", \"Moonlight\" and \"Neovim\", over a darkened wallpaper of orange and pink clouds with a dark pointed silhouette at the top center."
+    "summary": "DekakaNate says \"Starship theme with matching icons.\" and \"This is currently my favorite setup.\" and tags @dhh, @omarchy and @OmarchyUpdates. The hosted image is an app launcher with a \"Search apps…\" field and a grid of 28 orange and yellow icons labeled \"Aether\", \"Basecamp\", \"Chromium\", \"cliamp\", \"Discord\", \"Disks\", \"disktree\", \"Document Viewer\", \"Document Viewer\", \"Files\", \"Foot\", \"Gliff\", \"Google Chrome\", \"Google Contacts\", \"Google Maps\", \"Google Messages\", \"Google Photos\", \"HEY\", \"Hype\", \"Image Viewer\", \"LibreOffice Calc\", \"LibreOffice Impress\", \"LibreOffice Writer\", \"LocalSend\", \"Media Player\", \"Monologue\", \"Moonlight\" and \"Neovim\", over a darkened wallpaper of orange and pink clouds with a dark pointed silhouette at the top center."
   },
   {
     "device": null,
@@ -120958,7 +120958,7 @@
     "source_url": "https://x.com/yamzeight/status/2122812842311053688",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "yamzeight says \"I put everything into this new Flight 15 theme. I'll open a PR for Omarchy with the best one. Let me know what you think.\" The post links a GitHub repo and a video, and quotes an earlier yamzeight post, \"My new favorite Omarchy wallpaper\". The hosted image is a still from the video of an overhead view of a black rocket body marked \"S42\" and \"DON'T PANIC\" with a plume of white and tan smoke and a pink glow at the engine, and a blue hexagon outline at the left, behind the top bar."
+    "summary": "yamzeight says \"I put everything into this new Flight 15 theme. I'll open a PR for Omarchy with the best one. Let me know what you think.\" The post links the yamz8/omarchy-flight-15-theme repo on GitHub, attaches a video and quotes an earlier yamzeight post, \"My new favorite Omarchy wallpaper\". The hosted image is a still from the video of an overhead view of a black rocket body marked \"S42\" and \"DON'T PANIC\" with a plume of white and tan smoke and a pink glow at the engine, and a blue hexagon outline at the left, behind the top bar."
   },
   {
     "device": null,
@@ -120985,7 +120985,7 @@
     "source_url": "https://x.com/bradgessler/status/2122826684760240409",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "bradgessler says \"I keep making fun of @omarchy for its teenage angst Doritos & Surge UI, but haven't showed folks what I cooked up.\" and \"Here it is! I'm calling it Calmarchy.\" adding \"My fav thing is the browser isn't the clown-ish Chrome UI and tabs are stacks (see the dots?)\". The post links a GitHub repo and has no image. In a reply under the same post they say \"If you're a Rectangle user on macOS, this will feel at home.\" and \"If you love tabs, which is most of you, you might hate this. I view tabs as a failure of window management, so I created stacks.\" adding \"The dots you see are stacks, and a stack can be multiple apps, not just one.\""
+    "summary": "bradgessler says \"I keep making fun of @omarchy for its teenage angst Doritos & Surge UI, but haven't showed folks what I cooked up.\" and \"Here it is! I'm calling it Calmarchy.\" adding \"My fav thing is the browser isn't the clown-ish Chrome UI and tabs are stacks (see the dots?)\". The post links the bradgessler/calmarchy repo on GitHub and has no image. In a reply under the same post they say \"If you're a Rectangle user on macOS, this will feel at home.\" and \"If you love tabs, which is most of you, you might hate this. I view tabs as a failure of window management, so I created stacks.\" adding \"The dots you see are stacks, and a stack can be multiple apps, not just one.\""
   },
   {
     "device": null,
@@ -120994,7 +120994,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "emils.localhost"
+    ],
     "tags": [
       "localhost",
       "release",
@@ -121040,7 +121042,7 @@
     "source_url": "https://x.com/UlrichSlothuus/status/2122789534907707608",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "UlrichSlothuus says \"I never liked GeForce Now forcing fullscreen mode, so I gave Opus5.5 the task in Omarchy to fix it 🙂\" and \"I also tweaked btop to show GPU usage on the MacBook M3. It's just an amazing OS @dhh 💪\". The hosted image is a screenshot of two tiled windows: on the left a btop view with a \"gpu0\" panel reading \"Apple M3\" at 45% and 50°C, memory and network panels and a process list of \"brave\" and \"Hyprland\" entries, and on the right a game main menu with a \"WARHAMMER III\" logo and \"Continue Campaign\", \"Campaign\", \"Battle\", \"Multiplayer\" and \"Options\" over a desert ruins painting."
+    "summary": "UlrichSlothuus says \"I never liked GeForce Now forcing fullscreen mode, so I gave Opus5.5 the task in Omarchy to fix it 🙂\" and \"I also tweaked btop to show GPU usage on the MacBook M3. It's just an amazing OS @dhh 💪\". The hosted image is a screenshot of two tiled windows: on the left a btop view with a \"gpu0\" panel reading \"Apple M3\" at 45% and 50°C, memory and network panels and a process list including \"brave\", \"Hyprland\", \"node-MainThread\" and \"kworker\" entries, and on the right a game main menu with a \"WARHAMMER III\" logo and \"Continue Campaign\", \"Campaign\", \"Battle\", \"Multiplayer\" and \"Options\" over a desert ruins painting."
   },
   {
     "device": null,
@@ -121067,7 +121069,7 @@
     "source_url": "https://x.com/johnjanuszczak/status/2122896403764744695",
     "created_at": "2026-11-18",
     "added_at": "2026-11-18",
-    "summary": "johnjanuszczak says \"Omawise v0.1.6 is out!\" and \"Omawise is a native @readwise Reader client for @omarchy.\" They list live Omarchy theme following with light/dark mode and accent colors, \"UI polish including larger, consistent outline icons throughout the app\" and \"Smoother article moves between Inbox, Later, and Archive, with clearer active states\". They add \"We can just do things.\" and \"Get the x86_64 Arch package:\" with a link to the GitHub release. The hosted image is the first of three, a light-themed Omawise window with a sidebar of \"Inbox\", \"Later\", \"Shortlist\", \"Archive\" and \"Feed\", an Inbox list headed by \"The Boring Company & the Future Underground\" and \"Making CI faster and 95% cheaper\", and a right panel with \"Info\" and \"Notebook\" tabs and a \"Mark seen\" button. A second and third image show the same window in a dark theme and a dark theme with an orange accent."
+    "summary": "johnjanuszczak says \"Omawise v0.1.6 is out!\" and \"Omawise is a native @readwise  Reader client for @omarchy.\" They list live Omarchy theme following with light/dark mode and accent colors, \"UI polish including larger, consistent outline icons throughout the app\" and \"Smoother article moves between Inbox, Later, and Archive, with clearer active states\". They add \"We can just do things.\" and \"Get the x86_64 Arch package:\" with a link to the GitHub release. The hosted image is the first of three, a light-themed Omawise window with a sidebar of \"Inbox\", \"Later\", \"Shortlist\", \"Archive\" and \"Feed\", an Inbox list headed by \"The Boring Company & the Future Underground\" and \"Making CI faster and 95% cheaper\", and a right panel with \"Info\" and \"Notebook\" tabs and a \"Mark seen\" button. A second and third image show the same window in a dark theme and a dark theme with an orange accent."
   },
   {
     "device": null,
@@ -121088,13 +121090,13 @@
     "image_hosted": false,
     "id": "komagata-omarchy-upstream-digest-nov-18-2026",
     "kind": "idea",
-    "title": "komagata: Posts the Omarchy Upstream Digest for November 18, 2026, Covering a Larger AMD GPU Memory Cap and a Follow-Up on APU Firmware VRAM",
+    "title": "komagata: \"Omarchy Upstream\" (November 18, 2026), Covering a Larger AMD GPU Memory Cap and a Follow-Up on APU Firmware VRAM",
     "author": "komagata",
     "author_url": "https://x.com/komagata",
     "source_url": "https://x.com/komagata/status/2122874525536960883",
     "created_at": "2026-11-18",
     "added_at": "2026-11-18",
-    "summary": "komagata posts \"Today’s Omarchy Upstream — November 18, 2026\" and says \"On 17 November dhh merged a larger GPU memory cap for AMD machines and opened a follow-up, still open, that shrinks the APU's firmware VRAM carveout through fwupd.\" The post links the digest page, carries the hashtag \"#omarchy\" and has no image."
+    "summary": "komagata posts \"Today’s Omarchy Upstream — November 18, 2026\" and says \"On 17 November dhh merged a larger GPU memory cap for AMD machines and opened a follow-up, still open, that shrinks the APU's firmware VRAM carveout through fwupd.\" The post links the edition at omarchyupstream.com/2026-11-17/ and ends with the hashtag \"#omarchy\". The post is text-only."
   },
   {
     "device": null,
@@ -121115,7 +121117,7 @@
     "image_hosted": false,
     "id": "yueyaoz-quake-console-agent-fixes-webgpu-and-menu",
     "kind": "idea",
-    "title": "yueyaoz: Calls the Omarchy Quake Console With an Agent a Favorite Feature, Using Claude for Chrome WebGPU, a Copy-Path Menu Item and Mouse Mappings",
+    "title": "yueyaoz: Calls the Omarchy Quake Console With an Agent a Favorite Feature, Using It to Fix Chrome WebGPU, Add a Copy-Path Menu Item and Map Mouse Keys",
     "author": "yueyaoz",
     "author_url": "https://x.com/yueyaoz",
     "source_url": "https://x.com/yueyaoz/status/2122782461528776808",
@@ -121148,7 +121150,7 @@
     "source_url": "https://x.com/kristiannaaron/status/2122738303715954983",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "kristiannaaron says \"Got @omarchy running on my older @NVIDIAAI Jetson nano p3450. Only 4gbs of ram and natively can't run ubuntu 20.4 without a hacky method 😂\" and \"All thats left is optimizing it for a snappy experience because performance has some high latency issues. Will post a PR upstream soon!\" The hosted image is a photo of a monitor in a dim room showing the Omarchy manual page \"Welcome to Omarchy!\" with a pixel \"OMARCHY MANUAL\" wordmark, a \"News\", \"Manual\", \"Plugins\", \"Themes\" header, a green \"Install\" button and a contents list, on a blue background with a pink and orange edge."
+    "summary": "kristiannaaron says \"Got @omarchy running on my older @NVIDIAAI Jetson nano p3450. Only 4gbs of ram and natively can’t run ubuntu 20.4 without a hacky method 😂\" and \"All thats left is optimizing it for a snappy experience because performance has some high latency issues. Will post a PR upstream soon!\" The hosted image is a photo of a monitor in a dim room showing the Omarchy manual page \"Welcome to Omarchy!\" with a pixel \"OMARCHY MANUAL\" wordmark, a \"News\", \"Manual\", \"Plugins\", \"Themes\" header, a green \"Install\" button and a contents list, on a blue background with a pink and orange edge."
   },
   {
     "device": null,
@@ -121202,6 +121204,6 @@
     "source_url": "https://x.com/jy/status/2122753685751308550",
     "created_at": "2026-11-17",
     "added_at": "2026-11-17",
-    "summary": "jy posts \"Omarchy 4.5.1 collects 46 fixes; Try Omarchy for Mac 1.4 spans every display — 17 November\" with a link to a blog post. The post has no image."
+    "summary": "jy posts \"Omarchy 4.5.1 collects 46 fixes; Try Omarchy for Mac 1.4 spans every display — 17 November\" with a link to the matching post on sudo-agent.blogwarp.com. The post has no image."
   }
 ]
