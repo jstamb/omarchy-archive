@@ -121230,7 +121230,7 @@
     "author_url": "https://x.com/AFOliveira__",
     "source_url": "https://x.com/AFOliveira__/status/2122751866266423677",
     "created_at": "2026-11-17",
-    "added_at": "2026-11-18",
+    "added_at": "2026-11-17",
     "summary": "AFOliveira__ posts \"Try Omarchy in Portugal!\" and \"Literally, as we'll have @martiano presenting omarchy on Macs and his own project in Lisbon!\" They add \"Register to attend!\" with a link to a Luma event page (luma.com/xt0wf88j). A separate martiano post quoting this one gives \"November 30th at @Cloudflare's offices\" for \"Omarchy Lisbon Meetup #1\". The hosted image is a laptop with a camera notch on a blurred background, its screen showing a pixel-style wordmark \"OMARCHY\" in green, yellow and red letters over the word \"LISBON\" and a Portuguese flag, above a carved stone monument on the left, a red bridge in the distance, a sailboat and a setting sun over the water."
   },
   {
@@ -121257,7 +121257,7 @@
     "author_url": "https://x.com/martiano",
     "source_url": "https://x.com/martiano/status/2122762586890674610",
     "created_at": "2026-11-17",
-    "added_at": "2026-11-18",
+    "added_at": "2026-11-17",
     "summary": "martiano posts \"Omarchy Lisbon Meetup #1!\", \"I'll be there.\" and \"Will take place November 30th at @Cloudflare's offices.\" The post quotes an AFOliveira__ post, \"Try Omarchy in Portugal!\", which says \"we'll have @martiano presenting omarchy on Macs and his own project in Lisbon!\" and asks readers to \"Register to attend!\" The post has no image of its own; the quoted post's image is not hosted here."
   },
   {
@@ -121366,7 +121366,7 @@
     "source_url": "https://x.com/OmarchyUpdates/status/2122857385672987106",
     "created_at": "2026-11-18",
     "added_at": "2026-11-18",
-    "summary": "OmarchyUpdates opens with \"Keep Windows in a window.\" for anyone whose one app only runs on Windows, then lists \"Super + Space > Install > Windows\", picking the RAM, CPU cores and disk (\"64 GB is the sensible floor\"), leaving the login blank to get \"docker / admin\", waiting \"10–15 minutes while Windows 11 downloads\" and launching Windows from the app launcher, where \"It opens full screen\". They add \"Sound, your mic and copy-paste work both ways.\" and \"Drop files in ~/Windows to share them. Windows can't see the rest of your disk.\" and \"Good for Office. Not for games: there's no GPU passthrough.\" The post names \"Level 6 of the free Omarchy 101 guide\" and quotes their earlier article post, \"Omarchy 101: from zero to power user\". It also offers a prompt to paste into a coding agent to check \"x86_64\", \"/dev/kvm\" and free disk space (\"about 74 GB\") without installing anything, and ends \"Which Windows app are you still stuck with?\" The hosted image is a still from the video: a purple card headed \"Keep Windows In a Window.\" above a screenshot of a Windows 11 welcome window on a blue wallpaper, labeled \"REAL SCREENSHOT\", with the source line \"Source: omarchy.org/manual/windows-vm\" and \"@OmarchyUpdates\"."
+    "summary": "OmarchyUpdates opens with \"Keep Windows in a window.\" for anyone whose one app only runs on Windows, then lists \"Super + Space > Install > Windows\", picking the RAM, CPU cores and disk (\"64 GB is the sensible floor\"), leaving the login blank to get \"docker / admin\", waiting \"10–15 minutes while Windows 11 downloads\" and launching Windows from the app launcher, where \"It opens full screen\". They add \"Sound, your mic and copy-paste work both ways.\" and \"Drop files in ~/Windows to share them. Windows can't see the rest of your disk.\" and \"Good for Office. Not for games: there's no GPU passthrough.\" The post names \"Level 6 of the free Omarchy 101 guide\" and quotes their earlier article post, \"Omarchy 101: from zero to power user\". It also offers a prompt to paste into a coding agent to check \"x86_64\", \"/dev/kvm\" and free disk space (\"about 74 GB\") without installing anything, and ends \"Which Windows app are you still stuck with?\" The hosted image is a still from the video: a purple card headed \"Keep Windows In a Window.\" above a screenshot of a Windows 11 desktop with a \"Welcome to the new Outlook\" window, labeled \"REAL SCREENSHOT · omarchy.org/manual · Windows VM\", with the source line \"Source: omarchy.org/manual/windows-vm\" and \"@OmarchyUpdates\"."
   },
   {
     "device": null,
@@ -121393,7 +121393,7 @@
     "source_url": "https://x.com/OmarchyUpdates/status/2122917734656938299",
     "created_at": "2026-11-18",
     "added_at": "2026-11-18",
-    "summary": "OmarchyUpdates says \"Running Omarchy on a Chromebook? Closing the lid now locks it, like on any other laptop. Googlebooks too. Merged Nov 15 for the next update.\" and then asks \"@grok is this true? If yes, draw me a Chromebook that's happy it runs Linux now.\" The hosted image is a still from the post's animated GIF: a card with a gold padlock over a closed laptop at the left, the word \"LID.\" and \"Chromebooks lock on close\" beside four labeled tiles (\"CLOSE + LOCK\", \"CHROMEBOOKS\", \"GOOGLEBOOKS\", \"NEXT UPDATE\") under \"MERGED NOV 15:\", with the handle \"@OmarchyUpdates\" and an \"OMARCHY\" wordmark."
+    "summary": "OmarchyUpdates says \"Running Omarchy on a Chromebook? Closing the lid now locks it, like on any other laptop. Googlebooks too. Merged Nov 15 for the next update.\" and then asks \"@grok is this true? If yes, draw me a Chromebook that's happy it runs Linux now.\" The hosted image is a still from the post's animated GIF: a card with a gold padlock and a green check over a half-closed laptop with a glowing keyboard at the left, the word \"LID.\" and \"Chromebooks lock on close\" beside four labeled tiles (\"CLOSE = LOCK\", \"CHROMEBOOKS\", \"GOOGLEBOOKS\", \"NEXT UPDATE\") under \"MERGED NOV 15:\", with the handle \"@OmarchyUpdates\" and an \"OMARCHY\" wordmark."
   },
   {
     "device": null,
@@ -121420,7 +121420,7 @@
     "source_url": "https://x.com/OmarchyUpdates/status/2122963049376333852",
     "created_at": "2026-11-18",
     "added_at": "2026-11-18",
-    "summary": "OmarchyUpdates says \"ThePrimeagen built a site so you can help settle it.\" and calls it \"Bug or Not\": \"You look at things the team marked as fixed, and say: still a bug, or not.\" They list \"Fixes get checked on real machines, not just one\", \"Your vote helps QA spot what's still broken before release\" and \"No code, no GitHub account. Just your everyday use\", then three steps: \"Open the site (link in the reply)\", \"Sign in with an email\" and \"Vote: bug, or not\". The post quotes a ThePrimeagen post, \"Calling all people that like Omarchy\", which says \"I made a Bug or Not site. :)\" and \"Just sign in with an email and you can say whether something is or is not a bug\". The hosted image is a still from the video: a dark card headed \"BUG, OR JUST YOU?\" beside a quote card reading \"If you want to help out a bit, I made a Bug or Not site.\""
+    "summary": "OmarchyUpdates says \"ThePrimeagen built a site so you can help settle it.\" and calls it \"Bug or Not\": \"You look at things the team marked as fixed, and say: still a bug, or not.\" They list \"Fixes get checked on real machines, not just one\", \"Your vote helps QA spot what's still broken before release\" and \"No code, no GitHub account. Just your everyday use\", then three steps: \"Open the site (link in the reply)\", \"Sign in with an email\" and \"Vote: bug, or not\". The post quotes a ThePrimeagen post, \"Calling all people that like Omarchy\", which says \"I made a Bug or Not site.  :)\" and \"Just sign in with an email and you can say whether something is or is not a bug\". The hosted image is a still from the video: a dark card headed \"BUG, OR JUST YOU?\" beside a quote card reading \"If you want to help out a bit, I made a Bug or Not site.\""
   },
   {
     "device": null,
@@ -121447,7 +121447,7 @@
     "source_url": "https://x.com/apunlisted/status/2122933501355831510",
     "created_at": "2026-11-18",
     "added_at": "2026-11-18",
-    "summary": "apunlisted posts the video title \"Omarchy 4.5: The Update You Shouldn't Skip\" with a link to the post itself and no other text. The hosted image is a still from the video: a dark popup panel headed \"Agents\" with \"28 SESSIONS TODAY\" and usage bars for \"Grok Bot\", \"Grok\", \"Cursor\", \"Codex\", \"Claude Code\" and \"GitHub Copilot\", above buttons \"Theme\", \"Plugin\" and \"App\" under \"MAKE SOMETHING COOL\", over a dimmed browser page."
+    "summary": "apunlisted posts the video title \"Omarchy 4.5: The Update You Shouldn't Skip\" and attaches a video, with no other text. The hosted image is a still from the video: a dark popup panel headed \"Agents\" with \"20 SESSIONS TODAY\" and usage bars for \"Grok Bot\", \"Grok\", \"Cursor\", \"Codex\", \"Claude Code\" and \"GitHub Copilot\", above buttons \"Theme\", \"Plugin\" and \"App\" under \"MAKE SOMETHING COOL\", over a dimmed browser page."
   },
   {
     "device": null,
