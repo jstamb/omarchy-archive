@@ -677,7 +677,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -705,7 +705,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -734,7 +734,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -763,7 +763,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -790,7 +790,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -818,7 +818,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -848,7 +848,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -876,7 +876,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -904,7 +904,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -934,7 +934,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -963,7 +963,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -992,7 +992,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -1021,7 +1021,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -1050,7 +1050,7 @@
     "added_at": "2026-09-06",
     "featured": false,
     "seen_on": "omarchy-hub",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "first_seen_at": "2026-09-10",
     "status": "active"
   },
@@ -18799,7 +18799,8 @@
     "seen_on": "omarchy-hub",
     "first_seen_at": "2026-09-17",
     "last_seen_at": "2026-11-22",
-    "status": "active"
+    "status": "unavailable",
+    "last_changed_at": "2026-11-23"
   },
   {
     "device": null,
@@ -29922,7 +29923,7 @@
     "featured": false,
     "seen_on": "omarchy-hub",
     "first_seen_at": "2026-09-23",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "status": "active"
   },
   {
@@ -67005,7 +67006,7 @@
     "featured": false,
     "seen_on": "omarchy-hub",
     "first_seen_at": "2026-10-15",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "status": "active"
   },
   {
@@ -75621,7 +75622,7 @@
     "featured": false,
     "seen_on": "omarchy-hub",
     "first_seen_at": "2026-10-20",
-    "last_seen_at": "2026-11-22",
+    "last_seen_at": "2026-11-23",
     "status": "active"
   },
   {
@@ -125446,5 +125447,35 @@
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
     "summary": "nzargLenny posts \"An old MacBook Pro running Omarchy is a six-year-old's computer now. He cannot read yet, so he asks the agent to fix the keyboard and set up the mic so he can search by voice.\" and quotes a hmmonteiro post that reads \"I have an old macbook pro which I installed Omarchy and it's so useful to have like an agent that builds what I want. My 6 year old son, still learning how to read uses it. Keyboard does not work, fix it. Plz configure mic so he can just search without typing.\" The post has no image."
+  },
+  {
+    "id": "omarchy-4-5-tutorial-from-install-to-daily-use",
+    "kind": "idea",
+    "title": "Omarchy 4.5 Tutorial From Install to Daily Use",
+    "summary": "A step-by-step Omarchy 4.5 guide covering the USB drive, BIOS, disk encryption, first boot, shortcuts, apps, themes, updates and snapshots.",
+    "author": "Jim Mendenhall",
+    "author_url": "https://www.starryhope.com",
+    "source_platform": "web",
+    "source_url": "https://www.starryhope.com/linux/omarchy-tutorial/",
+    "image": null,
+    "image_hosted": false,
+    "device": null,
+    "form_factor": null,
+    "tags": [
+      "tutorial",
+      "installation",
+      "beginner",
+      "snapshots",
+      "article"
+    ],
+    "related_theme_ids": [],
+    "related_plugin_ids": [],
+    "created_at": null,
+    "added_at": "2026-11-23",
+    "featured": false,
+    "seen_on": "omarchy-hub",
+    "first_seen_at": "2026-11-23",
+    "last_seen_at": "2026-11-23",
+    "status": "active"
   }
 ]

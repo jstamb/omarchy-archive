@@ -10,9 +10,9 @@
   "omarchy-hub": {
     "last_attempt_at": "2026-11-23",
     "last_success_at": "2026-11-23",
-    "upstream_count": 114,
-    "indexed_count": 114,
-    "excluded_count": 0,
+    "upstream_count": 18,
+    "indexed_count": 18,
+    "excluded_count": 1,
     "note": null
   }
 }
