@@ -126997,7 +126997,7 @@
     "source_url": "https://x.com/avillagran/status/2124277515439260088",
     "created_at": "2026-11-21",
     "added_at": "2026-11-21",
-    "summary": "avillagran posts \"Don't want to wait for the PR? Device Guide is now a plugin for @omarchy\" and says \"Plug in a printer, scanner or camera and it tells you what it needs. Nothing install until you confirm.\" They link the avillagran/omarchy-device-guide GitHub repo with a plugin add command. The post quotes their earlier post saying \"Plug your printer, scanner, camara and @omarchy tells you what it needs.\", which links the PR. The hosted image shows a \"Printer and scanner connected\" notification reading \"Click for a guide to what it needs.\", a \"Device Guide\" panel headed \"1 DEVICE NEEDS SOFTWARE\" with \"EPSON L380 Series\" under \"CONNECTED\" and guides including \"Printer\", \"Scanner\", \"Camera\", \"iPhone or iPad\", \"Smart card reader\", \"Serial device\", \"DisplayLink dock\" and \"Fingerprint reader\", and an \"EPSON L380 Series\" panel with an \"Epson printer\" guide and a \"CHOOSE ONE\" option \"Gutenprint\" with an \"Install\" button."
+    "summary": "avillagran posts \"Don't want to wait for the PR? Device Guide is now a plugin for @omarchy\" and says \"Plug in a printer, scanner or camera and it tells you what it needs. Nothing install until you confirm.\" They link the avillagran/omarchy-device-guide GitHub repo with a plugin add command. The post quotes their earlier post saying \"Plug your printer, scanner, camara and @omarchy tells you what it needs.\"; that post ends \"PR 👇\", and its same-thread reply links omacom/omarchy pull request 19543, \"Announce connected devices that need software, with a setup guide\". The hosted image shows a \"Printer and scanner connected\" notification reading \"Click for a guide to what it needs.\", a \"Device Guide\" panel headed \"1 DEVICE NEEDS SOFTWARE\" with \"EPSON L380 Series\" under \"CONNECTED\" and guides including \"Printer\", \"Scanner\", \"Camera\", \"iPhone or iPad\", \"Smart card reader\", \"Serial device\", \"DisplayLink dock\" and \"Fingerprint reader\", and an \"EPSON L380 Series\" panel with an \"Epson printer\" guide and a \"CHOOSE ONE\" option \"Gutenprint\" with an \"Install\" button."
   },
   {
     "device": null,
@@ -127356,7 +127356,7 @@
     "source_url": "https://x.com/Compilethings/status/2124814746704892327",
     "created_at": "2026-11-23",
     "added_at": "2026-11-23",
-    "summary": "Compilethings posts \"Omarchy Theme called Compound Eye, I hope you enjoy looking at it as much as i do making them. All of these are available on my GitHub. Thanks for looking!\" The post quotes their earlier Deep Sea theme post. The hosted image is a still from the video: a desktop with a close-up of a metallic green-and-blue beetle head with large dark eyes and pale jaws, captioned \"COW PATH TIGER BEETLE\" with a description and a credit line. Other frames show close-ups captioned \"CUCKOO WASP EYE\" and \"GREEN SWEAT BEE, BADLANDS\"."
+    "summary": "Compilethings posts \"Omarchy Theme called Compound Eye, I hope you enjoy looking at it as much as i do making them. All of these are available on my GitHub. Thanks for looking!\" The post quotes their earlier post saying \"I did not stop with the Omarchy themes I'm sorry. Here is a fresh one called Deep Sea.\" The hosted image is a still from the video: a desktop with a close-up of a metallic green-and-blue beetle head with large dark eyes and pale jaws, captioned \"COW PATH TIGER BEETLE\" with a description and a credit line. Other frames show close-ups captioned \"CUCKOO WASP EYE\" and \"GREEN SWEAT BEE, BADLANDS\"."
   },
   {
     "device": null,
@@ -127378,13 +127378,13 @@
     "image_hosted": true,
     "id": "compilethings-cold-blood-theme-reptile-close-ups",
     "kind": "theme",
-    "title": "Compilethings: Shares Cold Blood, an Omarchy Theme Built Around Reptile Close-Ups",
+    "title": "Compilethings: Shares Cold Blood, an Omarchy Theme Built Around Reptile and Frog Close-Ups",
     "author": "Compilethings",
     "author_url": "https://x.com/Compilethings",
     "source_url": "https://x.com/Compilethings/status/2124849461906321666",
     "created_at": "2026-11-23",
     "added_at": "2026-11-23",
-    "summary": "Compilethings posts \"Omarchy themes keep flowing. This one is called Cold Blood. hope you enjoy it and thanks for looking all themes are located on the link\", linking the CompilingThings/omarchy-themes GitHub repo, with the hashtags \"#LetsConnect\", \"#Omarchy\" and \"#TechBros\". The post quotes their earlier Deep Sea theme post. The hosted image is a still from the video: a gecko with a bright green eye on weathered wood, with a caption card reading \"Gekko smithii, one of the biggest geckos, up to 35 cm long. Cameron Highlands, Malaysia.\" and a credit line. Other frames show a green tree snake and a monitor lizard flicking its tongue, captioned \"LARGE-EYED GREEN TREE SNAKE\" and \"BENGAL MONITOR\"."
+    "summary": "Compilethings posts \"Omarchy themes keep flowing. This one is called Cold Blood. hope you enjoy it and thanks for looking all themes are located on the link\", linking the CompilingThings/omarchy-themes GitHub repo, with the hashtags \"#LetsConnect\", \"#Omarchy\" and \"#TechBros\". The post quotes their earlier post saying \"I did not stop with the Omarchy themes I'm sorry. Here is a fresh one called Deep Sea.\" The hosted image is a still from the video: a gecko with a bright green eye on weathered wood, with a caption card reading \"Gekko smithii, one of the biggest geckos, up to 35 cm long. Cameron Highlands, Malaysia.\" and a credit line. Other frames show a green tree snake and a monitor lizard flicking its tongue, captioned \"LARGE-EYED GREEN TREE SNAKE\" and \"BENGAL MONITOR\", and frogs captioned \"RED-EYED TREE FROG\", \"CRAWFISH FROG\" and \"GREEN-EYED BUSHFROG\"."
   },
   {
     "device": null,
@@ -127412,7 +127412,7 @@
     "source_url": "https://x.com/Compilethings/status/2124869480891195857",
     "created_at": "2026-11-23",
     "added_at": "2026-11-23",
-    "summary": "Compilethings posts \"Omarchy Theme called Prism.  Real crystals in beautiful colors. I hope you enjoy them. Find them at the link.\", linking the CompilingThings/omarchy-themes GitHub repo, with the hashtags \"#Omarchy\" and \"#LetsConnect\". The post quotes their earlier Compound Eye theme post. The hosted image is a still from the video: streaks of pink, green and white crystal with dark spots, captioned \"SULFUR\" and \"Crystals growing from melted sulfur, in polarised light at 10x.\" with a credit line. Other frames show crystal images captioned \"BETA-ALANINE\" and \"BLUE FLAME\"."
+    "summary": "Compilethings posts \"Omarchy Theme called Prism.  Real crystals in beautiful colors. I hope you enjoy them. Find them at the link.\", linking the CompilingThings/omarchy-themes GitHub repo, with the hashtags \"#Omarchy\" and \"#LetsConnect\". The post quotes their earlier post saying \"Omarchy Theme called Compound Eye, I hope you enjoy looking at it as much as i do making them.\" The hosted image is a still from the video: streaks of pink, green and white crystal with dark spots, captioned \"SULFUR\" and \"Crystals growing from melted sulfur, in polarised light at 10x.\" with a credit line. Other frames show crystal images captioned \"BETA-ALANINE\" and \"BLUE FLAME\"."
   },
   {
     "device": null,
@@ -127434,13 +127434,13 @@
     "image_hosted": true,
     "id": "compilethings-neon-pond-theme-asks-whether-to-stop",
     "kind": "theme",
-    "title": "Compilethings: Shares Neon Pond, an Omarchy Theme Built Around Glowing Close-Ups of a Phantom Midge Larva and a Diving Beetle, and Asks Whether to Stop Making Them",
+    "title": "Compilethings: Shares Neon Pond, an Omarchy Theme Built Around Glowing Close-Ups of Pond Life, and Asks Whether to Stop Making Them",
     "author": "Compilethings",
     "author_url": "https://x.com/Compilethings",
     "source_url": "https://x.com/Compilethings/status/2124919191832547824",
     "created_at": "2026-11-23",
     "added_at": "2026-11-23",
-    "summary": "Compilethings posts \"Another Omarchy theme for you called Neon Pond. Should I stop making these yet, let me know? Pushing to GitHub now.\", linking the CompilingThings/omarchy-themes GitHub repo, with the hashtags \"#Omarchy\", \"#AI\" and \"#LetsConnect\". The post quotes their earlier Deep Sea theme post. The hosted image is a still from the video: a translucent larva glowing blue, green and purple on black, captioned \"PHANTOM MIDGE LARVA\" and \"A phantom midge larva (Chaoborus), dark field and polarised light: its muscles turn colour.\" with a credit line. Other frames show images captioned \"DIVING BEETLE\" and \"PHANTOM MIDGE LARVA\"."
+    "summary": "Compilethings posts \"Another Omarchy theme for you called Neon Pond. Should I stop making these yet, let me know? Pushing to GitHub now.\", linking the CompilingThings/omarchy-themes GitHub repo, with the hashtags \"#Omarchy\", \"#AI\" and \"#LetsConnect\". The post quotes their earlier post saying \"I did not stop with the Omarchy themes I'm sorry. Here is a fresh one called Deep Sea.\" The hosted image is a still from the video: a translucent larva glowing blue, green and purple on black, captioned \"PHANTOM MIDGE LARVA\" and \"A phantom midge larva (Chaoborus), dark field and polarised light: its muscles turn colour.\" with a credit line. Other frames show images captioned \"WATER FLEA\", \"COPEPOD\", \"DIVING BEETLE\", \"MOSQUITO LARVA\" and \"PHANTOM MIDGE LARVA\"."
   },
   {
     "device": null,
