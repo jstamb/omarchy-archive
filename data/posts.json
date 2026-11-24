@@ -126210,7 +126210,7 @@
     "source_url": "https://x.com/robzolkos/status/2123782745386311852",
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
-    "summary": "robzolkos posts \"Made it to the Omarchy 500 club 🎉 What a blast so far!\" The hosted image is a fastfetch-style terminal screen with a pixelated teal maze graphic on the left and framed panels on the right. The Hardware panel lists \"Intel(R) Core(TM) i9-14900K (14+16) @ 6.00 GHz\", \"GeForce RTX 5070 Ti\", \"UHD Graphics 770\", a display of \"6016x3384 @ 2x in 32\", 60 Hz [External]\" and \"848.82 GiB / 930.50 GiB (91%) - btrfs\". The Software panel lists \"OS: Omarchy 4.5.0-3\", \"stable\", \"Linux 7.2.15-1-omarchy\", \"Hyprland 0.56.2 (Wayland)\", \"ghostty 1.3.1-r3172.gf54340a-1-arch\", \"1583 (pacman)\", \"Retro 82\" and \"JetBrainsMono Nerd Font Mono (14pt)\". The last panel reads \"OS Age: 500 days\", \"Uptime: 10d 1h\" and \"Update: Friday 13 November 2026 at 19:57\"."
+    "summary": "robzolkos posts \"Made it to the Omarchy 500 club 🎉 What a blast so far!\" The hosted image is a fastfetch-style terminal screen with a pixelated teal maze graphic on the left and framed panels on the right. The Hardware panel's rows include \"Intel(R) Core(TM) i9-14900K (14+16) @ 6.00 GHz\", \"GeForce RTX 5070 Ti\", \"UHD Graphics 770\", a 32-inch external display at \"6016x3384 @ 2x\" and 60 Hz and \"848.82 GiB / 930.50 GiB (91%) - btrfs\". The Software panel lists \"OS: Omarchy 4.5.0-3\", \"stable\", \"Linux 7.2.15-1-omarchy\", \"Hyprland 0.56.2 (Wayland)\", \"ghostty 1.3.1-r3172.gf54340a-1-arch\", \"1583 (pacman)\", \"Retro 82\" and \"JetBrainsMono Nerd Font Mono (14pt)\". The last panel reads \"OS Age: 500 days\", \"Uptime: 10d 1h\" and \"Update: Friday 13 November 2026 at 19:57\"."
   },
   {
     "device": null,
@@ -126259,14 +126259,14 @@
     "image": "/images/posts/staskulesh-vizamp-music-visualization-app-winamp-viz-vibes-cliamp.webp",
     "image_hosted": true,
     "id": "staskulesh-vizamp-music-visualization-app-winamp-viz-vibes-cliamp",
-    "kind": "other",
+    "kind": "plugin",
     "title": "staskulesh: Makes Vizamp, a Simple Music Visualization App for Omarchy, After Wanting \"good old Winamp viz vibes\"",
     "author": "staskulesh",
     "author_url": "https://x.com/staskulesh",
     "source_url": "https://x.com/staskulesh/status/2123825365944582507",
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
-    "summary": "staskulesh replies to a dhh post with \"Made Vizamp - simple music visualization app for Omarchy.\" and a video. An earlier post by the same account says \"I just wanted good old Winamp viz vibes on my @omarchy setup\" with a video of its own. The hosted image is a frame from that earlier video: a phone photo of a laptop screen at an angle, showing a Cliamp window headed \"Omarchy! - Cam | cliamp\" with the track \"Cam - Omarchy!\" at \"00:05 / LIVE\", five red-and-yellow spectrum bars, a numbered playlist (\"5/15\") from \"1. Lofi\" to \"15. NCS Chill\" and key hints \"Esc Back to provider\", \"Space Play / Pause\" and \"Ctrl+K Help\", under a thin orange visualizer line across the top of a dark ocean-wave wallpaper."
+    "summary": "staskulesh replies to a dhh post with \"Made Vizamp - simple music visualization app for Omarchy.\" and a video. An earlier post by the same account says \"I just wanted good old Winamp viz vibes on my @omarchy setup\" with a video of its own. The hosted image is a frame from that earlier video: a phone-filmed view of a laptop screen at an angle, showing a Cliamp window headed \"Omarchy! - Cam | cliamp\" with the track \"Cam - Omarchy!\" at \"00:05 / LIVE\", a row of red-and-yellow spectrum bars, a numbered playlist (\"5/15\") from \"1. Lofi\" to \"15. NCS Chill\" and key hints \"Esc Back to provider\", \"Space Play / Pause\" and \"Ctrl+K Help\", on a dark ocean-wave wallpaper, with a motion-blurred red-orange streak in the top bar above it. In a reply to that earlier post the same account says \"Published here:\" and links the sliday/vizamp GitHub repo, described as \"Live audio spectrum and animated track titles for the Omarchy bar\"."
   },
   {
     "device": null,
@@ -126294,7 +126294,7 @@
     "source_url": "https://x.com/lAvArt_Studio/status/2123823877289812139",
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
-    "summary": "lAvArt_Studio posts \"When your operating system can create tools on demand!\" and describes \"An #Omarchy desktop bar widget for our Quranic Observatory app: today's root, with its sophisticated graphs and diagrams, all animated within the widget.\" The hosted image is a frame from the video: a dark popup under the top bar, with the Arabic title \"مرصد القرآن\" above it and \"Quran Observatory · Omarchy plugin\" and \"quranobservatory.org\" below. The popup shows \"TODAY'S ROOT · FRIDAY 20 NOVEMBER\" with the root \"kh · y · r — good / better\", \"196 OCCURRENCES\", \"178 VERSES\", \"55 SURAHS\", \"5 WORD FORMS\", a surah bar chart and tabs \"Verses\", \"Companions\", \"Rings\", \"Concordance\" and \"Structure\" with a list of verses selected. A later post by the same account says \"Today's Quranic root in the bar\" with \"Its meaning and occurrences, example verses, the collocation burst, concordance rings, a concordance, the Quran structure map, and an offline root search.\" and \"Now available on #omarchy\", linking quranobservatory.org and the plugins.omarchy.org listing id=io.github.lavart.quran-observatory, with a three-panel image."
+    "summary": "lAvArt_Studio posts \"When your operating system can create tools on demand!\" and describes \"An #Omarchy desktop bar widget for our Quranic Observatory app: today's root, with its sophisticated graphs and diagrams, all animated within the widget.\" The hosted image is a frame from the video: a dark popup under the top bar, with the Arabic title \"مرصد القرآن\" above it and \"Quran Observatory · Omarchy plugin\" and \"quranobservatory.org\" below. The popup shows \"TODAY'S ROOT · FRIDAY 20 NOVEMBER\" with the root \"kh · y · r — good / better\", \"196 OCCURRENCES\", \"178 VERSES\", \"55 SURAHS\", \"5 WORD FORMS\", a surah bar chart and tabs \"Verses\", \"Companions\", \"Rings\", \"Concordance\" and \"Structure\", with \"Concordance\" selected and reading \"196 occurrences across 178 verses\". A later post by the same account says \"Today's Quranic root in the bar\" with \"Its meaning and occurrences, example verses, the collocation burst, concordance rings, a concordance, the Quran structure map, and an offline root search.\" and \"Now available on #omarchy\", linking quranobservatory.org and the plugins.omarchy.org listing id=io.github.lavart.quran-observatory, with a three-panel image."
   },
   {
     "device": null,
@@ -126322,7 +126322,7 @@
     "source_url": "https://x.com/ilTrumpista/status/2123837395128975498",
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
-    "summary": "ilTrumpista posts in Italian \"Sincronia tra Omarchy e MacOs in arrivo usando Omarchy-Link di @MarcoPorro\", meaning \"Sync between Omarchy and macOS coming, using Omarchy-Link by @MarcoPorro\". The hosted image is a screenshot of an agent session in Italian. It reads, in translation, that the design is confirmed: a menu-bar app on the Mac (\"OmarchyMac\") that is part of the TV, exposing the \"Omarchy Link v1\" server on port 47800, showing a 6-digit pairing code in the menu bar and receiving \"PUT /v1/theme\" and \"PUT /v1/wallpaper\" to apply accents, colors and wallpaper to macOS, with the same architecture as the TV. It adds that a second instance of omarchy-link is pushed with its own pairing and the TV untouched, then that the Mac environment is fine (\"Python 3.9.6 (Intel, Ventura)\", port 47800 free, \"dns-sd\" present, LAN IP 192.168.8.101) and that \"rumps\" is missing and will be installed in a venv for the menu bar."
+    "summary": "ilTrumpista posts in Italian \"Sincronia tra Omarchy e MacOs in arrivo usando Omarchy-Link di @MarcoPorro\", meaning \"Sync between Omarchy and macOS coming, using Omarchy-Link by @MarcoPorro\". The hosted image is a screenshot of an agent session in Italian. It reads, in translation, that the design is confirmed: a menu-bar app on the Mac (\"OmarchyMac\") that plays the part of the TV, exposing the \"Omarchy Link v1\" server on port 47800, showing a 6-digit pairing code in the menu bar and receiving \"PUT /v1/theme\" and \"PUT /v1/wallpaper\" to apply accents, colors and wallpaper to macOS, with the same architecture as the TV. It adds that SuperOMI pushes it with omarchy-link (a second instance with its own pairing, leaving the TV intact), then that the Mac environment is fine (\"Python 3.9.6 (Intel, Ventura)\", port 47800 free, \"dns-sd\" present, LAN IP 192.168.8.101) and that \"rumps\" is missing and will be installed in a venv for the menu bar."
   },
   {
     "device": null,
@@ -126350,7 +126350,7 @@
     "source_url": "https://x.com/Jeffreyyvdb/status/2123845491117166663",
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
-    "summary": "Jeffreyyvdb posts \"While I was playing GTA VI, fable 5.2 got @omarchy working on my MacBook M5 Air.\" and tags OmarchyMac. The hosted image is a photo of an open MacBook with a game controller blurred in the foreground and a plant behind it. The screen shows a purple-and-orange wallpaper of a rocket launching from a cloud-filled shoreline, a top bar reading \"Friday 16:22\", and three notifications: \"Update System\", \"Set your default agent\" and \"Learn Keybindings\"."
+    "summary": "Jeffreyyvdb posts \"While I was playing GTA VI, fable 5.2 got @omarchy working on my MacBook M5 Air.\" and tags OmarchyMac. The hosted image is a photo of an open MacBook with a game controller blurred in the foreground and a plant behind it. The screen shows a purple-and-orange wallpaper of a rocket launching from a cloud-filled shoreline, and three notifications: \"Update System\", \"Set your default agent\" and \"Learn Keybindings\"."
   },
   {
     "device": null,
@@ -126484,13 +126484,13 @@
     "image_hosted": true,
     "id": "avillagran-device-guide-printer-scanner-camera-notification-omarchy-pr",
     "kind": "other",
-    "title": "avillagran: Demos an Omarchy Notification and Guide for Plugged-In Printers, Scanners and Cameras, Pointing to a PR",
+    "title": "avillagran: Demos an Omarchy Notification and Guide for Plugged-In Printers, Scanners and Cameras, Pointing to PR 19543",
     "author": "avillagran",
     "author_url": "https://x.com/avillagran",
     "source_url": "https://x.com/avillagran/status/2123862096471282173",
     "created_at": "2026-11-20",
     "added_at": "2026-11-20",
-    "summary": "avillagran posts \"Plug your printer, scanner, camara and @omarchy tells you what it needs.\" and says \"Click the notification for a guide, then pick whats gets installed. Vendor drivers say where they come from. No bundled rivers, nothing install until you choose.\" The post tags dhh and ryanrhughes and ends \"PR 👇\" with a video. The hosted image is a frame from the video: a dark title card reading \"Cameras, phones, card readers.\" and \"All under Setup → Devices.\" above two menus, \"Devices…\" with \"Connected\", \"Printer\" and \"Scanner\", and \"Other…\" with \"Touch ID\", \"Camera\", \"iPhone or iPad\", \"Smart Card Reader\", \"Serial Device\", \"DisplayLink\" and \"Fingerprint Reader\"."
+    "summary": "avillagran posts \"Plug your printer, scanner, camara and @omarchy tells you what it needs.\" and says \"Click the notification for a guide, then pick whats gets installed. Vendor drivers say where they come from. No bundled rivers, nothing install until you choose.\" The post tags dhh and ryanrhughes and ends \"PR 👇\" with a video. In a reply in the same thread they link omacom/omarchy pull request 19543, \"Announce connected devices that need software, with a setup guide\", and add \"Everything lives under Setup → Devices. Tested end to end with a real Epson printer and scanner. Please test it and comment!\" The hosted image is a frame from the video: a dark title card reading \"Cameras, phones, card readers.\" and \"All under Setup → Devices.\" above two menus, \"Devices…\" with \"Connected\", \"Printer\" and \"Scanner\", and \"Other…\" with \"Touch ID\", \"Camera\", \"iPhone or iPad\", \"Smart Card Reader\", \"Serial Device\", \"DisplayLink\" and \"Fingerprint Reader\"."
   },
   {
     "device": null,
@@ -126602,7 +126602,7 @@
     "source_url": "https://x.com/lorismaz/status/2124100458872750385",
     "created_at": "2026-11-21",
     "added_at": "2026-11-21",
-    "summary": "lorismaz posts \"testing @omarchy on my m1 macbook. first thing i built: my amazfit strap showed up in the bluetooth list, so now it lives in the bar as a move/sleep coach. nags me to walk, and the moon turns red when i should be in bed\" and links the lorismaz/omarchy-helio-strap GitHub repo. The hosted image is a screenshot of three dark panels: a \"Move\" panel with \"27 steps\", \"88 bpm\" heart rate and \"62% battery\"; a \"Sleep\" panel with \"Bedtime\" \"22:33\", \"7h 33m\" of sleep with a score of 82 and \"Sleep debt: 5h 41m · high · rising\"; and a \"Settings\" panel with wake-up times, \"Sleep you need\", move reminders and step goal. A top-bar strip above shows \"27\", \"88\" and \"Saturday 09:01\"."
+    "summary": "lorismaz posts \"testing @omarchy on my m1 macbook. first thing i built: my amazfit strap showed up in the bluetooth list, so now it lives in the bar as a move/sleep coach. nags me to walk, and the moon turns red when i should be in bed\" and links the lorismaz/omarchy-helio-strap GitHub repo. The hosted image is a screenshot of three dark panels: a \"Move\" panel with \"27 steps\", \"88 bpm\" heart rate and \"62% battery\"; a \"Sleep\" panel with \"Bedtime\" \"22:33\", \"7h 33m\" of sleep with a score of 82 and \"Sleep debt: 5h 41m · high · rising\"; and a \"Settings\" panel with wake-up times, \"Sleep you need\", move reminders and step goal. A top-bar strip above shows \"27\" and \"88\"."
   },
   {
     "device": null,
@@ -126686,7 +126686,7 @@
     "source_url": "https://x.com/Nesh3d/status/2124169853838000374",
     "created_at": "2026-11-21",
     "added_at": "2026-11-21",
-    "summary": "Nesh3d posts \"2. Snow fx❄️ ✅\" and says \"10 days ago,a small preview gained so much love from the omarchy community.\" and \"Good news! It's ready, Submitted for plugin\", hoping \"@omarchy feels more fun & whimsical ❤️\" and marking the post \"1/2\". The hosted image is a desktop screenshot with snow particles over two Cliamp music windows and an open \"Wind\" panel under the bar. The panel shows a direction pad (\"More snow\", \"Less\"), \"15% · E\", \"Amount\" at 160%, \"Size\" at 115% and the buttons \"Flat\", \"Sculpted\" and \"Shake\"."
+    "summary": "Nesh3d posts \"2. Snow fx❄️ ✅\" and says \"10 days ago,a small preview gained so much love from the omarchy community.\" and \"Good news! It's ready, Submitted for plugin\", hoping \"@omarchy feels more fun & whimsical ❤️\" and marking the post \"1/2\". In the second post of the thread they say \"Sharing videos soon,\" and \"Meanwhile here's the repo\", linking the neshath/omarchy-snowfx GitHub repo. The hosted image is a desktop screenshot with snow particles over two Cliamp music windows and an open \"Wind\" panel under the bar. The panel shows a direction pad (\"More snow\", \"Less\"), \"15% · E\", \"Amount\" at 160%, \"Size\" at 115% and the buttons \"Flat\", \"Sculpted\" and \"Shake\"."
   },
   {
     "device": null,
@@ -126800,7 +126800,7 @@
     "source_url": "https://x.com/timsonner/status/2124197185973784866",
     "created_at": "2026-11-21",
     "added_at": "2026-11-21",
-    "summary": "timsonner posts \"Omarchy Byte · Nov 21, 2026\" and says \"Super+Ctrl+Print Screen pulls text off your screen with OCR. Drag a box around words you can't select, like an error in a screenshot or a paused video frame, and the text lands on your clipboard ready to paste.\" The post tags omarchy. The hosted image is a pixel-art lake scene at dusk with a snow-capped mountain, a wooden jetty and a plate of two egg-roll slices on a lantern-lit wooden deck."
+    "summary": "timsonner posts \"Omarchy Byte · Nov 21, 2026\" and says \"Super+Ctrl+Print Screen pulls text off your screen with OCR. Drag a box around words you can't select, like an error in a screenshot or a paused video frame, and the text lands on your clipboard ready to paste.\" The post tags omarchy. The hosted image is a pixel-art lake scene at dusk with a snow-capped mountain, a wooden jetty and a plate of two rolled-omelette slices on a lantern-lit wooden deck."
   },
   {
     "device": null,
@@ -126822,7 +126822,7 @@
     "image_hosted": true,
     "id": "timsonner-omarchy-evangelist-nov-21-2026-local-models-panel-region-profiles-flowtunes-default-app",
     "kind": "idea",
-    "title": "timsonner: \"Omarchy Evangelist\" (21-Nov-2026), Five Happenings Including a Local Models Bar Icon and Panel, Region Profiles, Shorter Hostnames and Flowtunes as a Default App",
+    "title": "timsonner: \"Omarchy Evangelist\" (21-Nov-2026), Five Happenings Including a Local Models Bar Icon and Panel, Region Profiles, Automatic Hostnames and Flowtunes as a Default App",
     "author": "timsonner",
     "author_url": "https://x.com/timsonner",
     "source_url": "https://x.com/timsonner/status/2124219078479077440",
@@ -126865,7 +126865,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.sirjul1337.lock-explorer"
+    ],
     "tags": [
       "lock-screen-explorer",
       "plugin-contest",
@@ -126884,6 +126886,6 @@
     "source_url": "https://x.com/SirJul1337/status/2124229314023743765",
     "created_at": "2026-11-21",
     "added_at": "2026-11-21",
-    "summary": "SirJul1337 posts \"Really happy that Lock Screen Explorer made the top 100 in the Omarchy Autumn 2026 plugin contest.\" and thanks \"the Omarchy community for all the bug reports, ideas and PRs along the way\", adding \"Go check out the list:\" with a link to the contest page. The post quotes the omarchy post announcing the second Omarchy Plugin Contest with a $10,000 prize pot and 100 finalists. The hosted image is a screenshot of the contest gallery with a yellow box around the \"Lock Screen Explorer\" tile (\"Lock screen designs for Omarc…\", \"SirJul1337\", \"GitHub\"), among tiles such as \"Island Bar\", \"Omaview\", \"Downloads\", \"Hypertile\", \"Liquid Glass\", \"Hyprforge\", \"Islands\", \"Rice Bar\", \"Omarchy Power Manager\" and \"OmaStats\"."
+    "summary": "SirJul1337 posts \"Really happy that Lock Screen Explorer made the top 100 in the Omarchy Autumn 2026 plugin contest.\" and thanks \"the Omarchy community for all the bug reports, ideas and PRs along the way\", adding \"Go check out the list:\" with a link to the contest page. The post quotes the omarchy post announcing the second Omarchy Plugin Contest with a $10,000 prize pot and 100 finalists. The hosted image is a screenshot of the contest gallery with a yellow box around the \"Lock Screen Explorer\" tile (with a tagline beginning \"Lock screen designs for\" that fades out at the tile edge, \"SirJul1337\" and \"GitHub\"), among tiles such as \"Island Bar\", \"Omaview\", \"Downloads\", \"Hypertile\", \"Liquid Glass\", \"Hyprforge\", \"Islands\", \"Rice Bar\", \"Omarchy Power Manager\" and \"OmaStats\"."
   }
 ]
