@@ -133214,7 +133214,7 @@
     "source_url": "https://x.com/robzolkos/status/2125403729717346548",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "robzolkos posts \"Got Omarchy installed on a 2022 M2 Macbook Air.\" followed by \"Works perfectly.\" and \"Well done Mac team!\" Text-only post."
+    "summary": "robzolkos posts \"Got Omarchy installed on a 2022 M2 Macbook Air.\" followed by \"Works perfectly.\" and \"Well done Mac team!\" In a same-thread reply under the name hiasinho, a commenter says \"That's my daily driver now. The wi-fi wakeup is a bit shaky though. Do you have problems with the broadcom wifi?\" and robzolkos answers \"None at all!\" Text-only post."
   },
   {
     "device": null,
@@ -133405,7 +133405,7 @@
     "source_url": "https://x.com/devsec_ai/status/2125447118282490226",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "devsec_ai posts \"👀👇 My launcher collection ! And YES every single one of them are running .\" and \"Powered by Omarchy inspired Omalauncher, by @simonschubert\" with a 113-second vertical video. The hosted image is a frame of the video: a tall green screen of falling code characters with a glowing text box reading \"Knock, knock, Neo.\" and a block cursor, above a row of round green icons along the bottom. Other frames show a Pac-Man-style game screen, a side-scrolling pixel game with an on-screen game pad, a dashboard with two cartoon characters, a green globe screen with a large digital clock, a pixel-art city skyline wallpaper with a large clock, and a retro window titled \"Program Manager\" with an \"Applications\" grid of app icons."
+    "summary": "devsec_ai posts \"👀👇 My launcher collection ! And YES every single one of them are running .\" and \"Powered by Omarchy inspired Omalauncher, by @simonschubert\" with a 113-second vertical video. The hosted image is a frame of the video: a tall green screen of falling code characters with a glowing text box reading \"Knock, knock, Neo.\" and a block cursor, above a row of round green icons along the bottom. Other frames show a dashboard with two cartoon characters, a Pac-Man-style game screen, a side-scrolling pixel game with an on-screen game pad, a snowy Christmas-tree scene with a large clock, a wood-panelled Christmas workshop scene with a fireplace and Santa, a green globe screen with a large digital clock, a pixel-art city skyline wallpaper with a large clock, and a retro window titled \"Program Manager\" with an \"Applications\" grid of app icons."
   },
   {
     "device": null,
@@ -133470,7 +133470,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "yakumy.station"
+    ],
     "tags": [
       "station",
       "plugin-contributor",
@@ -133489,7 +133491,7 @@
     "source_url": "https://x.com/AryanHv/status/2125471721855590694",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "AryanHv posts \"Meet Station's 5th contributor: Jason Ziegler Sr (@zigmoo ) 🎉\" and explains that \"Some Omarchy plugins have a widget on the bar and a service behind it that does the work.\", that on a replacement bar like Station's the widget \"shows up, but its controls do nothing\", and that \"The lookup itself has to be fixed in Omarchy.\" They say Jason documented a way around it: \"the plugin's service publishes a small bridge, and the widget uses that bridge when the normal lookup returns nothing\", tested the pattern \"including what happens when one service replaces another\", and \"We turned it into a page for plugin authors\". They close with \"Thank you, Jason! Station is better because people like you take the time to contribute. 🙏\" with two images. A same-thread self-reply links Jason's GitHub profile, Jason's PR (Yakumy/Station PR #29, \"Document a plugin-owned service bridge for hosted widgets\", merged) and the page for plugin authors, a widget-services doc in the Station repo. The hosted image is a screenshot of a GitHub profile page for \"zigmoo\" named \"Jason B Ziegler Sr\", with six pinned repositories including \"omarchy-amber-console-theme\" and \"omaplugctl\". A second image is a \"Contributors\" panel with the count \"6\" and six round profile photos."
+    "summary": "AryanHv posts \"Meet Station's 5th contributor: Jason Ziegler Sr (@zigmoo ) 🎉\" and explains that \"Some Omarchy plugins have a widget on the bar and a service behind it that does the work.\", that on a replacement bar like Station's the widget \"shows up, but its controls do nothing\", and that \"The lookup itself has to be fixed in Omarchy.\" They say Jason documented a way around it: \"the plugin's service publishes a small bridge, and the widget uses that bridge when the normal lookup returns nothing\", tested the pattern \"including what happens when one service replaces another\", and \"We turned it into a page for plugin authors\". They close with \"Thank you, Jason! Station is better because people like you take the time to contribute. 🙏\" with two images. A same-thread self-reply links Jason's GitHub profile, Jason's PR (Yakumy/Station PR #29, \"Document a plugin-owned service bridge for hosted widgets\", merged) and the page for plugin authors, a widget-services doc in the Station repo. The hosted image is a screenshot of a GitHub profile page for \"zigmoo\" named \"Jason B Ziegler Sr\", with six pinned repositories including \"omarchy-amber-console-theme\" and \"omaplugctl\". A second image is a \"Contributors\" panel with the count \"6\" and six round avatars, one of them an orange starburst logo."
   },
   {
     "device": null,
@@ -133546,7 +133548,7 @@
     "source_url": "https://x.com/chriscompiles/status/2125496846604964017",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "chriscompiles continues a thread that opens with \"I’m building an iPhone app without a Mac. A few of you asked how, so here's the setup 🧵\" with \"1/ I'm on Omarchy. There's an open-source tool called omarchy-apple-dev that installs Swift and xtool, which builds and installs iOS apps without Xcode. Thank you @JoshuaSWarren\". Later posts in the thread say \"2/ In the Omarchy menu: Install > Development > iOS. It sets up the toolchain, then asks for one download from Apple (the Xcode file, with a free Apple ID). That's the only bit that touches Apple.\", \"3/ Then: xtool new MyApp, xtool dev build, xtool auth to sign in, plug the iPhone in and run\" a tool page link, \"It's on your phone. A free Apple ID covers installing on your own device.\" and \"4/ Is it as smooth as a Mac? No. But it works, and I haven't caved yet.\" with a link to the joshuaswarren/omarchy-apple-dev GitHub repo, described on GitHub as \"Build and deploy iOS SwiftUI apps from Omarchy Linux on any PC (x86_64 or Apple Silicon), no Xcode required\". Text-only post."
+    "summary": "chriscompiles continues a thread that opens with \"I’m building an iPhone app without a Mac. A few of you asked how, so here's the setup 🧵\" with \"1/ I'm on Omarchy. There's an open-source tool called omarchy-apple-dev that installs Swift and xtool, which builds and installs iOS apps without Xcode. Thank you @JoshuaSWarren\". Later posts in the thread say \"2/ In the Omarchy menu: Install > Development > iOS. It sets up the toolchain, then asks for one download from Apple (the Xcode file, with a free Apple ID). That's the only bit that touches Apple.\", \"3/ Then: xtool new MyApp, xtool dev build, xtool auth to sign in, plug the iPhone in and run device-run.sh. It's on your phone. A free Apple ID covers installing on your own device.\" and \"4/ Is it as smooth as a Mac? No. But it works, and I haven't caved yet.\" with a link to the joshuaswarren/omarchy-apple-dev GitHub repo, described on GitHub as \"Build and deploy iOS SwiftUI apps from Omarchy Linux on any PC (x86_64 or Apple Silicon), no Xcode required\". Text-only post."
   },
   {
     "device": null,
@@ -133573,7 +133575,7 @@
     "source_url": "https://x.com/nivekcode/status/2125498653204959431",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "nivekcode posts \"Three coding agents running. Which one is waiting on you?\", \"I built Orbit for @dhh's Omarchy: a lamp-lit Studio where a robot mirrors each agent. Claude Code, Codex, Gemini CLI and more.\" and \"One keystroke jumps you to the one that needs you.\" with an 82-second video. The hosted image is a frame of the video: a desktop with a code editor on the left, a terminal in the middle and, on the right, two small robots at a desk above a music-player card, with a dark card over it reading \"WORKING WITH AI, EVERY DAY\", \"Three agents running.\" and \"Which one is waiting on you?\" Other frames show cards reading \"Never miss a question.\", \"Back in one keystroke.\", \"A moment of atmosphere.\", \"Same desktop. Entirely your taste.\", \"Good work. Better background music.\" and \"No account. No telemetry.\", and an end card with \"ORBIT\", \"THE AI DESKTOP FOR OMARCHY\" and \"Available now\"."
+    "summary": "nivekcode posts \"Three coding agents running. Which one is waiting on you?\", \"I built Orbit for @dhh's Omarchy: a lamp-lit Studio where a robot mirrors each agent. Claude Code, Codex, Gemini CLI and more.\" and \"One keystroke jumps you to the one that needs you.\" with an 82-second video. The hosted image is a frame of the video: a desktop with a code editor on the left, a terminal in the middle and, on the right, two small robots at a desk above a music-player card, with a dark card over it reading \"WORKING WITH AI, EVERY DAY\", \"Three agents running.\" and \"Which one is waiting on you?\" Other frames show cards reading \"Never miss a question.\", \"Back in one keystroke.\", \"A small escape.\", \"A moment of atmosphere.\", \"Same desktop. Entirely your taste.\", \"Good work. Better background music.\", \"No account. No telemetry.\" and \"Your agents, in orbit.\", and an end card with \"ORBIT\", \"THE AI DESKTOP FOR OMARCHY\", \"Available now\" and \"orbitomarchy.com\"."
   },
   {
     "device": null,
@@ -133665,7 +133667,9 @@
     "seen_on": null,
     "featured": false,
     "related_theme_ids": [],
-    "related_plugin_ids": [],
+    "related_plugin_ids": [
+      "io.github.saikomantisu.commandbar"
+    ],
     "tags": [
       "command-bar",
       "launcher",
@@ -133684,7 +133688,7 @@
     "source_url": "https://x.com/ravdotdev/status/2125523533501505553",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "ravdotdev posts \"new website for omarchy commandbar\" followed by four lines: \"spotlight style launcher for omarchy\", \"launch apps, switch windows and find files by name\", \"do quick maths, convert currencies and check time zones\" and \"add your own keyword shortcuts\", with one image. A same-thread self-reply posts the website link on its own. The hosted image is a screenshot of that website in a browser window, with the headline \"Spotlight bar for Omarchy.\", a \"v1.4.0 · Current release\" badge, the line \"Launch apps, switch windows, find files and calculate. Convert currencies and units, all from\" beside a key reading \"Super\", the buttons \"Install Command Bar\" and \"Star on GitHub\", a nav with \"Command Bar\", \"Features\", \"Configure\" and \"FAQ\", and below it a desktop with a search box reading \".pdf\" and file results \"invoice.pdf\" and \"boarding-pass.pdf\"."
+    "summary": "ravdotdev posts \"new website for omarchy commandbar\" followed by four lines: \"spotlight style launcher for omarchy\", \"launch apps, switch windows and find files by name\", \"do quick maths, convert currencies and check time zones\" and \"add your own keyword shortcuts\", with one image. A same-thread self-reply posts the website link on its own. The hosted image is a screenshot of that website in a browser window, with the headline \"Spotlight bar for Omarchy.\", a \"v1.4.0 · Current release\" badge, the line \"Launch apps, switch windows, find files and calculate. Convert currencies and units, all from\" followed by keys reading \"Super\" and \".\", the buttons \"Install Command Bar\" and \"Star on GitHub\", a nav with \"Command Bar\", \"Features\", \"Configure\" and \"FAQ\", and below it a desktop with a search box reading \".pdf\" and file results \"invoice.pdf\" and \"boarding-pass.pdf\"."
   },
   {
     "device": null,
@@ -133739,7 +133743,7 @@
     "source_url": "https://x.com/herunan7/status/2125528697427865941",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "herunan7 posts \"Stream your Mac apps to your Linux machine with Sweeflow. Supports CachyOS, Omarchy, Ubuntu, Fedora, and Linux Mint.\" and \"Free and open source:\" with a link and a 78-second video. The hosted image is a frame of the video: a purple card reading \"Stream your Mac apps into Linux\" beside a Mac-style mail window in front of a Linux terminal window titled \"~ : bash — Konsole\", above a taskbar. Other frames show cards reading \"Smooth, sharp and fast\" with \"Up to 120 fps, HEVC video over QUIC\", \"Drag files across\", \"Listen through\", \"Make your windows square\" and \"Your Linux flavour: CachyOS\", and an end card with \"Sweeflow\" and \"Free and open source\". In a same-thread reply to a commenter under the name steviee_dev, herunan7 says \"It's macOS to Linux only right now, but don't see why not in the future.\""
+    "summary": "herunan7 posts \"Stream your Mac apps to your Linux machine with Sweeflow. Supports CachyOS, Omarchy, Ubuntu, Fedora, and Linux Mint.\" and \"Free and open source:\" with a link and a 78-second video. The hosted image is a frame of the video: a purple card reading \"Stream your Mac apps into Linux\" beside a Mac-style mail window in front of a Linux terminal window titled \"~ : bash — Konsole\", above a taskbar. Other frames show cards reading \"Smooth, sharp and fast\" with \"Up to 120 fps, HEVC video over QUIC\", \"Drag files across\", \"Listen through\", \"Make your windows square\" and \"Your Linux flavour:\" cycling through \"CachyOS\", \"Omarchy\", \"Ubuntu\", \"Fedora\" and \"Linux Mint\", and an end card with \"Sweeflow\" and \"Free and open source\". In a same-thread reply to a commenter under the name steviee_dev, herunan7 says \"It's macOS to Linux only right now, but don't see why not in the future.\""
   },
   {
     "device": null,
