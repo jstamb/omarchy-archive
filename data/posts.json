@@ -135401,7 +135401,7 @@
     "source_url": "https://x.com/yurinascimento/status/2125667810281931043",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "yurinascimento posts in Portuguese \"Peguei um Mac mini 2012 que tava encostado, meti Omarchy nele e agora ele é meu servidor de dev 😎\" (\"I grabbed a 2012 Mac mini that was sitting unused, put Omarchy on it and now it's my dev server 😎\"). They add \"Lerd rodando os projetos Laravel, Tailscale ligando tudo\" (\"Lerd running the Laravel projects, Tailscale connecting everything\"), say they open the projects from their Macs at a local address, and end \"Hardware de 14 anos ainda trabalhando 💪\" (\"14-year-old hardware still working 💪\"). The post has no image."
+    "summary": "yurinascimento posts in Portuguese \"Peguei um Mac mini 2012 que tava encostado, meti Omarchy nele e agora ele é meu servidor de dev 😎\" (\"I grabbed a 2012 Mac mini that was sitting unused, put Omarchy on it and now it's my dev server 😎\"). They add \"Lerd rodando os projetos Laravel, Tailscale ligando tudo, e dos meus Macs eu só abro https://projeto.lerd e pronto.\" (\"Lerd running the Laravel projects, Tailscale connecting everything, and from my Macs I just open https://projeto.lerd and that's it.\"), and end \"Hardware de 14 anos ainda trabalhando 💪\" (\"14-year-old hardware still working 💪\"). The post has no image."
   },
   {
     "device": null,
@@ -135530,7 +135530,7 @@
     "image_hosted": false,
     "id": "omarchycentral-snapdragon-x1-wifi-sound-survive-hibernation-every-hamoa-purwa",
     "kind": "other",
-    "title": "omarchycentral: Says Wi-Fi and Sound Should Survive Hibernation on Snapdragon X1 Laptops Running Omarchy as the Yoga Slim 7x Fix Covers Every Hamoa and Purwa Machine",
+    "title": "omarchycentral: Says Wi-Fi and Sound Should Survive Hibernation on Snapdragon X1 Laptops Running Omarchy With the Yoga Slim 7x Fix Extended to Every Hamoa and Purwa Machine, Tested Only on the Yoga",
     "author": "omarchycentral",
     "author_url": "https://x.com/omarchycentral",
     "source_url": "https://x.com/omarchycentral/status/2125686699351040123",
@@ -135752,7 +135752,7 @@
     "source_url": "https://x.com/Dennis_Rye/status/2125713154097205741",
     "created_at": "2026-11-25",
     "added_at": "2026-11-25",
-    "summary": "Dennis_Rye posts \"What an evening! Showcasing the possibility of local AI and the ease of use of it with Omarchy at AI Tinkerers in BLOXHUB.\" and \"I had also ported danish Sevrens Embla 1 LLM to run on TensorFold and did an initial optimization for AMD Strix Halo. All one click served from Omarchy, and used it as an essential part for the demos. Fun!\" In a same-thread reply they thank a Danish laptop retailer that was \"extremely kind to lend me the AMD Strix Halo laptop, the HP ZGX Nano and an HP Z8 Fury workstation with 64 cores and 2x RTX PRO 6000 96GB GPUs to showcase the local AI.\" The hosted image is a photo of a laptop showing a dark screen of colored panes and a small black box on a round white table in front of a whiteboard with paper signs reading \"Udlånt af\" (Danish for \"Lent by\") and \"HP Z8 Fury\" with \"2x RTX PRO 6000 96GB\", and the handwritten note \"Try Embla here!\", with a backpack and cables below."
+    "summary": "Dennis_Rye posts \"What an evening! Showcasing the possibility of local AI and the ease of use of it with Omarchy at AI Tinkerers in BLOXHUB.\" and \"I had also ported danish Sevrens Embla 1 LLM to run on TensorFold and did an initial optimization for AMD Strix Halo. All one click served from Omarchy, and used it as an essential part for the demos. Fun!\" In a same-thread reply they link laptops.dk, a Danish laptop webshop, and say it was \"extremely kind to lend me the AMD Strix Halo laptop, the HP ZGX Nano and an HP Z8 Fury workstation with 64 cores and 2x RTX PRO 6000 96GB GPUs to showcase the local AI.\" The hosted image is a photo of a laptop showing a dark screen of colored panes and a small black box on a round white table in front of a whiteboard with paper signs reading \"Udlånt af\" (Danish for \"Lent by\") and \"HP Z8 Fury\" with \"2x RTX PRO 6000 96GB\", and the handwritten note \"Try Embla here!\", with a backpack and cables below."
   },
   {
     "device": null,
@@ -135800,7 +135800,7 @@
     "image_hosted": false,
     "id": "vladtidings-macbook-trackpad-fixes-omarchy-two-recipes",
     "kind": "setup",
-    "title": "vladtidings: Shares Two Recipes That Fixed Their MacBook Trackpad on Omarchy: Trackpad Tuning and an Accidental-Click Fix",
+    "title": "vladtidings: Says Two Recipes Sorted Out Their MacBook Trackpad on Omarchy: Trackpad Tuning and an Accidental-Click Fix",
     "author": "vladtidings",
     "author_url": "https://x.com/vladtidings",
     "source_url": "https://x.com/vladtidings/status/2125717926237839710",
